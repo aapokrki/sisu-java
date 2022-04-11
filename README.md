@@ -6,4 +6,5 @@ Code will be published soon.
 
 Note! The .gitlab-ci.yml is offline at the moment.
 
+!!! Tämä on Aapon git muutos testi !!!
 # You are allowed (and probably should) make changes to this file after you have started your project. :)

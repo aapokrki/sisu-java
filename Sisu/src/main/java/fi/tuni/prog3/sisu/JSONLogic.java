@@ -2,6 +2,7 @@ package fi.tuni.prog3.sisu;
 
 
 import com.google.gson.*;
+import javafx.util.Pair;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,25 +27,25 @@ public class JSONLogic {
 
 
     // Gsonin gsonbuilderilla luokasta automaattisesti Json muotoon
-//    public void createStudent(studenttest student){
-//        GsonBuilder builder = new GsonBuilder().setPrettyPrinting();
-//        Gson gson = builder.create();
-//
-//        try(FileWriter writer = new FileWriter("testiopiskelija")){
-//
-//            gson.toJson(student, writer);
-//
-//
-//        }catch (IOException e){
-//            e.printStackTrace();
-//        }
-//    }
+    public void createStudent(studenttest student){
+        GsonBuilder builder = new GsonBuilder().setPrettyPrinting();
+        Gson gson = builder.create();
+
+        try(FileWriter writer = new FileWriter("testiopiskelija")){
+
+            gson.toJson(student, writer);
+
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
     public void readPersonJson(){
 
     }
 
-
+    // Sets to read
     public void readAPIData(String inputDegreeProgramme) throws IOException {
 
         String sURL = "https://sis-tuni.funidata.fi/kori/api/module-search?curriculumPeriodId=uta-lvv-2021&universityId=tuni-university-root-id&moduleType=DegreeProgramme&limit=1000";
@@ -69,6 +70,7 @@ public class JSONLogic {
         System.err.println("rec");
         for (int j = 0 ; j < programmes.size() ; j++){
 
+            // jsonelements in the big cataloque
             JsonElement degreeProgrammeJE = programmes.get(j);
             String degreeProgrammeGroupId = degreeProgrammeJE.getAsJsonObject().get("id").getAsString();
 
@@ -77,17 +79,50 @@ public class JSONLogic {
                 String degreeProgrammeURL = "https://sis-tuni.funidata.fi/kori/api/modules/" + degreeProgrammeGroupId;
                 rootobj = requestJsonRootObjectFromURL(degreeProgrammeURL);
 
-                readAPIRec(rootobj,1);
+                readAPIRec(rootobj,1, new DegreeProgramme(rootobj));
+
+                // For testin all API data
+                //readAPIRec(rootobj.getAsJsonObject(),1, new DegreeProgramme(rootobj));
+
+
             }
 
 
         }
 
+
+    }
+
+
+    public DegreeProgramme getDegreeProgrammeClass(JsonElement degreeProgramme) throws IOException {
+
+        return null;
+    }
+
+
+
+    public void getName(JsonObject obj, int indent, String type, Module parent){
+
+        try {
+            if(obj.get("name").getAsJsonObject().get("fi") == null){
+
+                String name = obj.get("name").getAsJsonObject().get("en").getAsString();
+                System.out.println( "-".repeat(indent) + name + type + ", Parent = " + parent.getCode());
+
+            }else{
+                String name = obj.get("name").getAsJsonObject().get("fi").getAsString();
+                System.out.println( "-".repeat(indent)+name + " - "+type + ", Parent = " + parent.getCode());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("PROBLEM WITH " + type);
+        }
     }
 
     //Goes through the api recursively object by object
-    public void readAPIRec(JsonObject rootobj, int indent) throws IOException {
+    public void readAPIRec(JsonObject rootobj, int indent, Module parent) throws IOException {
 
+        //System.out.println("parent = " + parent.getId());
 
         String type = rootobj.get("type").getAsString();
         //System.out.println(type);
@@ -95,51 +130,56 @@ public class JSONLogic {
         if(type.equals("DegreeProgramme")){
 
             JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
-            try {
-                if(rootobj.get("name").getAsJsonObject().get("fi") == null){
-                    String name = rootobj.getAsJsonObject().get("name").getAsJsonObject().get("en").getAsString();
-                    System.out.println( "-".repeat(indent) +name);
-                }else{
-                    String name = rootobj.getAsJsonObject().get("name").getAsJsonObject().get("fi").getAsString();
-                    System.out.println( "-".repeat(indent)+name);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("PROBLEM WITH DEGREEPROGRAMME");
-            }
 
-//            DegreeProgramme newDegreeProgramme = new DegreeProgramme(rootobj);
-//            degreeProgrammeArrayList.add(newDegreeProgramme);
+            //getName(rootobj,indent, "DegreeProgramme",parent);
 
-            readAPIRec(ruleJsonObject,indent+1);
+            //degreeProgrammeArrayList.add(newDegreeProgramme);
+            DegreeProgramme newDegreeProgramme = new DegreeProgramme(rootobj);
+
+            readAPIRec(ruleJsonObject,indent+1, newDegreeProgramme);
+
+            // Tässä on nyt se tutkinto-ohjelma
+            newDegreeProgramme.print();
+
         }
 
 
         if(type.equals("StudyModule")){
             JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
-            try {
-                if(rootobj.get("name").getAsJsonObject().get("fi") == null){
-                    String name = rootobj.getAsJsonObject().get("name").getAsJsonObject().get("en").getAsString();
-                    System.out.println( "-".repeat(indent)+name);
-                }else{
-                    String name = rootobj.getAsJsonObject().get("name").getAsJsonObject().get("fi").getAsString();
-                    System.out.println( "-".repeat(indent)+name);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("PROBLEM WITH STUDYMODULE");
-            }
+
+            //getName(rootobj,indent, "StudyModule", parent);
+
+            StudyModule studyModule = new StudyModule(rootobj);
 
 
-            readAPIRec(ruleJsonObject,indent+1);
+            parent.addChild(studyModule);
+
+
+            readAPIRec(ruleJsonObject,indent+1,studyModule);
+        }
+
+        //Endpoint. The final point.
+        if(type.equals("CourseUnitRule")){
+
+            String courseUnitGroupId= rootobj.get("courseUnitGroupId").getAsString();
+            //System.out.println(courseUnitGroupId);
+            String courseUnitURL = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId="+ courseUnitGroupId+"&universityId=tuni-university-root-id";
+
+            JsonObject courseUnit = requestJsonElementFromURL(courseUnitURL).getAsJsonArray().get(0).getAsJsonObject();
+            CourseUnit course = new CourseUnit(courseUnit);
+
+            parent.addChild(course);
+
+            //getName(courseUnit,indent, "CourseUnit",parent);
+
+
         }
 
 
         if(type.equals("CreditsRule")){
             JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
-            readAPIRec(ruleJsonObject,indent+1);
+            readAPIRec(ruleJsonObject,indent,parent);
         }
-
 
 
         if(type.equals("CompositeRule")){
@@ -147,7 +187,7 @@ public class JSONLogic {
             JsonArray compositeRules = rootobj.get("rules").getAsJsonArray();
             for (int i = 0 ; i < compositeRules.size() ; ++i){
                 JsonObject rule = compositeRules.get(i).getAsJsonObject();
-                readAPIRec(rule,indent);
+                readAPIRec(rule,indent,parent);
             }
 
         }
@@ -161,39 +201,11 @@ public class JSONLogic {
             //System.out.println(moduleURL);
             JsonElement module = requestJsonElementFromURL(moduleURL);
             JsonObject moduleObj = module.getAsJsonArray().get(0).getAsJsonObject();
-            readAPIRec(moduleObj, indent+1);
+            readAPIRec(moduleObj, indent+1,parent);
 
         }
 
-        //Endpoint. The final point.
-        if(type.equals("CourseUnitRule")){
 
-            String courseUnitGroupId= rootobj.get("courseUnitGroupId").getAsString();
-            //System.out.println(courseUnitGroupId);
-            String courseUnitURL = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId="+ courseUnitGroupId+"&universityId=tuni-university-root-id";
-
-            JsonElement courseUnit = requestJsonElementFromURL(courseUnitURL);
-
-            //String groupId = courseUnit.getAsJsonArray().get(0).getAsJsonObject().get("groupId").getAsString();
-            //System.out.println(groupId);
-
-            try {
-                if(courseUnit.getAsJsonArray().get(0).getAsJsonObject().get("name").getAsJsonObject().get("fi") == null){
-                    String courseName = courseUnit.getAsJsonArray().get(0).getAsJsonObject().get("name").getAsJsonObject().get("en").getAsString();
-                    System.out.println( "-".repeat(indent)+courseName);
-                }else{
-                    String courseName = courseUnit.getAsJsonArray().get(0).getAsJsonObject().get("name").getAsJsonObject().get("fi").getAsString();
-                    System.out.println( "-".repeat(indent)+courseName);
-                }
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("HELLO");
-                System.out.println(courseUnitURL);
-            }
-
-        }
 
         //Strange thing. idk about this
 //        if(type.equals("GroupingModule")){
@@ -246,35 +258,38 @@ public class JSONLogic {
     //A stand-in function to test the program
     public static void main(String[] args) throws IOException {
         JSONLogic logic = new JSONLogic();
-        logic.readAPIData("otm-df83fbbd-f82d-4fda-b819-78f6b2077fcb");
+
+
+        //logic.getDegreeProgrammeClass(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
+        logic.readAPIData("otm-d729cfc3-97ad-467f-86b7-b6729c496c82");
 
         // Esimerkkikeissi
-        studenttest testiopiskelija = new studenttest();
-        testiopiskelija.setEndYear(2025);
-        testiopiskelija.setStartYear(2020);
-        testiopiskelija.setName("testiopiskelija");
-        testiopiskelija.setStudentNumber("H292001");
+//        Student testiopiskelija = new Student();
+//        testiopiskelija.setEndYear(2025);
+//        testiopiskelija.setStartYear(2020);
+//        testiopiskelija.setName("testiopiskelija");
+//        testiopiskelija.setStudentNumber("H292001");
 
-        DegreeProgramme degreeProgramme =
-                new DegreeProgramme(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
-
-        testiopiskelija.setDegreeProgramme(degreeProgramme);
-
-
-        String courseUnitURL1 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-48277&universityId=tuni-university-root-id";
-        String courseUnitURL2 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-48278&universityId=tuni-university-root-id";
-        String courseUnitURL3 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-45510&universityId=tuni-university-root-id";
-
-        CourseUnit testCourse1 = new CourseUnit(requestJsonElementFromURL(courseUnitURL1));
-        testCourse1.setCompleted(Boolean.TRUE);
-        testCourse1.setGrade(5);
-
-        CourseUnit testCourse2 = new CourseUnit(requestJsonElementFromURL(courseUnitURL2));
-        testCourse2.setCompleted(Boolean.TRUE);
-        testCourse2.setGrade(2);
-
-        testiopiskelija.addCompletedCourse(testCourse1);
-        testiopiskelija.addCompletedCourse(testCourse2);
+//        DegreeProgramme degreeProgramme =
+//                new DegreeProgramme(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
+//
+//        testiopiskelija.setDegreeProgramme(degreeProgramme);
+//
+//
+//        String courseUnitURL1 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-48277&universityId=tuni-university-root-id";
+//        String courseUnitURL2 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-48278&universityId=tuni-university-root-id";
+//        String courseUnitURL3 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-45510&universityId=tuni-university-root-id";
+//
+//        CourseUnit testCourse1 = new CourseUnit(requestJsonElementFromURL(courseUnitURL1));
+//        testCourse1.setCompleted(Boolean.TRUE);
+//        testCourse1.setGrade(5);
+//
+//        CourseUnit testCourse2 = new CourseUnit(requestJsonElementFromURL(courseUnitURL2));
+//        testCourse2.setCompleted(Boolean.TRUE);
+//        testCourse2.setGrade(2);
+//
+//        testiopiskelija.addCompletedCourse(testCourse1);
+//        testiopiskelija.addCompletedCourse(testCourse2);
 
         //logic.createStudent(testiopiskelija);
     }

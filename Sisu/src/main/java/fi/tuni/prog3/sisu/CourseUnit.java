@@ -2,10 +2,13 @@ package fi.tuni.prog3.sisu;
 
 import com.google.gson.JsonElement;
 
-public class CourseUnit{
+public class CourseUnit extends Module{
 
     private transient JsonElement courseUnit;
+    private transient JsonElement parent;
+
     public String name;
+    public String code;
     public int grade;
     public Boolean completed;
     public String id;
@@ -13,8 +16,24 @@ public class CourseUnit{
 
     public CourseUnit(JsonElement courseUnit){
         this.courseUnit = courseUnit;
-        this.name = courseUnit.getAsJsonArray().get(0).getAsJsonObject().get("name").getAsJsonObject().get("en").getAsString();
-        this.id = courseUnit.getAsJsonArray().get(0).getAsJsonObject().get("groupId").getAsString();
+
+        // The name can be in finnish, english or both. Prefers finnish first if both are available
+        try {
+            if(courseUnit.getAsJsonObject().get("name").getAsJsonObject().get("fi") == null){
+
+                this.name = courseUnit.getAsJsonObject().get("name").getAsJsonObject().get("en").getAsString();
+
+            }else{
+                this.name = courseUnit.getAsJsonObject().get("name").getAsJsonObject().get("fi").getAsString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+        this.id = courseUnit.getAsJsonObject().get("groupId").getAsString();
+        this.code = courseUnit.getAsJsonObject().get("code").getAsString();
+
 
     }
 
@@ -36,5 +55,18 @@ public class CourseUnit{
 
     public void setCourseUnit(JsonElement courseUnit) {
         this.courseUnit = courseUnit;
+    }
+
+    public void print(){
+        System.out.println(" ---- "+this.name);
+    }
+    @Override
+    public String getType() {
+        return "CourseUnit";
+    }
+
+    @Override
+    public String getId() {
+        return id;
     }
 }

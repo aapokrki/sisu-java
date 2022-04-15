@@ -249,7 +249,7 @@ public class JSONLogic {
         logic.readAPIData("otm-df83fbbd-f82d-4fda-b819-78f6b2077fcb");
 
         // Esimerkkikeissi
-        studenttest testiopiskelija = new studenttest();
+        Student testiopiskelija = new Student();
         testiopiskelija.setEndYear(2025);
         testiopiskelija.setStartYear(2020);
         testiopiskelija.setName("testiopiskelija");

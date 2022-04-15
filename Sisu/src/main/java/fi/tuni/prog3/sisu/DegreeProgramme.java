@@ -10,7 +10,6 @@ public class DegreeProgramme extends Module{
     private transient JsonElement degreeProgramme;
     private transient JsonElement parent;
 
-
     public String name;
     public String id;
     public String code;
@@ -41,6 +40,30 @@ public class DegreeProgramme extends Module{
 
         }
 
+    }
+
+    public void setParent(JsonElement parent) {
+        this.parent = parent;
+    }
+
+    public void setDegreeProgramme(JsonElement degreeProgramme) {
+        this.degreeProgramme = degreeProgramme;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public JsonElement getJsonElement(){
+        return degreeProgramme;
     }
 
     public ArrayList<StudyModule> getStudyModules() {
@@ -83,6 +106,7 @@ public class DegreeProgramme extends Module{
     public String getId() {
         return id;
     }
+
 
     @Override
     public void addChild(Module module) {

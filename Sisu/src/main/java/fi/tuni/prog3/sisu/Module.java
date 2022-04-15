@@ -31,5 +31,7 @@ public abstract class Module {
 
     }
 
-
+    public JsonElement getJsonElement(){
+        return  null;
+    }
 }

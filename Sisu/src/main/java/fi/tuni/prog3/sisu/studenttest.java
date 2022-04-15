@@ -20,11 +20,16 @@ public class studenttest {
 
     // Aapon testimuutokset
     public DegreeProgramme degreeProgramme;
+    public StudyModule studyModule;
     public ArrayList<CourseUnit> completedCourses = new ArrayList<>();
 
 
     public void setDegreeProgramme(DegreeProgramme degreeProgramme) {
         this.degreeProgramme = degreeProgramme;
+    }
+
+    public void setStudyModule(StudyModule studyModule) {
+        this.studyModule = studyModule;
     }
 
     public void addCompletedCourse(CourseUnit course){

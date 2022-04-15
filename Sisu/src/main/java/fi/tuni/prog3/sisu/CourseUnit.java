@@ -10,9 +10,8 @@ public class CourseUnit extends Module{
     public String name;
     public String code;
     public int grade;
-    public Boolean completed;
+    public Boolean completed = false;
     public String id;
-    public transient String type = "CourseUnit";
 
     public CourseUnit(JsonElement courseUnit){
         this.courseUnit = courseUnit;
@@ -57,9 +56,34 @@ public class CourseUnit extends Module{
         this.courseUnit = courseUnit;
     }
 
+    public void setParent(JsonElement parent) {
+        this.parent = parent;
+    }
+
     public void print(){
         System.out.println(" ---- "+this.name);
     }
+
+    @Override
+    public JsonElement getJsonElement() {
+        return this.courseUnit;
+    }
+
+    @Override
+    public String getCode() {
+        return code;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+
     @Override
     public String getType() {
         return "CourseUnit";

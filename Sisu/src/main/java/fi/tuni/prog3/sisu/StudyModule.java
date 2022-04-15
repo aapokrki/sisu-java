@@ -57,12 +57,32 @@ public class StudyModule extends Module{
         this.id = id;
     }
 
+    public JsonElement getJsonElement(){
+        return studyModule;
+    }
+
+    public void setParent(JsonElement parent) {
+        this.parent = parent;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
     public void addCourseUnits(CourseUnit courseUnit) {
         courseUnits.add(courseUnit);
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public JsonElement getParent() {
+        return parent;
+    }
+
+    public ArrayList<CourseUnit> getCourseUnits() {
+        return courseUnits;
     }
 
     public void addChild(Module module){

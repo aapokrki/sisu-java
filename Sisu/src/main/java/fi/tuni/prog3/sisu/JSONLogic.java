@@ -1,21 +1,19 @@
 package fi.tuni.prog3.sisu;
 
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
 
 public class JSONLogic {
+
 
     public ArrayList<DegreeProgramme> degreeProgrammeArrayList;
 
@@ -25,6 +23,27 @@ public class JSONLogic {
     // TODO: Store person's degree choice to his/her data JSON
     // TODO: Create and implement a JSON system for persons.
     // TODO: Add proper Exceptionchecks!
+
+
+    // Gsonin gsonbuilderilla luokasta automaattisesti Json muotoon
+//    public void createStudent(studenttest student){
+//        GsonBuilder builder = new GsonBuilder().setPrettyPrinting();
+//        Gson gson = builder.create();
+//
+//        try(FileWriter writer = new FileWriter("testiopiskelija")){
+//
+//            gson.toJson(student, writer);
+//
+//
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
+//    }
+
+    public void readPersonJson(){
+
+    }
+
 
     public void readAPIData(String inputDegreeProgramme) throws IOException {
 
@@ -92,7 +111,6 @@ public class JSONLogic {
 //            DegreeProgramme newDegreeProgramme = new DegreeProgramme(rootobj);
 //            degreeProgrammeArrayList.add(newDegreeProgramme);
 
-
             readAPIRec(ruleJsonObject,indent+1);
         }
 
@@ -156,6 +174,9 @@ public class JSONLogic {
 
             JsonElement courseUnit = requestJsonElementFromURL(courseUnitURL);
 
+            //String groupId = courseUnit.getAsJsonArray().get(0).getAsJsonObject().get("groupId").getAsString();
+            //System.out.println(groupId);
+
             try {
                 if(courseUnit.getAsJsonArray().get(0).getAsJsonObject().get("name").getAsJsonObject().get("fi") == null){
                     String courseName = courseUnit.getAsJsonArray().get(0).getAsJsonObject().get("name").getAsJsonObject().get("en").getAsString();
@@ -197,7 +218,7 @@ public class JSONLogic {
     }
 
     // Returns a JsonElement from the given URL
-    public JsonElement requestJsonElementFromURL(String sURL) throws IOException {
+    public static JsonElement requestJsonElementFromURL(String sURL) throws IOException {
         URL url = new URL(sURL);
         URLConnection request = url.openConnection();
         request.connect();
@@ -226,6 +247,36 @@ public class JSONLogic {
     public static void main(String[] args) throws IOException {
         JSONLogic logic = new JSONLogic();
         logic.readAPIData("otm-df83fbbd-f82d-4fda-b819-78f6b2077fcb");
+
+        // Esimerkkikeissi
+        studenttest testiopiskelija = new studenttest();
+        testiopiskelija.setEndYear(2025);
+        testiopiskelija.setStartYear(2020);
+        testiopiskelija.setName("testiopiskelija");
+        testiopiskelija.setStudentNumber("H292001");
+
+        DegreeProgramme degreeProgramme =
+                new DegreeProgramme(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
+
+        testiopiskelija.setDegreeProgramme(degreeProgramme);
+
+
+        String courseUnitURL1 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-48277&universityId=tuni-university-root-id";
+        String courseUnitURL2 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-48278&universityId=tuni-university-root-id";
+        String courseUnitURL3 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-45510&universityId=tuni-university-root-id";
+
+        CourseUnit testCourse1 = new CourseUnit(requestJsonElementFromURL(courseUnitURL1));
+        testCourse1.setCompleted(Boolean.TRUE);
+        testCourse1.setGrade(5);
+
+        CourseUnit testCourse2 = new CourseUnit(requestJsonElementFromURL(courseUnitURL2));
+        testCourse2.setCompleted(Boolean.TRUE);
+        testCourse2.setGrade(2);
+
+        testiopiskelija.addCompletedCourse(testCourse1);
+        testiopiskelija.addCompletedCourse(testCourse2);
+
+        //logic.createStudent(testiopiskelija);
     }
 
 }

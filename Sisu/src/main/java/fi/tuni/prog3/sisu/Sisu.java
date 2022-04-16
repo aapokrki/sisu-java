@@ -1,10 +1,6 @@
 package fi.tuni.prog3.sisu;
 
 import javafx.application.Application;
-import javafx.css.Style;
-import javafx.css.StyleClass;
-import javafx.css.Stylesheet;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,13 +8,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Locale;
 
 /**
  * Implements a graphical user interface for checking studies in Sisu
@@ -27,6 +23,8 @@ public class Sisu extends Application {
 
     private Stage stage;
     private final String style = this.getClass().getResource("/Sisu.css").toExternalForm();
+
+    private StudentData data;
 
     /**
      * Main function
@@ -41,6 +39,9 @@ public class Sisu extends Application {
      * @param stage - stage
      */
     public void start(Stage stage) {
+
+        // Get data from JSON to program
+        data = new StudentData();
 
         this.stage = stage;
         this.stage.setTitle("SISU");
@@ -158,11 +159,17 @@ public class Sisu extends Application {
         ToggleButton loginButton = new ToggleButton("LOGIN");
         loginButton.getStyleClass().add("blueButton");
         loginButton.setOnAction( e -> {
-            //Check the database if student number exists
 
-            if (studentNumberTextField.getText().trim().isEmpty()) {
+            String studentNumber = studentNumberTextField.getText().trim().toUpperCase(Locale.ROOT);
+
+            if (studentNumber.isEmpty()) {
                 studentNumberTextField.getStyleClass().add("textFieldFalse");
                 errorMessage.setText("Invalid student number");
+            } else if (!data.login(studentNumber)) {
+                studentNumberTextField.getStyleClass().add("textFieldFalse");
+                errorMessage.setText("Account does not exist");
+            } else {
+                stage.setScene(getMainView());
             }
         });
 
@@ -247,9 +254,14 @@ public class Sisu extends Application {
         createButton.getStyleClass().add("blueButton");
         createButton.setOnAction(e -> {
 
+            String name = nameTextField.getText().trim();
+            String studentNumber = studentNumberTextField.getText().trim().toUpperCase(Locale.ROOT);
+            String startYear = startYearTextField.getText();
+            String endYear = endYearTextField.getText();
+
             boolean notEmpty = true;
 
-            if (nameTextField.getText().trim().isEmpty()) {
+            if (name.isEmpty()) {
                 nameTextField.getStyleClass().add("textFieldFalse");
                 nameErrorMessage.setText("Invalid name");
                 notEmpty = false;
@@ -257,7 +269,7 @@ public class Sisu extends Application {
                 nameTextField.getStyleClass().add("textFieldTrue");
             }
 
-            if (studentNumberTextField.getText().trim().isEmpty()) {
+            if (studentNumber.isEmpty()) {
                 studentNumberTextField.getStyleClass().add("textFieldFalse");
                 studentNumberErrorMessage.setText("Invalid student number");
                 notEmpty = false;
@@ -266,10 +278,13 @@ public class Sisu extends Application {
             }
 
             if (notEmpty) {
-
-                // Create a new account
-
-                stage.close();
+                ArrayList<String> textFieldData = new ArrayList<>(Arrays.asList(name, studentNumber, startYear, endYear));
+                if (!data.createAccount(textFieldData)) {
+                    studentNumberTextField.getStyleClass().add("textFieldFalse");
+                    studentNumberErrorMessage.setText("Account exists");
+                } else {
+                    stage.setScene(getMainView());
+                }
             }
         });
 
@@ -290,20 +305,19 @@ public class Sisu extends Application {
 
     /**
      * Returns the top menu
-     * @param student - Student class member
      * @return top menu
      */
-    private HBox getTopMenu(Student student) {
+    private HBox getTopMenu() {
 
         HBox menu = new HBox();
 
         ToggleButton studentInformationButton = new ToggleButton("Student information");
         studentInformationButton.getStyleClass().add("topMenuButton");
-        studentInformationButton.setOnAction(e -> stage.setScene(getStudentInformationScreen(student)) );
+        studentInformationButton.setOnAction(e -> stage.setScene(getStudentInformationScreen()) );
 
         ToggleButton structureOfStudiesButton = new ToggleButton("Structure of studies");
         structureOfStudiesButton.getStyleClass().add("topMenuButton");
-        structureOfStudiesButton.setOnAction( e -> stage.setScene(getStructureOfStudiesScreen(student)) );
+        structureOfStudiesButton.setOnAction( e -> stage.setScene(getStructureOfStudiesScreen()) );
 
         menu.getChildren().addAll(studentInformationButton, structureOfStudiesButton);
 
@@ -312,39 +326,38 @@ public class Sisu extends Application {
 
     /**
      * Implements the main view of the program
-     * @param student - Student class member
+     * @return main view
      */
-    private void mainView(Student student) {
+    private Scene getMainView() {
 
         stage.setTitle("SISU");
 
         BorderPane borderPane = new BorderPane();
 
-        borderPane.setTop(getTopMenu(student));
+        borderPane.setTop(getTopMenu());
         borderPane.getTop().setStyle("-fx-background-color: #515151;");
 
         Scene scene = new Scene(borderPane, 600, 400);
 
         stage.setScene(scene);
         stage.show();
+        return scene;
     }
 
     /**
      * Returns student information screen
-     * @param student - Student class member
      * @return student information screen
      */
-    private Scene getStudentInformationScreen(Student student) {
+    private Scene getStudentInformationScreen() {
 
         return new Scene(new HBox());
     }
 
     /**
      * Returns structure of studies screen
-     * @param student - Student class member
      * @return structure of studies screen
      */
-    private Scene getStructureOfStudiesScreen(Student student) {
+    private Scene getStructureOfStudiesScreen() {
 
         return new Scene(new HBox());
     }

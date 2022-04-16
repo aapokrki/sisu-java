@@ -1,0 +1,125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800;900&display=swap');
+/*
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans');
+*/
+
+.textLabel {
+    -fx-font-family: 'Fira Sans';
+    -fx-text-fill: #474747;
+    -fx-font-weight: normal;
+    -fx-font-size: 14;
+}
+
+.welcomeLabel {
+    -fx-font-family: 'Fira Sans';
+    -fx-text-fill: #474747;
+    -fx-font-weight: normal;
+    -fx-font-size: 26;
+    -fx-padding: 0 0 30 0;
+}
+
+.titleLabel {
+    -fx-font-family: 'Fira Sans';
+    -fx-text-fill: #474747;
+    -fx-font-weight: normal;
+    -fx-font-size: 16;
+    -fx-padding: 0 0 20 0;
+}
+
+.errorLabel {
+    -fx-font-family: 'Fira Sans';
+    -fx-text-fill: 'red';
+    -fx-font-weight: normal;
+    -fx-font-size: 10;
+}
+
+.whiteButton {
+    -fx-font-family: 'Fira Sans';
+    -fx-font-weight: normal;
+    -fx-font-size: 14;
+    -fx-text-fill: #1076db;
+    -fx-background-color: transparent;
+    -fx-border-width: 2;
+    -fx-border-color: #1076db;
+    -fx-border-radius: 1;
+    -fx-focus-color: transparent;
+}
+
+.whiteButton:hover {
+    -fx-border-color: #245dad;
+}
+
+.whiteButton:focused {
+    -fx-border-color: #245dad;
+}
+
+.blueButton {
+    -fx-font-family: 'Fira Sans';
+    -fx-font-weight: normal;
+    -fx-font-size: 14;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #1076db;
+    -fx-border-width: 2;
+    -fx-border-color: #1076db;
+    -fx-border-radius: 1;
+    -fx-focus-color: transparent;
+}
+
+.blueButton:hover {
+    -fx-background-color: #245dad;
+    -fx-border-color: #245dad;
+}
+
+.blueButton:focused {
+    -fx-background-color: #245dad;
+    -fx-border-color: #245dad;
+}
+
+.textField {
+    -fx-background-color: #ffffff;
+    -fx-font-family: 'Fira Sans';
+    -fx-font-weight: normal;
+    -fx-font-size: 14;
+    -fx-text-fill: #717171;
+    -fx-display-caret: false;
+    -fx-border-color: #717171;
+    -fx-background-radius: 0;
+    -fx-padding: 1;
+    -fx-alignment: center-left ;
+}
+
+.textFieldTrue {
+    -fx-border-color: green;
+}
+
+.textFieldFalse {
+    -fx-border-color: red;
+}
+
+.textField:focused {
+    -fx-border-color: #245dad;
+}
+
+.topMenuButton {
+    -fx-background-radius: 0;
+    -fx-background-color: #515151;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14;
+    -fx-min-width: 170;
+    -fx-max-height: 55;
+    -fx-focus-color: transparent;
+}
+
+.topMenuButton:hover {
+    -fx-background-radius: 0;
+    -fx-background-color: #616161;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14;
+}
+
+.topMenu {
+    -fx-padding: 1 1 1 1;
+}
+
+

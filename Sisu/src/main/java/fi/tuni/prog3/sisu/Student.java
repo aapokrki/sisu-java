@@ -1,19 +1,36 @@
 package fi.tuni.prog3.sisu;
 
+import java.util.ArrayList;
+
 /**
  * A class representing a student in Tampere University
  */
 public class Student {
 
     // Basic information
-    private String name;
-    private String studentNumber;
-    private int startYear;
-    private int endYear;
+    public String name;
+    public String studentNumber;
+    public int startYear;
+    public int endYear;
 
-    /*
-    Needs a data structure containing degree data
+    public DegreeProgramme degreeProgramme;
+    public ArrayList<CourseUnit> completedCourses = new ArrayList<>();
+
+    /**
+     * Sets degree programme for student
+     * @param degreeProgramme - degree programme
      */
+    public void setDegreeProgramme(DegreeProgramme degreeProgramme) {
+        this.degreeProgramme = degreeProgramme;
+    }
+
+    /**
+     * Marks course as completed
+     * @param course - course
+     */
+    public void addCompletedCourse(CourseUnit course){
+        completedCourses.add(course);
+    }
 
     /**
      * Constructs an empty Student class

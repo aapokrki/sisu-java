@@ -11,6 +11,7 @@ import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,23 +44,33 @@ public class JSONLogic {
 
     // Reads the students json file and converts every student to a Student class.
     // Student classes can be easily edited from the GUI.
-    public void studentsFromJsonToClass(){
+    public Map<String, Student> studentsFromJsonToClass(){
+        Map<String, Student> studentMap = null;
         try{
             Gson gson = new Gson();
+
+            studentMap = new HashMap<>();
 
             Reader reader = Files.newBufferedReader(Paths.get("students"));
             List<Student> students = gson.fromJson(reader, new TypeToken<List<Student>>() {}.getType());
 
             // Test print of the first two students
-            for (int i = 0; i < 2; i++) {
-                System.out.println(students.get(i).getName() + " - " + students.get(i).getStudentNumber());
 
+
+            for (int i = 0; i < students.size(); i++) {
+                studentMap.put(students.get(i).getStudentNumber(), students.get(i));
+            }
+
+            for (int i = 0; i < 2; i++) {
+                System.out.println(studentMap.get(i).getName() + " -- " + studentMap.toString());
             }
 
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return studentMap;
     }
 
     // Reads the given degreeprogramme's information from the SISU api.
@@ -310,7 +321,7 @@ public class JSONLogic {
 //        testiopiskelija.addCompletedCourse(testCourse2);
 
 //        logic.studentsToJson(students);
-//        logic.studentsFromJsonToClass();
+        logic.studentsFromJsonToClass();
 
     }
 

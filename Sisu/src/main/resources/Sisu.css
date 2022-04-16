@@ -82,7 +82,7 @@
     -fx-font-weight: normal;
     -fx-font-size: 14;
     -fx-text-fill: #717171;
-    -fx-display-caret: false;
+    -fx-display-caret: true;
     -fx-border-color: #717171;
     -fx-background-radius: 0;
     -fx-padding: 1;

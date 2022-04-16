@@ -3,7 +3,6 @@ package fi.tuni.prog3.sisu;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import javafx.util.Pair;
 
 import java.io.*;
 import java.net.URL;
@@ -15,20 +14,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// TODO: Store person's degree choice to his/her data JSON
+// TODO: Create and implement a JSON system for persons.
+// TODO: Add proper Exceptionchecks!
 
+/**
+ * Handles everything related to JSON and pulling data from the SISU API
+ */
 public class JSONLogic {
 
-    // Reads from the SISU API. Finds the given degreeprogramme by it's ID.
-    // Prints out the degreeprogramme's submodules and courses etc in a nice way
 
-    // TODO: Store person's degree choice to his/her data JSON
-    // TODO: Create and implement a JSON system for persons.
-    // TODO: Add proper Exceptionchecks!
-
-
-    // Adds every student to the students.json file.
-    // Is calles when the program closes. "Saving" the made changes
-    public void studentsToJson(ArrayList students){
+    /**
+     * Converts the given students to a jsonfile named students.
+     * @param students list of all the students
+     */
+    public void studentsToJson(ArrayList<Student> students){
         GsonBuilder builder = new GsonBuilder().setPrettyPrinting();
         Gson gson = builder.create();
 
@@ -42,17 +42,19 @@ public class JSONLogic {
         }
     }
 
-    // Reads the students json file and converts every student to a Student class.
-    // Student classes can be easily edited from the GUI.
+    /**
+     * Reads the students.json file and converts all students to a Map<studentnumber, Student>
+     * format, where handling data is easier.
+     * @return map of all students in the students.json
+     */
     public Map<String, Student> studentsFromJsonToClass(){
-        Map<String, Student> studentMap;
+        Map<String, Student> studentMap = null;
         try{
-            Gson gson = new Gson();
 
             studentMap = new HashMap<>();
 
             Reader reader = Files.newBufferedReader(Paths.get("students"));
-            List<Student> students = gson.fromJson(reader, new TypeToken<List<Student>>() {}.getType());
+            List<Student> students = new Gson().fromJson(reader, new TypeToken<List<Student>>(){}.getType());
 
             // Test print of the first two students
 
@@ -62,20 +64,28 @@ public class JSONLogic {
             }
 
             // test print
-//            for (Map.Entry<String,Student> entry : studentMap.entrySet()){
-//                System.out.println(entry.getKey() + " -- " + entry.getValue().getName());
-//            }
+            for (Map.Entry<String,Student> entry : studentMap.entrySet()){
+                System.out.println(entry.getKey() + " -- " + entry.getValue().getName());
+            }
 
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return null;
+        return studentMap;
     }
 
     // Reads the given degreeprogramme's information from the SISU api.
     // Returns null if no program with given id is found.
+
+    /**
+     * Finds the given degreeprogramme from the SISU API and calls readApiRec to read and store it's data
+     * to a Degreeprogramme object
+     * @param inputDegreeProgramme groupId of wanted degreeprogramme
+     * @return Degreeprogramme from the api in a class format
+     * @throws IOException //TODO change to better
+     */
     public DegreeProgramme readAPIData(String inputDegreeProgramme) throws IOException {
 
         String sURL = "https://sis-tuni.funidata.fi/kori/api/module-search?curriculumPeriodId=uta-lvv-2021&universityId=tuni-university-root-id&moduleType=DegreeProgramme&limit=1000";
@@ -83,7 +93,6 @@ public class JSONLogic {
         JsonObject rootobj = requestJsonRootObjectFromURL(sURL);
         DegreeProgramme degreeProgramme = null;
         JsonArray programmes = rootobj.get("searchResults").getAsJsonArray();
-
 
         System.err.println("rec");
         for (int j = 0 ; j < programmes.size() ; j++){
@@ -99,19 +108,22 @@ public class JSONLogic {
 
                 degreeProgramme = readAPIRec(rootobj,1, new DegreeProgramme(rootobj));
 
-                // For testin all API data
+                // For test reading all API data
                 //readAPIRec(rootobj.getAsJsonObject(),1, new DegreeProgramme(rootobj));
 
             }
 
         }
 
+        //Testprint of stored Degreeprogramme
         //degreeProgramme.print();
         return degreeProgramme;
 
     }
 
-    // Used for test printing during readAPIRec
+
+
+
     public void getName(JsonObject obj, int indent, String type, Module parent){
 
         try {
@@ -131,50 +143,51 @@ public class JSONLogic {
     }
 
     //Goes through the api recursively object by object
+
+    /**
+     * Reads the given degreeprogramme's information from the SISU api
+     * Advances through the studymodules and courses recursively, maintaining hierarchy.
+     * @param rootobj rootobj - JsonObject which is about to be handled
+     * @param indent helper parameter for testprinting of obj hierarchy
+     * @param parent the previous rootobj - where to store current rootobj's data etc.
+     * @return Degreeprogramme in a neat class format
+     * @throws IOException //TODO Change to better
+     */
     public DegreeProgramme readAPIRec(JsonObject rootobj, int indent, Module parent) throws IOException {
 
-        //System.out.println("parent = " + parent.getId());
 
         String type = rootobj.get("type").getAsString();
-        //System.out.println(type);
 
         if(type.equals("DegreeProgramme")){
-
-            JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
-
             //getName(rootobj,indent, "DegreeProgramme",parent);
 
-            //degreeProgrammeArrayList.add(newDegreeProgramme);
+            JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
             DegreeProgramme newDegreeProgramme = new DegreeProgramme(rootobj);
-
-
             readAPIRec(ruleJsonObject,indent+1, newDegreeProgramme);
 
-            // Tässä on nyt se tutkinto-ohjelma
+            // newDegreeprogramme filled with it's studymodules and courses
             return newDegreeProgramme;
 
         }
 
 
         if(type.equals("StudyModule")){
-            JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
-
             //getName(rootobj,indent, "StudyModule", parent);
 
+            JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
             StudyModule studyModule = new StudyModule(rootobj);
 
             studyModule.setParent(parent.getJsonElement());
             parent.addChild(studyModule);
 
-
             readAPIRec(ruleJsonObject,indent+1,studyModule);
         }
 
-        //Endpoint. The final point.
+        // Courses are the final point od the recursion.
+        // Add course to parent
         if(type.equals("CourseUnitRule")){
 
             String courseUnitGroupId= rootobj.get("courseUnitGroupId").getAsString();
-            //System.out.println(courseUnitGroupId);
             String courseUnitURL = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId="+ courseUnitGroupId+"&universityId=tuni-university-root-id";
 
             JsonObject courseUnit = requestJsonElementFromURL(courseUnitURL).getAsJsonArray().get(0).getAsJsonObject();
@@ -184,28 +197,25 @@ public class JSONLogic {
             parent.addChild(course);
 
             //getName(courseUnit,indent, "CourseUnit",parent);
-
-
         }
 
-
+        // Rule of how many credits can or must be selected in total
         if(type.equals("CreditsRule")){
             JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
             readAPIRec(ruleJsonObject,indent,parent);
         }
 
 
+        // Rule of how many of the following studymodules or courses can be selected
+        // eg. Choosing between Tietotekniikka and Sähkötekniikka in the degreeprogramme
         if(type.equals("CompositeRule")){
 
             JsonArray compositeRules = rootobj.get("rules").getAsJsonArray();
-
-            // Jos täytyy valita esim Tieto- tai sähkötekniikan väliltä
 
             for (int i = 0 ; i < compositeRules.size() ; ++i){
                 JsonObject rule = compositeRules.get(i).getAsJsonObject();
                 readAPIRec(rule,indent,parent);
             }
-
 
         }
 
@@ -222,31 +232,19 @@ public class JSONLogic {
 
         }
 
+        //TODO Check Groupingmodule and rules for additional features
 
-
-        //Strange thing. idk about this
-//        if(type.equals("GroupingModule")){
-//            JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
-//
-//            try {
-//                if(rootobj.get("name").getAsJsonObject().get("fi") == null){
-//                    String name = rootobj.getAsJsonObject().get("name").getAsJsonObject().get("en").getAsString();
-//                    System.out.println( "-".repeat(indent)+name+ " GROUPINGMODULE");
-//                }else{
-//                    String name = rootobj.getAsJsonObject().get("name").getAsJsonObject().get("fi").getAsString();
-//                    System.out.println( "-".repeat(indent)+name + " GROUPINGMODULE");
-//                }
-//
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                System.out.println("PROBLEM WITH GROUPINGMODULE");
-//            }
-//            readAPIRec(ruleJsonObject,indent+1);
-//        }
+        // no Degreeprogramme to be found
         return null;
     }
 
-    // Returns a JsonElement from the given URL
+
+    /**
+     * Returns a JsonElement from the given URL
+     * @param sURL given url to the JsonElement
+     * @return the read JsonElement
+     * @throws IOException //TODO create proper
+     */
     public static JsonElement requestJsonElementFromURL(String sURL) throws IOException {
         URL url = new URL(sURL);
         URLConnection request = url.openConnection();
@@ -258,7 +256,12 @@ public class JSONLogic {
 
     }
 
-    // Returns a JsonObject from the given URL
+    /**
+     * Returns a JsonObject from the given URL
+     * @param sURL given url to the JsonObject
+     * @return the read JsonObject
+     * @throws IOException //TODO create proper
+     */
     public JsonObject requestJsonRootObjectFromURL(String sURL) throws IOException {
 
         URL url = new URL(sURL);
@@ -272,7 +275,8 @@ public class JSONLogic {
 
     }
 
-    //A stand-in function to test the program
+    // Main function to test the program.
+    // TODO Delete before final
     public static void main(String[] args) throws IOException {
         JSONLogic logic = new JSONLogic();
 
@@ -280,49 +284,10 @@ public class JSONLogic {
         //logic.getDegreeProgrammeClass(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
         DegreeProgramme degreeProgramme = logic.readAPIData("otm-d729cfc3-97ad-467f-86b7-b6729c496c82");
 
-        // Esimerkkikeissi
-//        ArrayList<studenttest> students = new ArrayList<>();
-//        studenttest testiopiskelija = new studenttest();
-//        testiopiskelija.setEndYear(2025);
-//        testiopiskelija.setStartYear(2020);
-//        testiopiskelija.setName("Aapo Kärki");
-//        testiopiskelija.setStudentNumber("H292001");
-//
-//        studenttest testiopiskelija1 = new studenttest();
-//        testiopiskelija1.setEndYear(2025);
-//        testiopiskelija1.setStartYear(2020);
-//        testiopiskelija1.setName("Kasperi Kouri");
-//        testiopiskelija1.setStudentNumber("H292123");
-//
-//        //If degreeprogramme compositerule require max on 1
-//
-//
-////        DegreeProgramme degreeProgramme =
-////                new DegreeProgramme(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
-//
-//        testiopiskelija.setDegreeProgramme(degreeProgramme);
-//        testiopiskelija1.setDegreeProgramme(degreeProgramme);
-//        students.add(testiopiskelija1);
-//        students.add(testiopiskelija);
 
 
-//        String courseUnitURL1 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-48277&universityId=tuni-university-root-id";
-//        String courseUnitURL2 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-48278&universityId=tuni-university-root-id";
-//        String courseUnitURL3 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-45510&universityId=tuni-university-root-id";
-//
-//        CourseUnit testCourse1 = new CourseUnit(requestJsonElementFromURL(courseUnitURL1));
-//        testCourse1.setCompleted(Boolean.TRUE);
-//        testCourse1.setGrade(5);
-//
-//        CourseUnit testCourse2 = new CourseUnit(requestJsonElementFromURL(courseUnitURL2));
-//        testCourse2.setCompleted(Boolean.TRUE);
-//        testCourse2.setGrade(2);
-//
-//        testiopiskelija.addCompletedCourse(testCourse1);
-//        testiopiskelija.addCompletedCourse(testCourse2);
-
-//        logic.studentsToJson(students);
-        logic.studentsFromJsonToClass();
+        Map<String, Student> students = logic.studentsFromJsonToClass();
+        logic.studentsToJson((ArrayList<Student>) students.values());
 
     }
 

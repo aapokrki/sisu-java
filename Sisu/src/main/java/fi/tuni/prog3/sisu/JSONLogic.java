@@ -48,7 +48,7 @@ public class JSONLogic {
             Gson gson = new Gson();
 
             Reader reader = Files.newBufferedReader(Paths.get("students"));
-            List<studenttest> students = gson.fromJson(reader, new TypeToken<List<studenttest>>() {}.getType());
+            List<Student> students = gson.fromJson(reader, new TypeToken<List<Student>>() {}.getType());
 
             // Test print of the first two students
             for (int i = 0; i < 2; i++) {

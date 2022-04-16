@@ -269,29 +269,29 @@ public class JSONLogic {
         DegreeProgramme degreeProgramme = logic.readAPIData("otm-d729cfc3-97ad-467f-86b7-b6729c496c82");
 
         // Esimerkkikeissi
-        ArrayList<studenttest> students = new ArrayList<>();
-        studenttest testiopiskelija = new studenttest();
-        testiopiskelija.setEndYear(2025);
-        testiopiskelija.setStartYear(2020);
-        testiopiskelija.setName("Aapo Kärki");
-        testiopiskelija.setStudentNumber("H292001");
-
-        studenttest testiopiskelija1 = new studenttest();
-        testiopiskelija1.setEndYear(2025);
-        testiopiskelija1.setStartYear(2020);
-        testiopiskelija1.setName("Kasperi Kouri");
-        testiopiskelija1.setStudentNumber("H292123");
-
-        //If degreeprogramme compositerule require max on 1
-
-
-//        DegreeProgramme degreeProgramme =
-//                new DegreeProgramme(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
-
-        testiopiskelija.setDegreeProgramme(degreeProgramme);
-        testiopiskelija1.setDegreeProgramme(degreeProgramme);
-        students.add(testiopiskelija1);
-        students.add(testiopiskelija);
+//        ArrayList<studenttest> students = new ArrayList<>();
+//        studenttest testiopiskelija = new studenttest();
+//        testiopiskelija.setEndYear(2025);
+//        testiopiskelija.setStartYear(2020);
+//        testiopiskelija.setName("Aapo Kärki");
+//        testiopiskelija.setStudentNumber("H292001");
+//
+//        studenttest testiopiskelija1 = new studenttest();
+//        testiopiskelija1.setEndYear(2025);
+//        testiopiskelija1.setStartYear(2020);
+//        testiopiskelija1.setName("Kasperi Kouri");
+//        testiopiskelija1.setStudentNumber("H292123");
+//
+//        //If degreeprogramme compositerule require max on 1
+//
+//
+////        DegreeProgramme degreeProgramme =
+////                new DegreeProgramme(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
+//
+//        testiopiskelija.setDegreeProgramme(degreeProgramme);
+//        testiopiskelija1.setDegreeProgramme(degreeProgramme);
+//        students.add(testiopiskelija1);
+//        students.add(testiopiskelija);
 
 
 //        String courseUnitURL1 = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-48277&universityId=tuni-university-root-id";
@@ -309,8 +309,8 @@ public class JSONLogic {
 //        testiopiskelija.addCompletedCourse(testCourse1);
 //        testiopiskelija.addCompletedCourse(testCourse2);
 
-        logic.studentsToJson(students);
-        logic.studentsFromJsonToClass();
+//        logic.studentsToJson(students);
+//        logic.studentsFromJsonToClass();
 
     }
 

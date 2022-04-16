@@ -45,7 +45,7 @@ public class JSONLogic {
     // Reads the students json file and converts every student to a Student class.
     // Student classes can be easily edited from the GUI.
     public Map<String, Student> studentsFromJsonToClass(){
-        Map<String, Student> studentMap = null;
+        Map<String, Student> studentMap;
         try{
             Gson gson = new Gson();
 
@@ -61,16 +61,17 @@ public class JSONLogic {
                 studentMap.put(students.get(i).getStudentNumber(), students.get(i));
             }
 
-            for (int i = 0; i < 2; i++) {
-                System.out.println(studentMap.get(i).getName() + " -- " + studentMap.toString());
-            }
+            // test print
+//            for (Map.Entry<String,Student> entry : studentMap.entrySet()){
+//                System.out.println(entry.getKey() + " -- " + entry.getValue().getName());
+//            }
 
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return studentMap;
+        return null;
     }
 
     // Reads the given degreeprogramme's information from the SISU api.
@@ -105,7 +106,7 @@ public class JSONLogic {
 
         }
 
-        degreeProgramme.print();
+        //degreeProgramme.print();
         return degreeProgramme;
 
     }

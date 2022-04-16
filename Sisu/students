@@ -1,7 +1,7 @@
 [
   {
-    "name": "Kasperi Kouri",
-    "studentNumber": "H292123",
+    "name": "Aapo",
+    "studentNumber": "H292001",
     "startYear": 2020,
     "endYear": 2025,
     "degreeProgramme": {
@@ -503,8 +503,8 @@
     "completedCourses": []
   },
   {
-    "name": "Aapo Kärki",
-    "studentNumber": "H292001",
+    "name": "Kasperi",
+    "studentNumber": "H123123",
     "startYear": 2020,
     "endYear": 2025,
     "degreeProgramme": {

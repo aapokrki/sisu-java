@@ -4,79 +4,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans');
 */
 
-.textLabel {
+#textLabel {
     -fx-font-family: 'Fira Sans';
     -fx-text-fill: #474747;
     -fx-font-weight: normal;
     -fx-font-size: 14;
 }
 
-.welcomeLabel {
+#welcomeLabel {
     -fx-font-family: 'Fira Sans';
     -fx-text-fill: #474747;
     -fx-font-weight: normal;
-    -fx-font-size: 26;
+    -fx-font-size: 32;
     -fx-padding: 0 0 30 0;
 }
 
-.titleLabel {
+#titleLabel {
     -fx-font-family: 'Fira Sans';
     -fx-text-fill: #474747;
     -fx-font-weight: normal;
-    -fx-font-size: 16;
+    -fx-font-size: 22;
     -fx-padding: 0 0 20 0;
 }
 
-.errorLabel {
+#errorLabel {
     -fx-font-family: 'Fira Sans';
     -fx-text-fill: 'red';
     -fx-font-weight: normal;
     -fx-font-size: 10;
 }
 
-.whiteButton {
+#whiteButton {
     -fx-font-family: 'Fira Sans';
-    -fx-font-weight: normal;
+    -fx-font-weight: bold;
     -fx-font-size: 14;
     -fx-text-fill: #1076db;
     -fx-background-color: transparent;
     -fx-border-width: 2;
     -fx-border-color: #1076db;
     -fx-border-radius: 1;
+    -fx-padding: 6 16 6 16;
     -fx-focus-color: transparent;
 }
 
-.whiteButton:hover {
+#whiteButton:hover {
     -fx-border-color: #245dad;
 }
 
-.whiteButton:focused {
+#whiteButton:focused {
     -fx-border-color: #245dad;
 }
 
-.blueButton {
+#blueButton {
     -fx-font-family: 'Fira Sans';
-    -fx-font-weight: normal;
+    -fx-font-weight: bold;
     -fx-font-size: 14;
     -fx-text-fill: #ffffff;
     -fx-background-color: #1076db;
     -fx-border-width: 2;
     -fx-border-color: #1076db;
     -fx-border-radius: 1;
+    -fx-padding: 6 16 6 16;
     -fx-focus-color: transparent;
 }
 
-.blueButton:hover {
+#blueButton:hover {
     -fx-background-color: #245dad;
     -fx-border-color: #245dad;
 }
 
-.blueButton:focused {
+#blueButton:focused {
     -fx-background-color: #245dad;
     -fx-border-color: #245dad;
 }
 
-.textField {
+#textField {
     -fx-background-color: #ffffff;
     -fx-font-family: 'Fira Sans';
     -fx-font-weight: normal;
@@ -89,37 +91,47 @@
     -fx-alignment: center-left ;
 }
 
-.textFieldTrue {
+#textField:true {
     -fx-border-color: green;
 }
 
-.textFieldFalse {
+#textField:false {
     -fx-border-color: red;
 }
 
-.textField:focused {
+#textField:focused {
     -fx-border-color: #245dad;
 }
 
-.topMenuButton {
+#topMenuButton {
     -fx-background-radius: 0;
     -fx-background-color: #515151;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14;
-    -fx-min-width: 170;
-    -fx-max-height: 55;
+    -fx-font-weight: normal;
+    -fx-padding: 16 20 16 20;
+    -fx-pref-height: 46;
     -fx-focus-color: transparent;
 }
 
-.topMenuButton:hover {
+#topMenuButton:hover {
     -fx-background-radius: 0;
     -fx-background-color: #616161;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14;
 }
 
-.topMenu {
-    -fx-padding: 1 1 1 1;
+#topMenuButton:white {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #474747;
 }
 
+#topMenu {
+    -fx-background-color: #515151;
+    -fx-padding: 0 1 1 1;
+}
 
+#line {
+    -fx-stroke: #ffffff;
+    -fx-stroke-width: 0.8;
+}

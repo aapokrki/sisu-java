@@ -19,9 +19,7 @@ public class StudentData {
     public StudentData() {
         jsonData = new JSONLogic();
 
-        // studentsFromJsonToClass() needs to be fixed in order to get the program to launch
-        students = new HashMap<>();
-        //students = jsonData.studentsFromJsonToClass();
+        students = jsonData.studentsFromJsonToClass();
     }
 
     /**
@@ -67,10 +65,16 @@ public class StudentData {
         int endYear;
 
         if (data.size() > 2) {
-            startYear = Integer.parseInt(data.get(2));
-            endYear = Integer.parseInt(data.get(3));
+
+            String year1 = data.get(2);
+            startYear = Integer.parseInt(year1);
             user.setStartYear(startYear);
-            user.setEndYear(endYear);
+
+            if (data.size() == 4) {
+                String year2 = data.get(3);
+                endYear = Integer.parseInt(year2);
+                user.setEndYear(endYear);
+            }
         }
 
         students.put(studentNumber, user);

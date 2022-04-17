@@ -1,19 +1,21 @@
 package fi.tuni.prog3.sisu;
 
 import javafx.application.Application;
+import javafx.css.PseudoClass;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Locale;
 
 /**
@@ -45,13 +47,12 @@ public class Sisu extends Application {
 
         this.stage = stage;
         this.stage.setTitle("SISU");
+        this.stage.getIcons().add(new Image("/TUNI-face.png"));
         Scene startScene = getStartScreen();
 
+        //Scene startScene = getMainScene();
         stage.setScene(startScene);
         stage.show();
-
-        // Needs some kind of a check to be able to start the mainView
-        //mainView(new Student());
     }
 
     /**
@@ -68,9 +69,9 @@ public class Sisu extends Application {
             }
 
             if (!onlyIntegers && newValue.isBlank()) {
-                textField.getStyleClass().add("textFieldFalse");
+                textField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
             } else {
-                textField.getStyleClass().add("textFieldTrue");
+                textField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
             }
         });
     }
@@ -82,10 +83,9 @@ public class Sisu extends Application {
     private Scene getStartScreen() {
 
         VBox vBox = new VBox();
-        Scene scene = new Scene(vBox,400,300);
-        //scene.setFill(Paint.valueOf("#f2f2f2"));
+        Scene scene = new Scene(vBox,450,350);
         vBox.setBackground(Background.EMPTY);
-        scene.setFill(Paint.valueOf("#f2f2f2"));
+        scene.setFill(Paint.valueOf("#ffffff"));
 
         scene.getStylesheets().add(this.style);
 
@@ -94,20 +94,20 @@ public class Sisu extends Application {
         vBox.setPadding(new Insets(10, 10, 10, 10));
 
         Label title = new Label("Welcome to Sisu!");
-        title.getStyleClass().add("welcomeLabel");
+        title.setId("welcomeLabel");
 
         HBox buttons = new HBox();
 
         ToggleButton loginButton = new ToggleButton("LOGIN");
-        loginButton.getStyleClass().add("whiteButton");
+        loginButton.setId("whiteButton");
         loginButton.setOnAction( e -> stage.setScene(getLoginScreen()) );
 
         ToggleButton registerButton = new ToggleButton("REGISTER");
-        registerButton.getStyleClass().add("whiteButton");
+        registerButton.setId("whiteButton");
         registerButton.setOnAction( e -> stage.setScene(getRegistrationScreen()));
 
         buttons.setAlignment(Pos.BOTTOM_CENTER);
-        buttons.setSpacing(15);
+        buttons.setSpacing(18);
         buttons.getChildren().addAll(loginButton, registerButton);
 
         vBox.setAlignment(Pos.CENTER);
@@ -123,7 +123,9 @@ public class Sisu extends Application {
      */
     private Scene getLoginScreen() {
         GridPane grid = new GridPane();
-        Scene scene = new Scene(grid, 400, 300);
+        Scene scene = new Scene(grid, 450, 350);
+        grid.setBackground(Background.EMPTY);
+        scene.setFill(Paint.valueOf("#ffffff"));
         scene.getStylesheets().add(this.style);
 
         grid.setVgap(5);
@@ -133,48 +135,49 @@ public class Sisu extends Application {
 
 
         Label title = new Label("Login by entering student number");
-        title.getStyleClass().add("titleLabel");
+        title.setId("titleLabel");
 
         grid.add(title,0,0,2,1);
 
         Label studentNumberLabel = new Label("Student number:");
-        studentNumberLabel.getStyleClass().add("textLabel");
+        studentNumberLabel.setId("textLabel");
         grid.add(studentNumberLabel,0,2);
 
         TextField studentNumberTextField = new TextField();
-        studentNumberTextField.getStyleClass().add("textField");
+        studentNumberTextField.setId("textField");
         addInputListener(studentNumberTextField, false);
         grid.add(studentNumberTextField,1,2);
 
         Label errorMessage = new Label();
-        errorMessage.getStyleClass().add("errorLabel");
+        errorMessage.setId("errorLabel");
         grid.add(errorMessage,1,3);
 
         HBox buttons = new HBox();
 
         ToggleButton backButton = new ToggleButton("BACK");
-        backButton.getStyleClass().add("whiteButton");
+        backButton.setId("whiteButton");
         backButton.setOnAction( e -> stage.setScene(getStartScreen()) );
 
         ToggleButton loginButton = new ToggleButton("LOGIN");
-        loginButton.getStyleClass().add("blueButton");
+        loginButton.setId("blueButton");
         loginButton.setOnAction( e -> {
 
             String studentNumber = studentNumberTextField.getText().trim().toUpperCase(Locale.ROOT);
 
             if (studentNumber.isEmpty()) {
-                studentNumberTextField.getStyleClass().add("textFieldFalse");
+                studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
                 errorMessage.setText("Invalid student number");
             } else if (!data.login(studentNumber)) {
-                studentNumberTextField.getStyleClass().add("textFieldFalse");
+                studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
+
                 errorMessage.setText("Account does not exist");
             } else {
-                stage.setScene(getMainView());
+                stage.setScene(getMainScene());
             }
         });
 
         buttons.setAlignment(Pos.BASELINE_RIGHT);
-        buttons.setSpacing(15);
+        buttons.setSpacing(18);
         buttons.getChildren().addAll(backButton, loginButton);
 
         grid.add(buttons, 1, 4);
@@ -190,7 +193,9 @@ public class Sisu extends Application {
     private Scene getRegistrationScreen() {
 
         GridPane grid = new GridPane();
-        Scene scene = new Scene(grid,400,300);
+        Scene scene = new Scene(grid,450,350);
+        grid.setBackground(Background.EMPTY);
+        scene.setFill(Paint.valueOf("#ffffff"));
         scene.getStylesheets().add(this.style);
 
         grid.setVgap(5);
@@ -199,59 +204,59 @@ public class Sisu extends Application {
         grid.setAlignment(Pos.CENTER);
 
         Label title = new Label("Register a profile");
-        title.getStyleClass().add("titleLabel");
+        title.setId("titleLabel");
         grid.add(title, 0, 0, 2, 1);
 
         Label nameLabel = new Label("Name:");
-        nameLabel.getStyleClass().add("textLabel");
+        nameLabel.setId("textLabel");
         grid.add(nameLabel, 0, 2);
 
         TextField nameTextField = new TextField();
-        nameTextField.getStyleClass().add("textField");
+        nameTextField.setId("textField");
         addInputListener(nameTextField, false);
         grid.add(nameTextField, 1, 2);
 
         Label studentNumberLabel = new Label("Student number:");
-        studentNumberLabel.getStyleClass().add("textLabel");
+        studentNumberLabel.setId("textLabel");
         grid.add(studentNumberLabel, 0, 4);
 
         TextField studentNumberTextField = new TextField();
-        studentNumberTextField.getStyleClass().add("textField");
+        studentNumberTextField.setId("textField");
         addInputListener(studentNumberTextField, false);
         grid.add(studentNumberTextField, 1, 4);
 
         Label startYearLabel = new Label("Start year (optional):");
-        startYearLabel.getStyleClass().add("textLabel");
+        startYearLabel.setId("textLabel");
         GridPane.setMargin(startYearLabel, new Insets(0, 0, 12, 0));
         grid.add(startYearLabel, 0, 6);
 
 
         TextField startYearTextField = new TextField();
-        startYearTextField.getStyleClass().add("textField");
+        startYearTextField.setId("textField");
         GridPane.setMargin(startYearTextField, new Insets(0, 0, 12, 0));
         addInputListener(startYearTextField, true);
         grid.add(startYearTextField, 1, 6);
 
         Label endYearLabel = new Label("Estimated end year (optional):");
-        endYearLabel.getStyleClass().add("textLabel");
+        endYearLabel.setId("textLabel");
         grid.add(endYearLabel, 0, 8);
 
         TextField endYearTextField = new TextField();
-        endYearTextField.getStyleClass().add("textField");
+        endYearTextField.setId("textField");
         addInputListener(endYearTextField, true);
         grid.add(endYearTextField, 1, 8);
 
         HBox buttons = new HBox();
 
         Label nameErrorMessage = new Label();
-        nameErrorMessage.getStyleClass().add("errorLabel");
+        nameErrorMessage.setId("errorLabel");
         grid.add(nameErrorMessage,1,3);
         Label studentNumberErrorMessage = new Label();
-        studentNumberErrorMessage.getStyleClass().add("errorLabel");
+        studentNumberErrorMessage.setId("errorLabel");
         grid.add(studentNumberErrorMessage,1,5);
 
         ToggleButton createButton = new ToggleButton("REGISTER");
-        createButton.getStyleClass().add("blueButton");
+        createButton.setId("blueButton");
         createButton.setOnAction(e -> {
 
             String name = nameTextField.getText().trim();
@@ -259,41 +264,51 @@ public class Sisu extends Application {
             String startYear = startYearTextField.getText();
             String endYear = endYearTextField.getText();
 
+            ArrayList<String> textFieldData = new ArrayList<>();
+
             boolean notEmpty = true;
 
             if (name.isEmpty()) {
-                nameTextField.getStyleClass().add("textFieldFalse");
+                nameTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
                 nameErrorMessage.setText("Invalid name");
                 notEmpty = false;
             } else {
-                nameTextField.getStyleClass().add("textFieldTrue");
+                nameTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
+                textFieldData.add(name);
             }
 
             if (studentNumber.isEmpty()) {
-                studentNumberTextField.getStyleClass().add("textFieldFalse");
+                studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
                 studentNumberErrorMessage.setText("Invalid student number");
                 notEmpty = false;
             } else {
-                studentNumberTextField.getStyleClass().add("textFieldTrue");
+                studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
+                textFieldData.add(studentNumber);
+            }
+
+            if (!startYear.isEmpty()) {
+                textFieldData.add(startYear);
+                if (!endYear.isEmpty()) {
+                    textFieldData.add(endYear);
+                }
             }
 
             if (notEmpty) {
-                ArrayList<String> textFieldData = new ArrayList<>(Arrays.asList(name, studentNumber, startYear, endYear));
                 if (!data.createAccount(textFieldData)) {
-                    studentNumberTextField.getStyleClass().add("textFieldFalse");
+                    studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
                     studentNumberErrorMessage.setText("Account exists");
                 } else {
-                    stage.setScene(getMainView());
+                    stage.setScene(getMainScene());
                 }
             }
         });
 
         ToggleButton backButton = new ToggleButton("BACK");
-        backButton.getStyleClass().add("whiteButton");
+        backButton.setId("whiteButton");
         backButton.setOnAction( e -> stage.setScene(getStartScreen()) );
 
         buttons.setAlignment(Pos.BASELINE_RIGHT);
-        buttons.setSpacing(15);
+        buttons.setSpacing(18);
         buttons.setPadding(new Insets(15,0,0,0));
         buttons.getChildren().addAll(backButton, createButton);
 
@@ -307,58 +322,128 @@ public class Sisu extends Application {
      * Returns the top menu
      * @return top menu
      */
-    private HBox getTopMenu() {
+    private HBox getTopMenu(BorderPane borderPane) {
 
         HBox menu = new HBox();
+        menu.setId("topMenu");
+
+        Image img = new Image("/SISU-logo.png");
+        ImageView imv = new ImageView(img);
+        imv.setPreserveRatio(true);
+        imv.setFitHeight(18);
+        ToggleButton mainViewButton = new ToggleButton();
+        mainViewButton.setGraphic(imv);
+        mainViewButton.setId("topMenuButton");
 
         ToggleButton studentInformationButton = new ToggleButton("Student information");
-        studentInformationButton.getStyleClass().add("topMenuButton");
-        studentInformationButton.setOnAction(e -> stage.setScene(getStudentInformationScreen()) );
+        studentInformationButton.setId("topMenuButton");
 
         ToggleButton structureOfStudiesButton = new ToggleButton("Structure of studies");
-        structureOfStudiesButton.getStyleClass().add("topMenuButton");
-        structureOfStudiesButton.setOnAction( e -> stage.setScene(getStructureOfStudiesScreen()) );
+        structureOfStudiesButton.setId("topMenuButton");
 
-        menu.getChildren().addAll(studentInformationButton, structureOfStudiesButton);
+        mainViewButton.setOnAction(e -> {
+            studentInformationButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), false);
+            structureOfStudiesButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), false);
+            borderPane.setCenter(getMainView());
+        });
+
+        studentInformationButton.setOnAction(e -> {
+            studentInformationButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), true);
+            structureOfStudiesButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), false);
+            borderPane.setCenter(getStudentInformationScreen());
+        } );
+
+        structureOfStudiesButton.setOnAction( e -> {
+            structureOfStudiesButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), true);
+            studentInformationButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), false);
+            borderPane.setCenter(getStructureOfStudiesScreen());
+        } );
+
+        /*
+        Separator separator = new Separator(Orientation.VERTICAL);
+        separator.setId("separator");
+        separator.setHalignment(HPos.RIGHT);
+        */
+
+        Line separator = new Line(0, 0, 0, 28);
+        separator.setId("line");
+
+        menu.getChildren().addAll(mainViewButton, separator, studentInformationButton, structureOfStudiesButton);
+        menu.setAlignment(Pos.CENTER_LEFT);
+
+
 
         return menu;
     }
 
     /**
-     * Implements the main view of the program
-     * @return main view
+     * Implements the main window scene
+     * @return main window scene
      */
-    private Scene getMainView() {
-
-        stage.setTitle("SISU");
-
+    private Scene getMainScene() {
         BorderPane borderPane = new BorderPane();
-
-        borderPane.setTop(getTopMenu());
-        borderPane.getTop().setStyle("-fx-background-color: #515151;");
-
         Scene scene = new Scene(borderPane, 600, 400);
+        scene.getStylesheets().add(this.style);
 
-        stage.setScene(scene);
-        stage.show();
+        borderPane.setTop(getTopMenu(borderPane));
+        borderPane.setCenter(getMainView());
         return scene;
+    }
+
+    /**
+     * Returns main view screen
+     * @return main view screen
+     */
+    private Pane getMainView() {
+
+        VBox vBox = new VBox();
+        vBox.setBackground(Background.EMPTY);
+
+        vBox.setPadding(new Insets(10, 10, 10, 10));
+
+        Label title = new Label("Main view!");
+        title.setId("welcomeLabel");
+
+        vBox.getChildren().add(title);
+
+        return vBox;
     }
 
     /**
      * Returns student information screen
      * @return student information screen
      */
-    private Scene getStudentInformationScreen() {
+    private Pane getStudentInformationScreen() {
 
-        return new Scene(new HBox());
+        VBox vBox = new VBox();
+        vBox.setBackground(Background.EMPTY);
+
+        vBox.setPadding(new Insets(10, 10, 10, 10));
+
+        Label title = new Label("Student information!");
+        title.setId("welcomeLabel");
+
+        vBox.getChildren().add(title);
+
+        return vBox;
     }
 
     /**
      * Returns structure of studies screen
      * @return structure of studies screen
      */
-    private Scene getStructureOfStudiesScreen() {
+    private Pane getStructureOfStudiesScreen() {
 
-        return new Scene(new HBox());
+        VBox vBox = new VBox();
+        vBox.setBackground(Background.EMPTY);
+
+        vBox.setPadding(new Insets(10, 10, 10, 10));
+
+        Label title = new Label("Structure of studies!");
+        title.setId("welcomeLabel");
+
+        vBox.getChildren().add(title);
+
+        return vBox;
     }
 }

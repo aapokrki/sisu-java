@@ -1,9 +1,16 @@
 [
   {
-    "name": "Aapo",
+    "name": "Teppo Tulppu",
+    "studentNumber": "321",
+    "startYear": 1999,
+    "endYear": 2005,
+    "completedCourses": []
+  },
+  {
+    "name": "Aapo Kärki",
     "studentNumber": "H292001",
     "startYear": 2020,
-    "endYear": 2025,
+    "endYear": 2026,
     "degreeProgramme": {
       "name": "Tieto- ja sähkötekniikan kandidaattiohjelma",
       "id": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",

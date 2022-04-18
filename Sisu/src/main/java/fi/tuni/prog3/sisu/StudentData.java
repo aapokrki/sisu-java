@@ -1,7 +1,6 @@
 package fi.tuni.prog3.sisu;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,7 +24,7 @@ public class StudentData {
     /**
      * Calls JSONLogic to save data to JSON format
      */
-    protected void finalize()
+    protected void save()
     {
         ArrayList<Student> list = new ArrayList<Student>(students.values());
         jsonData.studentsToJson(list);
@@ -45,7 +44,7 @@ public class StudentData {
     }
 
     /**
-     * Handles accoun creation operation
+     * Handles account creation operation
      * @param data - data from the text fields
      * @return boolean value representing success of the operation
      */
@@ -79,5 +78,10 @@ public class StudentData {
 
         students.put(studentNumber, user);
         return true;
+    }
+
+    public void deleteAccount() {
+        students.remove(user.studentNumber);
+        user = null;
     }
 }

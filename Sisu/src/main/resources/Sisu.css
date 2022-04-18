@@ -11,6 +11,25 @@
     -fx-font-size: 14;
 }
 
+#textLabelBigger {
+    -fx-font-family: 'Fira Sans';
+    -fx-text-fill: #474747;
+    -fx-font-weight: normal;
+    -fx-font-size: 16;
+}
+
+#textLabelWhite {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
+#textLabelSmallGray {
+    -fx-text-fill: #bdbdbd;
+    -fx-font-size: 10;
+    -fx-font-weight: normal;
+}
+
 #welcomeLabel {
     -fx-font-family: 'Fira Sans';
     -fx-text-fill: #474747;
@@ -25,6 +44,14 @@
     -fx-font-weight: normal;
     -fx-font-size: 22;
     -fx-padding: 0 0 20 0;
+}
+
+#smallerTitleLabel {
+    -fx-font-family: 'Fira Sans';
+    -fx-text-fill: #474747;
+    -fx-font-weight: normal;
+    -fx-font-size: 18;
+    -fx-padding: 10 0 10 0;
 }
 
 #errorLabel {
@@ -119,6 +146,44 @@
     -fx-background-color: #616161;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14;
+}
+
+#topMenuButton2 {
+    -fx-background-radius: 0;
+    -fx-background-color: #515151;
+    -fx-padding: 4 12 4 12;
+    -fx-pref-height: 46;
+    -fx-focus-color: transparent;
+}
+
+#topMenuButton2:hover {
+    -fx-background-color: #616161;
+}
+
+#topMenuButton2:showing {
+    -fx-font-size: 12;
+    -fx-font-fill: #717171;
+    -fx-base: #ffffff;
+}
+
+.menu-item .label{
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-padding: 5 15 5 15;
+    -fx-text-fill: #717171;
+}
+.menu-item:focused .label{
+    -fx-text-fill: #717171;
+}
+
+.menu-item:focused {
+    -fx-background-color: #d8e9fd;
+}
+
+#topMenuButton2 .arrow {
+    -fx-background-insets: -1 -2 -2 -2;
+    -fx-background-color: #ffffff;
+    -fx-shape: "M 9 10 L 15 4 A 1 1 0 0 0 15 3 A 1 1 0 0 0 14 3 L 8 9 L 2 3 A 1 1 0 0 0 1 3 A 1 1 0 0 0 1 4 L 7 10 q 1 1 2 0";
 }
 
 #topMenuButton:white {

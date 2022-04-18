@@ -3,11 +3,11 @@ package fi.tuni.prog3.sisu;
 import javafx.application.Application;
 import javafx.css.PseudoClass;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -24,6 +24,7 @@ import java.util.Locale;
 public class Sisu extends Application {
 
     private Stage stage;
+    private BorderPane mainWindow;
     private final String style = this.getClass().getResource("/Sisu.css").toExternalForm();
 
     private StudentData data;
@@ -53,6 +54,14 @@ public class Sisu extends Application {
         //Scene startScene = getMainScene();
         stage.setScene(startScene);
         stage.show();
+    }
+
+    /**
+     * Calls to save data when program is closed
+     */
+    @Override
+    public void stop() {
+        data.save();
     }
 
     /**
@@ -133,7 +142,6 @@ public class Sisu extends Application {
         grid.setPadding(new Insets(10, 10, 10, 10));
         grid.setAlignment(Pos.CENTER);
 
-
         Label title = new Label("Login by entering student number");
         title.setId("titleLabel");
 
@@ -151,8 +159,6 @@ public class Sisu extends Application {
         Label errorMessage = new Label();
         errorMessage.setId("errorLabel");
         grid.add(errorMessage,1,3);
-
-        HBox buttons = new HBox();
 
         ToggleButton backButton = new ToggleButton("BACK");
         backButton.setId("whiteButton");
@@ -173,12 +179,13 @@ public class Sisu extends Application {
                 errorMessage.setText("Account does not exist");
             } else {
                 stage.setScene(getMainScene());
+                stage.setMaximized(true);
             }
         });
 
+        HBox buttons = new HBox(backButton, loginButton);
         buttons.setAlignment(Pos.BASELINE_RIGHT);
         buttons.setSpacing(18);
-        buttons.getChildren().addAll(backButton, loginButton);
 
         grid.add(buttons, 1, 4);
         buttons.getParent().requestFocus();
@@ -229,7 +236,6 @@ public class Sisu extends Application {
         startYearLabel.setId("textLabel");
         GridPane.setMargin(startYearLabel, new Insets(0, 0, 12, 0));
         grid.add(startYearLabel, 0, 6);
-
 
         TextField startYearTextField = new TextField();
         startYearTextField.setId("textField");
@@ -299,6 +305,7 @@ public class Sisu extends Application {
                     studentNumberErrorMessage.setText("Account exists");
                 } else {
                     stage.setScene(getMainScene());
+                    stage.setMaximized(true);
                 }
             }
         });
@@ -322,7 +329,7 @@ public class Sisu extends Application {
      * Returns the top menu
      * @return top menu
      */
-    private HBox getTopMenu(BorderPane borderPane) {
+    private HBox getTopMenu(boolean nameChanged) {
 
         HBox menu = new HBox();
         menu.setId("topMenu");
@@ -337,6 +344,9 @@ public class Sisu extends Application {
 
         ToggleButton studentInformationButton = new ToggleButton("Student information");
         studentInformationButton.setId("topMenuButton");
+        if (nameChanged) {
+            studentInformationButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), true);
+        }
 
         ToggleButton structureOfStudiesButton = new ToggleButton("Structure of studies");
         structureOfStudiesButton.setId("topMenuButton");
@@ -344,49 +354,73 @@ public class Sisu extends Application {
         mainViewButton.setOnAction(e -> {
             studentInformationButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), false);
             structureOfStudiesButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), false);
-            borderPane.setCenter(getMainView());
+            mainWindow.setCenter(getMainView());
         });
 
         studentInformationButton.setOnAction(e -> {
             studentInformationButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), true);
             structureOfStudiesButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), false);
-            borderPane.setCenter(getStudentInformationScreen());
+            mainWindow.setCenter(getStudentInformationScreen());
         } );
 
         structureOfStudiesButton.setOnAction( e -> {
             structureOfStudiesButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), true);
             studentInformationButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("white"), false);
-            borderPane.setCenter(getStructureOfStudiesScreen());
+            mainWindow.setCenter(getStructureOfStudiesScreen());
         } );
-
-        /*
-        Separator separator = new Separator(Orientation.VERTICAL);
-        separator.setId("separator");
-        separator.setHalignment(HPos.RIGHT);
-        */
 
         Line separator = new Line(0, 0, 0, 28);
         separator.setId("line");
 
-        menu.getChildren().addAll(mainViewButton, separator, studentInformationButton, structureOfStudiesButton);
-        menu.setAlignment(Pos.CENTER_LEFT);
+        Label name = new Label(data.user.name);
+        name.setId("textLabelWhite");
 
+        Label student = new Label("STUDENT");
+        student.setId("textLabelSmallGray");
 
+        VBox texts = new VBox(name, student);
+        texts.setBackground(Background.EMPTY);
+        texts.setPadding(new Insets(0,4,0,0));
+
+        MenuButton nameButton = new MenuButton();
+        nameButton.setId("topMenuButton2");
+        nameButton.setGraphic(texts);
+        MenuItem logOutButton = new MenuItem("Log out");
+        nameButton.getItems().add(logOutButton);
+
+        logOutButton.setOnAction( e -> {
+            data.user = null;
+            stage.setMaximized(false);
+            stage.setScene(getLoginScreen());
+            stage.centerOnScreen();
+        });
+
+        HBox left = new HBox(mainViewButton, separator, studentInformationButton, structureOfStudiesButton);
+        left.getChildren().addAll();
+        left.setAlignment(Pos.CENTER_LEFT);
+        HBox.setHgrow(left, Priority.ALWAYS);
+
+        HBox right = new HBox(nameButton);
+        right.setAlignment(Pos.CENTER_RIGHT);
+        HBox.setHgrow(right, Priority.ALWAYS);
+
+        menu.getChildren().addAll(left, right);
 
         return menu;
     }
 
     /**
-     * Implements the main window scene
+     * Creates the main window scene
      * @return main window scene
      */
     private Scene getMainScene() {
-        BorderPane borderPane = new BorderPane();
-        Scene scene = new Scene(borderPane, 600, 400);
+
+        mainWindow = new BorderPane();
+        Scene scene = new Scene(mainWindow);
         scene.getStylesheets().add(this.style);
 
-        borderPane.setTop(getTopMenu(borderPane));
-        borderPane.setCenter(getMainView());
+        mainWindow.setTop(getTopMenu(false));
+        mainWindow.setCenter(getMainView());
         return scene;
     }
 
@@ -415,17 +449,152 @@ public class Sisu extends Application {
      */
     private Pane getStudentInformationScreen() {
 
-        VBox vBox = new VBox();
-        vBox.setBackground(Background.EMPTY);
+        HBox hBox = new HBox();
+        hBox.setStyle("-fx-background-color: #ffffff;");
+        hBox.setPadding(new Insets(60, 60, 60, 60));
+        hBox.setSpacing(50);
 
-        vBox.setPadding(new Insets(10, 10, 10, 10));
+        Separator separator = new Separator(Orientation.VERTICAL);
 
-        Label title = new Label("Student information!");
+        VBox editBox = new VBox();
+
+        Label editTitle = new Label("Edit information");
+        editTitle.setId("welcomeLabel");
+
+        Label editNameLabel = new Label("Name");
+        editNameLabel.setId("smallerTitleLabel");
+        TextField editNameTextField = new TextField(data.user.getName());
+        editNameTextField.setId("textField");
+
+        GridPane editYears = new GridPane();
+        editYears.setPadding(new Insets(120,0,60,0));
+        editYears.setBackground(Background.EMPTY);
+        editYears.setHgap(30);
+
+        Label editStartYearLabel = new Label("Start year");
+        editStartYearLabel.setId("smallerTitleLabel");
+        editYears.add(editStartYearLabel,0,0);
+        String startYear = String.valueOf(data.user.getStartYear());
+        if (data.user.getEndYear() == 0) {
+            startYear = "-";
+        }
+        TextField editStartYearTextField = new TextField(String.valueOf(data.user.getStartYear()));
+        addInputListener(editStartYearTextField, true);
+        editStartYearTextField.setId("textField");
+        editYears.add(editStartYearTextField,0,1);
+
+        Label editEndYearLabel = new Label("End year (estimated)");
+        editEndYearLabel.setId("smallerTitleLabel");
+        editYears.add(editEndYearLabel,1,0);
+
+        String endYear = String.valueOf(data.user.endYear);
+        if (data.user.endYear == 0) {
+            endYear = "-";
+        }
+        TextField editEndYearTextField = new TextField(String.valueOf(data.user.getEndYear()));
+        addInputListener(editEndYearTextField, true);
+        editEndYearTextField.setId("textField");
+        editYears.add(editEndYearTextField,1,1);
+
+        ToggleButton editButton = new ToggleButton("EDIT INFORMATION");
+        editButton.setId("blueButton");
+
+        ToggleButton deleteButton = new ToggleButton("DELETE ACCOUNT");
+        deleteButton.setId("whiteButton");
+
+        HBox buttons = new HBox(deleteButton, editButton);
+        buttons.setAlignment(Pos.BOTTOM_RIGHT);
+        buttons.setSpacing(18);
+
+        editButton.setOnAction( e -> {
+            hBox.getChildren().addAll(separator, editBox);
+            buttons.getChildren().clear();
+        });
+
+        deleteButton.setOnAction( e -> {
+            data.deleteAccount();
+            stage.setMaximized(false);
+            stage.setScene(getLoginScreen());
+            stage.centerOnScreen();
+        });
+
+        ToggleButton cancelButton = new ToggleButton("CANCEL");
+        cancelButton.setId("whiteButton");
+        cancelButton.setOnAction( e -> {
+            editNameTextField.setText(data.user.getName());
+            editStartYearTextField.setText(Integer.toString(data.user.getStartYear()));
+            editEndYearTextField.setText(Integer.toString(data.user.getEndYear()));
+            hBox.getChildren().removeAll(separator, editBox);
+            buttons.getChildren().addAll(deleteButton, editButton);
+        });
+
+        ToggleButton doneButton = new ToggleButton("DONE");
+        doneButton.setId("blueButton");
+        doneButton.setOnAction( e -> {
+            String newName = editNameTextField.getText().trim();
+            String newStartYear = editStartYearTextField.getText().trim();
+            String newEndYear = editEndYearTextField.getText().trim();
+
+            if (!newStartYear.isEmpty() && !newEndYear.isEmpty()) {
+                data.user.setStartYear(Integer.parseInt(newStartYear));
+                data.user.setEndYear(Integer.parseInt(newEndYear));
+            }
+            if (!newName.equals(data.user.getName())) {
+                data.user.setName(newName);
+                mainWindow.setTop(getTopMenu(true));
+            }
+            mainWindow.setCenter(getStudentInformationScreen());
+        });
+
+        HBox editButtons = new HBox(cancelButton, doneButton);
+        editButtons.setAlignment(Pos.BOTTOM_RIGHT);
+        editButtons.setSpacing(18);
+
+        editBox.getChildren().addAll(editTitle, editNameLabel, editNameTextField, editYears, editButtons);
+
+        Label title = new Label("Student information");
         title.setId("welcomeLabel");
 
-        vBox.getChildren().add(title);
+        Label nameTitle = new Label("Name");
+        nameTitle.setId("smallerTitleLabel");
+        Label name = new Label(data.user.name);
+        name.setId("textLabelBigger");
+        VBox nameBox = new VBox(nameTitle,name);
+        nameBox.setPadding(new Insets(0,0,30,0));
 
-        return vBox;
+        Label studentNumberTitle = new Label("Student number");
+        studentNumberTitle.setId("smallerTitleLabel");
+        Label studentNumber = new Label(data.user.studentNumber);
+        studentNumber.setId("textLabelBigger");
+
+        VBox studentNumberBox = new VBox(studentNumberTitle, studentNumber);
+        studentNumberBox.setPadding(new Insets(0,0,30,0));
+
+        GridPane years = new GridPane();
+        years.setPadding(new Insets(0,0,60,0));
+        years.setBackground(Background.EMPTY);
+        years.setHgap(100);
+
+        Label startYearTitle = new Label("Start year");
+        startYearTitle.setId("smallerTitleLabel");
+        years.add(startYearTitle, 0,0,1,1);
+
+        Label startYearLabel = new Label(startYear);
+        startYearLabel.setId("textLabelBigger");
+        years.add(startYearLabel, 0,1,1,1);
+
+        Label endYearTitle = new Label("End year (estimated)");
+        endYearTitle.setId("smallerTitleLabel");
+        years.add(endYearTitle, 1,0,1,1);
+
+        Label endYearLabel = new Label(endYear);
+        endYearLabel.setId("textLabelBigger");
+        years.add(endYearLabel, 1,1,1,1);
+
+        VBox informationBox = new VBox(title, nameBox, studentNumberBox, years, buttons);
+        hBox.getChildren().add(informationBox);
+
+        return hBox;
     }
 
     /**

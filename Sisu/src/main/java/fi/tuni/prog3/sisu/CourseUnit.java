@@ -5,12 +5,13 @@ import com.google.gson.JsonElement;
 public class CourseUnit extends Module{
 
     private transient JsonElement courseUnit;
-    private transient JsonElement parent;
+    private transient Module parent;
 
     public String name;
     public String code;
     public int grade;
     public Boolean completed = false;
+    public int credits;
     public String id;
 
     public CourseUnit(JsonElement courseUnit){
@@ -32,36 +33,25 @@ public class CourseUnit extends Module{
 
         this.id = courseUnit.getAsJsonObject().get("groupId").getAsString();
         this.code = courseUnit.getAsJsonObject().get("code").getAsString();
-
+        this.credits = courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("max").getAsInt();
 
     }
 
-    public void setCompleted(Boolean completed) {
-        this.completed = completed;
+    public void setCompleted() {
+        if(!completed){
+            this.completed = true;
+            parent.addCredits(credits);
+        }else{
+            this.completed = false;
+            parent.removeCredits(credits);
+        }
+
     }
 
     public void setGrade(int grade) {
-        this.grade = grade;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCourseUnit(JsonElement courseUnit) {
-        this.courseUnit = courseUnit;
-    }
-
-    public void setParent(JsonElement parent) {
-        this.parent = parent;
-    }
-
-    public void print(){
-        System.out.println(" ---- "+this.name);
+        if(grade <= 5 && grade >= 0){
+            this.grade = grade;
+        }
     }
 
     @Override
@@ -83,7 +73,6 @@ public class CourseUnit extends Module{
         return grade;
     }
 
-
     @Override
     public String getType() {
         return "CourseUnit";
@@ -93,4 +82,26 @@ public class CourseUnit extends Module{
     public String getId() {
         return id;
     }
+
+    public void setParent(Module parent) {
+        this.parent = parent;
+    }
+
+
+    public void print(){
+        System.out.println(" ---- "+this.name);
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCourseUnit(JsonElement courseUnit) {
+        this.courseUnit = courseUnit;
+    }
+
 }

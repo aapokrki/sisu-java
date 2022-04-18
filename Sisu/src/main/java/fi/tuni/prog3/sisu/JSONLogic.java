@@ -80,12 +80,13 @@ public class JSONLogic {
 
     /**
      * Finds the given degreeprogramme from the SISU API and calls readApiRec to read and store it's data
-     * to a Degreeprogramme object
+     * to a Degreeprogramme object. Used when creating a degreeProgramme for a student.
      * @param inputDegreeProgramme groupId of wanted degreeprogramme
+     * @param inputMandatoryStudyModule groupId of possible mandatosyStudyModule selection, null if no selection
      * @return Degreeprogramme from the api in a class format
      * @throws IOException //TODO change to better
      */
-    public DegreeProgramme readAPIData(String inputDegreeProgramme) throws IOException {
+    public DegreeProgramme readAPIData(String inputDegreeProgramme, String inputMandatoryStudyModule) throws IOException {
 
         String sURL = "https://sis-tuni.funidata.fi/kori/api/module-search?curriculumPeriodId=uta-lvv-2021&universityId=tuni-university-root-id&moduleType=DegreeProgramme&limit=1000";
 
@@ -107,6 +108,26 @@ public class JSONLogic {
 
                 degreeProgramme = readAPIRec(rootobj,1, new DegreeProgramme(rootobj));
 
+                // if a choice of studyModule is given, the useless studymodules are removed from the degreeProgramme
+                // eq. Tieto- ja Sähkötekniikka
+                if(inputMandatoryStudyModule != null){
+
+                    StudyModule mandatoryStudyModule = null;
+                    for (StudyModule studyModule : degreeProgramme.getStudyModules()) {
+                        //System.err.println(studyModule.getId());
+                        //System.err.println(inputMandatoryStudyModule);
+
+                        if(studyModule.getId().equals(inputMandatoryStudyModule)){
+
+                            mandatoryStudyModule = studyModule;
+                            ArrayList<StudyModule> newStudyModules = new ArrayList<>();
+                            newStudyModules.add(mandatoryStudyModule);
+                            degreeProgramme.setStudyModules(newStudyModules);
+                        }
+                    }
+
+                }
+
                 // For test reading all API data
                 //readAPIRec(rootobj.getAsJsonObject(),1, new DegreeProgramme(rootobj));
 
@@ -120,7 +141,12 @@ public class JSONLogic {
 
     }
 
-    public Map<String, String> readAllDegreeprogrammes() throws IOException {
+    /**
+     * Reads all degreeprogrammes for when the student chooses his/her degreeprogramme
+     * @return map of all degreeprogrammes <name, id> for easy handling
+     * @throws IOException
+     */
+    public Map<String, String> getAllDegreeProgrammes() throws IOException {
 
         String sURL = "https://sis-tuni.funidata.fi/kori/api/module-search?curriculumPeriodId=uta-lvv-2021&universityId=tuni-university-root-id&moduleType=DegreeProgramme&limit=1000";
 
@@ -208,10 +234,8 @@ public class JSONLogic {
 
         }
 
-
         // if no mandatory selections are required
         return null;
-
     }
 
     public String getName(JsonObject obj){
@@ -258,7 +282,7 @@ public class JSONLogic {
      * @param rootobj rootobj - JsonObject which is about to be handled
      * @param indent helper parameter for testprinting of obj hierarchy
      * @param parent the previous rootobj - where to store current rootobj's data etc.
-     * @return Degreeprogramme in a neat class format
+     * @return Degreeprogramme student's new degreeprogramme in a neat class format
      * @throws IOException //TODO Change to better
      */
     public DegreeProgramme readAPIRec(JsonObject rootobj, int indent, Module parent) throws IOException {
@@ -285,7 +309,7 @@ public class JSONLogic {
             JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
             StudyModule studyModule = new StudyModule(rootobj);
 
-            studyModule.setParent(parent.getJsonElement());
+            studyModule.setParent(parent);
             parent.addChild(studyModule);
 
             readAPIRec(ruleJsonObject,indent+1,studyModule);
@@ -301,7 +325,7 @@ public class JSONLogic {
             JsonObject courseUnit = requestJsonElementFromURL(courseUnitURL).getAsJsonArray().get(0).getAsJsonObject();
             CourseUnit course = new CourseUnit(courseUnit);
 
-            course.setParent(parent.getJsonElement());
+            course.setParent(parent);
             parent.addChild(course);
 
             //getName(courseUnit,indent, "CourseUnit",parent);
@@ -390,41 +414,60 @@ public class JSONLogic {
 
 
         //logic.getDegreeProgrammeClass(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
-        //DegreeProgramme degreeProgramme = logic.readAPIData("otm-d729cfc3-97ad-467f-86b7-b6729c496c82");
-        logic.readAllDegreeprogrammes();
-        //create two students
-//        Student aapo = new Student();
-//        aapo.setName("Aapo");
-//        aapo.setStudentNumber("H292001");
-//        aapo.setStartYear(2020);
-//        aapo.setEndYear(2025);
-//        aapo.setDegreeProgramme(degreeProgramme);
-//
-//        Student kappe = new Student();
-//        kappe.setName("Kasperi");
-//        kappe.setStudentNumber("H123123");
-//        kappe.setStartYear(2020);
-//        kappe.setEndYear(2025);
-//        kappe.setDegreeProgramme(degreeProgramme);
-//
-//        // Add to arraylist
-//        ArrayList<Student> studentsList = new ArrayList<>();
-//        studentsList.add(aapo);
-//        studentsList.add(kappe);
+        DegreeProgramme tietotekniikka = logic.readAPIData("otm-d729cfc3-97ad-467f-86b7-b6729c496c82", "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce");
+        //logic.getAllDegreeprogrammes();
 
-        // Demonstration of long term json storage of students
+        //System.out.println(degreeProgramme1.getStudyModules());
+
+        // tiiän.. näyttää vitun scuffed
+        CourseUnit signjamit = tietotekniikka.getStudyModules().get(0).getStudyModules().get(0).getCourseUnits().get(0);
+        CourseUnit jokutoine = tietotekniikka.getStudyModules().get(0).getStudyModules().get(0).getCourseUnits().get(1);
+
+        CourseUnit analyysinperuskurssi = tietotekniikka.getStudyModules().get(0).getStudyModules().get(1).getCourseUnits().get(0);
+
+
+        // mutta tää toimii!
+        signjamit.setCompleted();
+        signjamit.setGrade(5);
+
+        jokutoine.setCompleted();
+        jokutoine.setGrade(1);
+
+        analyysinperuskurssi.setCompleted();
+        analyysinperuskurssi.setGrade(5);
+
+        Student aapo = new Student();
+        aapo.setName("Aapo");
+        aapo.setStudentNumber("H292001");
+        aapo.setStartYear(2020);
+        aapo.setEndYear(2025);
+        aapo.setDegreeProgramme(tietotekniikka);
+
+
+        DegreeProgramme sähkötekniikka = logic.readAPIData("otm-d729cfc3-97ad-467f-86b7-b6729c496c82", "otm-b994335e-8759-4d7e-b3bf-ae505fd3935e");
+
+        Student kappe = new Student();
+        kappe.setName("Kasperi");
+        kappe.setStudentNumber("H292044");
+        kappe.setStartYear(2020);
+        kappe.setEndYear(2025);
+        kappe.setDegreeProgramme(sähkötekniikka);
+
+        // Add to arraylist
+        ArrayList<Student> studentsList = new ArrayList<>();
+        studentsList.add(aapo);
+        studentsList.add(kappe);
+
+         //Demonstration of long term json storage of students
 
         // from arraylist, create students.json
-//        logic.studentsToJson(studentsList);
+        logic.studentsToJson(studentsList);
 
         // from students.json, create map structure for all students
-//        Map<String, Student> students = logic.studentsFromJsonToClass();
+        Map<String, Student> students = logic.studentsFromJsonToClass();
 
-        //System.out.println(students.size());
-        // testprint of students read from json and stored to student objects
-//        students.forEach((k, v) -> {
-//            System.out.println(k + " -- " + v.getName() + " -- " +  v);
-//        });
+
+
         //logic.studentsToJson((ArrayList<Student>) students.values());
 
     }

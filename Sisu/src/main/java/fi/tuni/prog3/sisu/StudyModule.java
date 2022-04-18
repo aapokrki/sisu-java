@@ -7,10 +7,12 @@ import java.util.ArrayList;
 public class StudyModule extends Module{
 
     private transient JsonElement studyModule;
-    private transient JsonElement parent;
+    private transient Module parent;
     public String name;
     public String code;
     public String id;
+    public int minCredits;
+    public int currentCredits;
     public ArrayList<StudyModule> studyModules;
     public ArrayList<CourseUnit> courseUnits;
 
@@ -19,6 +21,7 @@ public class StudyModule extends Module{
         this.studyModule = studyModule;
         this.code = studyModule.getAsJsonObject().get("code").getAsString();
         this.id = studyModule.getAsJsonObject().get("groupId").getAsString();
+        this.minCredits = studyModule.getAsJsonObject().get("targetCredits").getAsJsonObject().get("min").getAsInt();
 
         // The name can be in finnish, english or both. Prefers finnish first if both are available
         try {
@@ -39,6 +42,15 @@ public class StudyModule extends Module{
         this.courseUnits = new ArrayList<>();
     }
 
+    public void addCredits(int amount){
+        this.currentCredits += amount;
+        parent.addCredits(amount);
+    }
+    public void removeCredits(int amount){
+        this.currentCredits -= amount;
+        parent.removeCredits(amount);
+    }
+
     @Override
     public String getType() {
         return "StudyModule";
@@ -53,37 +65,12 @@ public class StudyModule extends Module{
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public JsonElement getJsonElement(){
-        return studyModule;
-    }
-
-    public void setParent(JsonElement parent) {
-        this.parent = parent;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void addCourseUnits(CourseUnit courseUnit) {
-        courseUnits.add(courseUnit);
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public JsonElement getParent() {
-        return parent;
-    }
-
     public ArrayList<CourseUnit> getCourseUnits() {
         return courseUnits;
     }
+
+    public ArrayList<StudyModule> getStudyModules(){return studyModules; }
+
 
     public void addChild(Module module){
 
@@ -96,22 +83,47 @@ public class StudyModule extends Module{
         }
     }
 
+    public JsonElement getJsonElement(){
+        return studyModule;
+    }
+
+    public void setParent(Module parent) {
+        this.parent = parent;
+    }
+
+
+
+    // Ei niin olennaisia
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void addCourseUnits(CourseUnit courseUnit) {
+        courseUnits.add(courseUnit);
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
     public void print(){
 
         if(studyModules.isEmpty()){
             System.out.println(" -- " + this.name + "| - Courses: " + courseUnits.size());
-            for (int i = 0; i < courseUnits.size(); i++) {
-                courseUnits.get(i).print();
+            for (CourseUnit courseUnit : courseUnits) {
+                courseUnit.print();
             }
         }else{
             System.out.println(this.name + "| - Submodules: " + studyModules.size() + " - Courses: " + courseUnits.size());
 
-            for (int i = 0; i < studyModules.size(); i++) {
-                studyModules.get(i).print();
+            for (StudyModule module : studyModules) {
+                module.print();
             }
 
-            for (int i = 0; i < courseUnits.size(); i++) {
-                courseUnits.get(i).print();
+            for (CourseUnit courseUnit : courseUnits) {
+                courseUnit.print();
             }
         }
 

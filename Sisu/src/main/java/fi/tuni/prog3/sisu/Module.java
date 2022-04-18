@@ -34,4 +34,11 @@ public abstract class Module {
     public JsonElement getJsonElement(){
         return  null;
     }
+
+    public void addCredits(int amount){
+
+    }
+    public void removeCredits(int amount){
+
+    }
 }

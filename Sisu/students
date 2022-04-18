@@ -1,44 +1,45 @@
 [
   {
-    "name": "Teppo Tulppu",
-    "studentNumber": "321",
-    "startYear": 1999,
-    "endYear": 2005,
-    "completedCourses": []
-  },
-  {
-    "name": "Aapo Kärki",
+    "name": "Aapo",
     "studentNumber": "H292001",
     "startYear": 2020,
-    "endYear": 2026,
+    "endYear": 2025,
     "degreeProgramme": {
       "name": "Tieto- ja sähkötekniikan kandidaattiohjelma",
       "id": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
       "code": "TSTK",
+      "minCredits": 180,
+      "currentCredits": 15,
       "studyModules": [
         {
           "name": "Tietotekniikka",
           "code": "TTEA",
           "id": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
+          "minCredits": 180,
+          "currentCredits": 15,
           "studyModules": [
             {
               "name": "Tietotekniikan yhteiset opinnot",
               "code": "COMP-P01",
               "id": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
+              "minCredits": 65,
+              "currentCredits": 10,
               "studyModules": [],
               "courseUnits": [
                 {
                   "name": "Tietoliikennetekniikan perusteet",
                   "code": "COMM.100",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
+                  "credits": 5,
                   "id": "tut-cu-g-45462"
                 },
                 {
                   "name": "Johdatus sulautettuihin järjestelmiin",
                   "code": "COMP.CE.100",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 1,
+                  "completed": true,
+                  "credits": 5,
                   "id": "tut-cu-g-45577"
                 },
                 {
@@ -46,6 +47,7 @@
                   "code": "COMP.CS.100",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45620"
                 },
                 {
@@ -53,6 +55,7 @@
                   "code": "COMP.CS.110",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45510"
                 },
                 {
@@ -60,6 +63,7 @@
                   "code": "COMP.CS.300",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-36938"
                 },
                 {
@@ -67,6 +71,7 @@
                   "code": "COMP.SGN.100",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-36355"
                 },
                 {
@@ -74,6 +79,7 @@
                   "code": "COMP.SE.100",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45474"
                 },
                 {
@@ -81,6 +87,7 @@
                   "code": "COMP.SEC.100",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45501"
                 },
                 {
@@ -88,6 +95,7 @@
                   "code": "EE.010",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45460"
                 },
                 {
@@ -95,6 +103,7 @@
                   "code": "ITC.CEE.010",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45459"
                 },
                 {
@@ -102,6 +111,7 @@
                   "code": "LANG.ENG.001",
                   "grade": 0,
                   "completed": false,
+                  "credits": 3,
                   "id": "uta-ykoodi-38827"
                 },
                 {
@@ -109,6 +119,7 @@
                   "code": "LANG.002",
                   "grade": 0,
                   "completed": false,
+                  "credits": 2,
                   "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
                 },
                 {
@@ -116,6 +127,7 @@
                   "code": "LANG.PUH.001",
                   "grade": 0,
                   "completed": false,
+                  "credits": 2,
                   "id": "uta-ykoodi-48285"
                 },
                 {
@@ -123,6 +135,7 @@
                   "code": "LANG.RUO.001",
                   "grade": 0,
                   "completed": false,
+                  "credits": 3,
                   "id": "uta-ykoodi-20998"
                 },
                 {
@@ -130,6 +143,7 @@
                   "code": "TUTA.010",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48243"
                 }
               ]
@@ -138,13 +152,16 @@
               "name": "Tietotekniikan matemaattis-luonnontieteelliset perusopinnot",
               "code": "COMP-P02",
               "id": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
+              "minCredits": 45,
+              "currentCredits": 5,
               "studyModules": [],
               "courseUnits": [
                 {
                   "name": "Analyysin peruskurssi",
                   "code": "MATH.APP.111",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
+                  "credits": 5,
                   "id": "tut-cu-g-35897"
                 },
                 {
@@ -152,6 +169,7 @@
                   "code": "MATH.MA.140",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-35898"
                 },
                 {
@@ -159,6 +177,7 @@
                   "code": "MATH.APP.160",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-35899"
                 },
                 {
@@ -166,6 +185,7 @@
                   "code": "MATH.APP.210",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "uta-ykoodi-47933"
                 },
                 {
@@ -173,6 +193,7 @@
                   "code": "FYS.101",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48229"
                 },
                 {
@@ -180,6 +201,7 @@
                   "code": "FYS.102",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48230"
                 },
                 {
@@ -187,6 +209,7 @@
                   "code": "FYS.103",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48256"
                 },
                 {
@@ -194,6 +217,7 @@
                   "code": "MATH.APP.220",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-47510"
                 },
                 {
@@ -201,6 +225,7 @@
                   "code": "MATH.APP.260",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-47515"
                 },
                 {
@@ -208,6 +233,7 @@
                   "code": "MATH.APP.230",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-47603"
                 },
                 {
@@ -215,6 +241,7 @@
                   "code": "MATH.APP.240",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-47604"
                 },
                 {
@@ -222,6 +249,7 @@
                   "code": "MATH.APP.270",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48943"
                 },
                 {
@@ -229,6 +257,7 @@
                   "code": "DATA.STAT.120",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "uta-ykoodi-38909"
                 },
                 {
@@ -236,6 +265,7 @@
                   "code": "DATA.STAT.420",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "uta-ykoodi-33646"
                 },
                 {
@@ -243,6 +273,7 @@
                   "code": "MATH.MA.210",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "otm-1e8f1023-1977-4f98-9386-110ef623327b"
                 }
               ]
@@ -251,254 +282,8 @@
               "name": "Vapaasti valittavat opintojaksot",
               "code": "COMP-M01",
               "id": "otm-e0486fac-3401-47e9-97d7-968bed034227",
-              "studyModules": [],
-              "courseUnits": []
-            }
-          ],
-          "courseUnits": []
-        },
-        {
-          "name": "Sähkötekniikka",
-          "code": "STEA",
-          "id": "otm-b994335e-8759-4d7e-b3bf-ae505fd3935e",
-          "studyModules": [
-            {
-              "name": "Sähkötekniikan yhteiset opinnot",
-              "code": "EE-P01",
-              "id": "otm-b754ef2e-46fa-435d-aa99-ccbda4866adc",
-              "studyModules": [],
-              "courseUnits": [
-                {
-                  "name": "Signaalit ja mittaaminen",
-                  "code": "EE.010",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45460"
-                },
-                {
-                  "name": "Tietoliikennetekniikan perusteet",
-                  "code": "COMM.100",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45462"
-                },
-                {
-                  "name": "Ohjelmointi 1: Johdatus ohjelmointiin",
-                  "code": "COMP.CS.100",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45620"
-                },
-                {
-                  "name": "Ohjelmointi 2: Rakenteet",
-                  "code": "COMP.CS.110",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45510"
-                },
-                {
-                  "name": "Signaalinkäsittelyn perusteet",
-                  "code": "COMP.SGN.100",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-36355"
-                },
-                {
-                  "name": "Johdatus sulautettuihin järjestelmiin",
-                  "code": "COMP.CE.100",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45577"
-                },
-                {
-                  "name": "Johdanto tekniikan opintoihin",
-                  "code": "ITC.CEE.010",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45459"
-                },
-                {
-                  "name": "Teollisuustalouden perusteet",
-                  "code": "TUTA.010",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48243"
-                },
-                {
-                  "name": "Piiriteoria",
-                  "code": "EE.030",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45198"
-                },
-                {
-                  "name": "Sähköenergiajärjestelmien perusteet",
-                  "code": "EE.110",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45457"
-                },
-                {
-                  "name": "Elektroniikan perusteet",
-                  "code": "EE.020",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45399"
-                },
-                {
-                  "name": "Monikielinen johdanto akateemisiin viestintä- ja kieliopintoihin 2",
-                  "code": "LANG.002",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
-                },
-                {
-                  "name": "Foundations of Professional and Academic Communication in English",
-                  "code": "LANG.ENG.001",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-38827"
-                },
-                {
-                  "name": "Ruotsia työelämään",
-                  "code": "LANG.RUO.001",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-20998"
-                },
-                {
-                  "name": "Vuorovaikutusosaaminen työelämässä",
-                  "code": "LANG.PUH.001",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-48285"
-                }
-              ]
-            },
-            {
-              "name": "Sähkötekniikan matemaattis-luonnontieteelliset perusopinnot",
-              "code": "EE-P02",
-              "id": "otm-0d293ec1-6de8-4d59-bbf0-b8fc486c82cd",
-              "studyModules": [],
-              "courseUnits": [
-                {
-                  "name": "Analyysin peruskurssi",
-                  "code": "MATH.APP.111",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-35897"
-                },
-                {
-                  "name": "Vektorit ja matriisit",
-                  "code": "MATH.MA.140",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-35898"
-                },
-                {
-                  "name": "Differentiaali- ja integraalilaskenta",
-                  "code": "MATH.APP.160",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-35899"
-                },
-                {
-                  "name": "Johdatus todennäköisyyslaskentaan ja tilastolliseen päättelyyn",
-                  "code": "MATH.APP.210",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-47933"
-                },
-                {
-                  "name": "Yliopistofysiikka 1",
-                  "code": "FYS.101",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48229"
-                },
-                {
-                  "name": "Yliopistofysiikka 2",
-                  "code": "FYS.102",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48230"
-                },
-                {
-                  "name": "Yliopistofysiikka 3",
-                  "code": "FYS.103",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48256"
-                },
-                {
-                  "name": "Yliopistofysiikka 4",
-                  "code": "FYS.104",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48257"
-                },
-                {
-                  "name": "Usean muuttujan funktiot",
-                  "code": "MATH.APP.220",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-47510"
-                },
-                {
-                  "name": "Operaatiotutkimus",
-                  "code": "MATH.APP.260",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-47515"
-                },
-                {
-                  "name": "Vektorianalyysi",
-                  "code": "MATH.APP.230",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-47603"
-                },
-                {
-                  "name": "Fourier\u0027n menetelmät",
-                  "code": "MATH.APP.240",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-47604"
-                },
-                {
-                  "name": "Graafialgoritmit",
-                  "code": "MATH.APP.270",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48943"
-                },
-                {
-                  "name": "Tilastollisten menetelmien perusteet",
-                  "code": "DATA.STAT.120",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-38909"
-                },
-                {
-                  "name": "Matemaattisen tilastotieteen perusteet",
-                  "code": "DATA.STAT.420",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-33646"
-                },
-                {
-                  "name": "Diskreetti matematiikka",
-                  "code": "MATH.MA.210",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "otm-1e8f1023-1977-4f98-9386-110ef623327b"
-                }
-              ]
-            },
-            {
-              "name": "Vapaasti valittavat opintojaksot",
-              "code": "EE-M01",
-              "id": "otm-cbed2832-3231-4833-82b0-8547bac34293",
+              "minCredits": 0,
+              "currentCredits": 0,
               "studyModules": [],
               "courseUnits": []
             }
@@ -511,264 +296,29 @@
   },
   {
     "name": "Kasperi",
-    "studentNumber": "H123123",
+    "studentNumber": "H292044",
     "startYear": 2020,
     "endYear": 2025,
     "degreeProgramme": {
       "name": "Tieto- ja sähkötekniikan kandidaattiohjelma",
       "id": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
       "code": "TSTK",
+      "minCredits": 180,
+      "currentCredits": 0,
       "studyModules": [
-        {
-          "name": "Tietotekniikka",
-          "code": "TTEA",
-          "id": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
-          "studyModules": [
-            {
-              "name": "Tietotekniikan yhteiset opinnot",
-              "code": "COMP-P01",
-              "id": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
-              "studyModules": [],
-              "courseUnits": [
-                {
-                  "name": "Tietoliikennetekniikan perusteet",
-                  "code": "COMM.100",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45462"
-                },
-                {
-                  "name": "Johdatus sulautettuihin järjestelmiin",
-                  "code": "COMP.CE.100",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45577"
-                },
-                {
-                  "name": "Ohjelmointi 1: Johdatus ohjelmointiin",
-                  "code": "COMP.CS.100",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45620"
-                },
-                {
-                  "name": "Ohjelmointi 2: Rakenteet",
-                  "code": "COMP.CS.110",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45510"
-                },
-                {
-                  "name": "Tietorakenteet ja algoritmit 1",
-                  "code": "COMP.CS.300",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-36938"
-                },
-                {
-                  "name": "Signaalinkäsittelyn perusteet",
-                  "code": "COMP.SGN.100",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-36355"
-                },
-                {
-                  "name": "Johdatus ohjelmistotuotantoon",
-                  "code": "COMP.SE.100",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45474"
-                },
-                {
-                  "name": "Kyberturvallisuus I: perusteet",
-                  "code": "COMP.SEC.100",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45501"
-                },
-                {
-                  "name": "Signaalit ja mittaaminen",
-                  "code": "EE.010",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45460"
-                },
-                {
-                  "name": "Johdanto tekniikan opintoihin",
-                  "code": "ITC.CEE.010",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-45459"
-                },
-                {
-                  "name": "Foundations of Professional and Academic Communication in English",
-                  "code": "LANG.ENG.001",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-38827"
-                },
-                {
-                  "name": "Monikielinen johdanto akateemisiin viestintä- ja kieliopintoihin 2",
-                  "code": "LANG.002",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
-                },
-                {
-                  "name": "Vuorovaikutusosaaminen työelämässä",
-                  "code": "LANG.PUH.001",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-48285"
-                },
-                {
-                  "name": "Ruotsia työelämään",
-                  "code": "LANG.RUO.001",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-20998"
-                },
-                {
-                  "name": "Teollisuustalouden perusteet",
-                  "code": "TUTA.010",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48243"
-                }
-              ]
-            },
-            {
-              "name": "Tietotekniikan matemaattis-luonnontieteelliset perusopinnot",
-              "code": "COMP-P02",
-              "id": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
-              "studyModules": [],
-              "courseUnits": [
-                {
-                  "name": "Analyysin peruskurssi",
-                  "code": "MATH.APP.111",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-35897"
-                },
-                {
-                  "name": "Vektorit ja matriisit",
-                  "code": "MATH.MA.140",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-35898"
-                },
-                {
-                  "name": "Differentiaali- ja integraalilaskenta",
-                  "code": "MATH.APP.160",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-35899"
-                },
-                {
-                  "name": "Johdatus todennäköisyyslaskentaan ja tilastolliseen päättelyyn",
-                  "code": "MATH.APP.210",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-47933"
-                },
-                {
-                  "name": "Yliopistofysiikka 1",
-                  "code": "FYS.101",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48229"
-                },
-                {
-                  "name": "Yliopistofysiikka 2",
-                  "code": "FYS.102",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48230"
-                },
-                {
-                  "name": "Yliopistofysiikka 3",
-                  "code": "FYS.103",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48256"
-                },
-                {
-                  "name": "Usean muuttujan funktiot",
-                  "code": "MATH.APP.220",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-47510"
-                },
-                {
-                  "name": "Operaatiotutkimus",
-                  "code": "MATH.APP.260",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-47515"
-                },
-                {
-                  "name": "Vektorianalyysi",
-                  "code": "MATH.APP.230",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-47603"
-                },
-                {
-                  "name": "Fourier\u0027n menetelmät",
-                  "code": "MATH.APP.240",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-47604"
-                },
-                {
-                  "name": "Graafialgoritmit",
-                  "code": "MATH.APP.270",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "tut-cu-g-48943"
-                },
-                {
-                  "name": "Tilastollisten menetelmien perusteet",
-                  "code": "DATA.STAT.120",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-38909"
-                },
-                {
-                  "name": "Matemaattisen tilastotieteen perusteet",
-                  "code": "DATA.STAT.420",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "uta-ykoodi-33646"
-                },
-                {
-                  "name": "Diskreetti matematiikka",
-                  "code": "MATH.MA.210",
-                  "grade": 0,
-                  "completed": false,
-                  "id": "otm-1e8f1023-1977-4f98-9386-110ef623327b"
-                }
-              ]
-            },
-            {
-              "name": "Vapaasti valittavat opintojaksot",
-              "code": "COMP-M01",
-              "id": "otm-e0486fac-3401-47e9-97d7-968bed034227",
-              "studyModules": [],
-              "courseUnits": []
-            }
-          ],
-          "courseUnits": []
-        },
         {
           "name": "Sähkötekniikka",
           "code": "STEA",
           "id": "otm-b994335e-8759-4d7e-b3bf-ae505fd3935e",
+          "minCredits": 180,
+          "currentCredits": 0,
           "studyModules": [
             {
               "name": "Sähkötekniikan yhteiset opinnot",
               "code": "EE-P01",
               "id": "otm-b754ef2e-46fa-435d-aa99-ccbda4866adc",
+              "minCredits": 65,
+              "currentCredits": 0,
               "studyModules": [],
               "courseUnits": [
                 {
@@ -776,6 +326,7 @@
                   "code": "EE.010",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45460"
                 },
                 {
@@ -783,6 +334,7 @@
                   "code": "COMM.100",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45462"
                 },
                 {
@@ -790,6 +342,7 @@
                   "code": "COMP.CS.100",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45620"
                 },
                 {
@@ -797,6 +350,7 @@
                   "code": "COMP.CS.110",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45510"
                 },
                 {
@@ -804,6 +358,7 @@
                   "code": "COMP.SGN.100",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-36355"
                 },
                 {
@@ -811,6 +366,7 @@
                   "code": "COMP.CE.100",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45577"
                 },
                 {
@@ -818,6 +374,7 @@
                   "code": "ITC.CEE.010",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45459"
                 },
                 {
@@ -825,6 +382,7 @@
                   "code": "TUTA.010",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48243"
                 },
                 {
@@ -832,6 +390,7 @@
                   "code": "EE.030",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45198"
                 },
                 {
@@ -839,6 +398,7 @@
                   "code": "EE.110",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45457"
                 },
                 {
@@ -846,6 +406,7 @@
                   "code": "EE.020",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-45399"
                 },
                 {
@@ -853,6 +414,7 @@
                   "code": "LANG.002",
                   "grade": 0,
                   "completed": false,
+                  "credits": 2,
                   "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
                 },
                 {
@@ -860,6 +422,7 @@
                   "code": "LANG.ENG.001",
                   "grade": 0,
                   "completed": false,
+                  "credits": 3,
                   "id": "uta-ykoodi-38827"
                 },
                 {
@@ -867,6 +430,7 @@
                   "code": "LANG.RUO.001",
                   "grade": 0,
                   "completed": false,
+                  "credits": 3,
                   "id": "uta-ykoodi-20998"
                 },
                 {
@@ -874,6 +438,7 @@
                   "code": "LANG.PUH.001",
                   "grade": 0,
                   "completed": false,
+                  "credits": 2,
                   "id": "uta-ykoodi-48285"
                 }
               ]
@@ -882,6 +447,8 @@
               "name": "Sähkötekniikan matemaattis-luonnontieteelliset perusopinnot",
               "code": "EE-P02",
               "id": "otm-0d293ec1-6de8-4d59-bbf0-b8fc486c82cd",
+              "minCredits": 45,
+              "currentCredits": 0,
               "studyModules": [],
               "courseUnits": [
                 {
@@ -889,6 +456,7 @@
                   "code": "MATH.APP.111",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-35897"
                 },
                 {
@@ -896,6 +464,7 @@
                   "code": "MATH.MA.140",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-35898"
                 },
                 {
@@ -903,6 +472,7 @@
                   "code": "MATH.APP.160",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-35899"
                 },
                 {
@@ -910,6 +480,7 @@
                   "code": "MATH.APP.210",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "uta-ykoodi-47933"
                 },
                 {
@@ -917,6 +488,7 @@
                   "code": "FYS.101",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48229"
                 },
                 {
@@ -924,6 +496,7 @@
                   "code": "FYS.102",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48230"
                 },
                 {
@@ -931,6 +504,7 @@
                   "code": "FYS.103",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48256"
                 },
                 {
@@ -938,6 +512,7 @@
                   "code": "FYS.104",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48257"
                 },
                 {
@@ -945,6 +520,7 @@
                   "code": "MATH.APP.220",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-47510"
                 },
                 {
@@ -952,6 +528,7 @@
                   "code": "MATH.APP.260",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-47515"
                 },
                 {
@@ -959,6 +536,7 @@
                   "code": "MATH.APP.230",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-47603"
                 },
                 {
@@ -966,6 +544,7 @@
                   "code": "MATH.APP.240",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-47604"
                 },
                 {
@@ -973,6 +552,7 @@
                   "code": "MATH.APP.270",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "tut-cu-g-48943"
                 },
                 {
@@ -980,6 +560,7 @@
                   "code": "DATA.STAT.120",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "uta-ykoodi-38909"
                 },
                 {
@@ -987,6 +568,7 @@
                   "code": "DATA.STAT.420",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "uta-ykoodi-33646"
                 },
                 {
@@ -994,6 +576,7 @@
                   "code": "MATH.MA.210",
                   "grade": 0,
                   "completed": false,
+                  "credits": 5,
                   "id": "otm-1e8f1023-1977-4f98-9386-110ef623327b"
                 }
               ]
@@ -1002,6 +585,8 @@
               "name": "Vapaasti valittavat opintojaksot",
               "code": "EE-M01",
               "id": "otm-cbed2832-3231-4833-82b0-8547bac34293",
+              "minCredits": 0,
+              "currentCredits": 0,
               "studyModules": [],
               "courseUnits": []
             }

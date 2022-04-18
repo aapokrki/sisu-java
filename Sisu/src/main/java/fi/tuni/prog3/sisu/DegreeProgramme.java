@@ -8,13 +8,13 @@ public class DegreeProgramme extends Module{
 
 
     private transient JsonElement degreeProgramme;
-    private transient JsonElement parent;
+    private transient Module parent;
 
     public String name;
     public String id;
     public String code;
 
-    public int maxCredits;
+    public int minCredits;
     public int currentCredits;
 
     public ArrayList<DegreeProgramme> degreeProgrammes;
@@ -27,6 +27,7 @@ public class DegreeProgramme extends Module{
         this.id = degreeProgramme.getAsJsonObject().get("groupId").getAsString();
         this.code = degreeProgramme.getAsJsonObject().get("code").getAsString();
         this.studyModules = new ArrayList<>();
+        this.minCredits = degreeProgramme.getAsJsonObject().get("targetCredits").getAsJsonObject().get("min").getAsInt();
 
 
         // The name can be in finnish, english or both. Prefers finnish first if both are available
@@ -46,50 +47,23 @@ public class DegreeProgramme extends Module{
 
     }
 
-    public void setParent(JsonElement parent) {
-        this.parent = parent;
+    public void addCredits(int amount){
+        this.currentCredits += amount;
     }
 
-    public void setDegreeProgramme(JsonElement degreeProgramme) {
-        this.degreeProgramme = degreeProgramme;
+    public void removeCredits(int amount){
+        this.currentCredits -= amount;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStudyModules(ArrayList<StudyModule> studyModules) {
+        this.studyModules = studyModules;
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public JsonElement getJsonElement(){
         return degreeProgramme;
     }
 
     public ArrayList<StudyModule> getStudyModules() {
         return studyModules;
-    }
-
-    public void addStudyModule(StudyModule studyModule){
-        studyModules.add(studyModule);
-    }
-
-    public void addDegreeProgramme(DegreeProgramme degreeProgramme){
-        degreeProgrammes.add(degreeProgramme);
-    }
-
-    public void print(){
-
-        System.out.println("  " + this.name + " - " + studyModules.size() + "\n");
-
-        for (int i = 0; i < studyModules.size(); i++) {
-            studyModules.get(i).print();
-
-        }
     }
 
     @Override
@@ -120,5 +94,36 @@ public class DegreeProgramme extends Module{
             degreeProgrammes.add((DegreeProgramme) module);
         }
 
+    }
+
+    // Ei niin olennaisia ku kaikki tehdään rakentimessa
+    public void setParent(Module parent) {
+        this.parent = parent;
+    }
+
+    public void setDegreeProgramme(JsonElement degreeProgramme) {
+        this.degreeProgramme = degreeProgramme;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void print(){
+
+        System.out.println("  " + this.name + " - " + studyModules.size() + "\n");
+
+        for (int i = 0; i < studyModules.size(); i++) {
+            studyModules.get(i).print();
+
+        }
     }
 }

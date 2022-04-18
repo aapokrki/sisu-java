@@ -9,10 +9,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 // TODO: Store person's degree choice to his/her data JSON
 // TODO: Create and implement a JSON system for persons.
@@ -121,7 +118,27 @@ public class JSONLogic {
 
     }
 
+    public Map<String, String> readAllDegreeprogrammes() throws IOException {
 
+        String sURL = "https://sis-tuni.funidata.fi/kori/api/module-search?curriculumPeriodId=uta-lvv-2021&universityId=tuni-university-root-id&moduleType=DegreeProgramme&limit=1000";
+
+        JsonObject rootobj = requestJsonRootObjectFromURL(sURL);
+        DegreeProgramme degreeProgramme = null;
+        JsonArray programmes = rootobj.get("searchResults").getAsJsonArray();
+        Map<String, String> degreeProgrammes = new TreeMap<>();
+        for (int i = 0; i < programmes.size(); i++) {
+            JsonObject programme = programmes.get(i).getAsJsonObject();
+            degreeProgrammes.put(programme.get("name").getAsString(),programme.get("groupId").getAsString());
+            //System.out.println(programme.get("name").getAsString() + " -- "+programme.get("groupId").getAsString());
+        }
+
+        degreeProgrammes.forEach((k,v) ->{
+            System.out.println(k + " -- " + v);
+        });
+        return degreeProgrammes;
+    }
+
+    
 
 
     public void getName(JsonObject obj, int indent, String type, Module parent){
@@ -282,41 +299,41 @@ public class JSONLogic {
 
 
         //logic.getDegreeProgrammeClass(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
-        DegreeProgramme degreeProgramme = logic.readAPIData("otm-d729cfc3-97ad-467f-86b7-b6729c496c82");
-
+        //DegreeProgramme degreeProgramme = logic.readAPIData("otm-d729cfc3-97ad-467f-86b7-b6729c496c82");
+        logic.readAllDegreeprogrammes();
         //create two students
-        Student aapo = new Student();
-        aapo.setName("Aapo");
-        aapo.setStudentNumber("H292001");
-        aapo.setStartYear(2020);
-        aapo.setEndYear(2025);
-        aapo.setDegreeProgramme(degreeProgramme);
-
-        Student kappe = new Student();
-        kappe.setName("Kasperi");
-        kappe.setStudentNumber("H123123");
-        kappe.setStartYear(2020);
-        kappe.setEndYear(2025);
-        kappe.setDegreeProgramme(degreeProgramme);
-
-        // Add to arraylist
-        ArrayList<Student> studentsList = new ArrayList<>();
-        studentsList.add(aapo);
-        studentsList.add(kappe);
+//        Student aapo = new Student();
+//        aapo.setName("Aapo");
+//        aapo.setStudentNumber("H292001");
+//        aapo.setStartYear(2020);
+//        aapo.setEndYear(2025);
+//        aapo.setDegreeProgramme(degreeProgramme);
+//
+//        Student kappe = new Student();
+//        kappe.setName("Kasperi");
+//        kappe.setStudentNumber("H123123");
+//        kappe.setStartYear(2020);
+//        kappe.setEndYear(2025);
+//        kappe.setDegreeProgramme(degreeProgramme);
+//
+//        // Add to arraylist
+//        ArrayList<Student> studentsList = new ArrayList<>();
+//        studentsList.add(aapo);
+//        studentsList.add(kappe);
 
         // Demonstration of long term json storage of students
 
         // from arraylist, create students.json
-        logic.studentsToJson(studentsList);
+//        logic.studentsToJson(studentsList);
 
         // from students.json, create map structure for all students
-        Map<String, Student> students = logic.studentsFromJsonToClass();
+//        Map<String, Student> students = logic.studentsFromJsonToClass();
 
         //System.out.println(students.size());
         // testprint of students read from json and stored to student objects
-        students.forEach((k, v) -> {
-            System.out.println(k + " -- " + v.getName() + " -- " +  v);
-        });
+//        students.forEach((k, v) -> {
+//            System.out.println(k + " -- " + v.getName() + " -- " +  v);
+//        });
         //logic.studentsToJson((ArrayList<Student>) students.values());
 
     }

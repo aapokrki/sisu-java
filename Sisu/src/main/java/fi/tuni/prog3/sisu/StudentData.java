@@ -11,6 +11,7 @@ public class StudentData {
     public Student user;
     private Map<String, Student> students;
     private JSONLogic jsonData;
+    private Map <String, String> degreeProgrammes;
 
     /**
      * Constructs a data structure

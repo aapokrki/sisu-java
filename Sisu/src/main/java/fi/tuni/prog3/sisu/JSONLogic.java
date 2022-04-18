@@ -73,6 +73,8 @@ public class JSONLogic {
         return studentMap;
     }
 
+
+
     // Reads the given degreeprogramme's information from the SISU api.
     // Returns null if no program with given id is found.
 
@@ -123,23 +125,112 @@ public class JSONLogic {
         String sURL = "https://sis-tuni.funidata.fi/kori/api/module-search?curriculumPeriodId=uta-lvv-2021&universityId=tuni-university-root-id&moduleType=DegreeProgramme&limit=1000";
 
         JsonObject rootobj = requestJsonRootObjectFromURL(sURL);
-        DegreeProgramme degreeProgramme = null;
         JsonArray programmes = rootobj.get("searchResults").getAsJsonArray();
         Map<String, String> degreeProgrammes = new TreeMap<>();
         for (int i = 0; i < programmes.size(); i++) {
             JsonObject programme = programmes.get(i).getAsJsonObject();
             degreeProgrammes.put(programme.get("name").getAsString(),programme.get("groupId").getAsString());
+
+            //System.out.println(getStudyModuleSelection(programme.get("groupId").getAsString()));
             //System.out.println(programme.get("name").getAsString() + " -- "+programme.get("groupId").getAsString());
         }
 
-        degreeProgrammes.forEach((k,v) ->{
-            System.out.println(k + " -- " + v);
-        });
+//        degreeProgrammes.forEach((k,v) ->{
+//            System.out.println(k + " -- " + v);
+//        });
         return degreeProgrammes;
     }
 
-    
+    /**
+     * Reads if the given degreeprogramme has a mandatory selection for a studymodule
+     * eg. Tietotekniikka and Sähkötekniikka. You have to choose one.
+     * Returns a map of the studymodule choices
+     * @param id of the given degreeprogramme
+     * @return a map of the studymodule choices / null if no mandatory choices
+     * @throws IOException
+     */
+    public Map<String, String> getStudyModuleSelection(String id) throws IOException {
 
+        String url = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId="+ id +"&universityId=tuni-university-root-id";
+        JsonObject degreeProgramme = requestJsonElementFromURL(url).getAsJsonArray().get(0).getAsJsonObject();
+
+        Map<String, String> studyModuleSelection = new TreeMap<>();
+
+        JsonObject rule = degreeProgramme.get("rule").getAsJsonObject();
+        String type = rule.get("type").getAsString();
+        if(type.equals("CompositeRule")){
+            if(!rule.get("require").isJsonNull()){
+                JsonElement min = rule.get("require").getAsJsonObject().get("min");
+                JsonElement max = rule.get("require").getAsJsonObject().get("max");
+
+                if(!min.isJsonNull() && !max.isJsonNull() && max.getAsInt() == min.getAsInt() && min.getAsInt() == 1){
+                    //System.out.println(degreeProgramme.get("name"));
+                    //System.out.println(min + " -- " + max);
+                    JsonArray studymodules = rule.get("rules").getAsJsonArray();
+
+                    //System.err.println(degreeProgramme.get("name"));
+
+                    // If the SISU api is wonky and has two useless ComporiteRules on top of eachother
+                    JsonObject tempModule = studymodules.get(0).getAsJsonObject();
+                    if(tempModule.get("type").getAsString().equals("CompositeRule")){
+                        if(!tempModule.get("require").isJsonNull()){
+
+                            JsonElement tMin = tempModule.get("require").getAsJsonObject().get("min");
+                            JsonElement tMax = tempModule.get("require").getAsJsonObject().get("max");
+                            if(!tMin.isJsonNull() && !tMax.isJsonNull() && tMax.getAsInt() == tMin.getAsInt() && tMin.getAsInt() == 1){
+                                studymodules = studymodules.get(0).getAsJsonObject().get("rules").getAsJsonArray();
+                            }
+                        }
+                    }
+
+                    // go through the studymodules that the user has to choose from
+                    for (int i = 0; i < studymodules.size(); i++) {
+                        if(studymodules.get(i).getAsJsonObject().get("type").getAsString().equals("ModuleRule")){
+                            String moduleId = studymodules.get(i).getAsJsonObject().get("moduleGroupId").getAsString();
+                            String moduleUrl = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId="+ moduleId +"&universityId=tuni-university-root-id";
+                            JsonObject studyModule = requestJsonElementFromURL(moduleUrl).getAsJsonArray().get(0).getAsJsonObject();
+
+                            //System.out.println(studyModule.get("name"));
+
+                            studyModuleSelection.put(getName(studyModule), studyModule.get("groupId").getAsString());
+                        }
+                    }
+
+                    // there are one or two odd cases where there is an empty map
+                    if(!studyModuleSelection.isEmpty()){
+                        return studyModuleSelection;
+                    }
+
+                }
+
+                //System.out.println(studyModuleSelection);
+            }
+
+        }
+
+
+        // if no mandatory selections are required
+        return null;
+
+    }
+
+    public String getName(JsonObject obj){
+
+        String name = null;
+        try {
+            if(obj.get("name").getAsJsonObject().get("fi") == null){
+
+                name = obj.get("name").getAsJsonObject().get("en").getAsString();
+
+            }else{
+                name = obj.get("name").getAsJsonObject().get("fi").getAsString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return name;
+    }
 
     public void getName(JsonObject obj, int indent, String type, Module parent){
 

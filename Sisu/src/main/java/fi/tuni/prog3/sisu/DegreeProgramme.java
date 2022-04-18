@@ -13,6 +13,10 @@ public class DegreeProgramme extends Module{
     public String name;
     public String id;
     public String code;
+
+    public int maxCredits;
+    public int currentCredits;
+
     public ArrayList<DegreeProgramme> degreeProgrammes;
     public ArrayList<StudyModule> studyModules;
 

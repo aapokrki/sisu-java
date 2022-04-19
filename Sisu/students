@@ -31,7 +31,8 @@
                   "code": "COMM.100",
                   "grade": 5,
                   "completed": true,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-45462"
                 },
                 {
@@ -39,7 +40,8 @@
                   "code": "COMP.CE.100",
                   "grade": 1,
                   "completed": true,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-45577"
                 },
                 {
@@ -47,7 +49,8 @@
                   "code": "COMP.CS.100",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-45620"
                 },
                 {
@@ -55,7 +58,8 @@
                   "code": "COMP.CS.110",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-45510"
                 },
                 {
@@ -63,7 +67,8 @@
                   "code": "COMP.CS.300",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-36938"
                 },
                 {
@@ -71,7 +76,8 @@
                   "code": "COMP.SGN.100",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-36355"
                 },
                 {
@@ -79,7 +85,8 @@
                   "code": "COMP.SE.100",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-45474"
                 },
                 {
@@ -87,7 +94,8 @@
                   "code": "COMP.SEC.100",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-45501"
                 },
                 {
@@ -95,7 +103,8 @@
                   "code": "EE.010",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-45460"
                 },
                 {
@@ -103,7 +112,8 @@
                   "code": "ITC.CEE.010",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-45459"
                 },
                 {
@@ -111,7 +121,8 @@
                   "code": "LANG.ENG.001",
                   "grade": 0,
                   "completed": false,
-                  "credits": 3,
+                  "minCredits": 3,
+                  "maxCredits": 0,
                   "id": "uta-ykoodi-38827"
                 },
                 {
@@ -119,7 +130,8 @@
                   "code": "LANG.002",
                   "grade": 0,
                   "completed": false,
-                  "credits": 2,
+                  "minCredits": 2,
+                  "maxCredits": 0,
                   "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
                 },
                 {
@@ -127,7 +139,8 @@
                   "code": "LANG.PUH.001",
                   "grade": 0,
                   "completed": false,
-                  "credits": 2,
+                  "minCredits": 2,
+                  "maxCredits": 0,
                   "id": "uta-ykoodi-48285"
                 },
                 {
@@ -135,7 +148,8 @@
                   "code": "LANG.RUO.001",
                   "grade": 0,
                   "completed": false,
-                  "credits": 3,
+                  "minCredits": 3,
+                  "maxCredits": 0,
                   "id": "uta-ykoodi-20998"
                 },
                 {
@@ -143,7 +157,8 @@
                   "code": "TUTA.010",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-48243"
                 }
               ]
@@ -161,7 +176,8 @@
                   "code": "MATH.APP.111",
                   "grade": 5,
                   "completed": true,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-35897"
                 },
                 {
@@ -169,7 +185,8 @@
                   "code": "MATH.MA.140",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-35898"
                 },
                 {
@@ -177,7 +194,8 @@
                   "code": "MATH.APP.160",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-35899"
                 },
                 {
@@ -185,7 +203,8 @@
                   "code": "MATH.APP.210",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "uta-ykoodi-47933"
                 },
                 {
@@ -193,7 +212,8 @@
                   "code": "FYS.101",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-48229"
                 },
                 {
@@ -201,7 +221,8 @@
                   "code": "FYS.102",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-48230"
                 },
                 {
@@ -209,7 +230,8 @@
                   "code": "FYS.103",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-48256"
                 },
                 {
@@ -217,7 +239,8 @@
                   "code": "MATH.APP.220",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-47510"
                 },
                 {
@@ -225,7 +248,8 @@
                   "code": "MATH.APP.260",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-47515"
                 },
                 {
@@ -233,7 +257,8 @@
                   "code": "MATH.APP.230",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-47603"
                 },
                 {
@@ -241,7 +266,8 @@
                   "code": "MATH.APP.240",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-47604"
                 },
                 {
@@ -249,7 +275,8 @@
                   "code": "MATH.APP.270",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "tut-cu-g-48943"
                 },
                 {
@@ -257,7 +284,8 @@
                   "code": "DATA.STAT.120",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "uta-ykoodi-38909"
                 },
                 {
@@ -265,7 +293,8 @@
                   "code": "DATA.STAT.420",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "uta-ykoodi-33646"
                 },
                 {
@@ -273,7 +302,8 @@
                   "code": "MATH.MA.210",
                   "grade": 0,
                   "completed": false,
-                  "credits": 5,
+                  "minCredits": 5,
+                  "maxCredits": 0,
                   "id": "otm-1e8f1023-1977-4f98-9386-110ef623327b"
                 }
               ]
@@ -300,298 +330,356 @@
     "startYear": 2020,
     "endYear": 2025,
     "degreeProgramme": {
-      "name": "Tieto- ja sähkötekniikan kandidaattiohjelma",
-      "id": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
-      "code": "TSTK",
+      "name": "Arkkitehtuurin kandidaattiohjelma",
+      "id": "tut-dp-g-1100",
+      "code": "ARKK",
       "minCredits": 180,
       "currentCredits": 0,
       "studyModules": [
         {
-          "name": "Sähkötekniikka",
-          "code": "STEA",
-          "id": "otm-b994335e-8759-4d7e-b3bf-ae505fd3935e",
-          "minCredits": 180,
+          "name": "Arkkitehtuurin kandidaattiohjelman yhteiset opinnot",
+          "code": "ARK-M01",
+          "id": "tut-sm-g-7209",
+          "minCredits": 40,
           "currentCredits": 0,
-          "studyModules": [
+          "studyModules": [],
+          "courseUnits": [
             {
-              "name": "Sähkötekniikan yhteiset opinnot",
-              "code": "EE-P01",
-              "id": "otm-b754ef2e-46fa-435d-aa99-ccbda4866adc",
-              "minCredits": 65,
-              "currentCredits": 0,
-              "studyModules": [],
-              "courseUnits": [
-                {
-                  "name": "Signaalit ja mittaaminen",
-                  "code": "EE.010",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-45460"
-                },
-                {
-                  "name": "Tietoliikennetekniikan perusteet",
-                  "code": "COMM.100",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-45462"
-                },
-                {
-                  "name": "Ohjelmointi 1: Johdatus ohjelmointiin",
-                  "code": "COMP.CS.100",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-45620"
-                },
-                {
-                  "name": "Ohjelmointi 2: Rakenteet",
-                  "code": "COMP.CS.110",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-45510"
-                },
-                {
-                  "name": "Signaalinkäsittelyn perusteet",
-                  "code": "COMP.SGN.100",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-36355"
-                },
-                {
-                  "name": "Johdatus sulautettuihin järjestelmiin",
-                  "code": "COMP.CE.100",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-45577"
-                },
-                {
-                  "name": "Johdanto tekniikan opintoihin",
-                  "code": "ITC.CEE.010",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-45459"
-                },
-                {
-                  "name": "Teollisuustalouden perusteet",
-                  "code": "TUTA.010",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-48243"
-                },
-                {
-                  "name": "Piiriteoria",
-                  "code": "EE.030",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-45198"
-                },
-                {
-                  "name": "Sähköenergiajärjestelmien perusteet",
-                  "code": "EE.110",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-45457"
-                },
-                {
-                  "name": "Elektroniikan perusteet",
-                  "code": "EE.020",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-45399"
-                },
-                {
-                  "name": "Monikielinen johdanto akateemisiin viestintä- ja kieliopintoihin 2",
-                  "code": "LANG.002",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 2,
-                  "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
-                },
-                {
-                  "name": "Foundations of Professional and Academic Communication in English",
-                  "code": "LANG.ENG.001",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 3,
-                  "id": "uta-ykoodi-38827"
-                },
-                {
-                  "name": "Ruotsia työelämään",
-                  "code": "LANG.RUO.001",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 3,
-                  "id": "uta-ykoodi-20998"
-                },
-                {
-                  "name": "Vuorovaikutusosaaminen työelämässä",
-                  "code": "LANG.PUH.001",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 2,
-                  "id": "uta-ykoodi-48285"
-                }
-              ]
+              "name": "Johdatus arkkitehtuurin opiskeluun I",
+              "code": "ARK.101",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 2,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48863"
             },
             {
-              "name": "Sähkötekniikan matemaattis-luonnontieteelliset perusopinnot",
-              "code": "EE-P02",
-              "id": "otm-0d293ec1-6de8-4d59-bbf0-b8fc486c82cd",
-              "minCredits": 45,
-              "currentCredits": 0,
-              "studyModules": [],
-              "courseUnits": [
-                {
-                  "name": "Analyysin peruskurssi",
-                  "code": "MATH.APP.111",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-35897"
-                },
-                {
-                  "name": "Vektorit ja matriisit",
-                  "code": "MATH.MA.140",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-35898"
-                },
-                {
-                  "name": "Differentiaali- ja integraalilaskenta",
-                  "code": "MATH.APP.160",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-35899"
-                },
-                {
-                  "name": "Johdatus todennäköisyyslaskentaan ja tilastolliseen päättelyyn",
-                  "code": "MATH.APP.210",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "uta-ykoodi-47933"
-                },
-                {
-                  "name": "Yliopistofysiikka 1",
-                  "code": "FYS.101",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-48229"
-                },
-                {
-                  "name": "Yliopistofysiikka 2",
-                  "code": "FYS.102",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-48230"
-                },
-                {
-                  "name": "Yliopistofysiikka 3",
-                  "code": "FYS.103",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-48256"
-                },
-                {
-                  "name": "Yliopistofysiikka 4",
-                  "code": "FYS.104",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-48257"
-                },
-                {
-                  "name": "Usean muuttujan funktiot",
-                  "code": "MATH.APP.220",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-47510"
-                },
-                {
-                  "name": "Operaatiotutkimus",
-                  "code": "MATH.APP.260",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-47515"
-                },
-                {
-                  "name": "Vektorianalyysi",
-                  "code": "MATH.APP.230",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-47603"
-                },
-                {
-                  "name": "Fourier\u0027n menetelmät",
-                  "code": "MATH.APP.240",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-47604"
-                },
-                {
-                  "name": "Graafialgoritmit",
-                  "code": "MATH.APP.270",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-48943"
-                },
-                {
-                  "name": "Tilastollisten menetelmien perusteet",
-                  "code": "DATA.STAT.120",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "uta-ykoodi-38909"
-                },
-                {
-                  "name": "Matemaattisen tilastotieteen perusteet",
-                  "code": "DATA.STAT.420",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "uta-ykoodi-33646"
-                },
-                {
-                  "name": "Diskreetti matematiikka",
-                  "code": "MATH.MA.210",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "otm-1e8f1023-1977-4f98-9386-110ef623327b"
-                }
-              ]
+              "name": "Työmaaharjoittelu",
+              "code": "ARK.RH.100",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48944"
             },
             {
-              "name": "Vapaasti valittavat opintojaksot",
-              "code": "EE-M01",
-              "id": "otm-cbed2832-3231-4833-82b0-8547bac34293",
-              "minCredits": 0,
-              "currentCredits": 0,
-              "studyModules": [],
-              "courseUnits": []
+              "name": "Taide I",
+              "code": "ARK.110",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "otm-468918e5-fd76-423d-a467-cd6c03aeb7f4"
+            },
+            {
+              "name": "Taide II",
+              "code": "ARK.210",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "otm-5b425650-7801-404c-9702-59b03af3e5bc"
+            },
+            {
+              "name": "Monikielinen johdanto akateemisiin viestintä- ja kieliopintoihin 2",
+              "code": "LANG.002",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 2,
+              "maxCredits": 0,
+              "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
+            },
+            {
+              "name": "Ruotsia työelämään",
+              "code": "LANG.RUO.001",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 3,
+              "maxCredits": 0,
+              "id": "uta-ykoodi-20998"
+            },
+            {
+              "name": "Foundations of Professional and Academic Communication in English",
+              "code": "LANG.ENG.001",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 3,
+              "maxCredits": 0,
+              "id": "uta-ykoodi-38827"
             }
-          ],
-          "courseUnits": []
+          ]
+        },
+        {
+          "name": "Arkkitehtuurin kandidaattiohjelman perus- ja aineopinnot",
+          "code": "ARK-A01",
+          "id": "tut-sm-g-7208",
+          "minCredits": 120,
+          "currentCredits": 0,
+          "studyModules": [],
+          "courseUnits": [
+            {
+              "name": "Arkkitehtuurin historia I",
+              "code": "ARK.RH.101",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48859"
+            },
+            {
+              "name": "Rakennusoppi I",
+              "code": "ARK.RH.110",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48860"
+            },
+            {
+              "name": "Rakennussuunnittelu I",
+              "code": "ARK.AD.110",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48858"
+            },
+            {
+              "name": "Rakennussuunnittelu II",
+              "code": "ARK.AD.120",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48864"
+            },
+            {
+              "name": "Yhdyskuntasuunnittelu I",
+              "code": "ARK.YS.110",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48865"
+            },
+            {
+              "name": "Arkkitehtuurin historia II",
+              "code": "ARK.RH.201",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48867"
+            },
+            {
+              "name": "Rakennusoppi II",
+              "code": "ARK.RH.220",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48869"
+            },
+            {
+              "name": "Rakennusoppi III",
+              "code": "ARK.RH.230",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48872"
+            },
+            {
+              "name": "Rakennussuunnittelu III",
+              "code": "ARK.AD.210",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48870"
+            },
+            {
+              "name": "Yhdyskuntasuunnittelun teoria I",
+              "code": "ARK.YS.220",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48871"
+            },
+            {
+              "name": "Rakennusoppi IV",
+              "code": "ARK.RH.320",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48936"
+            },
+            {
+              "name": "Rakennusoppi V",
+              "code": "ARK.RH.310",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48937"
+            },
+            {
+              "name": "Arkkitehtuurin historia III",
+              "code": "ARK.RH.301",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48938"
+            },
+            {
+              "name": "Rakennussuunnittelu IV",
+              "code": "ARK.AD.310",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48939"
+            },
+            {
+              "name": "Yhdyskuntasuunnittelu III",
+              "code": "ARK.YS.310",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48874"
+            },
+            {
+              "name": "Arkkitehtuurin kandidaatintyöseminaari",
+              "code": "ARK.300",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48941"
+            },
+            {
+              "name": "Arkkitehtuurin kandidaatintyö",
+              "code": "ARK.350",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-41970"
+            },
+            {
+              "name": "Kypsyysnäyte suomeksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+              "code": "TAU.KN.010",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-49136eba-4a72-40e7-aedb-5e7c20dfcf7e"
+            },
+            {
+              "name": "Kypsyysnäyte ruotsiksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+              "code": "TAU.KN.020",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-2beeb9ef-859a-4280-984a-d6cf2ce23032"
+            },
+            {
+              "name": "Kypsyysnäyte englanniksi alemmassa korkeakoulututkinnossa, sisällön tarkistus",
+              "code": "TAU.KN.031",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-2c104f39-c85a-4f56-b394-880903f2eaf0"
+            }
+          ]
+        },
+        {
+          "name": "Vapaasti valittavat opintojaksot",
+          "code": "ARK-M02",
+          "id": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
+          "minCredits": 0,
+          "currentCredits": 0,
+          "studyModules": [],
+          "courseUnits": [
+            {
+              "name": "Kaupunkiekskursio",
+              "code": "ARK.700",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48970"
+            },
+            {
+              "name": "Arkkitehtuurin kesäkoulu",
+              "code": "ARK.750",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48974"
+            },
+            {
+              "name": "Arkkitehtuuri, vaihtuva aihe",
+              "code": "ARK.600",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 1,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48971"
+            },
+            {
+              "name": "Arkkitehtuurin ammattiharjoittelu",
+              "code": "ARK.450",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48972"
+            },
+            {
+              "name": "Ihminen ja ympäristö",
+              "code": "ARK.AD.130",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48866"
+            },
+            {
+              "name": "Yhdyskuntasuunnittelu II",
+              "code": "ARK.YS.210",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48873"
+            },
+            {
+              "name": "Rakennushankkeen suunnittelun simulointi",
+              "code": "ARK.RH.330",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 1,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48940"
+            },
+            {
+              "name": "Architecture, varying topics: Approaching Pattern Language",
+              "code": "ARK.602",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 2,
+              "maxCredits": 0,
+              "id": "otm-ff3ae1b5-7431-4ab4-9755-47b35bae5654"
+            }
+          ]
         }
       ]
     },

@@ -1,9 +1,7 @@
 package fi.tuni.prog3.sisu;
 
-
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
@@ -20,7 +18,6 @@ import java.util.*;
  */
 public class JSONLogic {
 
-
     /**
      * Converts the given students to a jsonfile named students.
      * @param students list of all the students
@@ -32,7 +29,6 @@ public class JSONLogic {
         try(FileWriter writer = new FileWriter("students")){
 
             gson.toJson(students, writer);
-
 
         }catch (IOException e){
             e.printStackTrace();

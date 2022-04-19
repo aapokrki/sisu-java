@@ -5,7 +5,6 @@ import javafx.css.PseudoClass;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -15,8 +14,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.Locale;
+import java.io.IOException;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Implements a graphical user interface for checking studies in Sisu
@@ -49,11 +49,19 @@ public class Sisu extends Application {
         this.stage = stage;
         this.stage.setTitle("SISU");
         this.stage.getIcons().add(new Image("/TUNI-face.png"));
-        Scene startScene = getStartScreen();
+
+        mainWindow = new BorderPane();
+        mainWindow.setCenter(getStartScreen());
+        mainWindow.setBackground(Background.EMPTY);
+
+        Scene scene = new Scene(mainWindow);
+        scene.setFill(Paint.valueOf("#ffffff"));
+        scene.getStylesheets().add(this.style);
 
         //Scene startScene = getMainScene();
-        stage.setScene(startScene);
+        stage.setScene(scene);
         stage.show();
+        stage.setMaximized(true);
     }
 
     /**
@@ -76,6 +84,10 @@ public class Sisu extends Application {
                 textField.setText(newValue.replaceAll("[^\\d]", ""));
                 newValue = "";
             }
+            if (textField.getText().length() > 4) {
+                String s = textField.getText().substring(0, 4);
+                textField.setText(s);
+            }
 
             if (!onlyIntegers && newValue.isBlank()) {
                 textField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
@@ -89,53 +101,49 @@ public class Sisu extends Application {
      * Returns the start screen
      * @return start screen
      */
-    private Scene getStartScreen() {
-
-        VBox vBox = new VBox();
-        Scene scene = new Scene(vBox,450,350);
-        vBox.setBackground(Background.EMPTY);
-        scene.setFill(Paint.valueOf("#ffffff"));
-
-        scene.getStylesheets().add(this.style);
-
-        vBox.setSpacing(20);
-
-        vBox.setPadding(new Insets(10, 10, 10, 10));
+    private Pane getStartScreen() {
 
         Label title = new Label("Welcome to Sisu!");
         title.setId("welcomeLabel");
 
-        HBox buttons = new HBox();
-
         ToggleButton loginButton = new ToggleButton("LOGIN");
         loginButton.setId("whiteButton");
-        loginButton.setOnAction( e -> stage.setScene(getLoginScreen()) );
+        loginButton.setOnAction( e -> {
+            mainWindow.setCenter(getLoginScreen());
+        } );
 
         ToggleButton registerButton = new ToggleButton("REGISTER");
         registerButton.setId("whiteButton");
-        registerButton.setOnAction( e -> stage.setScene(getRegistrationScreen()));
+        registerButton.setOnAction( e -> {
+            try {
+                mainWindow.setCenter(getRegistrationScreen());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
 
+        HBox buttons = new HBox(loginButton, registerButton);
         buttons.setAlignment(Pos.BOTTOM_CENTER);
         buttons.setSpacing(18);
-        buttons.getChildren().addAll(loginButton, registerButton);
 
+        VBox vBox = new VBox(title, buttons);
         vBox.setAlignment(Pos.CENTER);
-        vBox.getChildren().addAll(title, buttons);
+        vBox.setBackground(Background.EMPTY);
+        vBox.setSpacing(20);
+        vBox.setPadding(new Insets(10, 10, 10, 10));
+
         buttons.getParent().requestFocus();
 
-        return scene;
+        return vBox;
     }
 
     /**
      * Returns the login screen
      * @return login screen
      */
-    private Scene getLoginScreen() {
+    private Pane getLoginScreen() {
         GridPane grid = new GridPane();
-        Scene scene = new Scene(grid, 450, 350);
         grid.setBackground(Background.EMPTY);
-        scene.setFill(Paint.valueOf("#ffffff"));
-        scene.getStylesheets().add(this.style);
 
         grid.setVgap(5);
         grid.setHgap(20);
@@ -162,7 +170,9 @@ public class Sisu extends Application {
 
         ToggleButton backButton = new ToggleButton("BACK");
         backButton.setId("whiteButton");
-        backButton.setOnAction( e -> stage.setScene(getStartScreen()) );
+        backButton.setOnAction( e -> {
+            mainWindow.setCenter(getStartScreen());
+        } );
 
         ToggleButton loginButton = new ToggleButton("LOGIN");
         loginButton.setId("blueButton");
@@ -178,8 +188,8 @@ public class Sisu extends Application {
 
                 errorMessage.setText("Account does not exist");
             } else {
-                stage.setScene(getMainScene());
-                stage.setMaximized(true);
+                mainWindow.setTop(getTopMenu(false));
+                mainWindow.setCenter(getMainView());
             }
         });
 
@@ -190,23 +200,22 @@ public class Sisu extends Application {
         grid.add(buttons, 1, 4);
         buttons.getParent().requestFocus();
 
-        return scene;
+        return grid;
     }
 
     /**
      * Returns the registration screen
      * @return registration screen
      */
-    private Scene getRegistrationScreen() {
+    private Pane getRegistrationScreen() throws IOException {
+
+        ArrayList<String> textFieldData = new ArrayList<>();
 
         GridPane grid = new GridPane();
-        Scene scene = new Scene(grid,450,350);
         grid.setBackground(Background.EMPTY);
-        scene.setFill(Paint.valueOf("#ffffff"));
-        scene.getStylesheets().add(this.style);
 
         grid.setVgap(5);
-        grid.setHgap(20);
+        grid.setHgap(48);
         grid.setPadding(new Insets(10, 10, 10, 10));
         grid.setAlignment(Pos.CENTER);
 
@@ -231,6 +240,68 @@ public class Sisu extends Application {
         studentNumberTextField.setId("textField");
         addInputListener(studentNumberTextField, false);
         grid.add(studentNumberTextField, 1, 4);
+
+        Label degreeProgrammeLabel = new Label("Select degree programme");
+        degreeProgrammeLabel.setId("textLabel");
+
+        MenuButton degreeProgrammeMenu = new MenuButton();
+        degreeProgrammeMenu.setGraphic(degreeProgrammeLabel);
+        degreeProgrammeMenu.setId("menuButton");
+        degreeProgrammeMenu.setPrefWidth(200);
+        ChoiceBox<String> studyModulesChoice = new ChoiceBox<>();
+        studyModulesChoice.setPrefWidth(200);
+        studyModulesChoice.setVisible(false);
+
+        HBox dropMenus = new HBox(degreeProgrammeMenu, studyModulesChoice);
+        dropMenus.setSpacing(40);
+        dropMenus.setPadding(new Insets(20,0,20,0));
+        grid.add(dropMenus,0,5,2,1);
+
+        Map<String, String> degreeProgrammes = data.jsonData.getAllDegreeProgrammes();
+        //AtomicReference<Map<String, String>> mandatoryStudyModules = new AtomicReference<>(new HashMap<>());
+
+        //AtomicBoolean degreeProgrammeSelected = new AtomicBoolean(false);
+        //AtomicReference<String> degreeProgrammeId = new AtomicReference<>("notSelected");
+
+        // Nää tulee siihen readAPIData
+        AtomicReference<String> inputDegreeProgramme = new AtomicReference<>(null);
+        AtomicReference<String> inputMandatoryStudyModule = new AtomicReference<>(null);
+
+        for (String degreeProgramme : degreeProgrammes.keySet()) {
+            MenuItem degreeProgramItem = new MenuItem(degreeProgramme);
+            degreeProgrammeMenu.getItems().add(degreeProgramItem);
+
+            degreeProgramItem.setOnAction( e -> {
+                degreeProgrammeMenu.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
+                degreeProgrammeLabel.setText(degreeProgramme);
+
+                inputDegreeProgramme.set(degreeProgrammes.get(degreeProgramme));
+
+                studyModulesChoice.getItems().clear();
+
+                //degreeProgrammeSelected.set(true);
+                //degreeProgrammeId.set(degreeProgrammes.get(degreeProgramme));
+
+                // Tee kurssien tarkastelu StudentDatan puolella
+                // Tsekkaa, onko degreeProgrammella studyModulea ja lisää tutkinto opiskelijalle.
+                // Ihan tosi sekavaksi menee täällä
+
+                Map<String, String > studyModules = null;
+                try {
+                    studyModules = data.jsonData.getStudyModuleSelection(inputDegreeProgramme.get());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                if (studyModules != null) {
+                    studyModulesChoice.getItems().addAll(studyModules.keySet());
+                    studyModulesChoice.getSelectionModel().selectFirst();
+                    studyModulesChoice.setVisible(true);
+                    //degreeProgrammeId.set("");
+                } else {
+                    studyModulesChoice.setVisible(false);
+                }
+            });
+        }
 
         Label startYearLabel = new Label("Start year (optional):");
         startYearLabel.setId("textLabel");
@@ -270,8 +341,6 @@ public class Sisu extends Application {
             String startYear = startYearTextField.getText();
             String endYear = endYearTextField.getText();
 
-            ArrayList<String> textFieldData = new ArrayList<>();
-
             boolean notEmpty = true;
 
             if (name.isEmpty()) {
@@ -280,39 +349,60 @@ public class Sisu extends Application {
                 notEmpty = false;
             } else {
                 nameTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
-                textFieldData.add(name);
+                //textFieldData.add(name);
             }
 
             if (studentNumber.isEmpty()) {
                 studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
-                studentNumberErrorMessage.setText("Invalid student number");
+                //studentNumberErrorMessage.setText("Invalid student number");
                 notEmpty = false;
             } else {
                 studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
                 textFieldData.add(studentNumber);
             }
 
-            if (!startYear.isEmpty()) {
-                textFieldData.add(startYear);
-                if (!endYear.isEmpty()) {
-                    textFieldData.add(endYear);
+            if (inputDegreeProgramme.get() == null) {
+                degreeProgrammeMenu.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
+                notEmpty = false;
+            } else if (studyModulesChoice.isVisible()) {
+
+                String studyModuleId = null;
+                try {
+                    studyModuleId = data.jsonData.getStudyModuleSelection(inputDegreeProgramme.get()).get(studyModulesChoice.getValue());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
+
+                inputMandatoryStudyModule.set(studyModuleId);
             }
 
+            /*
+            if (!startYear.isEmpty()) {
+                //textFieldData.add(startYear);
+                if (!endYear.isEmpty()) {
+                    //textFieldData.add(endYear);
+                }
+            }
+            */
+
             if (notEmpty) {
-                if (!data.createAccount(textFieldData)) {
-                    studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
-                    studentNumberErrorMessage.setText("Account exists");
-                } else {
-                    stage.setScene(getMainScene());
-                    stage.setMaximized(true);
+                try {
+                    if (!data.createAccount(name, studentNumber, inputDegreeProgramme.get(), inputMandatoryStudyModule.get(), startYear, endYear)) {
+                        studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
+                        studentNumberErrorMessage.setText("Account exists");
+                    } else {
+                        mainWindow.setTop(getTopMenu(false));
+                        mainWindow.setCenter(getMainView());
+                    }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
             }
         });
 
         ToggleButton backButton = new ToggleButton("BACK");
         backButton.setId("whiteButton");
-        backButton.setOnAction( e -> stage.setScene(getStartScreen()) );
+        backButton.setOnAction( e -> mainWindow.setCenter(getStartScreen()));//stage.setScene(getStartScreen()) );
 
         buttons.setAlignment(Pos.BASELINE_RIGHT);
         buttons.setSpacing(18);
@@ -322,7 +412,7 @@ public class Sisu extends Application {
         grid.add(buttons, 1,10);
         buttons.getParent().requestFocus();
 
-        return scene;
+        return grid;
     }
 
     /**
@@ -390,9 +480,8 @@ public class Sisu extends Application {
 
         logOutButton.setOnAction( e -> {
             data.user = null;
-            stage.setMaximized(false);
-            stage.setScene(getLoginScreen());
-            stage.centerOnScreen();
+            mainWindow.getChildren().remove(mainWindow.getTop());
+            mainWindow.setCenter(getStartScreen());
         });
 
         HBox left = new HBox(mainViewButton, separator, studentInformationButton, structureOfStudiesButton);
@@ -407,21 +496,6 @@ public class Sisu extends Application {
         menu.getChildren().addAll(left, right);
 
         return menu;
-    }
-
-    /**
-     * Creates the main window scene
-     * @return main window scene
-     */
-    private Scene getMainScene() {
-
-        mainWindow = new BorderPane();
-        Scene scene = new Scene(mainWindow);
-        scene.getStylesheets().add(this.style);
-
-        mainWindow.setTop(getTopMenu(false));
-        mainWindow.setCenter(getMainView());
-        return scene;
     }
 
     /**
@@ -513,9 +587,8 @@ public class Sisu extends Application {
 
         deleteButton.setOnAction( e -> {
             data.deleteAccount();
-            stage.setMaximized(false);
-            stage.setScene(getLoginScreen());
-            stage.centerOnScreen();
+            mainWindow.getChildren().remove(mainWindow.getTop());
+            mainWindow.setCenter(getLoginScreen());
         });
 
         ToggleButton cancelButton = new ToggleButton("CANCEL");

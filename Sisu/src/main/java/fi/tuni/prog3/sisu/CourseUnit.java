@@ -82,6 +82,7 @@ public class CourseUnit extends Module{
         if(grade <= 5 && grade >= 0){
             this.grade = grade;
         }
+        setCompleted();
     }
 
     @Override
@@ -97,6 +98,16 @@ public class CourseUnit extends Module{
     @Override
     public String getName() {
         return name;
+    }
+
+    public String getCredits() {
+        if (minCredits == maxCredits) {
+            return String.valueOf(minCredits);
+        }
+        if (maxCredits == 0) {
+            return String.valueOf(minCredits);
+        }
+        return maxCredits + "-" + minCredits;
     }
 
     public int getGrade() {
@@ -134,4 +145,7 @@ public class CourseUnit extends Module{
         this.courseUnit = courseUnit;
     }
 
+    public boolean isCompleted() {
+        return this.completed;
+    }
 }

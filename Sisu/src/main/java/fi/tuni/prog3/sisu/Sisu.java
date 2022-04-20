@@ -1,6 +1,7 @@
 package fi.tuni.prog3.sisu;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.css.PseudoClass;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
@@ -28,6 +29,9 @@ public class Sisu extends Application {
     private final String style = this.getClass().getResource("/Sisu.css").toExternalForm();
 
     private StudentData data;
+
+    public Sisu() {
+    }
 
     /**
      * Main function
@@ -84,7 +88,7 @@ public class Sisu extends Application {
                 textField.setText(newValue.replaceAll("[^\\d]", ""));
                 newValue = "";
             }
-            if (textField.getText().length() > 4) {
+            if (onlyIntegers && textField.getText().length() > 4) {
                 String s = textField.getText().substring(0, 4);
                 textField.setText(s);
             }
@@ -248,6 +252,7 @@ public class Sisu extends Application {
         degreeProgrammeMenu.setGraphic(degreeProgrammeLabel);
         degreeProgrammeMenu.setId("menuButton");
         degreeProgrammeMenu.setPrefWidth(200);
+
         ChoiceBox<String> studyModulesChoice = new ChoiceBox<>();
         studyModulesChoice.setPrefWidth(200);
         studyModulesChoice.setVisible(false);
@@ -258,12 +263,7 @@ public class Sisu extends Application {
         grid.add(dropMenus,0,5,2,1);
 
         Map<String, String> degreeProgrammes = data.jsonData.getAllDegreeProgrammes();
-        //AtomicReference<Map<String, String>> mandatoryStudyModules = new AtomicReference<>(new HashMap<>());
 
-        //AtomicBoolean degreeProgrammeSelected = new AtomicBoolean(false);
-        //AtomicReference<String> degreeProgrammeId = new AtomicReference<>("notSelected");
-
-        // Nää tulee siihen readAPIData
         AtomicReference<String> inputDegreeProgramme = new AtomicReference<>(null);
         AtomicReference<String> inputMandatoryStudyModule = new AtomicReference<>(null);
 
@@ -279,13 +279,6 @@ public class Sisu extends Application {
 
                 studyModulesChoice.getItems().clear();
 
-                //degreeProgrammeSelected.set(true);
-                //degreeProgrammeId.set(degreeProgrammes.get(degreeProgramme));
-
-                // Tee kurssien tarkastelu StudentDatan puolella
-                // Tsekkaa, onko degreeProgrammella studyModulea ja lisää tutkinto opiskelijalle.
-                // Ihan tosi sekavaksi menee täällä
-
                 Map<String, String > studyModules = null;
                 try {
                     studyModules = data.jsonData.getStudyModuleSelection(inputDegreeProgramme.get());
@@ -296,7 +289,6 @@ public class Sisu extends Application {
                     studyModulesChoice.getItems().addAll(studyModules.keySet());
                     studyModulesChoice.getSelectionModel().selectFirst();
                     studyModulesChoice.setVisible(true);
-                    //degreeProgrammeId.set("");
                 } else {
                     studyModulesChoice.setVisible(false);
                 }
@@ -402,7 +394,7 @@ public class Sisu extends Application {
 
         ToggleButton backButton = new ToggleButton("BACK");
         backButton.setId("whiteButton");
-        backButton.setOnAction( e -> mainWindow.setCenter(getStartScreen()));//stage.setScene(getStartScreen()) );
+        backButton.setOnAction( e -> mainWindow.setCenter(getStartScreen()));
 
         buttons.setAlignment(Pos.BASELINE_RIGHT);
         buttons.setSpacing(18);
@@ -525,7 +517,7 @@ public class Sisu extends Application {
 
         HBox hBox = new HBox();
         hBox.setStyle("-fx-background-color: #ffffff;");
-        hBox.setPadding(new Insets(60, 60, 60, 60));
+        hBox.setPadding(new Insets(30, 60, 10, 60));
         hBox.setSpacing(50);
 
         Separator separator = new Separator(Orientation.VERTICAL);
@@ -670,21 +662,179 @@ public class Sisu extends Application {
         return hBox;
     }
 
+    private VBox getGraduateBox(CourseUnit courseUnit) {
+
+        boolean courseCompleted = courseUnit.isCompleted();
+
+        String gradeStr = "";
+        if (courseCompleted) {
+            int grade = courseUnit.getGrade();
+            gradeStr = String.valueOf(grade);
+            if (grade == 0) {
+                gradeStr = "Pass";
+            }
+        }
+
+        Image img = new Image("/Graduate.png");
+        ImageView imv = new ImageView(img);
+        imv.setPreserveRatio(true);
+        imv.setFitHeight(12);
+        Label courseGradeTxt = new Label(gradeStr);
+        courseGradeTxt.setId("textLabel");
+        VBox graduateBox = new VBox(imv, courseGradeTxt);
+        graduateBox.setSpacing(5);
+        graduateBox.setAlignment(Pos.CENTER);
+        graduateBox.setId("complete-box");
+
+        return graduateBox;
+    }
+
+    private HBox getCourseBox(CourseUnit courseUnit) {
+
+        HBox courseBox = new HBox();
+        courseBox.setPadding(new Insets(0,10,0,0));
+
+        boolean courseCompleted = courseUnit.isCompleted();
+
+        Label courseCreditNum = new Label(courseUnit.getCredits());
+        courseCreditNum.setId("textLabelBold");
+        Label courseCreditTxt = new Label("cr");
+        courseCreditTxt.setId("textLabel");
+        VBox courseCreditsBox = new VBox(courseCreditNum, courseCreditTxt);
+        courseCreditsBox.setAlignment(Pos.CENTER);
+        courseCreditsBox.setId("credit-box");
+
+        /*
+        String gradeStr = "";
+        if (courseCompleted) {
+            int grade = courseUnit.getGrade();
+            gradeStr = String.valueOf(grade);
+            if (grade == 0) {
+                gradeStr = "Pass";
+            }
+        }
+
+        Image img = new Image("/Graduate.png");
+        ImageView imv = new ImageView(img);
+        imv.setPreserveRatio(true);
+        imv.setFitHeight(12);
+        Label courseGradeTxt = new Label(gradeStr);
+        courseGradeTxt.setId("textLabel");
+        VBox graduateBox = new VBox(imv, courseGradeTxt);
+        graduateBox.setSpacing(5);
+        graduateBox.setAlignment(Pos.CENTER);
+        graduateBox.setId("complete-box");
+
+        */
+
+        VBox graduateBox = getGraduateBox(courseUnit);
+
+        Label courseId = new Label(courseUnit.getCode());
+        courseId.setId("textLabel");
+        Label courseName = new Label(courseUnit.getName());
+        courseName.setId("textLabelBold");
+        VBox courseNameBox = new VBox(courseId, courseName);
+        courseNameBox.setPadding(new Insets(0,0,0,10));
+        courseNameBox.setAlignment(Pos.CENTER_LEFT);
+
+        TextField courseGradeTextField = new TextField();
+        courseGradeTextField.setId("textFieldGrade");
+        courseGradeTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("^[0-5]$")) {
+                Platform.runLater(courseGradeTextField::clear);
+            }
+        });
+
+        if (courseCompleted) {
+            courseBox.getChildren().addAll(courseCreditsBox, graduateBox, courseNameBox);
+        } else {
+            courseBox.getChildren().addAll(courseCreditsBox, courseNameBox, courseGradeTextField);
+        }
+
+        courseGradeTextField.setOnAction( e -> {
+            if (courseGradeTextField.getText().isEmpty()) {
+                return;
+            }
+            int grade = Integer.parseInt(courseGradeTextField.getText());
+            courseUnit.setGrade(grade);
+            data.user.addCompletedCourse(courseUnit);
+
+            VBox newGraduateBox = getGraduateBox(courseUnit);
+
+            courseBox.getChildren().add(1, newGraduateBox);
+            courseGradeTextField.setVisible(false);
+        });
+
+        courseBox.setAlignment(Pos.CENTER);
+        courseBox.setId("course-box");
+
+        HBox.setHgrow(courseNameBox, Priority.ALWAYS);
+
+        return courseBox;
+    }
+
     /**
      * Returns structure of studies screen
      * @return structure of studies screen
      */
     private Pane getStructureOfStudiesScreen() {
 
-        VBox vBox = new VBox();
-        vBox.setBackground(Background.EMPTY);
-
-        vBox.setPadding(new Insets(10, 10, 10, 10));
-
-        Label title = new Label("Structure of studies!");
+        Label title = new Label("Structure of studies");
         title.setId("welcomeLabel");
 
-        vBox.getChildren().add(title);
+        Accordion degreeProgrammeAccordion = new Accordion();
+
+        Accordion studyModules1Accordion = new Accordion();
+        Accordion studyModules2Accordion = new Accordion();
+
+        for (StudyModule studyModule1 : data.user.degreeProgramme.getStudyModules()) {
+
+            for (StudyModule studyModule2 : studyModule1.getStudyModules()) {
+
+                VBox coursesBoxLeft = new VBox();
+                coursesBoxLeft.setSpacing(10);
+                coursesBoxLeft.setPrefWidth(500);
+                VBox coursesBoxRight = new VBox();
+                coursesBoxRight.setSpacing(10);
+                coursesBoxRight.setPrefWidth(500);
+
+                int counter = 0;
+                int coursesCount = studyModule2.getCourseUnits().size();
+
+                for (CourseUnit courseUnit : studyModule2.getCourseUnits()) {
+
+                    HBox courseBox = getCourseBox(courseUnit);
+
+                    if (counter <= coursesCount/2) {
+                        coursesBoxLeft.getChildren().add(courseBox);
+                    } else {
+                        coursesBoxRight.getChildren().add(courseBox);
+                    }
+                    ++counter;
+                }
+                HBox coursesBox = new HBox(coursesBoxLeft, coursesBoxRight);
+                coursesBox.setSpacing(40);
+                TitledPane coursesPane = new TitledPane(studyModule2.getName(), coursesBox);
+                studyModules2Accordion.getPanes().add(coursesPane);
+            }
+            HBox studyModules2Box = new HBox(studyModules2Accordion);
+            studyModules2Box.setPadding(new Insets(0,0,0,40));
+            TitledPane studyModulePane = new TitledPane(studyModule1.getName(), studyModules2Box);
+            studyModules1Accordion.getPanes().add(studyModulePane);
+        }
+        HBox studyModules1Box = new HBox(studyModules1Accordion);
+        studyModules1Box.setPadding(new Insets(0,0,0,40));
+        TitledPane degreeProgramPane = new TitledPane(data.user.degreeProgramme.getName(), studyModules1Box);
+        degreeProgrammeAccordion.getPanes().add(degreeProgramPane);
+
+        ScrollPane scrollPane = new ScrollPane(degreeProgrammeAccordion);
+        scrollPane.setBackground(Background.EMPTY);
+
+        VBox vBox = new VBox(title, scrollPane);
+        vBox.setBackground(Background.EMPTY);
+
+        vBox.setPadding(new Insets(30,60,10,60));
+
 
         return vBox;
     }

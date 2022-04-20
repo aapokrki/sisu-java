@@ -4,10 +4,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans');
 */
 
+
 #textLabel {
     -fx-font-family: 'Fira Sans';
     -fx-text-fill: #474747;
     -fx-font-weight: normal;
+    -fx-font-size: 14;
+}
+
+#textLabelBold {
+    -fx-font-family: 'Fira Sans';
+    -fx-text-fill: #474747;
+    -fx-font-weight: bold;
     -fx-font-size: 14;
 }
 
@@ -259,4 +267,105 @@
 
 .choice-box .menu-item:focused {
     -fx-background-color: #d8e9fd;
+}
+
+#course-box {
+    -fx-background-color: #f2f2f2;
+    -fx-border-color: #d0b88f;
+    -fx-border-width: 0.5;
+}
+
+#credit-box {
+    -fx-background-color: #d0b88f;
+    -fx-min-height: 50;
+    -fx-min-width: 40;
+    -fx-max-height: 50;
+    -fx-max-width: 40;
+}
+
+#complete-box {
+    -fx-background-color: #d9c5a2;
+    -fx-min-height: 50;
+    -fx-min-width: 40;
+    -fx-max-height: 50;
+    -fx-max-width: 40;
+}
+
+#textFieldGrade {
+    -fx-background-color: #ffffff;
+    -fx-font-family: 'Fira Sans';
+    -fx-font-weight: normal;
+    -fx-font-size: 14;
+    -fx-text-fill: #717171;
+    -fx-display-caret: true;
+    -fx-border-color: #717171;
+    -fx-background-radius: 0;
+    -fx-padding: 1;
+    -fx-alignment: center-left ;
+    -fx-min-width: 14;
+    -fx-max-width: 14;
+}
+
+#textFieldGrade:focused {
+    -fx-border-color: #245dad;
+}
+
+.accordion {
+    -fx-background: #ffffff;
+}
+
+.accordion > .titled-pane > .title {
+    -fx-font-family: 'Fira Sans';
+    -fx-text-fill: #474747;
+    -fx-font-weight: normal;
+    -fx-font-size: 16;
+    -fx-background-color: #ffffff;
+}
+
+.titled-pane {
+    -fx-background-color: #ffffff;
+}
+
+.titled-pane > .title > .arrow-button {
+    -fx-focus-color: transparent;
+}
+
+.titled-pane > .title > .arrow-button .arrow{
+    -fx-background-color: #474747;
+    -fx-min-height: 28;
+    -fx-min-width: 28;
+    -fx-max-height: 28;
+    -fx-max-width: 28;
+    -fx-shape: "M3011 6470c-654-52-1249-282-1771-686-148-114-430-396-544-544-375-484-598-1024-672-1630-23-183-23-557 0-740 74-606 297-1146 672-1630 114-148 396-430 544-544 495-384 1044-605 1675-677 142-16 508-16 650 0 631 72 1180 293 1675 677 148 114 430 396 544 544 317 409 525 858 626 1350 48 235 63 388 63 650 0 262-15 415-63 650-101 492-309 941-626 1350-114 148-396 430-544 544-491 381-1051 608-1663 675-140 16-433 21-566 11zm644-254c377-60 734-178 1029-342 128-71 326-203 436-290 110-87 377-355 464-464 362-456 589-1014 646-1589 13-133 13-449 0-582-57-575-284-1133-646-1589-87-109-354-377-464-464-428-341-938-557-1505-638-121-17-629-17-750 0-567 81-1077 297-1505 638-110 87-377 355-464 464-362 456-589 1014-646 1589-13 133-13 449 0 582 57 575 284 1133 646 1589 87 109 354 377 464 464 366 291 820 504 1266 595 130 26 191 36 354 55 88 10 579-3 675-18zM2004 3810c-23-12-46-32-53-46-15-34-14-109 3-142 20-39 1199-1200 1231-1212 52-20 118-12 166 19 24 16 306 291 626 612 580 582 582 584 589 633 8 57-11 106-52 132-33 22-112 23-141 3-12-8-272-259-578-558l-557-544-551 551c-305 304-565 556-580 562-40 14-56 13-103-10z";
+    -fx-scale-x: -1;
+    -fx-scale-y: -1;
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: #ffffff;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #dcdcdc;
+    -fx-background-radius: 0;
 }

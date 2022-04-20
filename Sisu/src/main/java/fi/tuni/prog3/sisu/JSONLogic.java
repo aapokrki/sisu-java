@@ -143,9 +143,9 @@ public class JSONLogic {
 
             JsonObject programme = programmes.get(i).getAsJsonObject();
 
-            readAPIData(programme.get("groupId").getAsString(),null);
+            //readAPIData(programme.get("groupId").getAsString(),null);
 
-            //degreeProgrammes.put(programme.get("name").getAsString(),programme.get("groupId").getAsString());
+            degreeProgrammes.put(programme.get("name").getAsString(),programme.get("groupId").getAsString());
 
             //System.out.println(getStudyModuleSelection(programme.get("groupId").getAsString()));
             //System.out.println(programme.get("name").getAsString() + " -- "+programme.get("groupId").getAsString());

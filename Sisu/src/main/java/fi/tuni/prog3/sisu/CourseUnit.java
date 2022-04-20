@@ -9,9 +9,10 @@ public class CourseUnit extends Module{
 
     public String name;
     public String code;
-    public int grade;
+    public int grade = 0;
     public Boolean completed = false;
-    public int credits;
+    public int minCredits = 0;
+    public int maxCredits = 0;
     public String id;
 
     public CourseUnit(JsonElement courseUnit){
@@ -32,20 +33,49 @@ public class CourseUnit extends Module{
         }
 
         this.id = courseUnit.getAsJsonObject().get("groupId").getAsString();
-        this.code = courseUnit.getAsJsonObject().get("code").getAsString();
-        this.credits = courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("max").getAsInt();
+
+        if(!courseUnit.getAsJsonObject().get("code").isJsonNull()){
+            this.code = courseUnit.getAsJsonObject().get("code").getAsString();
+        }else{
+            this.code = "null";
+            System.err.println("Courseunit code is null");
+        }
+
+        if(courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("max").isJsonNull()){
+            this.maxCredits = 0;
+        }else{
+            this.maxCredits = courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("max").getAsInt();
+        }
+
+        if (courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("min") != null){
+
+            this.minCredits = courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("min").getAsInt();
+        }else{
+            this.minCredits = 0;
+        }
 
     }
 
+    // Temporary setup
     public void setCompleted() {
         if(!completed){
             this.completed = true;
-            parent.addCredits(credits);
+            if(maxCredits >= minCredits){
+                parent.addCredits(maxCredits);
+            }else{
+                parent.addCredits(minCredits);
+
+            }
+
         }else{
             this.completed = false;
-            parent.removeCredits(credits);
-        }
+            if(maxCredits >= minCredits){
+                parent.removeCredits(maxCredits);
+            }else{
+                parent.removeCredits(minCredits);
 
+            }
+        }
     }
 
     public void setGrade(int grade) {

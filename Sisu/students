@@ -1,7 +1,7 @@
 [
   {
-    "name": "Kasperi",
-    "studentNumber": "H292044",
+    "name": "Aapo",
+    "studentNumber": "H292001",
     "startYear": 2020,
     "endYear": 2025,
     "degreeProgramme": {
@@ -9,21 +9,21 @@
       "id": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
       "code": "TSTK",
       "minCredits": 180,
-      "currentCredits": 0,
+      "currentCredits": 15,
       "studyModules": [
         {
-          "name": "Sähkötekniikka",
-          "code": "STEA",
-          "id": "otm-b994335e-8759-4d7e-b3bf-ae505fd3935e",
+          "name": "Tietotekniikka",
+          "code": "TTEA",
+          "id": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
           "minCredits": 180,
-          "currentCredits": 0,
+          "currentCredits": 15,
           "studyModules": [
             {
-              "name": "Sähkötekniikan yhteiset opinnot",
-              "code": "EE-P01",
-              "id": "otm-b754ef2e-46fa-435d-aa99-ccbda4866adc",
+              "name": "Tietotekniikan yhteiset opinnot",
+              "code": "COMP-P01",
+              "id": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
               "minCredits": 65,
-              "currentCredits": 0,
+              "currentCredits": 10,
               "studyModules": [],
               "courseUnits": [
                 {
@@ -63,8 +63,8 @@
                   "id": "tut-cu-g-45510"
                 },
                 {
-                  "name": "Signaalinkäsittelyn perusteet",
-                  "code": "COMP.SGN.100",
+                  "name": "Tietorakenteet ja algoritmit 1",
+                  "code": "COMP.CS.300",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
@@ -72,13 +72,40 @@
                   "id": "tut-cu-g-36938"
                 },
                 {
-                  "name": "Johdatus sulautettuihin järjestelmiin",
-                  "code": "COMP.CE.100",
+                  "name": "Signaalinkäsittelyn perusteet",
+                  "code": "COMP.SGN.100",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
                   "maxCredits": 0,
                   "id": "tut-cu-g-36355"
+                },
+                {
+                  "name": "Johdatus ohjelmistotuotantoon",
+                  "code": "COMP.SE.100",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 0,
+                  "id": "tut-cu-g-45474"
+                },
+                {
+                  "name": "Kyberturvallisuus I: perusteet",
+                  "code": "COMP.SEC.100",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 0,
+                  "id": "tut-cu-g-45501"
+                },
+                {
+                  "name": "Signaalit ja mittaaminen",
+                  "code": "EE.010",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 0,
+                  "id": "tut-cu-g-45460"
                 },
                 {
                   "name": "Johdanto tekniikan opintoihin",
@@ -87,38 +114,11 @@
                   "completed": false,
                   "minCredits": 5,
                   "maxCredits": 0,
-                  "id": "tut-cu-g-45474"
-                },
-                {
-                  "name": "Teollisuustalouden perusteet",
-                  "code": "TUTA.010",
-                  "grade": 0,
-                  "completed": false,
-                  "minCredits": 5,
-                  "maxCredits": 0,
-                  "id": "tut-cu-g-45501"
-                },
-                {
-                  "name": "Piiriteoria",
-                  "code": "EE.030",
-                  "grade": 0,
-                  "completed": false,
-                  "minCredits": 5,
-                  "maxCredits": 0,
-                  "id": "tut-cu-g-45460"
-                },
-                {
-                  "name": "Sähköenergiajärjestelmien perusteet",
-                  "code": "EE.110",
-                  "grade": 0,
-                  "completed": false,
-                  "minCredits": 5,
-                  "maxCredits": 0,
                   "id": "tut-cu-g-45459"
                 },
                 {
-                  "name": "Elektroniikan perusteet",
-                  "code": "EE.020",
+                  "name": "Foundations of Professional and Academic Communication in English",
+                  "code": "LANG.ENG.001",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 3,
@@ -135,8 +135,8 @@
                   "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
                 },
                 {
-                  "name": "Foundations of Professional and Academic Communication in English",
-                  "code": "LANG.ENG.001",
+                  "name": "Vuorovaikutusosaaminen työelämässä",
+                  "code": "LANG.PUH.001",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 2,
@@ -153,8 +153,8 @@
                   "id": "uta-ykoodi-20998"
                 },
                 {
-                  "name": "Vuorovaikutusosaaminen työelämässä",
-                  "code": "LANG.PUH.001",
+                  "name": "Teollisuustalouden perusteet",
+                  "code": "TUTA.010",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
@@ -164,11 +164,11 @@
               ]
             },
             {
-              "name": "Sähkötekniikan matemaattis-luonnontieteelliset perusopinnot",
-              "code": "EE-P02",
-              "id": "otm-0d293ec1-6de8-4d59-bbf0-b8fc486c82cd",
+              "name": "Tietotekniikan matemaattis-luonnontieteelliset perusopinnot",
+              "code": "COMP-P02",
+              "id": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
               "minCredits": 45,
-              "currentCredits": 0,
+              "currentCredits": 5,
               "studyModules": [],
               "courseUnits": [
                 {
@@ -233,14 +233,6 @@
                   "minCredits": 5,
                   "maxCredits": 0,
                   "id": "tut-cu-g-48256"
-                },
-                {
-                  "name": "Yliopistofysiikka 4",
-                  "code": "FYS.104",
-                  "grade": 0,
-                  "completed": false,
-                  "credits": 5,
-                  "id": "tut-cu-g-48257"
                 },
                 {
                   "name": "Usean muuttujan funktiot",
@@ -318,8 +310,8 @@
             },
             {
               "name": "Vapaasti valittavat opintojaksot",
-              "code": "EE-M01",
-              "id": "otm-cbed2832-3231-4833-82b0-8547bac34293",
+              "code": "COMP-M01",
+              "id": "otm-e0486fac-3401-47e9-97d7-968bed034227",
               "minCredits": 0,
               "currentCredits": 0,
               "studyModules": [],
@@ -327,6 +319,367 @@
             }
           ],
           "courseUnits": []
+        }
+      ]
+    },
+    "completedCourses": []
+  },
+  {
+    "name": "Kasperi",
+    "studentNumber": "H292044",
+    "startYear": 2020,
+    "endYear": 2025,
+    "degreeProgramme": {
+      "name": "Arkkitehtuurin kandidaattiohjelma",
+      "id": "tut-dp-g-1100",
+      "code": "ARKK",
+      "minCredits": 180,
+      "currentCredits": 0,
+      "studyModules": [
+        {
+          "name": "Arkkitehtuurin kandidaattiohjelman yhteiset opinnot",
+          "code": "ARK-M01",
+          "id": "tut-sm-g-7209",
+          "minCredits": 40,
+          "currentCredits": 0,
+          "studyModules": [],
+          "courseUnits": [
+            {
+              "name": "Johdatus arkkitehtuurin opiskeluun I",
+              "code": "ARK.101",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 2,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48863"
+            },
+            {
+              "name": "Työmaaharjoittelu",
+              "code": "ARK.RH.100",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48944"
+            },
+            {
+              "name": "Taide I",
+              "code": "ARK.110",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "otm-468918e5-fd76-423d-a467-cd6c03aeb7f4"
+            },
+            {
+              "name": "Taide II",
+              "code": "ARK.210",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "otm-5b425650-7801-404c-9702-59b03af3e5bc"
+            },
+            {
+              "name": "Monikielinen johdanto akateemisiin viestintä- ja kieliopintoihin 2",
+              "code": "LANG.002",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 2,
+              "maxCredits": 0,
+              "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
+            },
+            {
+              "name": "Ruotsia työelämään",
+              "code": "LANG.RUO.001",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 3,
+              "maxCredits": 0,
+              "id": "uta-ykoodi-20998"
+            },
+            {
+              "name": "Foundations of Professional and Academic Communication in English",
+              "code": "LANG.ENG.001",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 3,
+              "maxCredits": 0,
+              "id": "uta-ykoodi-38827"
+            }
+          ]
+        },
+        {
+          "name": "Arkkitehtuurin kandidaattiohjelman perus- ja aineopinnot",
+          "code": "ARK-A01",
+          "id": "tut-sm-g-7208",
+          "minCredits": 120,
+          "currentCredits": 0,
+          "studyModules": [],
+          "courseUnits": [
+            {
+              "name": "Arkkitehtuurin historia I",
+              "code": "ARK.RH.101",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48859"
+            },
+            {
+              "name": "Rakennusoppi I",
+              "code": "ARK.RH.110",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48860"
+            },
+            {
+              "name": "Rakennussuunnittelu I",
+              "code": "ARK.AD.110",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48858"
+            },
+            {
+              "name": "Rakennussuunnittelu II",
+              "code": "ARK.AD.120",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48864"
+            },
+            {
+              "name": "Yhdyskuntasuunnittelu I",
+              "code": "ARK.YS.110",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48865"
+            },
+            {
+              "name": "Arkkitehtuurin historia II",
+              "code": "ARK.RH.201",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48867"
+            },
+            {
+              "name": "Rakennusoppi II",
+              "code": "ARK.RH.220",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48869"
+            },
+            {
+              "name": "Rakennusoppi III",
+              "code": "ARK.RH.230",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48872"
+            },
+            {
+              "name": "Rakennussuunnittelu III",
+              "code": "ARK.AD.210",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48870"
+            },
+            {
+              "name": "Yhdyskuntasuunnittelun teoria I",
+              "code": "ARK.YS.220",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48871"
+            },
+            {
+              "name": "Rakennusoppi IV",
+              "code": "ARK.RH.320",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48936"
+            },
+            {
+              "name": "Rakennusoppi V",
+              "code": "ARK.RH.310",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48937"
+            },
+            {
+              "name": "Arkkitehtuurin historia III",
+              "code": "ARK.RH.301",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48938"
+            },
+            {
+              "name": "Rakennussuunnittelu IV",
+              "code": "ARK.AD.310",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48939"
+            },
+            {
+              "name": "Yhdyskuntasuunnittelu III",
+              "code": "ARK.YS.310",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48874"
+            },
+            {
+              "name": "Arkkitehtuurin kandidaatintyöseminaari",
+              "code": "ARK.300",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48941"
+            },
+            {
+              "name": "Arkkitehtuurin kandidaatintyö",
+              "code": "ARK.350",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 10,
+              "maxCredits": 0,
+              "id": "tut-cu-g-41970"
+            },
+            {
+              "name": "Kypsyysnäyte suomeksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+              "code": "TAU.KN.010",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-49136eba-4a72-40e7-aedb-5e7c20dfcf7e"
+            },
+            {
+              "name": "Kypsyysnäyte ruotsiksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+              "code": "TAU.KN.020",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-2beeb9ef-859a-4280-984a-d6cf2ce23032"
+            },
+            {
+              "name": "Kypsyysnäyte englanniksi alemmassa korkeakoulututkinnossa, sisällön tarkistus",
+              "code": "TAU.KN.031",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-2c104f39-c85a-4f56-b394-880903f2eaf0"
+            }
+          ]
+        },
+        {
+          "name": "Vapaasti valittavat opintojaksot",
+          "code": "ARK-M02",
+          "id": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
+          "minCredits": 0,
+          "currentCredits": 0,
+          "studyModules": [],
+          "courseUnits": [
+            {
+              "name": "Kaupunkiekskursio",
+              "code": "ARK.700",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48970"
+            },
+            {
+              "name": "Arkkitehtuurin kesäkoulu",
+              "code": "ARK.750",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48974"
+            },
+            {
+              "name": "Arkkitehtuuri, vaihtuva aihe",
+              "code": "ARK.600",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 1,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48971"
+            },
+            {
+              "name": "Arkkitehtuurin ammattiharjoittelu",
+              "code": "ARK.450",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48972"
+            },
+            {
+              "name": "Ihminen ja ympäristö",
+              "code": "ARK.AD.130",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48866"
+            },
+            {
+              "name": "Yhdyskuntasuunnittelu II",
+              "code": "ARK.YS.210",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 5,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48873"
+            },
+            {
+              "name": "Rakennushankkeen suunnittelun simulointi",
+              "code": "ARK.RH.330",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 1,
+              "maxCredits": 0,
+              "id": "tut-cu-g-48940"
+            },
+            {
+              "name": "Architecture, varying topics: Approaching Pattern Language",
+              "code": "ARK.602",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 2,
+              "maxCredits": 0,
+              "id": "otm-ff3ae1b5-7431-4ab4-9755-47b35bae5654"
+            }
+          ]
         }
       ]
     },

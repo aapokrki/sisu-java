@@ -544,7 +544,7 @@
                 {
                   "name": "Vektorit ja matriisit",
                   "code": "MATH.MA.140",
-                  "grade": 0,
+                  "grade": 2,
                   "completed": false,
                   "minCredits": 5,
                   "maxCredits": 0,

@@ -19,9 +19,19 @@ public class StudyModule extends Module{
 
     public StudyModule(JsonElement studyModule){
         this.studyModule = studyModule;
-        this.code = studyModule.getAsJsonObject().get("code").getAsString();
+        if(!studyModule.getAsJsonObject().get("code").isJsonNull()){
+            this.code = studyModule.getAsJsonObject().get("code").getAsString();
+
+        }else{
+            this.code = null;
+        }
         this.id = studyModule.getAsJsonObject().get("groupId").getAsString();
-        this.minCredits = studyModule.getAsJsonObject().get("targetCredits").getAsJsonObject().get("min").getAsInt();
+        if(!(studyModule.getAsJsonObject().get("targetCredits") == null)){
+            this.minCredits = studyModule.getAsJsonObject().get("targetCredits").getAsJsonObject().get("min").getAsInt();
+
+        }else{
+            this.minCredits = 0;
+        }
 
         // The name can be in finnish, english or both. Prefers finnish first if both are available
         try {
@@ -91,7 +101,10 @@ public class StudyModule extends Module{
         this.parent = parent;
     }
 
-
+    @Override
+    public String getName() {
+        return this.name;
+    }
 
     // Ei niin olennaisia
     public void setName(String name) {

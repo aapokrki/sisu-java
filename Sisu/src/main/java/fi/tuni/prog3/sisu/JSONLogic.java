@@ -133,13 +133,24 @@ public class JSONLogic {
 
         JsonObject rootobj = requestJsonRootObjectFromURL(sURL);
         JsonArray programmes = rootobj.get("searchResults").getAsJsonArray();
+
+
+
         Map<String, String> degreeProgrammes = new TreeMap<>();
         for (int i = 0; i < programmes.size(); i++) {
+
+
+
             JsonObject programme = programmes.get(i).getAsJsonObject();
-            degreeProgrammes.put(programme.get("name").getAsString(),programme.get("groupId").getAsString());
+
+            readAPIData(programme.get("groupId").getAsString(),null);
+
+            //degreeProgrammes.put(programme.get("name").getAsString(),programme.get("groupId").getAsString());
 
             //System.out.println(getStudyModuleSelection(programme.get("groupId").getAsString()));
             //System.out.println(programme.get("name").getAsString() + " -- "+programme.get("groupId").getAsString());
+
+
         }
 
 //        degreeProgrammes.forEach((k,v) ->{
@@ -243,11 +254,11 @@ public class JSONLogic {
             if(obj.get("name").getAsJsonObject().get("fi") == null){
 
                 String name = obj.get("name").getAsJsonObject().get("en").getAsString();
-                System.out.println( "-".repeat(indent) + name + type + ", Parent = " + parent.getCode());
+                System.out.println( "-".repeat(indent) + name + obj.get("groupId"));
 
             }else{
                 String name = obj.get("name").getAsJsonObject().get("fi").getAsString();
-                System.out.println( "-".repeat(indent)+name + " - "+type + ", Parent = " + parent.getCode());
+                System.out.println( "-".repeat(indent) + name + " -- " + obj.get("groupId"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -284,11 +295,13 @@ public class JSONLogic {
         }
 
 
-        if(type.equals("StudyModule")){
+        if(type.equals("StudyModule") || type.equals("GroupingModule")){
             //getName(rootobj,indent, "StudyModule", parent);
 
             JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
             StudyModule studyModule = new StudyModule(rootobj);
+
+
 
             studyModule.setParent(parent);
             parent.addChild(studyModule);
@@ -348,6 +361,26 @@ public class JSONLogic {
         //TODO Check Groupingmodule and rules for additional features
 
         // no Degreeprogramme to be found
+        if(type.equals("AnyModuleRule")){
+//            System.out.println(parent.getName() +" -- " +parent.getId());
+//
+//            System.out.println("AnyModuleRule -- " + rootobj.get("localId"));
+
+        }
+
+        if(type.equals("GroupingModule")){
+//            System.out.println(parent.getName() +" -- " +parent.getId());
+//            System.out.println(rootobj);
+//
+//            System.out.println("GroupingModule -- " + rootobj.get("groupId"));
+        }
+
+//        if(type.equals("AnyCourseUnitRule")){
+//            System.out.println(parent.getName()+" -- " +parent.getId());
+//            System.out.println("AnyCourseUnitRule");
+//
+//
+//        }
         return null;
     }
 
@@ -395,6 +428,7 @@ public class JSONLogic {
 
 
         //logic.getDegreeProgrammeClass(logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/otm-4d4c4575-a5ae-427e-a860-2f168ad4e8ba"));
+
         DegreeProgramme tietotekniikka = logic.readAPIData("otm-fa02a1e7-4fe1-43e3-818b-810d8e723531", "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce");
         //logic.getAllDegreeprogrammes();
 
@@ -443,19 +477,21 @@ public class JSONLogic {
 
         // from arraylist, create students.json
         logic.studentsToJson(studentsList);
-
         // from students.json, create map structure for all students
-        Map<String, Student> students = logic.studentsFromJsonToClass();
+        //Map<String, Student> students = logic.studentsFromJsonToClass();
 
-        Map<String, String> progs = logic.getAllDegreeProgrammes();
-        progs.forEach((k,v) -> {
-            try {
-                logic.readAPIData(v, null);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
-        });
+
+        //logic.getAllDegreeProgrammes();
+//        Map<String, String> progs = logic.getAllDegreeProgrammes();
+//        progs.forEach((k,v) -> {
+//            try {
+//                logic.readAPIData(v, null);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//        });
 
         //logic.studentsToJson((ArrayList<Student>) students.values());
 

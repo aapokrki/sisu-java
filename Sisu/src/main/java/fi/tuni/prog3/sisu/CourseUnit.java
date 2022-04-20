@@ -33,19 +33,30 @@ public class CourseUnit extends Module{
         }
 
         this.id = courseUnit.getAsJsonObject().get("groupId").getAsString();
-        this.code = courseUnit.getAsJsonObject().get("code").getAsString();
 
-        if(courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("max") == null){
+        if(!courseUnit.getAsJsonObject().get("code").isJsonNull()){
+            this.code = courseUnit.getAsJsonObject().get("code").getAsString();
+        }else{
+            this.code = "null";
+            System.err.println("Courseunit code is null");
+        }
+
+        if(courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("max").isJsonNull()){
             this.maxCredits = 0;
+        }else{
+            this.maxCredits = courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("max").getAsInt();
         }
 
         if (courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("min") != null){
 
             this.minCredits = courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("min").getAsInt();
+        }else{
+            this.minCredits = 0;
         }
 
     }
 
+    // Temporary setup
     public void setCompleted() {
         if(!completed){
             this.completed = true;
@@ -65,7 +76,6 @@ public class CourseUnit extends Module{
 
             }
         }
-
     }
 
     public void setGrade(int grade) {

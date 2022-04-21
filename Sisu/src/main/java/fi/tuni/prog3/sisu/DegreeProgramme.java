@@ -58,6 +58,7 @@ public class DegreeProgramme extends Module{
     public void setStudyModules(ArrayList<StudyModule> studyModules) {
         this.studyModules = studyModules;
     }
+
     public JsonElement getJsonElement(){
         return degreeProgramme;
     }
@@ -65,6 +66,8 @@ public class DegreeProgramme extends Module{
     public ArrayList<StudyModule> getStudyModules() {
         return studyModules;
     }
+
+    public ArrayList<DegreeProgramme> getDegreeProgrammes() {return degreeProgrammes;}
 
     @Override
     public String getType() {

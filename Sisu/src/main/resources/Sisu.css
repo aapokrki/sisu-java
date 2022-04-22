@@ -84,10 +84,12 @@
 
 #whiteButton:hover {
     -fx-border-color: #245dad;
+    -fx-background-color: #f2f2f2;
 }
 
 #whiteButton:focused {
     -fx-border-color: #245dad;
+    -fx-background-color: #f2f2f2;
 }
 
 #blueButton {
@@ -292,13 +294,15 @@
 }
 
 #textFieldGrade {
-    -fx-background-color: #ffffff;
+    -fx-background-color: #f9f9f9;
     -fx-font-family: 'Fira Sans';
     -fx-font-weight: normal;
     -fx-font-size: 14;
     -fx-text-fill: #717171;
     -fx-display-caret: true;
     -fx-border-color: #717171;
+    -fx-border-width: 0.5;
+    -fx-border-radius: 1;
     -fx-background-radius: 0;
     -fx-padding: 1;
     -fx-alignment: center-left ;

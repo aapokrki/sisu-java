@@ -567,6 +567,7 @@
       ]
     },
     "completedCourses": []
+<<<<<<< HEAD
   },
   {
     "name": "Aapo",
@@ -1800,5 +1801,7 @@
       ]
     },
     "completedCourses": []
+=======
+>>>>>>> 26337c06abdd5acbe385df9c31cbea8b33dcd43e
   }
 ]

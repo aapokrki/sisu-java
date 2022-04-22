@@ -24,6 +24,10 @@ public class Student {
         this.degreeProgramme = degreeProgramme;
     }
 
+    public DegreeProgramme getDegreeProgramme() {
+        return degreeProgramme;
+    }
+
     /**
      * Marks course as completed
      * @param course - course

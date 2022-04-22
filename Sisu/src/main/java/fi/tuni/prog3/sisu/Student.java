@@ -34,6 +34,7 @@ public class Student {
      */
     public void addCompletedCourse(CourseUnit course){
         completedCourses.add(course);
+        degreeProgramme.addCompletedCourse(course);
     }
 
     /**

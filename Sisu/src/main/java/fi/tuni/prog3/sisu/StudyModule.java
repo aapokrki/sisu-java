@@ -109,6 +109,19 @@ public class StudyModule extends Module{
         return this.name;
     }
 
+    public void addCompletedCourse(CourseUnit courseUnit){
+        currentCredits += courseUnit.getCreditsInt();
+        for(StudyModule studyModule : studyModules){
+            studyModule.addCompletedCourse(courseUnit);
+        }
+
+        for(CourseUnit course : courseUnits){
+            if(course.equals(courseUnit)){
+                course.setCompleted();
+            }
+        }
+    }
+
     // Ei niin olennaisia
     public void setName(String name) {
         this.name = name;

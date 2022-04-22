@@ -62,21 +62,11 @@ public class CourseUnit extends Module{
     public void setCompleted() {
         if(!completed){
             this.completed = true;
-            if(maxCredits >= minCredits){
-                parent.addCredits(maxCredits);
-            }else{
-                parent.addCredits(minCredits);
 
-            }
 
         }else{
             this.completed = false;
-            if(maxCredits >= minCredits){
-                parent.removeCredits(maxCredits);
-            }else{
-                parent.removeCredits(minCredits);
 
-            }
         }
     }
 
@@ -84,7 +74,7 @@ public class CourseUnit extends Module{
         if(grade <= 5 && grade >= 0){
             this.grade = grade;
         }
-        setCompleted();
+        //setCompleted();
     }
 
     @Override
@@ -110,6 +100,17 @@ public class CourseUnit extends Module{
             return String.valueOf(minCredits);
         }
         return maxCredits + "-" + minCredits;
+    }
+
+    public int getCreditsInt(){
+        if (minCredits == maxCredits) {
+            return maxCredits;
+        }
+        if (maxCredits == 0) {
+            return minCredits;
+        }
+        return maxCredits;
+
     }
 
     public int getGrade() {

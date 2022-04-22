@@ -99,6 +99,13 @@ public class DegreeProgramme extends Module{
 
     }
 
+    public void addCompletedCourse(CourseUnit courseUnit){
+        currentCredits += courseUnit.getCreditsInt();
+        for(StudyModule studyModule : studyModules){
+            studyModule.addCompletedCourse(courseUnit);
+        }
+    }
+
     // Ei niin olennaisia ku kaikki tehdään rakentimessa
     public void setParent(Module parent) {
         this.parent = parent;

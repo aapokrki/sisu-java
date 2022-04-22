@@ -12,79 +12,249 @@
       "currentCredits": 0,
       "studyModules": [
         {
+          "parentId": "tut-dp-g-1100",
           "name": "Arkkitehtuurin kandidaattiohjelman yhteiset opinnot",
           "code": "ARK-M01",
           "id": "tut-sm-g-7209",
           "minCredits": 40,
           "currentCredits": 0,
-          "studyModules": [],
+          "studyModules": [
+            {
+              "parentId": "tut-sm-g-7209",
+              "name": "Arkkitehtuurimedia",
+              "id": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+              "minCredits": 0,
+              "currentCredits": 0,
+              "studyModules": [],
+              "courseUnits": [
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "Arkkitehtuurimedia I",
+                  "code": "ARK.ME.001",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 1,
+                  "maxCredits": 1,
+                  "id": "otm-899ac992-de93-42ef-ab7e-3472cbf6f77b"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "Arkkitehtuurimedia II",
+                  "code": "ARK.ME.002",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "otm-50e01d31-852c-4c46-9c89-85fd7be8a699"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "Arkkitehtuurimedia III",
+                  "code": "ARK.ME.003",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 1,
+                  "maxCredits": 1,
+                  "id": "otm-a5b52a31-e723-4bbf-bd8b-4ceb82bdf5a9"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "Arkkitehtuurimedia IV",
+                  "code": "ARK.ME.004",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 1,
+                  "maxCredits": 1,
+                  "id": "otm-c0301d8a-289c-4cf9-897f-c64cc3977211"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "Arkkitehtuurimedia V",
+                  "code": "ARK.ME.005",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 1,
+                  "maxCredits": 1,
+                  "id": "otm-cf76a30d-7f46-46f1-b659-99e7d625ce2c"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "Arkkitehtuurimedia VI",
+                  "code": "ARK.ME.006",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 1,
+                  "maxCredits": 1,
+                  "id": "otm-e2f279b0-8313-485a-a368-0c5844964ddf"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "CAAD I",
+                  "code": "ARK.ME.011",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 4,
+                  "maxCredits": 4,
+                  "id": "otm-160f46e4-6d73-4663-a3bb-97a221c1b0ff"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "CAAD II",
+                  "code": "ARK.ME.012",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 4,
+                  "maxCredits": 4,
+                  "id": "otm-6a76e17f-db74-42dc-b138-1fdcda2b6325"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "CAAD III",
+                  "code": "ARK.ME.013",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "otm-5762c0eb-52ed-4289-af87-77a850977433"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "Arkkitehtuurin visualisointi I",
+                  "code": "ARK.ME.021",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 1,
+                  "maxCredits": 1,
+                  "id": "otm-f6267f1a-14f2-4132-a521-aa066021b34c"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "Arkkitehtuurin visualisointi II",
+                  "code": "ARK.ME.022",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "otm-b87a5892-ceb8-4160-8e0e-bfa8a2cc098a"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "Arkkitehtuurin visualisointi III",
+                  "code": "ARK.ME.023",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "otm-e1322c00-d04c-4c85-8184-a3978a7f91d1"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "3D-mallinnus I",
+                  "code": "ARK.ME.031",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "otm-f7292826-a3f7-447e-9202-d55da83bca94"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "3D-mallinnus II",
+                  "code": "ARK.ME.032",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 3,
+                  "maxCredits": 3,
+                  "id": "otm-d16449cc-04ff-4e41-91a6-f652a30b3a3a"
+                },
+                {
+                  "parentId": "otm-6b573370-d409-4f07-a09a-1f4714637c8c",
+                  "name": "3D-mallinnus III",
+                  "code": "ARK.ME.033",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 3,
+                  "maxCredits": 3,
+                  "id": "otm-6e7a34c5-3334-4ebe-ad95-6e938ccd53a4"
+                }
+              ]
+            }
+          ],
           "courseUnits": [
             {
+              "parentId": "tut-sm-g-7209",
               "name": "Johdatus arkkitehtuurin opiskeluun I",
               "code": "ARK.101",
               "grade": 0,
               "completed": false,
               "minCredits": 2,
-              "maxCredits": 0,
+              "maxCredits": 2,
               "id": "tut-cu-g-48863"
             },
             {
+              "parentId": "tut-sm-g-7209",
               "name": "Työmaaharjoittelu",
               "code": "ARK.RH.100",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48944"
             },
             {
+              "parentId": "tut-sm-g-7209",
               "name": "Taide I",
               "code": "ARK.110",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "otm-468918e5-fd76-423d-a467-cd6c03aeb7f4"
             },
             {
+              "parentId": "tut-sm-g-7209",
               "name": "Taide II",
               "code": "ARK.210",
               "grade": 0,
               "completed": false,
               "minCredits": 10,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "otm-5b425650-7801-404c-9702-59b03af3e5bc"
             },
             {
+              "parentId": "tut-sm-g-7209",
               "name": "Monikielinen johdanto akateemisiin viestintä- ja kieliopintoihin 2",
               "code": "LANG.002",
               "grade": 0,
               "completed": false,
               "minCredits": 2,
-              "maxCredits": 0,
+              "maxCredits": 2,
               "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
             },
             {
+              "parentId": "tut-sm-g-7209",
               "name": "Ruotsia työelämään",
               "code": "LANG.RUO.001",
               "grade": 0,
               "completed": false,
               "minCredits": 3,
-              "maxCredits": 0,
+              "maxCredits": 3,
               "id": "uta-ykoodi-20998"
             },
             {
+              "parentId": "tut-sm-g-7209",
               "name": "Foundations of Professional and Academic Communication in English",
               "code": "LANG.ENG.001",
               "grade": 0,
               "completed": false,
               "minCredits": 3,
-              "maxCredits": 0,
+              "maxCredits": 3,
               "id": "uta-ykoodi-38827"
             }
           ]
         },
         {
+          "parentId": "tut-dp-g-1100",
           "name": "Arkkitehtuurin kandidaattiohjelman perus- ja aineopinnot",
           "code": "ARK-A01",
           "id": "tut-sm-g-7208",
@@ -93,141 +263,157 @@
           "studyModules": [],
           "courseUnits": [
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Arkkitehtuurin historia I",
               "code": "ARK.RH.101",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48859"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Rakennusoppi I",
               "code": "ARK.RH.110",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48860"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Rakennussuunnittelu I",
               "code": "ARK.AD.110",
               "grade": 0,
               "completed": false,
               "minCredits": 10,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "tut-cu-g-48858"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Rakennussuunnittelu II",
               "code": "ARK.AD.120",
               "grade": 0,
               "completed": false,
               "minCredits": 10,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "tut-cu-g-48864"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Yhdyskuntasuunnittelu I",
               "code": "ARK.YS.110",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48865"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Arkkitehtuurin historia II",
               "code": "ARK.RH.201",
               "grade": 0,
               "completed": false,
               "minCredits": 10,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "tut-cu-g-48867"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Rakennusoppi II",
               "code": "ARK.RH.220",
               "grade": 0,
               "completed": false,
               "minCredits": 10,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "tut-cu-g-48869"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Rakennusoppi III",
               "code": "ARK.RH.230",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48872"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Rakennussuunnittelu III",
               "code": "ARK.AD.210",
               "grade": 0,
               "completed": false,
               "minCredits": 10,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "tut-cu-g-48870"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Yhdyskuntasuunnittelun teoria I",
               "code": "ARK.YS.220",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48871"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Rakennusoppi IV",
               "code": "ARK.RH.320",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48936"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Rakennusoppi V",
               "code": "ARK.RH.310",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48937"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Arkkitehtuurin historia III",
               "code": "ARK.RH.301",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48938"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Rakennussuunnittelu IV",
               "code": "ARK.AD.310",
               "grade": 0,
               "completed": false,
               "minCredits": 10,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "tut-cu-g-48939"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Yhdyskuntasuunnittelu III",
               "code": "ARK.YS.310",
               "grade": 0,
               "completed": false,
               "minCredits": 10,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "tut-cu-g-48874"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Arkkitehtuurin kandidaatintyöseminaari",
               "code": "ARK.300",
               "grade": 0,
@@ -237,15 +423,17 @@
               "id": "tut-cu-g-48941"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Arkkitehtuurin kandidaatintyö",
               "code": "ARK.350",
               "grade": 0,
               "completed": false,
               "minCredits": 10,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "tut-cu-g-41970"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Kypsyysnäyte suomeksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
               "code": "TAU.KN.010",
               "grade": 0,
@@ -255,6 +443,7 @@
               "id": "otm-49136eba-4a72-40e7-aedb-5e7c20dfcf7e"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Kypsyysnäyte ruotsiksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
               "code": "TAU.KN.020",
               "grade": 0,
@@ -264,6 +453,7 @@
               "id": "otm-2beeb9ef-859a-4280-984a-d6cf2ce23032"
             },
             {
+              "parentId": "tut-sm-g-7208",
               "name": "Kypsyysnäyte englanniksi alemmassa korkeakoulututkinnossa, sisällön tarkistus",
               "code": "TAU.KN.031",
               "grade": 0,
@@ -275,6 +465,7 @@
           ]
         },
         {
+          "parentId": "tut-dp-g-1100",
           "name": "Vapaasti valittavat opintojaksot",
           "code": "ARK-M02",
           "id": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
@@ -283,78 +474,95 @@
           "studyModules": [],
           "courseUnits": [
             {
+              "parentId": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
               "name": "Kaupunkiekskursio",
               "code": "ARK.700",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48970"
             },
             {
+              "parentId": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
               "name": "Arkkitehtuurin kesäkoulu",
               "code": "ARK.750",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48974"
             },
             {
+              "parentId": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
               "name": "Arkkitehtuuri, vaihtuva aihe",
               "code": "ARK.600",
               "grade": 0,
               "completed": false,
               "minCredits": 1,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "tut-cu-g-48971"
             },
             {
+              "parentId": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
               "name": "Arkkitehtuurin ammattiharjoittelu",
               "code": "ARK.450",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48972"
             },
             {
+              "parentId": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
               "name": "Ihminen ja ympäristö",
               "code": "ARK.AD.130",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48866"
             },
             {
+              "parentId": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
               "name": "Yhdyskuntasuunnittelu II",
               "code": "ARK.YS.210",
               "grade": 0,
               "completed": false,
               "minCredits": 5,
-              "maxCredits": 0,
+              "maxCredits": 5,
               "id": "tut-cu-g-48873"
             },
             {
+              "parentId": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
               "name": "Rakennushankkeen suunnittelun simulointi",
               "code": "ARK.RH.330",
               "grade": 0,
               "completed": false,
               "minCredits": 1,
-              "maxCredits": 0,
+              "maxCredits": 10,
               "id": "tut-cu-g-48940"
             },
             {
+              "parentId": "otm-d98c71bb-91ac-4a35-90bc-56a9053c5f2d",
               "name": "Architecture, varying topics: Approaching Pattern Language",
               "code": "ARK.602",
               "grade": 0,
               "completed": false,
               "minCredits": 2,
-              "maxCredits": 0,
+              "maxCredits": 2,
               "id": "otm-ff3ae1b5-7431-4ab4-9755-47b35bae5654"
             }
           ]
+        },
+        {
+          "parentId": "tut-dp-g-1100",
+          "name": "Vapaasti valittavat opintokokonaisuudet",
+          "id": "otm-c7506496-c78b-4564-b9f7-0c8fcdef0e70",
+          "minCredits": 0,
+          "currentCredits": 0,
+          "studyModules": [],
+          "courseUnits": []
         }
       ]
     },
@@ -370,306 +578,1214 @@
       "id": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
       "code": "TSTK",
       "minCredits": 180,
-      "currentCredits": 15,
+      "currentCredits": 0,
       "studyModules": [
         {
+          "parentId": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
           "name": "Tietotekniikka",
           "code": "TTEA",
           "id": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
           "minCredits": 180,
-          "currentCredits": 15,
+          "currentCredits": 0,
           "studyModules": [
             {
+              "parentId": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
               "name": "Tietotekniikan yhteiset opinnot",
               "code": "COMP-P01",
               "id": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
               "minCredits": 65,
-              "currentCredits": 10,
+              "currentCredits": 0,
               "studyModules": [],
               "courseUnits": [
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Tietoliikennetekniikan perusteet",
                   "code": "COMM.100",
                   "grade": 5,
-                  "completed": true,
+                  "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-45462"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Johdatus sulautettuihin järjestelmiin",
                   "code": "COMP.CE.100",
                   "grade": 1,
-                  "completed": true,
+                  "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-45577"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Ohjelmointi 1: Johdatus ohjelmointiin",
                   "code": "COMP.CS.100",
-                  "grade": 3,
-                  "completed": true,
+                  "grade": 0,
+                  "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-45620"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Ohjelmointi 2: Rakenteet",
                   "code": "COMP.CS.110",
                   "grade": 0,
-                  "completed": true,
+                  "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-45510"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Tietorakenteet ja algoritmit 1",
                   "code": "COMP.CS.300",
-                  "grade": 2,
+                  "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-36938"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Signaalinkäsittelyn perusteet",
                   "code": "COMP.SGN.100",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-36355"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Johdatus ohjelmistotuotantoon",
                   "code": "COMP.SE.100",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-45474"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Kyberturvallisuus I: perusteet",
                   "code": "COMP.SEC.100",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-45501"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Signaalit ja mittaaminen",
                   "code": "EE.010",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-45460"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Johdanto tekniikan opintoihin",
                   "code": "ITC.CEE.010",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-45459"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Foundations of Professional and Academic Communication in English",
                   "code": "LANG.ENG.001",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 3,
-                  "maxCredits": 0,
+                  "maxCredits": 3,
                   "id": "uta-ykoodi-38827"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Monikielinen johdanto akateemisiin viestintä- ja kieliopintoihin 2",
                   "code": "LANG.002",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 2,
-                  "maxCredits": 0,
+                  "maxCredits": 2,
                   "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Vuorovaikutusosaaminen työelämässä",
                   "code": "LANG.PUH.001",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 2,
-                  "maxCredits": 0,
+                  "maxCredits": 2,
                   "id": "uta-ykoodi-48285"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Ruotsia työelämään",
                   "code": "LANG.RUO.001",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 3,
-                  "maxCredits": 0,
+                  "maxCredits": 3,
                   "id": "uta-ykoodi-20998"
                 },
                 {
+                  "parentId": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
                   "name": "Teollisuustalouden perusteet",
                   "code": "TUTA.010",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-48243"
                 }
               ]
             },
             {
+              "parentId": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
               "name": "Tietotekniikan matemaattis-luonnontieteelliset perusopinnot",
               "code": "COMP-P02",
               "id": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
               "minCredits": 45,
-              "currentCredits": 5,
+              "currentCredits": 0,
               "studyModules": [],
               "courseUnits": [
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Analyysin peruskurssi",
                   "code": "MATH.APP.111",
                   "grade": 5,
-                  "completed": true,
+                  "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-35897"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Vektorit ja matriisit",
                   "code": "MATH.MA.140",
-                  "grade": 2,
+                  "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-35898"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Differentiaali- ja integraalilaskenta",
                   "code": "MATH.APP.160",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-35899"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Johdatus todennäköisyyslaskentaan ja tilastolliseen päättelyyn",
                   "code": "MATH.APP.210",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "uta-ykoodi-47933"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Yliopistofysiikka 1",
                   "code": "FYS.101",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-48229"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Yliopistofysiikka 2",
                   "code": "FYS.102",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-48230"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Yliopistofysiikka 3",
                   "code": "FYS.103",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-48256"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Usean muuttujan funktiot",
                   "code": "MATH.APP.220",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-47510"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Operaatiotutkimus",
                   "code": "MATH.APP.260",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-47515"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Vektorianalyysi",
                   "code": "MATH.APP.230",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-47603"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Fourier\u0027n menetelmät",
                   "code": "MATH.APP.240",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-47604"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Graafialgoritmit",
                   "code": "MATH.APP.270",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "tut-cu-g-48943"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Tilastollisten menetelmien perusteet",
                   "code": "DATA.STAT.120",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "uta-ykoodi-38909"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Matemaattisen tilastotieteen perusteet",
                   "code": "DATA.STAT.420",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "uta-ykoodi-33646"
                 },
                 {
+                  "parentId": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
                   "name": "Diskreetti matematiikka",
                   "code": "MATH.MA.210",
                   "grade": 0,
                   "completed": false,
                   "minCredits": 5,
-                  "maxCredits": 0,
+                  "maxCredits": 5,
                   "id": "otm-1e8f1023-1977-4f98-9386-110ef623327b"
                 }
               ]
             },
             {
+              "parentId": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
+              "name": "Aineopinnot",
+              "id": "otm-6b723b60-5fda-4358-9ed4-6c508289420d",
+              "minCredits": 0,
+              "currentCredits": 0,
+              "studyModules": [
+                {
+                  "parentId": "otm-6b723b60-5fda-4358-9ed4-6c508289420d",
+                  "name": "Elektroniikan ja sulautettujen järjestelmien aineopinnot",
+                  "code": "EE.ELE-A01",
+                  "id": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                  "minCredits": 40,
+                  "currentCredits": 0,
+                  "studyModules": [],
+                  "courseUnits": [
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Viihde-elektroniikka",
+                      "code": "EE.ELE.240",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-42941"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Digital Design",
+                      "code": "COMP.CE.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-42182"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Kypsyysnäyte suomeksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+                      "code": "TAU.KN.010",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-49136eba-4a72-40e7-aedb-5e7c20dfcf7e"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Kypsyysnäyte ruotsiksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+                      "code": "TAU.KN.020",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-2beeb9ef-859a-4280-984a-d6cf2ce23032"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Kypsyysnäyte englanniksi alemmassa korkeakoulututkinnossa, sisällön tarkistus",
+                      "code": "TAU.KN.031",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-2c104f39-c85a-4f56-b394-880903f2eaf0"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Tekniikan alan kandidaatintyö",
+                      "code": "TAU.OPN.020",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 10,
+                      "maxCredits": 10,
+                      "id": "tut-cu-g-41999"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Elektroniikan perusteet",
+                      "code": "EE.020",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45399"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Transistorit ja vahvistinpiirit",
+                      "code": "EE.ELE.210",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45401"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "CAE elektroniikassa",
+                      "code": "EE.ELE.230",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45403"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Elektroniikan ja sulautettujen järjestelmien työkurssi",
+                      "code": "EE.ELE.220",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45402"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Elektroniikkalaitteen tuotesuunnittelu",
+                      "code": "EE.ELE.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45400"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Elektroniikan uudet materiaalit ja valmistusmenetelmät",
+                      "code": "EE.ELE.260",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45666"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Micro Electronics I",
+                      "code": "EE.ELE.270",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45259"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Micro Electronics II",
+                      "code": "EE.ELE.280",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45260"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Johdatus RF-elektroniikkaan",
+                      "code": "COMM.RF.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-41312"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Mikrokontrollerit",
+                      "code": "EE.ELE.250",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-36546"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Logic Synthesis",
+                      "code": "COMP.CE.240",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-38955"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Tietokoneen arkkitehtuuri ",
+                      "code": "COMP.CE.130",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-37107"
+                    },
+                    {
+                      "parentId": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
+                      "name": "Sähkötekniikan kandidaatintyöseminaari",
+                      "code": "EE.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "tut-cu-g-35273"
+                    }
+                  ]
+                },
+                {
+                  "parentId": "otm-6b723b60-5fda-4358-9ed4-6c508289420d",
+                  "name": "Intermediate Studies in Signal Processing and Machine Learning",
+                  "code": "COMP.SGN-A01",
+                  "id": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                  "minCredits": 40,
+                  "currentCredits": 0,
+                  "studyModules": [],
+                  "courseUnits": [
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Kypsyysnäyte suomeksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+                      "code": "TAU.KN.010",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-49136eba-4a72-40e7-aedb-5e7c20dfcf7e"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Kypsyysnäyte ruotsiksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+                      "code": "TAU.KN.020",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-2beeb9ef-859a-4280-984a-d6cf2ce23032"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Kypsyysnäyte englanniksi alemmassa korkeakoulututkinnossa, sisällön tarkistus",
+                      "code": "TAU.KN.031",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-2c104f39-c85a-4f56-b394-880903f2eaf0"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Introduction to Control",
+                      "code": "AUT.130",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 7,
+                      "id": "tut-cu-g-47697"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Systeemit ja säätö",
+                      "code": "AUT.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-35418"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Data-Intensive Programming",
+                      "code": "COMP.CS.320",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-43075"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Computer Vision",
+                      "code": "DATA.ML.300",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-49996"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Tietorakenteet ja algoritmit 1",
+                      "code": "COMP.CS.300",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-36938"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Computational Diagnostics of Data",
+                      "code": "DATA.ML.390",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-49119"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Complex Networks",
+                      "code": "DATA.ML.430",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-47996"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Ohjelmointi 3: Rajapinnat ja tekniikat",
+                      "code": "COMP.CS.140",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "otm-9392333f-bff2-4c3d-b1cf-717ce9990253"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Johdanto hahmontunnistukseen ja koneoppimiseen",
+                      "code": "DATA.ML.100",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-36124"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Introduction to Audio and Speech Processing",
+                      "code": "COMP.SGN.120",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-43032"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Johdatus kuvan- ja videonkäsittelyyn",
+                      "code": "COMP.SGN.110",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-43018"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Tekniikan alan kandidaatintyö",
+                      "code": "TAU.OPN.020",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 10,
+                      "maxCredits": 10,
+                      "id": "tut-cu-g-41999"
+                    },
+                    {
+                      "parentId": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
+                      "name": "Tietotekniikan kandidaatintyöseminaari",
+                      "code": "COMP.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "tut-cu-g-36840"
+                    }
+                  ]
+                },
+                {
+                  "parentId": "otm-6b723b60-5fda-4358-9ed4-6c508289420d",
+                  "name": "Tietoliikennetekniikan aineopinnot",
+                  "code": "COMM-A01",
+                  "id": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                  "minCredits": 40,
+                  "currentCredits": 0,
+                  "studyModules": [],
+                  "courseUnits": [
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Communication Theory",
+                      "code": "COMM.SYS.300",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-48056"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Langattoman tietoliikenteen perusteet",
+                      "code": "COMM.SYS.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-36477"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Tietoverkkotekniikat I",
+                      "code": "COMM.NET.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45943"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Tekniikan alan kandidaatintyö",
+                      "code": "TAU.OPN.020",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 10,
+                      "maxCredits": 10,
+                      "id": "tut-cu-g-41999"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Kypsyysnäyte suomeksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+                      "code": "TAU.KN.010",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-49136eba-4a72-40e7-aedb-5e7c20dfcf7e"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Kypsyysnäyte ruotsiksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+                      "code": "TAU.KN.020",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-2beeb9ef-859a-4280-984a-d6cf2ce23032"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Kypsyysnäyte englanniksi alemmassa korkeakoulututkinnossa, sisällön tarkistus",
+                      "code": "TAU.KN.031",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-2c104f39-c85a-4f56-b394-880903f2eaf0"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Micro Electronics I",
+                      "code": "EE.ELE.270",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45259"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Micro Electronics II",
+                      "code": "EE.ELE.280",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45260"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Digital Communication",
+                      "code": "COMM.SYS.400",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-48057"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Multicarrier and Multiantenna Techniques",
+                      "code": "COMM.SYS.450",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-36487"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "5G Mobile Communications",
+                      "code": "COMM.SYS.700",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-48077"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Internet-of-Things Wireless Communications",
+                      "code": "COMM.SYS.710",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-48078"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Radio Propagation in Wireless Networks",
+                      "code": "COMM.SYS.500",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-48080"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "RF Equipment for Wireless Networks",
+                      "code": "COMM.SYS.510",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-48117"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Introduction to Satellite Positioning",
+                      "code": "COMM.SYS.600",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-36500"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Antennas I",
+                      "code": "COMM.RF.420",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45404"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Tietoverkkojen laboratoriotyöt I",
+                      "code": "COMM.NET.210",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45956"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Computer Networking II",
+                      "code": "COMM.NET.400",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45937"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Kyberturvallisuus I: perusteet",
+                      "code": "COMP.SEC.100",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45501"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Security Protocols: Helping Alice and Bob to Share Secrets",
+                      "code": "COMP.SEC.220",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "otm-2a54f37d-bce2-46e3-aa9a-ddd35a1e320f"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Cryptography Engineering I",
+                      "code": "COMP.SEC.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "otm-bafa9eb7-3029-47a3-9f3c-60e3a1545516"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Digital Design",
+                      "code": "COMP.CE.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-42182"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Transistorit ja vahvistinpiirit",
+                      "code": "EE.ELE.210",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45401"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Johdatus RF-elektroniikkaan",
+                      "code": "COMM.RF.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-41312"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Johdanto hahmontunnistukseen ja koneoppimiseen",
+                      "code": "DATA.ML.100",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-36124"
+                    },
+                    {
+                      "parentId": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
+                      "name": "Sähkötekniikan kandidaatintyöseminaari",
+                      "code": "EE.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "tut-cu-g-35273"
+                    }
+                  ]
+                },
+                {
+                  "parentId": "otm-6b723b60-5fda-4358-9ed4-6c508289420d",
+                  "name": "Ohjelmistotekniikan aineopinnot",
+                  "code": "COMP.SE-A01",
+                  "id": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                  "minCredits": 40,
+                  "currentCredits": 0,
+                  "studyModules": [
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Täydentävät opintojaksot",
+                      "id": "otm-62b2d6cd-593e-4e18-bf79-59a123f6f8ec",
+                      "minCredits": 0,
+                      "currentCredits": 0,
+                      "studyModules": [],
+                      "courseUnits": [
+                        {
+                          "parentId": "otm-62b2d6cd-593e-4e18-bf79-59a123f6f8ec",
+                          "name": "Data-Intensive Programming",
+                          "code": "COMP.CS.320",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 5,
+                          "maxCredits": 5,
+                          "id": "tut-cu-g-43075"
+                        },
+                        {
+                          "parentId": "otm-62b2d6cd-593e-4e18-bf79-59a123f6f8ec",
+                          "name": "Web Development 1 - Programming",
+                          "code": "COMP.CS.500",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 5,
+                          "maxCredits": 5,
+                          "id": "otm-949208ad-9f08-452d-bd64-78588079c3d6"
+                        },
+                        {
+                          "parentId": "otm-62b2d6cd-593e-4e18-bf79-59a123f6f8ec",
+                          "name": "Web Development 2 - Architecting",
+                          "code": "COMP.CS.510",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 5,
+                          "maxCredits": 5,
+                          "id": "otm-fd2ca0d6-480a-40ba-b6d7-93fc3221704b"
+                        },
+                        {
+                          "parentId": "otm-62b2d6cd-593e-4e18-bf79-59a123f6f8ec",
+                          "name": "Ohjelmistojen suunnittelu",
+                          "code": "COMP.SE.110",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 5,
+                          "maxCredits": 5,
+                          "id": "tut-cu-g-36927"
+                        },
+                        {
+                          "parentId": "otm-62b2d6cd-593e-4e18-bf79-59a123f6f8ec",
+                          "name": "Ohjelmistojen testaus",
+                          "code": "COMP.SE.200",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 5,
+                          "maxCredits": 5,
+                          "id": "tut-cu-g-42031"
+                        },
+                        {
+                          "parentId": "otm-62b2d6cd-593e-4e18-bf79-59a123f6f8ec",
+                          "name": "Tietokantajärjestelmät: SQL",
+                          "code": "DATA.DB.200",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 5,
+                          "maxCredits": 5,
+                          "id": "otm-a654c805-ed51-465c-806a-d279f6d6f41e"
+                        },
+                        {
+                          "parentId": "otm-62b2d6cd-593e-4e18-bf79-59a123f6f8ec",
+                          "name": "Software Product and Process Management",
+                          "code": "COMP.SE.121",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 5,
+                          "maxCredits": 5,
+                          "id": "otm-4e47c4ef-57c7-406c-ab83-1d106b575186"
+                        }
+                      ]
+                    }
+                  ],
+                  "courseUnits": [
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Ohjelmointi 3: Rajapinnat ja tekniikat",
+                      "code": "COMP.CS.140",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "otm-9392333f-bff2-4c3d-b1cf-717ce9990253"
+                    },
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Tietorakenteet ja algoritmit 1",
+                      "code": "COMP.CS.300",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-36938"
+                    },
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Rinnakkaisuus",
+                      "code": "COMP.CS.310",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-36437"
+                    },
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Software Engineering Project 1",
+                      "code": "COMP.SE.610",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "uta-ykoodi-25895"
+                    },
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Tietokantojen perusteet",
+                      "code": "DATA.DB.100",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "otm-5381c680-bc69-4400-a578-ec0a79141cd0"
+                    },
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Ihmisen ja teknologian vuorovaikutus 1: Perusteet",
+                      "code": "HTI.100",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "otm-4da0e13d-222a-4e14-a239-86b76346ba14"
+                    },
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Tietotekniikan kandidaatintyöseminaari",
+                      "code": "COMP.200",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "tut-cu-g-36840"
+                    },
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Tekniikan alan kandidaatintyö",
+                      "code": "TAU.OPN.020",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 10,
+                      "maxCredits": 10,
+                      "id": "tut-cu-g-41999"
+                    },
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Kypsyysnäyte suomeksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+                      "code": "TAU.KN.010",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-49136eba-4a72-40e7-aedb-5e7c20dfcf7e"
+                    },
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Kypsyysnäyte ruotsiksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+                      "code": "TAU.KN.020",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-2beeb9ef-859a-4280-984a-d6cf2ce23032"
+                    },
+                    {
+                      "parentId": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
+                      "name": "Kypsyysnäyte englanniksi alemmassa korkeakoulututkinnossa, sisällön tarkistus",
+                      "code": "TAU.KN.031",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-2c104f39-c85a-4f56-b394-880903f2eaf0"
+                    }
+                  ]
+                }
+              ],
+              "courseUnits": []
+            },
+            {
+              "parentId": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
+              "name": "Vapaasti valittavat opintokokonaisuudet",
+              "id": "otm-7ca282c4-4e88-4732-a3e3-573d35d33863",
+              "minCredits": 0,
+              "currentCredits": 0,
+              "studyModules": [],
+              "courseUnits": []
+            },
+            {
+              "parentId": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
               "name": "Vapaasti valittavat opintojaksot",
               "code": "COMP-M01",
               "id": "otm-e0486fac-3401-47e9-97d7-968bed034227",

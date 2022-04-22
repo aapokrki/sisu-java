@@ -31,7 +31,9 @@ public class JSONLogic {
 
         try(FileWriter writer = new FileWriter("students")){
 
+            System.out.println("Students to json");
             gson.toJson(students, writer);
+
 
 
         }catch (IOException e){
@@ -52,8 +54,6 @@ public class JSONLogic {
 
             Reader reader = Files.newBufferedReader(Paths.get("students"));
             List<Student> students = new Gson().fromJson(reader, new TypeToken<List<Student>>(){}.getType());
-
-            // Test print of the first two students
 
 
             for (int i = 0; i < students.size(); i++) {
@@ -478,20 +478,16 @@ public class JSONLogic {
         // from arraylist, create students.json
         logic.studentsToJson(studentsList);
         // from students.json, create map structure for all students
-        //Map<String, Student> students = logic.studentsFromJsonToClass();
+        Map<String, Student> students = logic.studentsFromJsonToClass();
 
 
 
         //logic.getAllDegreeProgrammes();
 //        Map<String, String> progs = logic.getAllDegreeProgrammes();
-//        progs.forEach((k,v) -> {
-//            try {
-//                logic.readAPIData(v, null);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//        });
+        students.forEach((k,v) -> {
+
+
+        });
 
         //logic.studentsToJson((ArrayList<Student>) students.values());
 

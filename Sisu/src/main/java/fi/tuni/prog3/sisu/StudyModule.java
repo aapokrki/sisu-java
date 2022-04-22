@@ -8,6 +8,9 @@ public class StudyModule extends Module{
 
     private transient JsonElement studyModule;
     private transient Module parent;
+
+
+
     public String name;
     public String code;
     public String id;

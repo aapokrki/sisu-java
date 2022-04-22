@@ -54,9 +54,11 @@ public class CourseUnit extends Module{
             this.minCredits = 0;
         }
 
+
     }
 
     // Temporary setup
+    // TODO create different way to add point and credits. Rekursioo degreeprogrammesta
     public void setCompleted() {
         if(!completed){
             this.completed = true;
@@ -126,6 +128,7 @@ public class CourseUnit extends Module{
 
     public void setParent(Module parent) {
         this.parent = parent;
+
     }
 
 

@@ -13,7 +13,7 @@
     "studentNumber": "H292001",
     "startYear": 2020,
     "endYear": 2025,
-    "credits": 10,
+    "credits": 40,
     "degreeProgrammeId": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
     "mandatoryStudyModuleId": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
     "completedCourses": [
@@ -34,6 +34,60 @@
         "minCredits": 5,
         "maxCredits": 5,
         "id": "tut-cu-g-45577"
+      },
+      {
+        "name": "Ohjelmointi 1: Johdatus ohjelmointiin",
+        "code": "COMP.CS.100",
+        "grade": 1,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45620"
+      },
+      {
+        "name": "Ohjelmointi 2: Rakenteet",
+        "code": "COMP.CS.110",
+        "grade": 2,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45510"
+      },
+      {
+        "name": "Tietorakenteet ja algoritmit 1",
+        "code": "COMP.CS.300",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-36938"
+      },
+      {
+        "name": "Signaalinkäsittelyn perusteet",
+        "code": "COMP.SGN.100",
+        "grade": 4,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-36355"
+      },
+      {
+        "name": "Johdatus ohjelmistotuotantoon",
+        "code": "COMP.SE.100",
+        "grade": 2,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45474"
+      },
+      {
+        "name": "Kyberturvallisuus I: perusteet",
+        "code": "COMP.SEC.100",
+        "grade": 3,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45501"
       }
     ]
   },
@@ -71,6 +125,25 @@
         "minCredits": 2,
         "maxCredits": 2,
         "id": "otm-249970b2-3784-4eba-bc31-bcb49c082a0f"
+      }
+    ]
+  },
+  {
+    "name": "Jeesus",
+    "studentNumber": "H01",
+    "startYear": 0,
+    "endYear": 5,
+    "credits": 2,
+    "degreeProgrammeId": "uta-tohjelma-1777",
+    "completedCourses": [
+      {
+        "name": "Thesis Writing B",
+        "code": "LANG.ENG.007",
+        "grade": 4,
+        "completed": true,
+        "minCredits": 2,
+        "maxCredits": 2,
+        "id": "otm-ed1840d3-afcb-4d38-a5d1-97cd3d4a981c"
       }
     ]
   }

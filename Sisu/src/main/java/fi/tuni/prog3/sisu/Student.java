@@ -97,7 +97,6 @@ public class Student {
 
         return grades/courses;
     }
-    
     /**
      * Constructs an empty Student class
      */

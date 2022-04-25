@@ -9,7 +9,7 @@ public class CourseUnit extends Module{
 
     public String name;
     public String code;
-    public int grade = 0;
+    public int grade;
     public Boolean completed = false;
     public int minCredits = 0;
     public int maxCredits = 0;
@@ -62,8 +62,6 @@ public class CourseUnit extends Module{
     public void setCompleted() {
         if(!completed){
             this.completed = true;
-
-
         }else{
             this.completed = false;
 
@@ -114,7 +112,7 @@ public class CourseUnit extends Module{
     }
 
     public int getGrade() {
-        return grade;
+        return this.grade;
     }
 
     @Override

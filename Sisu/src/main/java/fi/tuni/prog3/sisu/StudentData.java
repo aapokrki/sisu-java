@@ -62,6 +62,8 @@ public class StudentData {
         user.setDegreeProgramme(degreeProgramme);
         user.setName(name);
         user.setStudentNumber(studentNumber);
+        user.setDegreeProgrammeId(inputDegreeProgramme);
+        user.setMandatoryStudyModuleId(inputMandatoryStudyModule);
 
         if (!startYear.isEmpty()) {
             user.setStartYear(Integer.parseInt(startYear));

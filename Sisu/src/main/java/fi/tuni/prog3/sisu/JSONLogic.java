@@ -51,8 +51,17 @@ public class JSONLogic {
             List<Student> students = new Gson().fromJson(reader, new TypeToken<List<Student>>(){}.getType());
 
 
-            for (int i = 0; i < students.size(); i++) {
-                studentMap.put(students.get(i).getStudentNumber(), students.get(i));
+            for (Student student : students) {
+
+                // get degreeprogramme from API and add completed courses
+                student.setDegreeProgramme(readAPIData(student.getDegreeProgrammeId(), student.getMandatoryStudyModuleId()));
+
+                for(CourseUnit course : student.getCompletedCourses()){
+
+                    student.addCompletedCourse(course);
+                }
+                studentMap.put(student.getStudentNumber(), student);
+
             }
 
             // test print
@@ -437,10 +446,8 @@ public class JSONLogic {
 
 
         // mutta tää toimii!
-        signjamit.setCompleted();
         signjamit.setGrade(5);
 
-        jokutoine.setCompleted();
         jokutoine.setGrade(1);
 
         analyysinperuskurssi.setCompleted();
@@ -451,7 +458,15 @@ public class JSONLogic {
         aapo.setStudentNumber("H292001");
         aapo.setStartYear(2020);
         aapo.setEndYear(2025);
+
+        aapo.setDegreeProgrammeId("otm-fa02a1e7-4fe1-43e3-818b-810d8e723531");
+        aapo.setMandatoryStudyModuleId("otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce");
+
         aapo.setDegreeProgramme(tietotekniikka);
+
+        aapo.addCompletedCourse(signjamit);
+        aapo.addCompletedCourse(jokutoine);
+
 
 
         DegreeProgramme sähkötekniikka = logic.readAPIData("tut-dp-g-1100", null);
@@ -461,6 +476,10 @@ public class JSONLogic {
         kappe.setStudentNumber("H292044");
         kappe.setStartYear(2020);
         kappe.setEndYear(2025);
+
+        kappe.setDegreeProgrammeId("tut-dp-g-1100");
+        kappe.setMandatoryStudyModuleId(null);
+
         kappe.setDegreeProgramme(sähkötekniikka);
 
         // Add to arraylist

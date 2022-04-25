@@ -116,8 +116,9 @@ public class StudyModule extends Module{
         }
 
         for(CourseUnit course : courseUnits){
-            if(course.equals(courseUnit)){
+            if(course.getId().equals(courseUnit.getId())){
                 course.setCompleted();
+                course.setGrade(courseUnit.getGrade());
             }
         }
     }

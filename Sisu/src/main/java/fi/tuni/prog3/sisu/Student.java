@@ -13,7 +13,12 @@ public class Student {
     public int startYear;
     public int endYear;
 
-    public DegreeProgramme degreeProgramme;
+    public int credits;
+
+    public String degreeProgrammeId;
+    public String mandatoryStudyModuleId;
+
+    public transient DegreeProgramme degreeProgramme;
     public ArrayList<CourseUnit> completedCourses = new ArrayList<>();
 
     /**
@@ -22,6 +27,27 @@ public class Student {
      */
     public void setDegreeProgramme(DegreeProgramme degreeProgramme) {
         this.degreeProgramme = degreeProgramme;
+
+    }
+
+    public void setDegreeProgrammeId(String degreeProgrammeId){
+        this.degreeProgrammeId = degreeProgrammeId;
+    }
+
+    public void setMandatoryStudyModuleId(String mandatoryStudyModuleId) {
+        this.mandatoryStudyModuleId = mandatoryStudyModuleId;
+    }
+
+    public String getDegreeProgrammeId() {
+        return degreeProgrammeId;
+    }
+
+    public String getMandatoryStudyModuleId() {
+        return mandatoryStudyModuleId;
+    }
+
+    public ArrayList<CourseUnit> getCompletedCourses() {
+        return completedCourses;
     }
 
     public DegreeProgramme getDegreeProgramme() {
@@ -33,9 +59,16 @@ public class Student {
      * @param course - course
      */
     public void addCompletedCourse(CourseUnit course){
-        completedCourses.add(course);
+        if(!completedCourses.contains(course)){
+            completedCourses.add(course);
+            this.credits += course.getCreditsInt();
+        }
+
+        // reinstates the degreeprogramme with completed courses
         degreeProgramme.addCompletedCourse(course);
+
     }
+
 
     /**
      * Constructs an empty Student class

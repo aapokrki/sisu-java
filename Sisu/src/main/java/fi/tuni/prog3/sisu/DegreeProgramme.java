@@ -83,6 +83,10 @@ public class DegreeProgramme extends Module{
         return this.code;
     }
 
+    public int getMinCredits() {
+        return this.minCredits;
+    }
+
     @Override
     public String getId() {
         return id;

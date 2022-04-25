@@ -37,6 +37,35 @@ public class Student {
         degreeProgramme.addCompletedCourse(course);
     }
 
+    public int getStudyCredits() {
+        int credits = 0;
+
+        for (CourseUnit courseUnit : completedCourses) {
+            credits += courseUnit.getCreditsInt();
+        }
+
+        return credits;
+    }
+
+    public double getGPA() {
+        double grades = 0;
+        double courses = 0;
+
+        for (CourseUnit courseUnit : completedCourses) {
+            if (courseUnit.getGrade() == 0) {
+                continue;
+            }
+            grades += courseUnit.getGrade();
+            ++courses;
+        }
+
+        if (grades == 0) {
+            return 0;
+        }
+
+        return grades/courses;
+    }
+
     /**
      * Constructs an empty Student class
      */

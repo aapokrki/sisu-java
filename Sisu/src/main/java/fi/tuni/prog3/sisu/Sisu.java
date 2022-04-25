@@ -26,7 +26,7 @@ public class Sisu extends Application {
 
     private Stage stage;
     private BorderPane mainWindow;
-    private final String style = this.getClass().getResource("/Sisu.css").toExternalForm();
+    private final String style = Objects.requireNonNull(this.getClass().getResource("/Sisu.css")).toExternalForm();
 
     private StudentData data;
 
@@ -109,6 +109,7 @@ public class Sisu extends Application {
 
         Label title = new Label("Welcome to Sisu!");
         title.setId("welcomeLabel");
+        title.setPadding(new Insets(0,0,30,0));
 
         ToggleButton loginButton = new ToggleButton("LOGIN");
         loginButton.setId("whiteButton");
@@ -133,7 +134,7 @@ public class Sisu extends Application {
         VBox vBox = new VBox(title, buttons);
         vBox.setAlignment(Pos.CENTER);
         vBox.setBackground(Background.EMPTY);
-        vBox.setSpacing(20);
+        vBox.setSpacing(50);
         vBox.setPadding(new Insets(10, 10, 10, 10));
 
         title.requestFocus();
@@ -213,14 +214,11 @@ public class Sisu extends Application {
      */
     private Pane getRegistrationScreen() throws IOException {
 
-        ArrayList<String> textFieldData = new ArrayList<>();
-
         GridPane grid = new GridPane();
         grid.setBackground(Background.EMPTY);
-
         grid.setVgap(5);
         grid.setHgap(48);
-        grid.setPadding(new Insets(10, 10, 10, 10));
+        //grid.setPadding(new Insets(10, 10, 10, 10));
         grid.setAlignment(Pos.CENTER);
 
         Label title = new Label("Register a profile");
@@ -236,6 +234,10 @@ public class Sisu extends Application {
         addInputListener(nameTextField, false);
         grid.add(nameTextField, 1, 2);
 
+        Label nameErrorMessage = new Label();
+        nameErrorMessage.setId("errorLabel");
+        grid.add(nameErrorMessage,1,3);
+
         Label studentNumberLabel = new Label("Student number:");
         studentNumberLabel.setId("textLabel");
         grid.add(studentNumberLabel, 0, 4);
@@ -245,84 +247,80 @@ public class Sisu extends Application {
         addInputListener(studentNumberTextField, false);
         grid.add(studentNumberTextField, 1, 4);
 
+        Label studentNumberErrorMessage = new Label();
+        studentNumberErrorMessage.setId("errorLabel");
+        grid.add(studentNumberErrorMessage,1,5);
+
         Label degreeProgrammeLabel = new Label("Select degree programme");
         degreeProgrammeLabel.setId("textLabel");
-
-        MenuButton degreeProgrammeMenu = new MenuButton();
-        degreeProgrammeMenu.setGraphic(degreeProgrammeLabel);
-        degreeProgrammeMenu.setId("menuButton");
-        degreeProgrammeMenu.setPrefWidth(200);
-
-        ChoiceBox<String> studyModulesChoice = new ChoiceBox<>();
-        studyModulesChoice.setPrefWidth(200);
-        studyModulesChoice.setVisible(false);
-
-        HBox dropMenus = new HBox(degreeProgrammeMenu, studyModulesChoice);
-        dropMenus.setSpacing(40);
-        dropMenus.setPadding(new Insets(20,0,20,0));
-        grid.add(dropMenus,0,5,2,1);
-
-        Map<String, String> degreeProgrammes = data.jsonData.getAllDegreeProgrammes();
+        //GridPane.setMargin(degreeProgrammeLabel, new Insets(0, 0, 12, 0));
+        grid.add(degreeProgrammeLabel,0,6);
 
         AtomicReference<String> inputDegreeProgramme = new AtomicReference<>(null);
         AtomicReference<String> inputMandatoryStudyModule = new AtomicReference<>(null);
 
-        for (String degreeProgramme : degreeProgrammes.keySet()) {
-            MenuItem degreeProgramItem = new MenuItem(degreeProgramme);
-            degreeProgrammeMenu.getItems().add(degreeProgramItem);
+        ComboBox<Object> studyModulesSelection = new ComboBox<>();
+        studyModulesSelection.setPrefWidth(200);
+        studyModulesSelection.setVisible(false);
 
-            degreeProgramItem.setOnAction( e -> {
-                degreeProgrammeMenu.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
-                degreeProgrammeLabel.setText(degreeProgramme);
+        studyModulesSelection.setOnAction( e -> studyModulesSelection.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true));
 
-                inputDegreeProgramme.set(degreeProgrammes.get(degreeProgramme));
+        ComboBox<Object> degreeProgrammeSelection = new ComboBox<>();
+        degreeProgrammeSelection.setPrefWidth(200);
 
-                studyModulesChoice.getItems().clear();
+        Map<String, String> degreeProgrammes = data.jsonData.getAllDegreeProgrammes();
+        degreeProgrammeSelection.getItems().addAll(degreeProgrammes.keySet());
+        degreeProgrammeSelection.setOnAction( e -> {
 
-                Map<String, String > studyModules = null;
-                try {
-                    studyModules = data.jsonData.getStudyModuleSelection(inputDegreeProgramme.get());
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                if (studyModules != null) {
-                    studyModulesChoice.getItems().addAll(studyModules.keySet());
-                    studyModulesChoice.getSelectionModel().selectFirst();
-                    studyModulesChoice.setVisible(true);
-                } else {
-                    studyModulesChoice.setVisible(false);
-                }
-            });
-        }
+            degreeProgrammeSelection.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
+
+            String degreeProgrammeName = degreeProgrammeSelection.getSelectionModel().getSelectedItem().toString();
+            String degreeProgrammeId = degreeProgrammes.get(degreeProgrammeName);
+
+            inputDegreeProgramme.set(degreeProgrammeId);
+
+            Map<String ,String> studyModules = null;
+            try {
+                studyModules = data.jsonData.getStudyModuleSelection(degreeProgrammeId);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            if (studyModules != null) {
+                studyModulesSelection.getItems().addAll(studyModules.keySet());
+                studyModulesSelection.getSelectionModel().selectFirst();
+                studyModulesSelection.setVisible(true);
+                studyModulesSelection.requestFocus();
+            } else {
+                studyModulesSelection.setVisible(false);
+            }
+        });
+
+        HBox dropMenus = new HBox(degreeProgrammeSelection, studyModulesSelection);
+        dropMenus.setSpacing(40);
+        dropMenus.setPadding(new Insets(0,0,20,0));
+        grid.add(dropMenus,0,7,2,1);
 
         Label startYearLabel = new Label("Start year (optional):");
         startYearLabel.setId("textLabel");
         GridPane.setMargin(startYearLabel, new Insets(0, 0, 12, 0));
-        grid.add(startYearLabel, 0, 6);
+        grid.add(startYearLabel, 0, 8);
 
         TextField startYearTextField = new TextField();
         startYearTextField.setId("textField");
         GridPane.setMargin(startYearTextField, new Insets(0, 0, 12, 0));
         addInputListener(startYearTextField, true);
-        grid.add(startYearTextField, 1, 6);
+        grid.add(startYearTextField, 1, 8);
 
         Label endYearLabel = new Label("Estimated end year (optional):");
         endYearLabel.setId("textLabel");
-        grid.add(endYearLabel, 0, 8);
+        grid.add(endYearLabel, 0, 9);
 
         TextField endYearTextField = new TextField();
         endYearTextField.setId("textField");
         addInputListener(endYearTextField, true);
-        grid.add(endYearTextField, 1, 8);
+        grid.add(endYearTextField, 1, 9);
 
         HBox buttons = new HBox();
-
-        Label nameErrorMessage = new Label();
-        nameErrorMessage.setId("errorLabel");
-        grid.add(nameErrorMessage,1,3);
-        Label studentNumberErrorMessage = new Label();
-        studentNumberErrorMessage.setId("errorLabel");
-        grid.add(studentNumberErrorMessage,1,5);
 
         ToggleButton createButton = new ToggleButton("REGISTER");
         createButton.setId("blueButton");
@@ -333,34 +331,32 @@ public class Sisu extends Application {
             String startYear = startYearTextField.getText();
             String endYear = endYearTextField.getText();
 
-            boolean notEmpty = true;
+            boolean fieldsNotEmpty = true;
 
             if (name.isEmpty()) {
                 nameTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
                 nameErrorMessage.setText("Invalid name");
-                notEmpty = false;
+                fieldsNotEmpty = false;
             } else {
                 nameTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
-                //textFieldData.add(name);
             }
 
             if (studentNumber.isEmpty()) {
                 studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
-                //studentNumberErrorMessage.setText("Invalid student number");
-                notEmpty = false;
+                studentNumberErrorMessage.setText("Invalid student number");
+                fieldsNotEmpty = false;
             } else {
                 studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
-                textFieldData.add(studentNumber);
             }
 
             if (inputDegreeProgramme.get() == null) {
-                degreeProgrammeMenu.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
-                notEmpty = false;
-            } else if (studyModulesChoice.isVisible()) {
+                degreeProgrammeSelection.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
+                fieldsNotEmpty = false;
+            } else if (studyModulesSelection.isVisible()) {
 
                 String studyModuleId = null;
                 try {
-                    studyModuleId = data.jsonData.getStudyModuleSelection(inputDegreeProgramme.get()).get(studyModulesChoice.getValue());
+                    studyModuleId = data.jsonData.getStudyModuleSelection(inputDegreeProgramme.get()).get(studyModulesSelection.getValue());
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -377,7 +373,7 @@ public class Sisu extends Application {
             }
             */
 
-            if (notEmpty) {
+            if (fieldsNotEmpty) {
                 try {
                     if (!data.createAccount(name, studentNumber, inputDegreeProgramme.get(), inputMandatoryStudyModule.get(), startYear, endYear)) {
                         studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
@@ -455,7 +451,7 @@ public class Sisu extends Application {
         separator.setId("line");
 
         Label name = new Label(data.user.name);
-        name.setId("textLabelWhite");
+        name.setId("textLabelBoldWhite");
 
         Label student = new Label("STUDENT");
         student.setId("textLabelSmallGray");
@@ -477,7 +473,6 @@ public class Sisu extends Application {
         });
 
         HBox left = new HBox(mainViewButton, separator, studentInformationButton, structureOfStudiesButton);
-        left.getChildren().addAll();
         left.setAlignment(Pos.CENTER_LEFT);
         HBox.setHgrow(left, Priority.ALWAYS);
 
@@ -496,15 +491,87 @@ public class Sisu extends Application {
      */
     private Pane getMainView() {
 
+        Image img = new Image("/Graduate.png");
+        ImageView imv = new ImageView(img);
+        imv.setPreserveRatio(true);
+
         VBox vBox = new VBox();
-        vBox.setBackground(Background.EMPTY);
+        vBox.setPadding(new Insets(40, 70, 40, 70));
+        vBox.setId("mainView");
+        vBox.setAlignment(Pos.CENTER_RIGHT);
 
-        vBox.setPadding(new Insets(10, 10, 10, 10));
+        Label gpaTitle = new Label("Average grade");
+        gpaTitle.setId("textLabelWhite");
+        gpaTitle.setPadding(new Insets(15,15,0,15));
+        Label gpa = new Label(String.format("%.2f",data.user.getGPA()));
+        gpa.setId("numberLabel");
+        gpa.setPadding(new Insets(0,15,15,15));
 
-        Label title = new Label("Main view!");
+        VBox gpaBox = new VBox(gpaTitle, gpa);
+        gpaBox.setId("gpaBox");
+        gpaBox.setAlignment(Pos.BOTTOM_CENTER);
+
+        Label creditTitle = new Label("Study credits");
+        creditTitle.setId("textLabelWhite");
+        creditTitle.setPadding(new Insets(15,15,0,15));
+        Label credit = new Label(String.format("%d/%d",data.user.getStudyCredits(), data.user.getDegreeProgramme().getMinCredits()));
+        credit.setId("numberLabel");
+        credit.setPadding(new Insets(0,15,15,15));
+
+        VBox creditBox = new VBox(creditTitle,credit);
+        creditBox.setId("creditBox");
+        creditBox.setAlignment(Pos.BOTTOM_CENTER);
+
+        HBox dataBox = new HBox(gpaBox,creditBox);
+        dataBox.setSpacing(10);
+
+        Label title = new Label("Welcome to Sisu!");
         title.setId("welcomeLabel");
+        title.setPadding(new Insets(60,0,0,0));
 
-        vBox.getChildren().add(title);
+        HBox left = new HBox(title);
+        left.setAlignment(Pos.CENTER_LEFT);
+        HBox.setHgrow(left, Priority.ALWAYS);
+
+        HBox right = new HBox(dataBox);
+        right.setAlignment(Pos.CENTER_RIGHT);
+        HBox.setHgrow(right, Priority.ALWAYS);
+
+        HBox hBox = new HBox(left, right);
+
+
+        Label mainViewTitle = new Label("Main view");
+        mainViewTitle.setId("titleLabel");
+        Label mainViewInfo = new Label("Check your GPA and amount of study credits");
+        mainViewInfo.setId("infoBox");
+        VBox mainViewBox = new VBox(mainViewTitle, mainViewInfo);
+        mainViewInfo.setAlignment(Pos.TOP_LEFT);
+
+        Label studentInformationTitle = new Label("Student information");
+        studentInformationTitle.setId("titleLabel");
+        Label studentInformationInfo = new Label("Check your personal info and edit it");
+        studentInformationInfo.setId("infoBox");
+        VBox studentInformationBox = new VBox(studentInformationTitle, studentInformationInfo);
+        studentInformationInfo.setAlignment(Pos.TOP_LEFT);
+
+        Label structureOfStudiesTitle = new Label("Structure of studies");
+        structureOfStudiesTitle.setId("titleLabel");
+        Label structureOfStudiesInfo = new Label("Check your studies and edit your progress");
+        structureOfStudiesInfo.setId("infoBox");
+        VBox structureOfStudiesInfoBox = new VBox(structureOfStudiesTitle, structureOfStudiesInfo);
+        structureOfStudiesInfo.setAlignment(Pos.TOP_LEFT);
+
+        HBox infoBox = new HBox(mainViewBox, studentInformationBox, structureOfStudiesInfoBox);
+        infoBox.setAlignment(Pos.CENTER);
+        HBox.setHgrow(mainViewBox, Priority.ALWAYS);
+        HBox.setHgrow(studentInformationBox, Priority.ALWAYS);
+        HBox.setHgrow(structureOfStudiesInfoBox, Priority.ALWAYS);
+        infoBox.setSpacing(30);
+        infoBox.setPadding(new Insets(70, 0, 20, 0));
+
+        vBox.getChildren().addAll(hBox, infoBox);
+        VBox.setVgrow(hBox, Priority.ALWAYS);
+        VBox.setVgrow(infoBox, Priority.ALWAYS);
 
         return vBox;
     }
@@ -526,9 +593,10 @@ public class Sisu extends Application {
 
         Label editTitle = new Label("Edit information");
         editTitle.setId("welcomeLabel");
+        editTitle.setPadding(new Insets(0,0,30,0));
 
         Label editNameLabel = new Label("Name");
-        editNameLabel.setId("smallerTitleLabel");
+        editNameLabel.setId("titleLabelSmaller");
         TextField editNameTextField = new TextField(data.user.getName());
         editNameTextField.setId("textField");
 
@@ -537,8 +605,11 @@ public class Sisu extends Application {
         editYears.setBackground(Background.EMPTY);
         editYears.setHgap(30);
 
+        Label editDegreeProgramme = new Label("Degree Programme");
+        editDegreeProgramme.setId("titleLabelSmaller");
+
         Label editStartYearLabel = new Label("Start year");
-        editStartYearLabel.setId("smallerTitleLabel");
+        editStartYearLabel.setId("titleLabelSmaller");
         editYears.add(editStartYearLabel,0,0);
         String startYear = String.valueOf(data.user.getStartYear());
         if (data.user.getEndYear() == 0) {
@@ -550,7 +621,7 @@ public class Sisu extends Application {
         editYears.add(editStartYearTextField,0,1);
 
         Label editEndYearLabel = new Label("End year (estimated)");
-        editEndYearLabel.setId("smallerTitleLabel");
+        editEndYearLabel.setId("titleLabelSmaller");
         editYears.add(editEndYearLabel,1,0);
 
         String endYear = String.valueOf(data.user.endYear);
@@ -619,16 +690,17 @@ public class Sisu extends Application {
 
         Label title = new Label("Student information");
         title.setId("welcomeLabel");
+        title.setPadding(new Insets(0,0,30,0));
 
         Label nameTitle = new Label("Name");
-        nameTitle.setId("smallerTitleLabel");
+        nameTitle.setId("titleLabelSmaller");
         Label name = new Label(data.user.name);
         name.setId("textLabelBigger");
         VBox nameBox = new VBox(nameTitle,name);
         nameBox.setPadding(new Insets(0,0,30,0));
 
         Label studentNumberTitle = new Label("Student number");
-        studentNumberTitle.setId("smallerTitleLabel");
+        studentNumberTitle.setId("titleLabelSmaller");
         Label studentNumber = new Label(data.user.studentNumber);
         studentNumber.setId("textLabelBigger");
 
@@ -641,7 +713,7 @@ public class Sisu extends Application {
         years.setHgap(100);
 
         Label startYearTitle = new Label("Start year");
-        startYearTitle.setId("smallerTitleLabel");
+        startYearTitle.setId("titleLabelSmaller");
         years.add(startYearTitle, 0,0,1,1);
 
         Label startYearLabel = new Label(startYear);
@@ -649,7 +721,7 @@ public class Sisu extends Application {
         years.add(startYearLabel, 0,1,1,1);
 
         Label endYearTitle = new Label("End year (estimated)");
-        endYearTitle.setId("smallerTitleLabel");
+        endYearTitle.setId("titleLabelSmaller");
         years.add(endYearTitle, 1,0,1,1);
 
         Label endYearLabel = new Label(endYear);
@@ -703,29 +775,6 @@ public class Sisu extends Application {
         VBox courseCreditsBox = new VBox(courseCreditNum, courseCreditTxt);
         courseCreditsBox.setAlignment(Pos.CENTER);
         courseCreditsBox.setId("credit-box");
-
-        /*
-        String gradeStr = "";
-        if (courseCompleted) {
-            int grade = courseUnit.getGrade();
-            gradeStr = String.valueOf(grade);
-            if (grade == 0) {
-                gradeStr = "Pass";
-            }
-        }
-
-        Image img = new Image("/Graduate.png");
-        ImageView imv = new ImageView(img);
-        imv.setPreserveRatio(true);
-        imv.setFitHeight(12);
-        Label courseGradeTxt = new Label(gradeStr);
-        courseGradeTxt.setId("textLabel");
-        VBox graduateBox = new VBox(imv, courseGradeTxt);
-        graduateBox.setSpacing(5);
-        graduateBox.setAlignment(Pos.CENTER);
-        graduateBox.setId("complete-box");
-
-        */
 
         VBox graduateBox = getGraduateBox(courseUnit);
 
@@ -781,62 +830,32 @@ public class Sisu extends Application {
 
         Label title = new Label("Structure of studies");
         title.setId("welcomeLabel");
+        title.setAlignment(Pos.BOTTOM_LEFT);
 
-        /*
-        Accordion degreeProgrammeAccordion = new Accordion();
-        Accordion studyModules1Accordion = new Accordion();
-        Accordion studyModules2Accordion = new Accordion();
+        Label info = new Label("Mark courses complete by typing grades into text fields.\nGrades 1-5, 0 = Pass");
+        info.setId("textLabel");
+        info.setAlignment(Pos.BOTTOM_RIGHT);
 
-        for (StudyModule studyModule1 : data.user.degreeProgramme.getStudyModules()) {
+        HBox left = new HBox(title);
+        left.setAlignment(Pos.CENTER_LEFT);
+        HBox.setHgrow(left, Priority.ALWAYS);
 
-            for (StudyModule studyModule2 : studyModule1.getStudyModules()) {
+        HBox right = new HBox(info);
+        right.setAlignment(Pos.CENTER_RIGHT);
+        HBox.setHgrow(right, Priority.ALWAYS);
 
-                VBox coursesBoxLeft = new VBox();
-                coursesBoxLeft.setSpacing(10);
-                coursesBoxLeft.setPrefWidth(500);
-                VBox coursesBoxRight = new VBox();
-                coursesBoxRight.setSpacing(10);
-                coursesBoxRight.setPrefWidth(500);
+        HBox texts = new HBox(left, right);
 
-                int counter = 0;
-                int coursesCount = studyModule2.getCourseUnits().size();
-
-                for (CourseUnit courseUnit : studyModule2.getCourseUnits()) {
-
-                    HBox courseBox = getCourseBox(courseUnit);
-
-                    if (counter <= coursesCount/2) {
-                        coursesBoxLeft.getChildren().add(courseBox);
-                    } else {
-                        coursesBoxRight.getChildren().add(courseBox);
-                    }
-                    ++counter;
-                }
-                HBox coursesBox = new HBox(coursesBoxLeft, coursesBoxRight);
-                coursesBox.setSpacing(40);
-                TitledPane coursesPane = new TitledPane(studyModule2.getName(), coursesBox);
-                studyModules2Accordion.getPanes().add(coursesPane);
-            }
-            HBox studyModules2Box = new HBox(studyModules2Accordion);
-            studyModules2Box.setPadding(new Insets(0,0,0,40));
-            TitledPane studyModulePane = new TitledPane(studyModule1.getName(), studyModules2Box);
-            studyModules1Accordion.getPanes().add(studyModulePane);
-        }
-        HBox studyModules1Box = new HBox(studyModules1Accordion);
-        studyModules1Box.setPadding(new Insets(0,0,0,40));
-        TitledPane degreeProgramPane = new TitledPane(data.user.degreeProgramme.getName(), studyModules1Box);
-        degreeProgrammeAccordion.getPanes().add(degreeProgramPane);
-
-
-        */
         Accordion degreeProgrammeAccordion = getStudiesStructure(new Accordion(), data.user.getDegreeProgramme(), null);
         ScrollPane scrollPane = new ScrollPane(degreeProgrammeAccordion);
         scrollPane.setBackground(Background.EMPTY);
+        VBox.setVgrow(scrollPane, Priority.ALWAYS);
 
-        VBox vBox = new VBox(title, scrollPane);
+        VBox vBox = new VBox(texts, scrollPane);
         vBox.setBackground(Background.EMPTY);
 
         vBox.setPadding(new Insets(30,60,10,60));
+        vBox.setSpacing(20);
 
         return vBox;
     }
@@ -853,6 +872,7 @@ public class Sisu extends Application {
                 hBox.setPadding(new Insets(0,0,0,40));
 
                 TitledPane studyModulePane = new TitledPane(degreeProgramme1.getName(), hBox);
+                //studyModulePane.setMinHeight(40);
                 accordion.getPanes().add(studyModulePane);
             }
         }
@@ -866,6 +886,7 @@ public class Sisu extends Application {
                 hBox.setPadding(new Insets(0, 0, 0, 40));
 
                 TitledPane studyModulePane = new TitledPane(studyModule1.getName(), hBox);
+                //studyModulePane.setMinHeight(40);
                 accordion.getPanes().add(studyModulePane);
             }
         }
@@ -877,6 +898,7 @@ public class Sisu extends Application {
                 hBox.setPadding(new Insets(0, 0, 0, 40));
 
                 TitledPane studyModulePane = new TitledPane(studyModule1.getName(), hBox);
+                //studyModulePane.setMinHeight(40);
                 accordion.getPanes().add(studyModulePane);
             }
         }
@@ -909,6 +931,7 @@ public class Sisu extends Application {
             HBox coursesBox = new HBox(coursesBoxLeft, coursesBoxRight);
             coursesBox.setSpacing(40);
             TitledPane coursesPane = new TitledPane(studyModule.getName(), coursesBox);
+            //coursesPane.setMinHeight(40);
             accordion.getPanes().add(coursesPane);
         }
 

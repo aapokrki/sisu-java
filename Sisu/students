@@ -523,28 +523,28 @@
       "id": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
       "code": "TSTK",
       "minCredits": 180,
-      "currentCredits": 25,
+      "currentCredits": 135,
       "studyModules": [
         {
           "name": "Tietotekniikka",
           "code": "TTEA",
           "id": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
           "minCredits": 180,
-          "currentCredits": 25,
+          "currentCredits": 135,
           "studyModules": [
             {
               "name": "Tietotekniikan yhteiset opinnot",
               "code": "COMP-P01",
               "id": "otm-316ac8bf-ff36-4ec0-8997-617976500368",
               "minCredits": 65,
-              "currentCredits": 25,
+              "currentCredits": 135,
               "studyModules": [],
               "courseUnits": [
                 {
                   "name": "Tietoliikennetekniikan perusteet",
                   "code": "COMM.100",
                   "grade": 5,
-                  "completed": false,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-45462"
@@ -552,8 +552,8 @@
                 {
                   "name": "Johdatus sulautettuihin järjestelmiin",
                   "code": "COMP.CE.100",
-                  "grade": 1,
-                  "completed": false,
+                  "grade": 0,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-45577"
@@ -561,8 +561,8 @@
                 {
                   "name": "Ohjelmointi 1: Johdatus ohjelmointiin",
                   "code": "COMP.CS.100",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-45620"
@@ -570,8 +570,8 @@
                 {
                   "name": "Ohjelmointi 2: Rakenteet",
                   "code": "COMP.CS.110",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-45510"
@@ -579,8 +579,8 @@
                 {
                   "name": "Tietorakenteet ja algoritmit 1",
                   "code": "COMP.CS.300",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-36938"
@@ -588,8 +588,8 @@
                 {
                   "name": "Signaalinkäsittelyn perusteet",
                   "code": "COMP.SGN.100",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-36355"
@@ -597,8 +597,8 @@
                 {
                   "name": "Johdatus ohjelmistotuotantoon",
                   "code": "COMP.SE.100",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-45474"
@@ -606,8 +606,8 @@
                 {
                   "name": "Kyberturvallisuus I: perusteet",
                   "code": "COMP.SEC.100",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-45501"
@@ -615,8 +615,8 @@
                 {
                   "name": "Signaalit ja mittaaminen",
                   "code": "EE.010",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-45460"
@@ -624,8 +624,8 @@
                 {
                   "name": "Johdanto tekniikan opintoihin",
                   "code": "ITC.CEE.010",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-45459"
@@ -633,8 +633,8 @@
                 {
                   "name": "Foundations of Professional and Academic Communication in English",
                   "code": "LANG.ENG.001",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 3,
                   "maxCredits": 3,
                   "id": "uta-ykoodi-38827"
@@ -642,8 +642,8 @@
                 {
                   "name": "Monikielinen johdanto akateemisiin viestintä- ja kieliopintoihin 2",
                   "code": "LANG.002",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 2,
                   "maxCredits": 2,
                   "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
@@ -651,8 +651,8 @@
                 {
                   "name": "Vuorovaikutusosaaminen työelämässä",
                   "code": "LANG.PUH.001",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 2,
                   "maxCredits": 2,
                   "id": "uta-ykoodi-48285"
@@ -660,8 +660,8 @@
                 {
                   "name": "Ruotsia työelämään",
                   "code": "LANG.RUO.001",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 3,
                   "maxCredits": 3,
                   "id": "uta-ykoodi-20998"
@@ -669,8 +669,8 @@
                 {
                   "name": "Teollisuustalouden perusteet",
                   "code": "TUTA.010",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-48243"
@@ -682,14 +682,14 @@
               "code": "COMP-P02",
               "id": "otm-f9e99608-4f97-4dc6-9beb-998b3873e249",
               "minCredits": 45,
-              "currentCredits": 25,
+              "currentCredits": 135,
               "studyModules": [],
               "courseUnits": [
                 {
                   "name": "Analyysin peruskurssi",
                   "code": "MATH.APP.111",
                   "grade": 5,
-                  "completed": false,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-35897"
@@ -697,8 +697,8 @@
                 {
                   "name": "Vektorit ja matriisit",
                   "code": "MATH.MA.140",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-35898"
@@ -706,8 +706,8 @@
                 {
                   "name": "Differentiaali- ja integraalilaskenta",
                   "code": "MATH.APP.160",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-35899"
@@ -715,8 +715,8 @@
                 {
                   "name": "Johdatus todennäköisyyslaskentaan ja tilastolliseen päättelyyn",
                   "code": "MATH.APP.210",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "uta-ykoodi-47933"
@@ -724,8 +724,8 @@
                 {
                   "name": "Yliopistofysiikka 1",
                   "code": "FYS.101",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-48229"
@@ -733,8 +733,8 @@
                 {
                   "name": "Yliopistofysiikka 2",
                   "code": "FYS.102",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-48230"
@@ -742,8 +742,8 @@
                 {
                   "name": "Yliopistofysiikka 3",
                   "code": "FYS.103",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-48256"
@@ -751,8 +751,8 @@
                 {
                   "name": "Usean muuttujan funktiot",
                   "code": "MATH.APP.220",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-47510"
@@ -760,8 +760,8 @@
                 {
                   "name": "Operaatiotutkimus",
                   "code": "MATH.APP.260",
-                  "grade": 0,
-                  "completed": false,
+                  "grade": 5,
+                  "completed": true,
                   "minCredits": 5,
                   "maxCredits": 5,
                   "id": "tut-cu-g-47515"
@@ -826,14 +826,14 @@
               "name": "Aineopinnot",
               "id": "otm-6b723b60-5fda-4358-9ed4-6c508289420d",
               "minCredits": 0,
-              "currentCredits": 25,
+              "currentCredits": 135,
               "studyModules": [
                 {
                   "name": "Elektroniikan ja sulautettujen järjestelmien aineopinnot",
                   "code": "EE.ELE-A01",
                   "id": "otm-4bcbdb16-bfba-4bd1-9707-23f753afb775",
                   "minCredits": 40,
-                  "currentCredits": 25,
+                  "currentCredits": 135,
                   "studyModules": [],
                   "courseUnits": [
                     {
@@ -1014,7 +1014,7 @@
                   "code": "COMP.SGN-A01",
                   "id": "otm-7153a74a-a8b3-4fbe-b7db-c93854c9f495",
                   "minCredits": 40,
-                  "currentCredits": 25,
+                  "currentCredits": 135,
                   "studyModules": [],
                   "courseUnits": [
                     {
@@ -1168,7 +1168,7 @@
                   "code": "COMM-A01",
                   "id": "otm-7cb70915-2d95-494b-8f7f-b081daccaf0a",
                   "minCredits": 40,
-                  "currentCredits": 25,
+                  "currentCredits": 135,
                   "studyModules": [],
                   "courseUnits": [
                     {
@@ -1421,13 +1421,13 @@
                   "code": "COMP.SE-A01",
                   "id": "otm-33a53ebb-8cbb-4315-9021-ed14742bfa60",
                   "minCredits": 40,
-                  "currentCredits": 25,
+                  "currentCredits": 135,
                   "studyModules": [
                     {
                       "name": "Täydentävät opintojaksot",
                       "id": "otm-62b2d6cd-593e-4e18-bf79-59a123f6f8ec",
                       "minCredits": 0,
-                      "currentCredits": 25,
+                      "currentCredits": 135,
                       "studyModules": [],
                       "courseUnits": [
                         {
@@ -1605,7 +1605,7 @@
               "name": "Vapaasti valittavat opintokokonaisuudet",
               "id": "otm-7ca282c4-4e88-4732-a3e3-573d35d33863",
               "minCredits": 0,
-              "currentCredits": 25,
+              "currentCredits": 135,
               "studyModules": [],
               "courseUnits": []
             },
@@ -1614,7 +1614,7 @@
               "code": "COMP-M01",
               "id": "otm-e0486fac-3401-47e9-97d7-968bed034227",
               "minCredits": 0,
-              "currentCredits": 25,
+              "currentCredits": 135,
               "studyModules": [],
               "courseUnits": []
             }
@@ -1668,6 +1668,1298 @@
         "minCredits": 5,
         "maxCredits": 5,
         "id": "tut-cu-g-45259"
+      },
+      {
+        "name": "Tietoliikennetekniikan perusteet",
+        "code": "COMM.100",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45462"
+      },
+      {
+        "name": "Johdatus sulautettuihin järjestelmiin",
+        "code": "COMP.CE.100",
+        "grade": 0,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45577"
+      },
+      {
+        "name": "Ohjelmointi 1: Johdatus ohjelmointiin",
+        "code": "COMP.CS.100",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45620"
+      },
+      {
+        "name": "Ohjelmointi 2: Rakenteet",
+        "code": "COMP.CS.110",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45510"
+      },
+      {
+        "name": "Tietorakenteet ja algoritmit 1",
+        "code": "COMP.CS.300",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-36938"
+      },
+      {
+        "name": "Signaalinkäsittelyn perusteet",
+        "code": "COMP.SGN.100",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-36355"
+      },
+      {
+        "name": "Johdatus ohjelmistotuotantoon",
+        "code": "COMP.SE.100",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45474"
+      },
+      {
+        "name": "Kyberturvallisuus I: perusteet",
+        "code": "COMP.SEC.100",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45501"
+      },
+      {
+        "name": "Signaalit ja mittaaminen",
+        "code": "EE.010",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45460"
+      },
+      {
+        "name": "Johdanto tekniikan opintoihin",
+        "code": "ITC.CEE.010",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-45459"
+      },
+      {
+        "name": "Foundations of Professional and Academic Communication in English",
+        "code": "LANG.ENG.001",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 3,
+        "maxCredits": 3,
+        "id": "uta-ykoodi-38827"
+      },
+      {
+        "name": "Monikielinen johdanto akateemisiin viestintä- ja kieliopintoihin 2",
+        "code": "LANG.002",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 2,
+        "maxCredits": 2,
+        "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe"
+      },
+      {
+        "name": "Vuorovaikutusosaaminen työelämässä",
+        "code": "LANG.PUH.001",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 2,
+        "maxCredits": 2,
+        "id": "uta-ykoodi-48285"
+      },
+      {
+        "name": "Ruotsia työelämään",
+        "code": "LANG.RUO.001",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 3,
+        "maxCredits": 3,
+        "id": "uta-ykoodi-20998"
+      },
+      {
+        "name": "Teollisuustalouden perusteet",
+        "code": "TUTA.010",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-48243"
+      },
+      {
+        "name": "Analyysin peruskurssi",
+        "code": "MATH.APP.111",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-35897"
+      },
+      {
+        "name": "Vektorit ja matriisit",
+        "code": "MATH.MA.140",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-35898"
+      },
+      {
+        "name": "Differentiaali- ja integraalilaskenta",
+        "code": "MATH.APP.160",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-35899"
+      },
+      {
+        "name": "Johdatus todennäköisyyslaskentaan ja tilastolliseen päättelyyn",
+        "code": "MATH.APP.210",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "uta-ykoodi-47933"
+      },
+      {
+        "name": "Yliopistofysiikka 1",
+        "code": "FYS.101",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-48229"
+      },
+      {
+        "name": "Yliopistofysiikka 2",
+        "code": "FYS.102",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-48230"
+      },
+      {
+        "name": "Yliopistofysiikka 3",
+        "code": "FYS.103",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-48256"
+      },
+      {
+        "name": "Usean muuttujan funktiot",
+        "code": "MATH.APP.220",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-47510"
+      },
+      {
+        "name": "Operaatiotutkimus",
+        "code": "MATH.APP.260",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-47515"
+      }
+    ]
+  },
+  {
+    "name": "Aku Ankka",
+    "studentNumber": "313",
+    "startYear": 0,
+    "endYear": 0,
+    "degreeProgramme": {
+      "name": "Akuuttilääketieteen erikoislääkärikoulutus (55/2020)",
+      "id": "otm-87fb9507-a6dd-41aa-b924-2f15eca3b7ae",
+      "code": "MEDAAKUEL2020",
+      "minCredits": 0,
+      "currentCredits": 2,
+      "studyModules": [
+        {
+          "name": "Akuuttilääketieteen erikoislääkärikoulutus (55/2020)",
+          "code": "MEDAAKU2020",
+          "id": "otm-b80ff440-9347-465e-a556-a27c35d0d2b3",
+          "minCredits": 0,
+          "currentCredits": 2,
+          "studyModules": [
+            {
+              "name": "Osaamisen arviointi, Akuuttilääketiede",
+              "code": "MEDAAKUOSA",
+              "id": "otm-f69645a5-007b-4f4d-90e1-782494e3a84c",
+              "minCredits": 0,
+              "currentCredits": 2,
+              "studyModules": [],
+              "courseUnits": [
+                {
+                  "name": "Valtakunnallinen kuulustelu, Akuuttilääketiede",
+                  "code": "MEDAAKUKUU",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 0,
+                  "maxCredits": 0,
+                  "id": "otm-00f5c0e9-e35e-4bd7-8a55-f41028d23820"
+                },
+                {
+                  "name": "EPA-arviointi, Akuuttilääketiede",
+                  "code": "MEDAAKUEPA",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 0,
+                  "maxCredits": 0,
+                  "id": "otm-e91d5ec0-46a6-4d92-9615-a6fb7196108a"
+                }
+              ]
+            },
+            {
+              "name": "Käytännön koulutus, Akuuttilääketiede",
+              "code": "MEDAAKUKKO",
+              "id": "otm-1043ef2c-4f70-49ef-b8f1-c9a08311976c",
+              "minCredits": 0,
+              "currentCredits": 2,
+              "studyModules": [
+                {
+                  "name": "Akuuttilääketieteen käytännön koulutukseen sisällytetty valinnainen jakso",
+                  "id": "otm-285624d0-78ec-48ec-ad19-22f21ddfc7ad",
+                  "minCredits": 0,
+                  "currentCredits": 2,
+                  "studyModules": [],
+                  "courseUnits": [
+                    {
+                      "name": "Akuuttilääketieteeseen liittyvä tutkimustyö (0-6kk)",
+                      "code": "MEDAAKUKKOTUT",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-50092864-0c00-489a-82e5-b5caa1404da2"
+                    },
+                    {
+                      "name": "Akuuttilääketieteen erikoisalaan liittyvä opetustyö",
+                      "code": "MEDAAKUOPE",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 0,
+                      "maxCredits": 0,
+                      "id": "otm-34b900cb-599b-48c5-bbef-2e272a9e55c4"
+                    }
+                  ]
+                }
+              ],
+              "courseUnits": [
+                {
+                  "name": "Koejakso (6kk), Akuuttilääketiede",
+                  "code": "MEDAAKUKOE",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 0,
+                  "maxCredits": 0,
+                  "id": "otm-d915d4af-b983-4aae-80c9-5f62664ec0f6"
+                },
+                {
+                  "name": "Terveyskeskuskoulutusjakso (9kk)",
+                  "code": "MEDATK2020",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 0,
+                  "maxCredits": 0,
+                  "id": "otm-c952da3a-e66d-4523-ab87-4b0ba31e2234"
+                },
+                {
+                  "name": "Käytännön koulutus (väh. 3v 9kk), Akuuttilääketiede",
+                  "code": "MEDAAKUKÄY",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 0,
+                  "maxCredits": 0,
+                  "id": "otm-d4986bfe-d9f5-4bd5-8ebb-df6c2d31de13"
+                }
+              ]
+            },
+            {
+              "name": "Teoriakoulutus, Akuuttilääketiede",
+              "code": "MEDAAKUTEOR",
+              "id": "otm-ab7ba2f8-fc31-40ff-b1b5-7f0171889d60",
+              "minCredits": 0,
+              "currentCredits": 2,
+              "studyModules": [
+                {
+                  "name": "Valinnainen säteilysuojelukoulutus",
+                  "id": "otm-c73d253e-82d4-4fa6-9007-ca6e3aa83c20",
+                  "minCredits": 0,
+                  "currentCredits": 2,
+                  "studyModules": [],
+                  "courseUnits": [
+                    {
+                      "name": "Säteilysuojelukoulutus, Erikoislääkäri- ja erikoishammaslääkärikoulutus",
+                      "code": "MEDATEORSÄT",
+                      "grade": 5,
+                      "completed": true,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-128ab89d-2048-4953-8e56-d3af1256dc9d"
+                    }
+                  ]
+                }
+              ],
+              "courseUnits": [
+                {
+                  "name": "Toimipaikkakoulutus (väh. 3-5 h/vko), Akuuttilääketiede",
+                  "code": "MEDAAKUTOI",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 0,
+                  "maxCredits": 0,
+                  "id": "otm-e48ff4bc-41c3-4d05-bcea-3b707852b775"
+                },
+                {
+                  "name": "Teoriakoulutus (väh. 100 h), Akuuttilääketiede",
+                  "code": "MEDAAKUTEO",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 0,
+                  "maxCredits": 0,
+                  "id": "otm-caff1ac6-142e-4423-bb2e-142f0a0e86e3"
+                }
+              ]
+            },
+            {
+              "name": "Johtamisopinnot, erikoislääkäri- ja erikoishammaslääkärikoulutus",
+              "code": "MOJOP2020",
+              "id": "otm-6c7f6886-bbc0-46fc-97b7-a58007b97a60",
+              "minCredits": 10,
+              "currentCredits": 2,
+              "studyModules": [
+                {
+                  "name": "Laajentavat johtamisopinnot",
+                  "id": "otm-3d8355fb-32c6-457d-aeac-3edd15621641",
+                  "minCredits": 0,
+                  "currentCredits": 2,
+                  "studyModules": [],
+                  "courseUnits": [
+                    {
+                      "name": "Seedhousen eettinen ristikko päätöksenteon ja johtamisen apuvälineenä",
+                      "code": "MOJOPL1",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-ea33c998-d9e2-4287-9e33-13f13c3d247b"
+                    },
+                    {
+                      "name": "Organisaation talous",
+                      "code": "MOJOPL5",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-5ecd3ddd-ffc8-4cfb-8aa2-d0779b564399"
+                    },
+                    {
+                      "name": "Johtamisosaamisen kehittäminen",
+                      "code": "MOJOPL6",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-901c77d5-f063-4ac1-83ed-78de98556f1a"
+                    },
+                    {
+                      "name": "Tiedolla johtaminen terveydenhuollossa",
+                      "code": "MOJOPL8",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-249970b2-3784-4eba-bc31-bcb49c082a0f"
+                    },
+                    {
+                      "name": "Monikulttuurisuus terveydenhuollossa",
+                      "code": "MOJOPL9",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 4,
+                      "id": "otm-6868c712-9bf2-40a0-9a25-b15ede269f86"
+                    },
+                    {
+                      "name": "Terveysviestintä",
+                      "code": "MOJOPVK10",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-7779ed2b-2b73-44d7-880d-d99fe0624e53"
+                    },
+                    {
+                      "name": "Johtamisopintoja laajentavien opintojen kirjatentti",
+                      "code": "MOJOPK",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 20,
+                      "id": "otm-0af267c9-8843-4602-83a4-491ffd3d450a"
+                    }
+                  ]
+                }
+              ],
+              "courseUnits": [
+                {
+                  "name": "Organisaation toiminnan ja johtamisen lähtökohtia",
+                  "code": "MOJOPP1",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 1,
+                  "maxCredits": 1,
+                  "id": "otm-ac768242-eef7-42f0-a526-30d8851b0101"
+                },
+                {
+                  "name": "Henkilöstön voimavarojen johtaminen",
+                  "code": "MOJOPP2",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "otm-7dbfeae3-6912-4eeb-9e3c-7d24fd5c0f3c"
+                },
+                {
+                  "name": "Johtamisen vuorovaikutus ja organisaatioviestintä",
+                  "code": "MOJOPP3",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "otm-ab0afa3d-8d5c-4acd-b211-733d4d05083b"
+                },
+                {
+                  "name": "Talouden ohjaus ja toiminnan arviointi terveydenhuollossa",
+                  "code": "MOJOPP4",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "otm-1e3f900d-c9ff-4621-9f0b-92d87a2833b9"
+                },
+                {
+                  "name": "Terveydenhuollon ja johtamisen juridiikkaa",
+                  "code": "MOJOPP5",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 1,
+                  "maxCredits": 1,
+                  "id": "otm-ccafab42-a3c7-4bb0-b2c1-1abb724dcf26"
+                },
+                {
+                  "name": "Sosiaali- ja terveyspolitiikka",
+                  "code": "MOJOPP6",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "otm-1c9e04c3-14f8-4427-8de3-30ec5ec7d720"
+                }
+              ]
+            }
+          ],
+          "courseUnits": []
+        }
+      ]
+    },
+    "completedCourses": [
+      {
+        "name": "Säteilysuojelukoulutus, Erikoislääkäri- ja erikoishammaslääkärikoulutus",
+        "code": "MEDATEORSÄT",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 2,
+        "maxCredits": 2,
+        "id": "otm-128ab89d-2048-4953-8e56-d3af1256dc9d"
+      }
+    ]
+  },
+  {
+    "name": "Kalle",
+    "studentNumber": "1111",
+    "startYear": 0,
+    "endYear": 0,
+    "degreeProgramme": {
+      "name": "Automaatiotekniikan DI-ohjelma",
+      "id": "tut-dp-g-1105",
+      "code": "AUTM",
+      "minCredits": 120,
+      "currentCredits": 16,
+      "studyModules": [
+        {
+          "name": "Systeemien hallinta",
+          "code": "AUTY-04",
+          "id": "otm-c750a249-b1e8-4a0b-a52a-2f401fda30ed",
+          "minCredits": 120,
+          "currentCredits": 16,
+          "studyModules": [
+            {
+              "name": "Automaatiotekniikan yhteiset opinnot",
+              "code": "AUT.SYS-M04",
+              "id": "otm-294a37ce-e0d7-4ef4-a469-11f1cdd5274f",
+              "minCredits": 13,
+              "currentCredits": 16,
+              "studyModules": [],
+              "courseUnits": [
+                {
+                  "name": "Harjoittelu, tekniikka",
+                  "code": "TAU.M.301",
+                  "grade": 1,
+                  "completed": true,
+                  "minCredits": 1,
+                  "maxCredits": 1,
+                  "id": "tut-cu-g-37871"
+                },
+                {
+                  "name": "Harjoittelu, tekniikka",
+                  "code": "TAU.M.302",
+                  "grade": 2,
+                  "completed": true,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "tut-cu-g-37872"
+                },
+                {
+                  "name": "Harjoittelu, tekniikka",
+                  "code": "TAU.M.303",
+                  "grade": 3,
+                  "completed": true,
+                  "minCredits": 3,
+                  "maxCredits": 3,
+                  "id": "tut-cu-g-37873"
+                },
+                {
+                  "name": "Harjoittelu, tekniikka",
+                  "code": "TAU.M.304",
+                  "grade": 4,
+                  "completed": true,
+                  "minCredits": 4,
+                  "maxCredits": 4,
+                  "id": "tut-cu-g-37874"
+                },
+                {
+                  "name": "Harjoittelu, tekniikka",
+                  "code": "TAU.M.305",
+                  "grade": 5,
+                  "completed": true,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-37875"
+                },
+                {
+                  "name": "Ammattiharjoittelu, tekniikka",
+                  "code": "TAU.M.311",
+                  "grade": 0,
+                  "completed": true,
+                  "minCredits": 1,
+                  "maxCredits": 1,
+                  "id": "tut-cu-g-37851"
+                },
+                {
+                  "name": "Ammattiharjoittelu, tekniikka",
+                  "code": "TAU.M.312",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 2,
+                  "maxCredits": 2,
+                  "id": "tut-cu-g-37832"
+                },
+                {
+                  "name": "Ammattiharjoittelu, tekniikka",
+                  "code": "TAU.M.313",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 3,
+                  "maxCredits": 3,
+                  "id": "tut-cu-g-37833"
+                },
+                {
+                  "name": "Ammattiharjoittelu, tekniikka",
+                  "code": "TAU.M.314",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 4,
+                  "maxCredits": 4,
+                  "id": "tut-cu-g-37834"
+                },
+                {
+                  "name": "Ammattiharjoittelu, tekniikka",
+                  "code": "TAU.M.315",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-37835"
+                },
+                {
+                  "name": "Ammattiharjoittelu, tekniikka",
+                  "code": "TAU.M.316",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 6,
+                  "maxCredits": 6,
+                  "id": "tut-cu-g-37836"
+                },
+                {
+                  "name": "Ammattiharjoittelu, tekniikka",
+                  "code": "TAU.M.317",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 7,
+                  "maxCredits": 7,
+                  "id": "tut-cu-g-37837"
+                },
+                {
+                  "name": "Ammattiharjoittelu, tekniikka",
+                  "code": "TAU.M.318",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 8,
+                  "maxCredits": 8,
+                  "id": "tut-cu-g-37838"
+                },
+                {
+                  "name": "Ammattiharjoittelu, tekniikka",
+                  "code": "TAU.M.319",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 9,
+                  "maxCredits": 9,
+                  "id": "tut-cu-g-37839"
+                },
+                {
+                  "name": "Ammattiharjoittelu, tekniikka",
+                  "code": "TAU.M.320",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 10,
+                  "maxCredits": 10,
+                  "id": "tut-cu-g-37831"
+                },
+                {
+                  "name": "Master\u0027s Thesis Seminar in Automation",
+                  "code": "AUT.020",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 0,
+                  "maxCredits": 0,
+                  "id": "tut-cu-g-48740"
+                },
+                {
+                  "name": "Differentiaaliyhtälöt",
+                  "code": "MATH.APP.420",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-35907"
+                },
+                {
+                  "name": "Matriisilaskenta",
+                  "code": "MATH.APP.410",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-35923"
+                }
+              ]
+            },
+            {
+              "name": "Systeemien hallinnan syventävät opinnot",
+              "code": "AUT-S04",
+              "id": "otm-1c6750ca-28d9-4c74-b3c1-153cdf6a03c3",
+              "minCredits": 60,
+              "currentCredits": 16,
+              "studyModules": [
+                {
+                  "name": "Kypsyysnäyte ylemmässä korkeakoulututkinnossa",
+                  "code": "TAU.KN-S01",
+                  "id": "otm-72783505-da93-4d4d-8a87-21add81026de",
+                  "minCredits": 0,
+                  "currentCredits": 16,
+                  "studyModules": [
+                    {
+                      "name": "Asetuksen mukainen suomen tai ruotsin kielen taito osoitettu aiemman korkeakoulututkinnon yhteydessä tai kielitaitoa ei tarvitse osoittaa",
+                      "id": "otm-a8e10764-0f9a-4bdf-ab6d-f28c84577570",
+                      "minCredits": 0,
+                      "currentCredits": 16,
+                      "studyModules": [],
+                      "courseUnits": [
+                        {
+                          "name": "Kypsyysnäyte suomeksi ylemmässä korkeakoulututkinnossa, sisällön tarkistus",
+                          "code": "TAU.KN.111",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 0,
+                          "maxCredits": 0,
+                          "id": "otm-aef6062c-a345-44dc-93b3-cb1e0e7fe54f"
+                        },
+                        {
+                          "name": "Kypsyysnäyte ruotsiksi ylemmässä korkeakoulututkinnossa, sisällön tarkistus",
+                          "code": "TAU.KN.121",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 0,
+                          "maxCredits": 0,
+                          "id": "otm-447805b2-dd52-4845-a85d-9a4401e3645a"
+                        },
+                        {
+                          "name": "Kypsyysnäyte englanniksi ylemmässä korkeakoulututkinnossa, sisällön tarkistus",
+                          "code": "TAU.KN.131",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 0,
+                          "maxCredits": 0,
+                          "id": "otm-f5d56a14-4d20-41d1-908c-9079eacb8f23"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Asetuksen mukaista suomen tai ruotsin kielen taitoa ei ole osoitettu aiemman korkeakoulututkinnon yhteydessä",
+                      "id": "otm-e1478af5-4a24-46ea-aefd-a67ab17180e6",
+                      "minCredits": 0,
+                      "currentCredits": 16,
+                      "studyModules": [],
+                      "courseUnits": [
+                        {
+                          "name": "Kypsyysnäyte suomeksi ylemmässä korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+                          "code": "TAU.KN.110",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 0,
+                          "maxCredits": 0,
+                          "id": "otm-ecfe169f-c9f4-4f1d-85ed-67aabe30bd1b"
+                        },
+                        {
+                          "name": "Kypsyysnäyte ruotsiksi ylemmässä korkeakoulututkinnossa, sisällön ja kielen tarkistus",
+                          "code": "TAU.KN.120",
+                          "grade": 0,
+                          "completed": false,
+                          "minCredits": 0,
+                          "maxCredits": 0,
+                          "id": "otm-dab7d422-f465-490d-9c42-1894c25ec33a"
+                        }
+                      ]
+                    }
+                  ],
+                  "courseUnits": []
+                }
+              ],
+              "courseUnits": [
+                {
+                  "name": "Diplomityö",
+                  "code": "TAU.OPN.120",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 30,
+                  "maxCredits": 30,
+                  "id": "tut-cu-g-38071"
+                },
+                {
+                  "name": "Systeemien hallinnan periaatteet",
+                  "code": "AUT.310",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-42121"
+                },
+                {
+                  "name": "Systeemien hallinnan kehittyneet menetelmät",
+                  "code": "AUT.320",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-42199"
+                },
+                {
+                  "name": "Systeemien hallinnan case study",
+                  "code": "AUT.330",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-42143"
+                },
+                {
+                  "name": "Optimization and Statistical Data Analysis",
+                  "code": "MAT-61806",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-47896"
+                },
+                {
+                  "name": "Johdatus automaation tietotekniikkaan",
+                  "code": "AUT.400",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-35426"
+                },
+                {
+                  "name": "Tietoverkkopohjainen automaatio",
+                  "code": "AUT.410",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-35441"
+                },
+                {
+                  "name": "Kuvaan perustuvat mittaukset",
+                  "code": "AUT.340",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-35448"
+                },
+                {
+                  "name": "LQG Control with Matlab",
+                  "code": "AUT.350",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 7,
+                  "id": "tut-cu-g-47736"
+                },
+                {
+                  "name": "Automaation turvallisuus",
+                  "code": "AUT.440",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-35452"
+                },
+                {
+                  "name": "Model Predictive Control of Power Electronic Systems",
+                  "code": "EE.PEE.330",
+                  "grade": 0,
+                  "completed": false,
+                  "minCredits": 5,
+                  "maxCredits": 5,
+                  "id": "tut-cu-g-42801"
+                }
+              ]
+            },
+            {
+              "name": "Vapaasti valittavat opintokokonaisuudet",
+              "id": "otm-0404d63b-d15a-4a65-b790-502c1a62513d",
+              "minCredits": 0,
+              "currentCredits": 16,
+              "studyModules": [],
+              "courseUnits": []
+            },
+            {
+              "name": "Vapaasti valittavat opintojaksot",
+              "code": "AUT-M51",
+              "id": "otm-ca76a3d7-78be-4b38-af22-f202bbfa8211",
+              "minCredits": 0,
+              "currentCredits": 16,
+              "studyModules": [
+                {
+                  "name": "Automaatiotekniikan täydentävät opinnot",
+                  "code": "AUT-M11",
+                  "id": "tut-sm-g-4670",
+                  "minCredits": 25,
+                  "currentCredits": 16,
+                  "studyModules": [],
+                  "courseUnits": [
+                    {
+                      "name": "Vektorit ja matriisit",
+                      "code": "MATH.MA.140",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-35898"
+                    },
+                    {
+                      "name": "Differentiaali- ja integraalilaskenta",
+                      "code": "MATH.APP.160",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-35899"
+                    },
+                    {
+                      "name": "Automaatio",
+                      "code": "AUT.110",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-48323"
+                    },
+                    {
+                      "name": "Hydrauliikan ja koneautomaation perusteet",
+                      "code": "AUT.240",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-42124"
+                    },
+                    {
+                      "name": "Ohjelmointi 2: Rakenteet",
+                      "code": "COMP.CS.110",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 5,
+                      "maxCredits": 5,
+                      "id": "tut-cu-g-45510"
+                    }
+                  ]
+                }
+              ],
+              "courseUnits": []
+            }
+          ],
+          "courseUnits": []
+        }
+      ]
+    },
+    "completedCourses": [
+      {
+        "name": "Harjoittelu, tekniikka",
+        "code": "TAU.M.301",
+        "grade": 1,
+        "completed": true,
+        "minCredits": 1,
+        "maxCredits": 1,
+        "id": "tut-cu-g-37871"
+      },
+      {
+        "name": "Harjoittelu, tekniikka",
+        "code": "TAU.M.302",
+        "grade": 2,
+        "completed": true,
+        "minCredits": 2,
+        "maxCredits": 2,
+        "id": "tut-cu-g-37872"
+      },
+      {
+        "name": "Harjoittelu, tekniikka",
+        "code": "TAU.M.303",
+        "grade": 3,
+        "completed": true,
+        "minCredits": 3,
+        "maxCredits": 3,
+        "id": "tut-cu-g-37873"
+      },
+      {
+        "name": "Harjoittelu, tekniikka",
+        "code": "TAU.M.304",
+        "grade": 4,
+        "completed": true,
+        "minCredits": 4,
+        "maxCredits": 4,
+        "id": "tut-cu-g-37874"
+      },
+      {
+        "name": "Harjoittelu, tekniikka",
+        "code": "TAU.M.305",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "id": "tut-cu-g-37875"
+      },
+      {
+        "name": "Ammattiharjoittelu, tekniikka",
+        "code": "TAU.M.311",
+        "grade": 0,
+        "completed": true,
+        "minCredits": 1,
+        "maxCredits": 1,
+        "id": "tut-cu-g-37851"
+      }
+    ]
+  },
+  {
+    "name": "123",
+    "studentNumber": "ASDASD",
+    "startYear": 0,
+    "endYear": 0,
+    "degreeProgramme": {
+      "name": "Anestesiologian ja tehohoidon erikoislääkärikoulutus (56/2015)",
+      "id": "otm-872015a5-14ce-46a4-a1e1-1932c975a856",
+      "code": "MEDAANEEL2015",
+      "minCredits": 0,
+      "currentCredits": 7,
+      "studyModules": [
+        {
+          "name": "Anestesiologian ja tehohoidon erikoislääkärikoulutus",
+          "code": "MEDAANE",
+          "id": "otm-4b6a76b0-0100-44d6-b423-cd23d0cef343",
+          "minCredits": 0,
+          "currentCredits": 7,
+          "studyModules": [
+            {
+              "name": "Moniammatilliset johtamisopinnot",
+              "code": "MOJOP",
+              "id": "otm-867c3d2c-0332-4ef0-935b-d61a045473d3",
+              "minCredits": 10,
+              "currentCredits": 7,
+              "studyModules": [
+                {
+                  "name": "Pakolliset johtamisopinnot",
+                  "id": "otm-e3f29cf4-4ce1-41b0-b2ea-97814b0f2908",
+                  "minCredits": 0,
+                  "currentCredits": 7,
+                  "studyModules": [],
+                  "courseUnits": [
+                    {
+                      "name": "Organisaation toiminnan ja johtamisen lähtökohtia",
+                      "code": "MOJOPP1",
+                      "grade": 0,
+                      "completed": true,
+                      "minCredits": 1,
+                      "maxCredits": 1,
+                      "id": "otm-ac768242-eef7-42f0-a526-30d8851b0101"
+                    },
+                    {
+                      "name": "Henkilöstön voimavarojen johtaminen",
+                      "code": "MOJOPP2",
+                      "grade": 0,
+                      "completed": true,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-7dbfeae3-6912-4eeb-9e3c-7d24fd5c0f3c"
+                    },
+                    {
+                      "name": "Johtamisen vuorovaikutus ja organisaatioviestintä",
+                      "code": "MOJOPP3",
+                      "grade": 0,
+                      "completed": true,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-ab0afa3d-8d5c-4acd-b211-733d4d05083b"
+                    },
+                    {
+                      "name": "Talouden ohjaus ja toiminnan arviointi terveydenhuollossa",
+                      "code": "MOJOPP4",
+                      "grade": 0,
+                      "completed": true,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-1e3f900d-c9ff-4621-9f0b-92d87a2833b9"
+                    },
+                    {
+                      "name": "Terveydenhuollon ja johtamisen juridiikkaa",
+                      "code": "MOJOPP5",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 1,
+                      "maxCredits": 1,
+                      "id": "otm-ccafab42-a3c7-4bb0-b2c1-1abb724dcf26"
+                    },
+                    {
+                      "name": "Sosiaali- ja terveyspolitiikka",
+                      "code": "MOJOPP6",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-1c9e04c3-14f8-4427-8de3-30ec5ec7d720"
+                    }
+                  ]
+                },
+                {
+                  "name": "Johtamisosaamista laajentavat opinnot",
+                  "id": "otm-64685c5d-56cb-45b4-88b5-73edcc55ba30",
+                  "minCredits": 0,
+                  "currentCredits": 7,
+                  "studyModules": [],
+                  "courseUnits": [
+                    {
+                      "name": "Organisaation talous",
+                      "code": "MOJOPL5",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-5ecd3ddd-ffc8-4cfb-8aa2-d0779b564399"
+                    },
+                    {
+                      "name": "Johtamisosaamisen kehittäminen",
+                      "code": "MOJOPL6",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-901c77d5-f063-4ac1-83ed-78de98556f1a"
+                    },
+                    {
+                      "name": "Tiedolla johtaminen terveydenhuollossa",
+                      "code": "MOJOPL8",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-249970b2-3784-4eba-bc31-bcb49c082a0f"
+                    },
+                    {
+                      "name": "Monikulttuurisuus terveydenhuollossa",
+                      "code": "MOJOPL9",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 4,
+                      "id": "otm-6868c712-9bf2-40a0-9a25-b15ede269f86"
+                    },
+                    {
+                      "name": "Terveysviestintä",
+                      "code": "MOJOPVK10",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 2,
+                      "id": "otm-7779ed2b-2b73-44d7-880d-d99fe0624e53"
+                    },
+                    {
+                      "name": "Johtamisopintoja laajentavien opintojen kirjatentti",
+                      "code": "MOJOPK",
+                      "grade": 0,
+                      "completed": false,
+                      "minCredits": 2,
+                      "maxCredits": 20,
+                      "id": "otm-0af267c9-8843-4602-83a4-491ffd3d450a"
+                    }
+                  ]
+                }
+              ],
+              "courseUnits": []
+            }
+          ],
+          "courseUnits": [
+            {
+              "name": "Erikoislääkärikoulutuksen pakollinen terveyskeskuspalvelu 9 kk",
+              "code": "MEDATK",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-b0966cc1-b8ae-41d8-8b61-770bad2e77ad"
+            },
+            {
+              "name": "Anestesiologian ja tehohoidon runkopalvelu 2 v 3 kk",
+              "code": "MEDAANER",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-06fe489d-179f-40cd-a9bb-efaa250cb764"
+            },
+            {
+              "name": "Anestesiologian ja tehohoidon eriytyvä palvelu 3 v",
+              "code": "MEDAANEE",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-0aa7c503-d7f2-4008-8eff-1e537a00d718"
+            },
+            {
+              "name": "Erikoisalakohtainen teoreettinen kurssimuotoinen koulutus",
+              "code": "MEDATEOR",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-5fcf8ee9-d962-44e3-bc11-02ca19970750"
+            },
+            {
+              "name": "Valtakunnallinen erikoislääkäri- ja erikoishammaslääkärikuulustelu",
+              "code": "MEDATEN",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 0,
+              "maxCredits": 0,
+              "id": "otm-f73647d0-b025-4c84-93a2-fc6981ebead4"
+            },
+            {
+              "name": "Säteilyturvallisuus terveydenhuollossa",
+              "code": "MEDASÄT",
+              "grade": 0,
+              "completed": false,
+              "minCredits": 2,
+              "maxCredits": 2,
+              "id": "otm-bb04464c-1627-4a21-b55e-b7bf829100f3"
+            }
+          ]
+        }
+      ]
+    },
+    "completedCourses": [
+      {
+        "name": "Organisaation toiminnan ja johtamisen lähtökohtia",
+        "code": "MOJOPP1",
+        "grade": 0,
+        "completed": true,
+        "minCredits": 1,
+        "maxCredits": 1,
+        "id": "otm-ac768242-eef7-42f0-a526-30d8851b0101"
+      },
+      {
+        "name": "Henkilöstön voimavarojen johtaminen",
+        "code": "MOJOPP2",
+        "grade": 0,
+        "completed": true,
+        "minCredits": 2,
+        "maxCredits": 2,
+        "id": "otm-7dbfeae3-6912-4eeb-9e3c-7d24fd5c0f3c"
+      },
+      {
+        "name": "Johtamisen vuorovaikutus ja organisaatioviestintä",
+        "code": "MOJOPP3",
+        "grade": 0,
+        "completed": true,
+        "minCredits": 2,
+        "maxCredits": 2,
+        "id": "otm-ab0afa3d-8d5c-4acd-b211-733d4d05083b"
+      },
+      {
+        "name": "Talouden ohjaus ja toiminnan arviointi terveydenhuollossa",
+        "code": "MOJOPP4",
+        "grade": 0,
+        "completed": true,
+        "minCredits": 2,
+        "maxCredits": 2,
+        "id": "otm-1e3f900d-c9ff-4621-9f0b-92d87a2833b9"
       }
     ]
   },

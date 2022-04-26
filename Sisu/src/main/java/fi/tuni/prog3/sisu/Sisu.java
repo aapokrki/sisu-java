@@ -84,19 +84,28 @@ public class Sisu extends Application {
     private void addInputListener(TextField textField, boolean onlyIntegers) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
 
-            if (onlyIntegers && !newValue.matches("\\d*")) {
-                textField.setText(newValue.replaceAll("[^\\d]", ""));
-                newValue = "";
-            }
-            if (onlyIntegers && textField.getText().length() > 4) {
-                String s = textField.getText().substring(0, 4);
-                textField.setText(s);
+            if (onlyIntegers) {
+                if (!newValue.matches("\\d*")) {
+                    textField.setText(newValue.replaceAll("[^\\d]", ""));
+                    newValue = "";
+                }
+                if (textField.getText().length() > 4) {
+                    String s = textField.getText().substring(0, 4);
+                    textField.setText(s);
+
+                    textField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
+                } else {
+                    textField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), false);
+                }
             }
 
-            if (!onlyIntegers && newValue.isBlank()) {
-                textField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
-            } else {
-                textField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
+            if (!onlyIntegers) {
+                if (newValue.isBlank()) {
+                    textField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
+                } else {
+                    textField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), false);
+                    textField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
+                }
             }
         });
     }
@@ -218,7 +227,6 @@ public class Sisu extends Application {
         grid.setBackground(Background.EMPTY);
         grid.setVgap(5);
         grid.setHgap(48);
-        //grid.setPadding(new Insets(10, 10, 10, 10));
         grid.setAlignment(Pos.CENTER);
 
         Label title = new Label("Register a profile");
@@ -253,7 +261,6 @@ public class Sisu extends Application {
 
         Label degreeProgrammeLabel = new Label("Select degree programme");
         degreeProgrammeLabel.setId("textLabel");
-        //GridPane.setMargin(degreeProgrammeLabel, new Insets(0, 0, 12, 0));
         grid.add(degreeProgrammeLabel,0,6);
 
         AtomicReference<String> inputDegreeProgramme = new AtomicReference<>(null);
@@ -320,6 +327,10 @@ public class Sisu extends Application {
         addInputListener(endYearTextField, true);
         grid.add(endYearTextField, 1, 9);
 
+        Label yearErrorMessage = new Label();
+        yearErrorMessage.setId("errorLabel");
+        grid.add(yearErrorMessage,1,10);
+
         HBox buttons = new HBox();
 
         ToggleButton createButton = new ToggleButton("REGISTER");
@@ -339,6 +350,7 @@ public class Sisu extends Application {
                 fieldsNotEmpty = false;
             } else {
                 nameTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
+                nameErrorMessage.setText("");
             }
 
             if (studentNumber.isEmpty()) {
@@ -347,6 +359,7 @@ public class Sisu extends Application {
                 fieldsNotEmpty = false;
             } else {
                 studentNumberTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("true"), true);
+                studentNumberErrorMessage.setText("");
             }
 
             if (inputDegreeProgramme.get() == null) {
@@ -364,14 +377,19 @@ public class Sisu extends Application {
                 inputMandatoryStudyModule.set(studyModuleId);
             }
 
-            /*
-            if (!startYear.isEmpty()) {
-                //textFieldData.add(startYear);
-                if (!endYear.isEmpty()) {
-                    //textFieldData.add(endYear);
-                }
+            if (!startYear.isEmpty() && endYear.isEmpty()) {
+                endYearTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
+                yearErrorMessage.setText("Both fields required");
             }
-            */
+            if (startYear.isEmpty() && !endYear.isEmpty()) {
+                startYearTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), true);
+                yearErrorMessage.setText("Both fields required");
+            }
+            if (!startYear.isEmpty() && !endYear.isEmpty()) {
+                startYearTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), false);
+                endYearTextField.pseudoClassStateChanged(PseudoClass.getPseudoClass("false"), false);
+                yearErrorMessage.setText("");
+            }
 
             if (fieldsNotEmpty) {
                 try {
@@ -397,7 +415,7 @@ public class Sisu extends Application {
         buttons.setPadding(new Insets(15,0,0,0));
         buttons.getChildren().addAll(backButton, createButton);
 
-        grid.add(buttons, 1,10);
+        grid.add(buttons, 1,11);
         buttons.getParent().requestFocus();
 
         return grid;
@@ -734,6 +752,11 @@ public class Sisu extends Application {
         return hBox;
     }
 
+    /**
+     * Returns a graduate box for the course box
+     * @param courseUnit - course unit
+     * @return VBox marking course as completed
+     */
     private VBox getGraduateBox(CourseUnit courseUnit) {
 
         boolean courseCompleted = courseUnit.isCompleted();
@@ -761,6 +784,11 @@ public class Sisu extends Application {
         return graduateBox;
     }
 
+    /**
+     * Returns single course box for structure of studies screen
+     * @param courseUnit - course unit
+     * @return HBox displaying a course
+     */
     private HBox getCourseBox(CourseUnit courseUnit) {
 
         HBox courseBox = new HBox();
@@ -846,7 +874,8 @@ public class Sisu extends Application {
 
         HBox texts = new HBox(left, right);
 
-        Accordion degreeProgrammeAccordion = getStudiesStructure(new Accordion(), data.user.getDegreeProgramme(), null);
+        Accordion degreeProgrammeAccordion = getStudiesStructure(data.user.getDegreeProgramme(), null);
+
         ScrollPane scrollPane = new ScrollPane(degreeProgrammeAccordion);
         scrollPane.setBackground(Background.EMPTY);
         VBox.setVgrow(scrollPane, Priority.ALWAYS);
@@ -860,82 +889,82 @@ public class Sisu extends Application {
         return vBox;
     }
 
-    private Accordion getStudiesStructure(Accordion accordion, DegreeProgramme degreeProgramme, StudyModule studyModule) {
+    /**
+     * Lays course boxes in tidy order
+     * @param studyModule - study module
+     * @return HBox containing course boxes
+     */
+    private HBox getCourses(StudyModule studyModule) {
 
-        //Accordion newAccordion = new Accordion();
+        VBox coursesBoxLeft = new VBox();
+        coursesBoxLeft.setSpacing(10);
+        coursesBoxLeft.setPrefWidth(500);
+        VBox coursesBoxRight = new VBox();
+        coursesBoxRight.setSpacing(10);
+        coursesBoxRight.setPrefWidth(500);
 
-        // Degree programmes
+        int counter = 0;
+        int coursesCount = studyModule.getCourseUnits().size();
 
-        if (degreeProgramme != null && degreeProgramme.getDegreeProgrammes() != null) {
-            for (DegreeProgramme degreeProgramme1 : degreeProgramme.getDegreeProgrammes()) {
-                HBox hBox = new HBox(getStudiesStructure(new Accordion(), degreeProgramme1, null));
-                hBox.setPadding(new Insets(0,0,0,40));
+        for (CourseUnit courseUnit : studyModule.getCourseUnits()) {
 
-                TitledPane studyModulePane = new TitledPane(degreeProgramme1.getName(), hBox);
-                //studyModulePane.setMinHeight(40);
-                accordion.getPanes().add(studyModulePane);
+            HBox courseBox = getCourseBox(courseUnit);
+
+            if (counter <= coursesCount/2) {
+                coursesBoxLeft.getChildren().add(courseBox);
+            } else {
+                coursesBoxRight.getChildren().add(courseBox);
             }
+            ++counter;
         }
+        HBox coursesBox = new HBox(coursesBoxLeft, coursesBoxRight);
+        coursesBox.setSpacing(40);
+        coursesBox.setPadding(new Insets(0,0,5,40));
 
-        // Study modules
-
-        if (degreeProgramme != null && degreeProgramme.getStudyModules() != null) {
-            for (StudyModule studyModule1 : degreeProgramme.getStudyModules()) {
-
-                HBox hBox = new HBox(getStudiesStructure(new Accordion(), null, studyModule1));
-                hBox.setPadding(new Insets(0, 0, 0, 40));
-
-                TitledPane studyModulePane = new TitledPane(studyModule1.getName(), hBox);
-                //studyModulePane.setMinHeight(40);
-                accordion.getPanes().add(studyModulePane);
-            }
-        }
-
-        if (studyModule != null && studyModule.getStudyModules() != null) {
-            for (StudyModule studyModule1 : studyModule.getStudyModules()) {
-
-                HBox hBox = new HBox(getStudiesStructure(new Accordion(), null, studyModule1));
-                hBox.setPadding(new Insets(0, 0, 0, 40));
-
-                TitledPane studyModulePane = new TitledPane(studyModule1.getName(), hBox);
-                //studyModulePane.setMinHeight(40);
-                accordion.getPanes().add(studyModulePane);
-            }
-        }
-
-        // Courses
-
-        if (studyModule != null && studyModule.getCourseUnits() != null) {
-
-            VBox coursesBoxLeft = new VBox();
-            coursesBoxLeft.setSpacing(10);
-            coursesBoxLeft.setPrefWidth(500);
-            VBox coursesBoxRight = new VBox();
-            coursesBoxRight.setSpacing(10);
-            coursesBoxRight.setPrefWidth(500);
-
-            int counter = 0;
-            int coursesCount = studyModule.getCourseUnits().size();
-
-            for (CourseUnit courseUnit : studyModule.getCourseUnits()) {
-
-                HBox courseBox = getCourseBox(courseUnit);
-
-                if (counter <= coursesCount/2) {
-                    coursesBoxLeft.getChildren().add(courseBox);
-                } else {
-                    coursesBoxRight.getChildren().add(courseBox);
-                }
-                ++counter;
-            }
-            HBox coursesBox = new HBox(coursesBoxLeft, coursesBoxRight);
-            coursesBox.setSpacing(40);
-            TitledPane coursesPane = new TitledPane(studyModule.getName(), coursesBox);
-            //coursesPane.setMinHeight(40);
-            accordion.getPanes().add(coursesPane);
-        }
-
-        return accordion;
+        return coursesBox;
     }
 
+    /**
+     * Recursive function for adding studies structure view
+     * @param degreeProgramme - degree programme
+     * @param studyModule - study module
+     * @return Accordion containing studies structure
+     */
+    private Accordion getStudiesStructure(DegreeProgramme degreeProgramme, StudyModule studyModule) {
+
+        Accordion accordion = new Accordion();
+
+        // Study modules
+        if (degreeProgramme != null && !degreeProgramme.getStudyModules().isEmpty()) {
+            for (StudyModule studyModule1 : degreeProgramme.getStudyModules()) {
+
+                Accordion accordion1 = getStudiesStructure(null, studyModule1);
+                accordion1.setPadding(new Insets(0, 0, 0, 40));
+
+                TitledPane studyModulePane = new TitledPane(studyModule1.getName(), accordion1);
+                accordion.getPanes().add(studyModulePane);
+            }
+        }
+
+        if (studyModule != null) {
+
+            for (StudyModule studyModule1 : studyModule.getStudyModules()) {
+
+                VBox vBox = new VBox();
+
+                if (!studyModule1.getCourseUnits().isEmpty()) {
+                    vBox.getChildren().add(getCourses(studyModule1));
+                }
+
+                Accordion accordion1 = getStudiesStructure(null, studyModule1);
+                accordion1.setPadding(new Insets(0, 0, 0, 40));
+                vBox.getChildren().add(accordion1);
+
+                TitledPane studyModulePane = new TitledPane(studyModule1.getName(), vBox);
+                accordion.getPanes().add(studyModulePane);
+            }
+
+        }
+        return accordion;
+    }
 }

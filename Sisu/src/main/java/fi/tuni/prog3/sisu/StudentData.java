@@ -37,11 +37,22 @@ public class StudentData {
      * @param studentNumber - student number
      * @return boolean value representing success of the operation
      */
-    public boolean login(String studentNumber) {
+    public boolean login(String studentNumber){
         if (!students.containsKey(studentNumber)) {
             return false;
         }
         user = students.get(studentNumber);
+
+        // Set degreeProgramme and completed classes to it
+        try {
+            user.setDegreeProgramme(jsonData.readAPIData(user.getDegreeProgrammeId(),user.getMandatoryStudyModuleId()));
+            for(CourseUnit course : user.getCompletedCourses()){
+                user.addCompletedCourse(course);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 

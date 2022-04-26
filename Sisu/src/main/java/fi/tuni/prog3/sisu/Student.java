@@ -64,7 +64,7 @@ public class Student {
             this.credits += course.getCreditsInt();
         }
 
-        // reinstates the degreeprogramme with completed courses
+        // reinstates the degreeprogramme with completed courses when starting up
         degreeProgramme.addCompletedCourse(course);
 
     }

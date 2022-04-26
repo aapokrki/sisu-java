@@ -1,73 +1,68 @@
 package fi.tuni.prog3.sisu;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 public class CourseUnit extends Module{
 
-    private transient JsonElement courseUnit;
+    private transient JsonObject courseUnit;
     private transient Module parent;
 
     public String name;
     public String code;
     public int grade;
     public Boolean completed = false;
-    public int minCredits = 0;
-    public int maxCredits = 0;
+    public int minCredits;
+    public int maxCredits;
     public String id;
 
-    public CourseUnit(JsonElement courseUnit){
+    /**
+     * Constructs a course from the given course JsonElement from the SISU API
+     * @param courseUnit - Given JsonElement of the course from the SISU API
+     */
+    public CourseUnit(JsonObject courseUnit){
         this.courseUnit = courseUnit;
+        this.id = courseUnit.get("groupId").getAsString();
 
         // The name can be in finnish, english or both. Prefers finnish first if both are available
-        try {
-            if(courseUnit.getAsJsonObject().get("name").getAsJsonObject().get("fi") == null){
+        JsonObject nameObj = courseUnit.get("name").getAsJsonObject();
 
-                this.name = courseUnit.getAsJsonObject().get("name").getAsJsonObject().get("en").getAsString();
-
-            }else{
-                this.name = courseUnit.getAsJsonObject().get("name").getAsJsonObject().get("fi").getAsString();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-
-        this.id = courseUnit.getAsJsonObject().get("groupId").getAsString();
-
-        if(!courseUnit.getAsJsonObject().get("code").isJsonNull()){
-            this.code = courseUnit.getAsJsonObject().get("code").getAsString();
+        if(nameObj.get("fi") == null){
+            this.name = nameObj.get("en").getAsString();
+        }else if (nameObj.get("fi") != null){
+            this.name = nameObj.get("fi").getAsString();
         }else{
-            this.code = "null";
-            System.err.println("Courseunit code is null");
+            System.err.println("Course has no name");
         }
 
-        if(courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("max").isJsonNull()){
-            this.maxCredits = 0;
-        }else{
-            this.maxCredits = courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("max").getAsInt();
+
+        // Code
+        if(!courseUnit.get("code").isJsonNull()){
+            this.code = courseUnit.get("code").getAsString();
         }
 
-        if (courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("min") != null){
-
-            this.minCredits = courseUnit.getAsJsonObject().get("credits").getAsJsonObject().get("min").getAsInt();
-        }else{
-            this.minCredits = 0;
+        // Credits
+        JsonObject creditsObj = courseUnit.get("credits").getAsJsonObject();
+        if(!creditsObj.get("max").isJsonNull()){
+            this.maxCredits = creditsObj.get("max").getAsInt();
         }
-
+        if (!creditsObj.get("min").isJsonNull()){
+            this.minCredits = creditsObj.get("min").getAsInt();
+        }
 
     }
 
-    // Temporary setup
-    // TODO create different way to add point and credits. Rekursioo degreeprogrammesta
+    /**
+     * Sets the course to be completed
+     */
     public void setCompleted() {
-        if(!completed){
-            this.completed = true;
-        }else{
-            this.completed = false;
-
-        }
+        this.completed = !completed;
     }
 
+    /**
+     * Gives a grade on the course. Only grades from 1-5 are accepted.
+     * @param grade - Integer grade
+     */
     public void setGrade(int grade) {
         if(grade <= 5 && grade >= 0){
             this.grade = grade;
@@ -97,7 +92,7 @@ public class CourseUnit extends Module{
         if (maxCredits == 0) {
             return String.valueOf(minCredits);
         }
-        return maxCredits + "-" + minCredits;
+        return minCredits + "-" + maxCredits;
     }
 
     public int getCreditsInt(){
@@ -130,21 +125,8 @@ public class CourseUnit extends Module{
 
     }
 
-
     public void print(){
         System.out.println(" ---- "+this.name);
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCourseUnit(JsonElement courseUnit) {
-        this.courseUnit = courseUnit;
     }
 
     public boolean isCompleted() {

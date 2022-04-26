@@ -10,7 +10,7 @@ import java.util.Map;
 public class StudentData {
 
     public Student user;
-    private Map<String, Student> students;
+    private final Map<String, Student> students;
     public JSONLogic jsonData;
     //public Map <String, String> degreeProgrammes;
 

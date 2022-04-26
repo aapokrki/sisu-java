@@ -5,16 +5,16 @@ import com.google.gson.JsonObject;
 
 public class CourseUnit extends Module{
 
-    private transient JsonObject courseUnit;
+    private final transient JsonObject courseUnit;
     private transient Module parent;
 
     public String name;
+    public String id;
     public String code;
     public int grade;
     public Boolean completed = false;
     public int minCredits;
     public int maxCredits;
-    public String id;
 
     /**
      * Constructs a course from the given course JsonElement from the SISU API
@@ -22,11 +22,13 @@ public class CourseUnit extends Module{
      */
     public CourseUnit(JsonObject courseUnit){
         this.courseUnit = courseUnit;
+
+        // Id
         this.id = courseUnit.get("groupId").getAsString();
 
-        // The name can be in finnish, english or both. Prefers finnish first if both are available
+        // Name
+        // Prefers finnish
         JsonObject nameObj = courseUnit.get("name").getAsJsonObject();
-
         if(nameObj.get("fi") == null){
             this.name = nameObj.get("en").getAsString();
         }else if (nameObj.get("fi") != null){
@@ -49,11 +51,10 @@ public class CourseUnit extends Module{
         if (!creditsObj.get("min").isJsonNull()){
             this.minCredits = creditsObj.get("min").getAsInt();
         }
-
     }
 
     /**
-     * Sets the course to be completed
+     * Sets the course to be completed and vice versa
      */
     public void setCompleted() {
         this.completed = !completed;
@@ -70,21 +71,11 @@ public class CourseUnit extends Module{
         //setCompleted();
     }
 
-    @Override
-    public JsonElement getJsonElement() {
-        return this.courseUnit;
-    }
-
-    @Override
-    public String getCode() {
-        return code;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
+    /**
+     * Returns the course credits as String
+     * If the credit amount can vary, return "minCredits-maxCredits"
+     * @return Credit amount as String
+     */
     public String getCredits() {
         if (minCredits == maxCredits) {
             return String.valueOf(minCredits);
@@ -95,6 +86,12 @@ public class CourseUnit extends Module{
         return minCredits + "-" + maxCredits;
     }
 
+    /**
+     * Returns the course credit as Int
+     * minCredit > maxCredit if maxCredit was null in Json
+     * Returns the larger credit
+     * @return
+     */
     public int getCreditsInt(){
         if (minCredits == maxCredits) {
             return maxCredits;
@@ -103,33 +100,39 @@ public class CourseUnit extends Module{
             return minCredits;
         }
         return maxCredits;
-
     }
 
-    public int getGrade() {
-        return this.grade;
-    }
-
-    @Override
-    public String getType() {
-        return "CourseUnit";
-    }
-
-    @Override
-    public String getId() {
-        return id;
-    }
-
+    /**
+     * Sets parent Module for the course
+     * Is called by readAPIRec in JSONLogic.
+     * Is used to construct the degreeProgramme treestructure
+     * @param parent
+     */
     public void setParent(Module parent) {
         this.parent = parent;
 
     }
 
-    public void print(){
-        System.out.println(" ---- "+this.name);
-    }
 
-    public boolean isCompleted() {
-        return this.completed;
-    }
+    /*
+    Obvious getters
+    */
+    public int getGrade() {return this.grade;}
+
+    public boolean isCompleted() {return this.completed;}
+
+    @Override
+    public JsonObject getJsonObject() {return this.courseUnit;}
+
+    @Override
+    public String getCode() {return code;}
+
+    @Override
+    public String getName() {return name;}
+
+    @Override
+    public String getType() {return "CourseUnit";}
+
+    @Override
+    public String getId() {return id;}
 }

@@ -25,7 +25,6 @@ public class JSONLogic {
     public void studentsToJson(ArrayList<Student> students){
         GsonBuilder builder = new GsonBuilder().setPrettyPrinting();
         Gson gson = builder.create();
-
         try(FileWriter writer = new FileWriter("students")){
 
             System.out.println("Students to json");
@@ -52,14 +51,6 @@ public class JSONLogic {
             //JsonArray studentsJsonArray = new Gson().fromJson(reader)
 
             for (Student student : students) {
-
-                // get degreeprogramme from API and add completed courses
-//                student.setDegreeProgramme(readAPIData(student.getDegreeProgrammeId(), student.getMandatoryStudyModuleId()));
-//
-//                for(CourseUnit course : student.getCompletedCourses()){
-//                    student.addCompletedCourse(course);
-//                }
-
                 studentMap.put(student.getStudentNumber(), student);
             }
 
@@ -223,8 +214,7 @@ public class JSONLogic {
                 }
             }
         }
-
-        // if no mandatory selections are required
+        // If no mandatory selections are required
         return null;
     }
 
@@ -245,7 +235,7 @@ public class JSONLogic {
         }else{
             name = nameObj.getAsJsonObject().get("fi").getAsString();
         }
-        return name + " -- " + obj.get("groupId").getAsString();
+        return name;
     }
 
 
@@ -255,7 +245,6 @@ public class JSONLogic {
      * @param rootobj rootobj - JsonObject which is about to be handled
      * @param parent the previous rootobj - where to store current rootobj's data etc.
      * @return Degreeprogramme student's new degreeprogramme in a neat class format
-     * @throws IOException //TODO Change to better
      */
     public DegreeProgramme readAPIRec(JsonObject rootobj, Module parent) {
 
@@ -396,12 +385,6 @@ public class JSONLogic {
     // Main function to test the program.
     // TODO Delete before final
     public static void main(String[] args) throws IOException {
-        JSONLogic logic = new JSONLogic();
-
-//        Map<String, Student> students = logic.studentsFromJsonToClass();
-//        Map<String, String> progs = logic.getAllDegreeProgrammes();
-
-        //logic.studentsToJson((ArrayList<Student>) students.values());
 
     }
 

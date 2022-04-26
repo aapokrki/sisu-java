@@ -1,15 +1,14 @@
 package fi.tuni.prog3.sisu;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
 public class StudyModule extends Module{
 
-    private transient JsonElement studyModule;
+    private final transient JsonObject studyModule;
     private transient Module parent;
-
-
 
     public String name;
     public String code;
@@ -19,98 +18,94 @@ public class StudyModule extends Module{
     public ArrayList<StudyModule> studyModules;
     public ArrayList<CourseUnit> courseUnits;
 
-
-    public StudyModule(JsonElement studyModule){
+    /**
+     * StudyModule constructor
+     * Initialises StudyModule variables from the given JsonObject
+     * @param studyModule
+     */
+    public StudyModule(JsonObject studyModule){
         this.studyModule = studyModule;
-        if(!studyModule.getAsJsonObject().get("code").isJsonNull()){
-            this.code = studyModule.getAsJsonObject().get("code").getAsString();
+        this.studyModules = new ArrayList<>();
+        this.courseUnits = new ArrayList<>();
 
-        }else{
-            this.code = null;
+        // Code
+        if(!studyModule.get("code").isJsonNull()){
+            this.code = studyModule.get("code").getAsString();
         }
-        this.id = studyModule.getAsJsonObject().get("groupId").getAsString();
-        if(!(studyModule.getAsJsonObject().get("targetCredits") == null)){
-            this.minCredits = studyModule.getAsJsonObject().get("targetCredits").getAsJsonObject().get("min").getAsInt();
 
+        // Id
+        this.id = studyModule.get("groupId").getAsString();
+
+        // Credits
+        if(studyModule.get("targetCredits") != null){
+            this.minCredits = studyModule.get("targetCredits").getAsJsonObject().get("min").getAsInt();
         }else{
             this.minCredits = 0;
         }
 
-        // The name can be in finnish, english or both. Prefers finnish first if both are available
-        try {
-            if(studyModule.getAsJsonObject().get("name").getAsJsonObject().get("fi") == null){
+        // Name
+        // Prefers finnish
+        JsonObject nameObj = studyModule.get("name").getAsJsonObject();
+        if(nameObj.get("fi") == null){
+            this.name = nameObj.get("en").getAsString();
 
-                this.name = studyModule.getAsJsonObject().get("name").getAsJsonObject().get("en").getAsString();
-
-            }else{
-                this.name = studyModule.getAsJsonObject().get("name").getAsJsonObject().get("fi").getAsString();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-
+        }else if(nameObj.get("fi") != null){
+            this.name = nameObj.get("fi").getAsString();
+        }else{
+            System.err.println("Studymodule has no name");
         }
-
-
-        this.studyModules = new ArrayList<>();
-        this.courseUnits = new ArrayList<>();
     }
 
-    public void addCredits(int amount){
-        this.currentCredits += amount;
-        parent.addCredits(amount);
-    }
-    public void removeCredits(int amount){
-        this.currentCredits -= amount;
-        parent.removeCredits(amount);
-    }
-
-    @Override
-    public String getType() {
-        return "StudyModule";
-    }
-
-    public String getCode(){
-        return this.code;
-    }
-
-    @Override
-    public String getId() {
-        return id;
-    }
-
+    /**
+     * Returns the studyModule's courses
+     * @return ArrayList of all courses under this studyModule
+     */
     public ArrayList<CourseUnit> getCourseUnits() {
         return courseUnits;
     }
 
-    public ArrayList<StudyModule> getStudyModules(){return studyModules; }
+    /**
+     * Returns the studyModule's subStudyModules
+     * @return ArrayList of all subStudyModules under this studyModule
+     */
+    public ArrayList<StudyModule> getStudyModules(){
+        return studyModules;
+    }
 
-
+    /**
+     * Adds children Modules to this studyModule.
+     * Is called by readAPIRec in JSONLogic.
+     * Is used to construct the degreeProgramme treestructure
+     * @param module CourseUnit or StudyModule to be added as a subModule(child)
+     */
+    @Override
     public void addChild(Module module){
-
         if(module.getType().equals("StudyModule")){
             studyModules.add((StudyModule) module);
 
         }else if(module.getType().equals("CourseUnit")){
             courseUnits.add((CourseUnit) module);
-            //System.err.println(courseUnits.size());
         }
     }
-
-    public JsonElement getJsonElement(){
-        return studyModule;
-    }
-
+    /**
+     * Sets a parent for the StudyModule
+     * Is called by readAPIRec in JSONLogic.
+     * Is used to construct the degreeProgramme treestructure
+     * @param parent StudyModule or DegreeProgramme to be added as parent Module
+     */
     public void setParent(Module parent) {
         this.parent = parent;
     }
 
-    @Override
-    public String getName() {
-        return this.name;
-    }
-
+    /**
+     * Adds a completed course to the degreeProgramme
+     * Is called from Module parent
+     * Finds the given course from the degreeProgramme from top to bottom
+     * @param courseUnit Course to be completed
+     */
     public void addCompletedCourse(CourseUnit courseUnit){
         currentCredits += courseUnit.getCreditsInt();
+
         for(StudyModule studyModule : studyModules){
             studyModule.addCompletedCourse(courseUnit);
         }
@@ -123,44 +118,30 @@ public class StudyModule extends Module{
         }
     }
 
-    // Ei niin olennaisia
-    public void setName(String name) {
-        this.name = name;
+    /*
+    Obvious getters
+    */
+    @Override
+    public JsonObject getJsonObject(){return studyModule;}
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
-    public void addCourseUnits(CourseUnit courseUnit) {
-        courseUnits.add(courseUnit);
+    @Override
+    public String getType() {
+        return "StudyModule";
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
-    public void print(){
-
-        if(studyModules.isEmpty()){
-            System.out.println(" -- " + this.name + "| - Courses: " + courseUnits.size());
-            for (CourseUnit courseUnit : courseUnits) {
-                courseUnit.print();
-            }
-        }else{
-            System.out.println(this.name + "| - Submodules: " + studyModules.size() + " - Courses: " + courseUnits.size());
-
-            for (StudyModule module : studyModules) {
-                module.print();
-            }
-
-            for (CourseUnit courseUnit : courseUnits) {
-                courseUnit.print();
-            }
-        }
-
-
-
+    @Override
+    public String getCode(){
+        return this.code;
     }
 
-
+    @Override
+    public String getId() {
+        return id;
+    }
 }
 

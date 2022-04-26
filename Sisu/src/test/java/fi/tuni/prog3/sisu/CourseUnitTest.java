@@ -19,9 +19,9 @@ class CourseUnitTest {
     @MethodSource("courseProvider")
     void courseUnitConstructorTest(JsonObject courseInput){
 
-        JsonObject courseObj = courseInput;
+
         String name;
-        JsonObject nameObj = courseObj.get("name").getAsJsonObject();
+        JsonObject nameObj = courseInput.get("name").getAsJsonObject();
 
         if(nameObj.get("fi") == null){
             name = nameObj.get("en").getAsString();
@@ -29,10 +29,10 @@ class CourseUnitTest {
             name = nameObj.get("fi").getAsString();
         }
 
-        String code = courseObj.get("code").getAsString();
-        String id = courseObj.get("groupId").getAsString();
+        String code = courseInput.get("code").getAsString();
+        String id = courseInput.get("groupId").getAsString();
 
-        CourseUnit course = new CourseUnit(courseObj);
+        CourseUnit course = new CourseUnit(courseInput);
 
         assertEquals(name,course.getName());
         assertEquals(code,course.getCode());
@@ -46,9 +46,8 @@ class CourseUnitTest {
     @MethodSource("courseProvider")
     void correctGetCreditsPrint(JsonObject courseInput){
 
-        JsonObject courseUnit = courseInput;
         CourseUnit course = new CourseUnit(courseInput);
-        JsonObject credits = courseUnit.get("credits").getAsJsonObject();
+        JsonObject credits = courseInput.get("credits").getAsJsonObject();
 
         String minCredits;
         String maxCredits;

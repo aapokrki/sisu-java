@@ -14,6 +14,8 @@ public class DegreeProgramme extends Module{
     public String id;
     public String code;
 
+    // Kantsiiko creditsit ja GPA tallettaa tänne vai studentiin?
+
     public int minCredits;
     public int currentCredits;
 
@@ -22,7 +24,7 @@ public class DegreeProgramme extends Module{
     /**
      * DegreeProgramme constructor
      * Initialises DegreeProgramme variables from the given JsonObject
-     * @param degreeProgramme
+     * @param degreeProgramme - degree programme
      */
     public DegreeProgramme(JsonObject degreeProgramme){
 

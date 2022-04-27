@@ -136,6 +136,7 @@ public class JSONLogic {
      * Reads if the given Module has a mandatory selection for a studymodule
      * eg. Tietotekniikka and Sähkötekniikka. You have to choose one.
      * Returns a map of the studymodule choices
+
      * @param moduleId of the given degreeprogramme
      * @return a map of the studymodule choices / null if no mandatory choices
      */

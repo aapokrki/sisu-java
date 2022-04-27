@@ -21,88 +21,11 @@ public class Student {
     public transient DegreeProgramme degreeProgramme;
     public ArrayList<CourseUnit> completedCourses = new ArrayList<>();
 
-    /**
-     * Sets degree programme for student
-     * @param degreeProgramme - degree programme
-     */
-    public void setDegreeProgramme(DegreeProgramme degreeProgramme) {
-        this.degreeProgramme = degreeProgramme;
 
-    }
-
-    public void setDegreeProgrammeId(String degreeProgrammeId){
-        this.degreeProgrammeId = degreeProgrammeId;
-    }
-
-    public void setMandatoryStudyModuleId(String mandatoryStudyModuleId) {
-        this.mandatoryStudyModuleId = mandatoryStudyModuleId;
-    }
-
-    public String getDegreeProgrammeId() {
-        return degreeProgrammeId;
-    }
-
-    public String getMandatoryStudyModuleId() {
-        return mandatoryStudyModuleId;
-    }
-
-    public ArrayList<CourseUnit> getCompletedCourses() {
-        return completedCourses;
-    }
-
-    public DegreeProgramme getDegreeProgramme() {
-        return degreeProgramme;
-    }
-
-    /**
-     * Marks course as completed
-     * @param course - course
-     */
-    public void addCompletedCourse(CourseUnit course){
-        if(!completedCourses.contains(course)){
-            completedCourses.add(course);
-            this.credits += course.getCreditsInt();
-        }
-
-        // reinstates the degreeprogramme with completed courses when starting up
-        degreeProgramme.addCompletedCourse(course);
-
-    }
-
-    public int getStudyCredits() {
-        int credits = 0;
-
-        for (CourseUnit courseUnit : completedCourses) {
-            credits += courseUnit.getCreditsInt();
-        }
-
-        return credits;
-    }
-
-    public double getGPA() {
-        double grades = 0;
-        double courses = 0;
-
-        for (CourseUnit courseUnit : completedCourses) {
-            if (courseUnit.getGrade() == 0) {
-                continue;
-            }
-            grades += courseUnit.getGrade();
-            ++courses;
-        }
-
-        if (grades == 0) {
-            return 0;
-        }
-
-        return grades/courses;
-    }
     /**
      * Constructs an empty Student class
      */
     public Student(){}
-
-    // Getters and setters
 
     /**
      * Returns student name
@@ -166,5 +89,114 @@ public class Student {
      */
     public void setEndYear(int endYear) {
         this.endYear = endYear;
+    }
+
+    /**
+     * Returns degree programme id
+     * @return degree programme id
+     */
+    public String getDegreeProgrammeId() {
+        return degreeProgrammeId;
+    }
+
+    /**
+     * Sets degree programme id
+     * @param degreeProgrammeId - Id for the degree program
+     */
+    public void setDegreeProgrammeId(String degreeProgrammeId){
+        this.degreeProgrammeId = degreeProgrammeId;
+    }
+
+    /**
+     * Returns the mandatory study module
+     * @return mandatory study module
+     */
+    public String getMandatoryStudyModuleId() {
+        return mandatoryStudyModuleId;
+    }
+
+    /**
+     * Sets the mandatory study module selected in the registration screen
+     * @param mandatoryStudyModuleId - mandatory study module
+     */
+    public void setMandatoryStudyModuleId(String mandatoryStudyModuleId) {
+        this.mandatoryStudyModuleId = mandatoryStudyModuleId;
+    }
+
+    /**
+     * Returns degree programme
+     * @return degree programme
+     */
+    public DegreeProgramme getDegreeProgramme() {
+        return degreeProgramme;
+    }
+
+    /**
+     * Sets degree programme for student
+     * @param degreeProgramme - degree programme
+     */
+    public void setDegreeProgramme(DegreeProgramme degreeProgramme) {
+        this.degreeProgramme = degreeProgramme;
+
+    }
+
+    /**
+     * Returns completed courses
+     * @return completed courses
+     */
+    public ArrayList<CourseUnit> getCompletedCourses() {
+        return completedCourses;
+    }
+
+    /**
+     * Marks course as completed
+     * @param course - course
+     */
+    public void addCompletedCourse(CourseUnit course){
+        if(!completedCourses.contains(course)){
+            completedCourses.add(course);
+            this.credits += course.getCreditsInt();
+        }
+
+        // reinstates the degreeprogramme with completed courses when starting up
+        degreeProgramme.addCompletedCourse(course);
+
+    }
+
+    /**
+     * Returns the amount of study credits user has completed
+     * @return study credits
+     */
+    public int getStudyCredits() {
+        int credits = 0;
+
+        for (CourseUnit courseUnit : completedCourses) {
+            credits += courseUnit.getCreditsInt();
+        }
+
+        return credits;
+    }
+
+    /**
+     * Returns the calculated GPA of the user
+     * @return grade point average
+     */
+    public double getGPA() {
+        double grades = 0;
+        double courses = 0;
+
+        for (CourseUnit courseUnit : completedCourses) {
+            if (courseUnit.getGrade() == 0) {
+                continue;
+            }
+            grades += courseUnit.getGrade();
+            ++courses;
+        }
+
+        if (grades == 0) {
+            return 0;
+        }
+
+        return grades/courses;
     }
 }

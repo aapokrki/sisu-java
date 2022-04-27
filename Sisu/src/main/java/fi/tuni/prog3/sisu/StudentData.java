@@ -12,7 +12,6 @@ public class StudentData {
     public Student user;
     private final Map<String, Student> students;
     public JSONLogic jsonData;
-    //public Map <String, String> degreeProgrammes;
 
     /**
      * Constructs a data structure
@@ -20,7 +19,6 @@ public class StudentData {
     public StudentData() {
         jsonData = new JSONLogic();
         students = jsonData.studentsFromJsonToClass();
-        //degreeProgrammes = jsonData.readAllDegreeprogrammes();
     }
 
     /**
@@ -58,7 +56,14 @@ public class StudentData {
 
     /**
      * Handles account creation operation
+     * @param name - name
+     * @param studentNumber - student number
+     * @param inputDegreeProgramme - degree programme
+     * @param inputMandatoryStudyModule - mandatory study module
+     * @param startYear - start year
+     * @param endYear - end year
      * @return boolean value representing success of the operation
+     * @throws IOException - From readAPIData
      */
     public boolean createAccount(String name, String studentNumber, String inputDegreeProgramme, String inputMandatoryStudyModule,
                                  String startYear, String endYear) throws IOException {
@@ -84,28 +89,13 @@ public class StudentData {
             user.setEndYear(Integer.parseInt(endYear));
         }
 
-        /*
-        int startYear;
-        int endYear;
-
-        if (data.size() > 3) {
-
-            String year1 = data.get(3);
-            startYear = Integer.parseInt(year1);
-            user.setStartYear(startYear);
-
-            if (data.size() == 5) {
-                String year2 = data.get(4);
-                endYear = Integer.parseInt(year2);
-                user.setEndYear(endYear);
-            }
-        }
-        */
-
         students.put(studentNumber, user);
         return true;
     }
 
+    /**
+     * Deletes account
+     */
     public void deleteAccount() {
         students.remove(user.studentNumber);
         user = null;

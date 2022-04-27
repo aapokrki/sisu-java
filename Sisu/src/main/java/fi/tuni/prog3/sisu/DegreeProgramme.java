@@ -15,15 +15,17 @@ public class DegreeProgramme extends Module{
     public String id;
     public String code;
 
+    // Kantsiiko creditsit ja GPA tallettaa tänne vai studentiin?
+
     public int minCredits;
-    public int currentCredits;
+    //public int currentCredits;
 
     public ArrayList<StudyModule> studyModules;
 
     /**
      * DegreeProgramme constructor
      * Initialises DegreeProgramme variables from the given JsonObject
-     * @param degreeProgramme
+     * @param degreeProgramme - degree programme
      */
     public DegreeProgramme(JsonObject degreeProgramme){
 
@@ -87,7 +89,7 @@ public class DegreeProgramme extends Module{
      * @param courseUnit Course to be completed
      */
     public void addCompletedCourse(CourseUnit courseUnit){
-        currentCredits += courseUnit.getCreditsInt();
+        //currentCredits += courseUnit.getCreditsInt();
         for(StudyModule studyModule : studyModules){
             studyModule.addCompletedCourse(courseUnit);
         }

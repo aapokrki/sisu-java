@@ -24,12 +24,12 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class Sisu extends Application {
 
-    private Stage stage;
     private BorderPane mainWindow;
-    private final String style = Objects.requireNonNull(this.getClass().getResource("/Sisu.css")).toExternalForm();
-
     private StudentData data;
 
+    /**
+     * Constructor
+     */
     public Sisu() {
     }
 
@@ -50,19 +50,19 @@ public class Sisu extends Application {
         // Get data from JSON to program
         data = new StudentData();
 
-        this.stage = stage;
-        this.stage.setTitle("SISU");
-        this.stage.getIcons().add(new Image("/TUNI-face.png"));
+        stage.setTitle("SISU");
+        stage.getIcons().add(new Image("/TUNI-face.png"));
 
+        // The whole program runs by changing Panes in the BorderPane
         mainWindow = new BorderPane();
         mainWindow.setCenter(getStartScreen());
         mainWindow.setBackground(Background.EMPTY);
 
+        // Get custom style sheets
         Scene scene = new Scene(mainWindow);
         scene.setFill(Paint.valueOf("#ffffff"));
-        scene.getStylesheets().add(this.style);
+        scene.getStylesheets().add(Objects.requireNonNull(this.getClass().getResource("/Sisu.css")).toExternalForm());
 
-        //Scene startScene = getMainScene();
         stage.setScene(scene);
         stage.show();
         stage.setMaximized(true);
@@ -77,7 +77,8 @@ public class Sisu extends Application {
     }
 
     /**
-     * Handles text fields for correct inputs
+     * Adds input listeners to text fields for correct inputs.
+     * Used for all text fields in registration screen,login screen and student information edit screen
      * @param textField - text field
      * @param onlyIntegers - boolean value representing whether textField takes integers (years) or not
      */
@@ -129,11 +130,16 @@ public class Sisu extends Application {
         ToggleButton registerButton = new ToggleButton("REGISTER");
         registerButton.setId("whiteButton");
         registerButton.setOnAction( e -> {
+            mainWindow.setCenter(getRegistrationScreen());
+
+            /*
             try {
                 mainWindow.setCenter(getRegistrationScreen());
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+
+             */
         });
 
         HBox buttons = new HBox(loginButton, registerButton);
@@ -221,7 +227,7 @@ public class Sisu extends Application {
      * Returns the registration screen
      * @return registration screen
      */
-    private Pane getRegistrationScreen() throws IOException {
+    private Pane getRegistrationScreen() { //throws IOException
 
         GridPane grid = new GridPane();
         grid.setBackground(Background.EMPTY);
@@ -293,6 +299,7 @@ public class Sisu extends Application {
                 ex.printStackTrace();
             }
             if (studyModules != null) {
+                studyModulesSelection.getItems().clear();
                 studyModulesSelection.getItems().addAll(studyModules.keySet());
                 studyModulesSelection.getSelectionModel().selectFirst();
                 studyModulesSelection.setVisible(true);
@@ -330,8 +337,6 @@ public class Sisu extends Application {
         Label yearErrorMessage = new Label();
         yearErrorMessage.setId("errorLabel");
         grid.add(yearErrorMessage,1,10);
-
-        HBox buttons = new HBox();
 
         ToggleButton createButton = new ToggleButton("REGISTER");
         createButton.setId("blueButton");
@@ -410,10 +415,10 @@ public class Sisu extends Application {
         backButton.setId("whiteButton");
         backButton.setOnAction( e -> mainWindow.setCenter(getStartScreen()));
 
+        HBox buttons = new HBox(backButton, createButton);
         buttons.setAlignment(Pos.BASELINE_RIGHT);
         buttons.setSpacing(18);
         buttons.setPadding(new Insets(15,0,0,0));
-        buttons.getChildren().addAll(backButton, createButton);
 
         grid.add(buttons, 1,11);
         buttons.getParent().requestFocus();
@@ -421,8 +426,9 @@ public class Sisu extends Application {
         return grid;
     }
 
-    /**
+     /**
      * Returns the top menu
+     * @param nameChanged - boolean value representing if user has edited their name and it should be changed on the top left corner of the menu
      * @return top menu
      */
     private HBox getTopMenu(boolean nameChanged) {
@@ -556,7 +562,6 @@ public class Sisu extends Application {
         HBox.setHgrow(right, Priority.ALWAYS);
 
         HBox hBox = new HBox(left, right);
-
 
         Label mainViewTitle = new Label("Main view");
         mainViewTitle.setId("titleLabel");
@@ -753,9 +758,9 @@ public class Sisu extends Application {
     }
 
     /**
-     * Returns a graduate box for the course box
-     * @param courseUnit - course unit
-     * @return VBox marking course as completed
+     * Returns a graduate box for the course box which marks the course as completed
+     * @param courseUnit - course
+     * @return graduate box
      */
     private VBox getGraduateBox(CourseUnit courseUnit) {
 
@@ -785,9 +790,9 @@ public class Sisu extends Application {
     }
 
     /**
-     * Returns single course box for structure of studies screen
-     * @param courseUnit - course unit
-     * @return HBox displaying a course
+     * Returns single course box for the structure of studies screen
+     * @param courseUnit - course
+     * @return course box visualizing a course
      */
     private HBox getCourseBox(CourseUnit courseUnit) {
 
@@ -934,7 +939,6 @@ public class Sisu extends Application {
 
         Accordion accordion = new Accordion();
 
-        // Study modules
         if (degreeProgramme != null && !degreeProgramme.getStudyModules().isEmpty()) {
             for (StudyModule studyModule1 : degreeProgramme.getStudyModules()) {
 
@@ -963,7 +967,6 @@ public class Sisu extends Application {
                 TitledPane studyModulePane = new TitledPane(studyModule1.getName(), vBox);
                 accordion.getPanes().add(studyModulePane);
             }
-
         }
         return accordion;
     }

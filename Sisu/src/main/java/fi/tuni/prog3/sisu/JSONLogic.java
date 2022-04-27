@@ -58,8 +58,6 @@ public class JSONLogic {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.out.println("Students from json to class");
         return studentMap;
     }
 
@@ -136,7 +134,7 @@ public class JSONLogic {
      * Reads if the given degreeprogramme has a mandatory selection for a studymodule
      * eg. Tietotekniikka and Sähkötekniikka. You have to choose one.
      * Returns a map of the studymodule choices
-     * @param studyModuleId of the given degreeprogramme
+     * @param studyModuleId - of the given degreeprogramme
      * @return a map of the studymodule choices / null if no mandatory choices
      */
     public Map<String, String> getStudyModuleSelection(String studyModuleId)throws IOException{

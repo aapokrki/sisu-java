@@ -21,7 +21,7 @@ public class StudyModule extends Module{
     /**
      * StudyModule constructor
      * Initialises StudyModule variables from the given JsonObject
-     * @param studyModule
+     * @param studyModule - study module
      */
     public StudyModule(JsonObject studyModule){
         this.studyModule = studyModule;

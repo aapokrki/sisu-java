@@ -1,6 +1,5 @@
 package fi.tuni.prog3.sisu;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.ArrayList;
 public class DegreeProgramme extends Module{
 
 
-    private final transient JsonObject degreeProgramme;
+    private final transient JsonObject degreeProgrammeJsonObj;
     private transient Module parent;
 
     public String name;
@@ -27,7 +26,7 @@ public class DegreeProgramme extends Module{
      */
     public DegreeProgramme(JsonObject degreeProgramme){
 
-        this.degreeProgramme = degreeProgramme;
+        this.degreeProgrammeJsonObj = degreeProgramme;
         this.studyModules = new ArrayList<>();
 
         // Id
@@ -76,9 +75,12 @@ public class DegreeProgramme extends Module{
      */
     @Override
     public void addChild(Module module) {
-        if(module.getType().equals("StudyModule")){
-            studyModules.add((StudyModule) module);
+        if(!module.equals(this)){
+            if(module.getType().equals("StudyModule")){
+                studyModules.add((StudyModule) module);
+            }
         }
+
     }
 
     /**
@@ -87,9 +89,11 @@ public class DegreeProgramme extends Module{
      * @param courseUnit Course to be completed
      */
     public void addCompletedCourse(CourseUnit courseUnit){
-        currentCredits += courseUnit.getCreditsInt();
+
         for(StudyModule studyModule : studyModules){
-            studyModule.addCompletedCourse(courseUnit);
+            if(studyModule.addCompletedCourse(courseUnit)){
+                currentCredits += courseUnit.getCreditsInt();
+            }
         }
     }
 
@@ -97,6 +101,11 @@ public class DegreeProgramme extends Module{
     /*
     Obvious getters
     */
+
+    public int getCurrentCredits() {
+        return currentCredits;
+    }
+
     @Override
     public String getType() {
         return "DegreeProgramme";
@@ -114,7 +123,7 @@ public class DegreeProgramme extends Module{
     }
 
     @Override
-    public JsonObject getJsonObject(){return this.degreeProgramme;}
+    public JsonObject getJsonObject(){return this.degreeProgrammeJsonObj;}
 
     public int getMinCredits() {
         return this.minCredits;

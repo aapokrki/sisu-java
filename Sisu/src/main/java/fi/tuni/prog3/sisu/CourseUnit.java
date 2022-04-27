@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 
 public class CourseUnit extends Module{
 
-    private final transient JsonObject courseUnit;
+    private final transient JsonObject courseUnitJsonObj;
     private transient Module parent;
 
     public String name;
@@ -21,7 +21,7 @@ public class CourseUnit extends Module{
      * @param courseUnit - Given JsonElement of the course from the SISU API
      */
     public CourseUnit(JsonObject courseUnit){
-        this.courseUnit = courseUnit;
+        this.courseUnitJsonObj = courseUnit;
 
         // Id
         this.id = courseUnit.get("groupId").getAsString();
@@ -117,12 +117,15 @@ public class CourseUnit extends Module{
     /*
     Obvious getters
     */
+
+    public Module getParent() {return this.parent;}
+
     public int getGrade() {return this.grade;}
 
     public boolean isCompleted() {return this.completed;}
 
     @Override
-    public JsonObject getJsonObject() {return this.courseUnit;}
+    public JsonObject getJsonObject() {return this.courseUnitJsonObj;}
 
     @Override
     public String getCode() {return code;}

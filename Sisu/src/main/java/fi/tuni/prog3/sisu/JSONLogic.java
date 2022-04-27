@@ -133,15 +133,15 @@ public class JSONLogic {
     }
 
     /**
-     * Reads if the given degreeprogramme has a mandatory selection for a studymodule
+     * Reads if the given Module has a mandatory selection for a studymodule
      * eg. Tietotekniikka and Sähkötekniikka. You have to choose one.
      * Returns a map of the studymodule choices
-     * @param studyModuleId of the given degreeprogramme
+     * @param moduleId of the given degreeprogramme
      * @return a map of the studymodule choices / null if no mandatory choices
      */
-    public Map<String, String> getStudyModuleSelection(String studyModuleId)throws IOException{
+    public Map<String, String> getStudyModuleSelection(String moduleId)throws IOException{
 
-        String url = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId="+ studyModuleId +"&universityId=tuni-university-root-id";
+        String url = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId="+ moduleId +"&universityId=tuni-university-root-id";
         JsonObject degreeProgramme = null;
 
         try {
@@ -192,8 +192,8 @@ public class JSONLogic {
                         String moduleType = studymodules.get(i).getAsJsonObject().get("type").getAsString();
 
                         if(moduleType.equals("ModuleRule")){
-                            String moduleId = studymodules.get(i).getAsJsonObject().get("moduleGroupId").getAsString();
-                            String moduleUrl = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId="+ moduleId +"&universityId=tuni-university-root-id";
+                            String studyModuleId = studymodules.get(i).getAsJsonObject().get("moduleGroupId").getAsString();
+                            String moduleUrl = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId="+ studyModuleId +"&universityId=tuni-university-root-id";
 
                             JsonObject studyModule = null;
                             try {
@@ -335,9 +335,11 @@ public class JSONLogic {
 
         //TODO Check Groupingmodule and rules for additional features
 
+        /*
         if(type.equals("AnyModuleRule")){
 //            System.out.println(parent.getName() +" -- " +parent.getId());
 //            System.out.println("AnyModuleRule");
+
         }
 
         if(type.equals("AnyCourseUnitRule")){
@@ -345,6 +347,7 @@ public class JSONLogic {
 //            System.out.println("AnyCourseUnitRule");
 
         }
+        */
 
         // no Degreeprogramme to be found
         return null;

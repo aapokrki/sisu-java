@@ -1,5 +1,33 @@
 [
   {
+    "name": "Juuso",
+    "studentNumber": "123",
+    "startYear": 2020,
+    "endYear": 2026,
+    "credits": 10,
+    "degreeProgrammeId": "uta-tohjelma-1810",
+    "completedCourses": [
+      {
+        "name": "Syventävä perehtyminen teoriaan 1",
+        "id": "uta-ykoodi-54249",
+        "code": "KIR.311",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5
+      },
+      {
+        "name": "Syventävä perehtyminen teoriaan 2",
+        "id": "uta-ykoodi-54250",
+        "code": "KIR.312",
+        "grade": 3,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5
+      }
+    ]
+  },
+  {
     "name": "Aapo",
     "studentNumber": "H292001",
     "startYear": 2028,

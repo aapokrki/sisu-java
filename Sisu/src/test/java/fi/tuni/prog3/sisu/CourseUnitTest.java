@@ -2,6 +2,7 @@ package fi.tuni.prog3.sisu;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -14,18 +15,23 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CourseUnitTest {
+    JSONLogic logic;
+
+    @BeforeEach
+    void setUp(){
+        logic = new JSONLogic();
+    }
 
     @ParameterizedTest
     @MethodSource("courseProvider")
-    void courseUnitConstructorTest(JsonObject courseInput){
-
+    void courseUnitConstructorTest(JsonObject courseInput) {
 
         String name;
         JsonObject nameObj = courseInput.get("name").getAsJsonObject();
 
-        if(nameObj.get("fi") == null){
+        if (nameObj.get("fi") == null) {
             name = nameObj.get("en").getAsString();
-        }else{
+        } else {
             name = nameObj.get("fi").getAsString();
         }
 
@@ -34,13 +40,75 @@ class CourseUnitTest {
 
         CourseUnit course = new CourseUnit(courseInput);
 
-        assertEquals(name,course.getName());
-        assertEquals(code,course.getCode());
-        assertEquals(id,course.getId());
+        assertEquals(name, course.getName());
+        assertEquals(code, course.getCode());
+        assertEquals(id, course.getId());
+        assertFalse(course.isCompleted());
+
+    }
+
+    @ParameterizedTest
+    @MethodSource("courseProvider")
+    void courseSetCompleted(JsonObject courseInput){
+        CourseUnit course = new CourseUnit(courseInput);
         assertFalse(course.isCompleted());
         course.setCompleted();
         assertTrue(course.isCompleted());
     }
+
+    @ParameterizedTest
+    @MethodSource("courseProvider")
+    void courseSetGrade(JsonObject courseInput){
+        CourseUnit course = new CourseUnit(courseInput);
+
+        course.setGrade(6);
+        assertEquals(0,course.getGrade());
+
+        course.setGrade(3);
+        assertEquals(3,course.getGrade());
+
+        course.setGrade(-1);
+        assertEquals(3,course.getGrade());
+
+        course.setGrade(0);
+        assertEquals(0,course.getGrade());
+
+    }
+
+    @ParameterizedTest
+    @MethodSource("courseProvider")
+    void courseGetCreditsInt(JsonObject courseInput){
+        CourseUnit course = new CourseUnit(courseInput);
+
+        if(course.minCredits > course.maxCredits){
+            assertEquals(course.minCredits, course.getCreditsInt());
+        }else if(course.minCredits == course.maxCredits){
+            assertEquals(course.minCredits, course.getCreditsInt());
+            assertEquals(course.maxCredits, course.getCreditsInt());
+
+        }else{
+            assertEquals(course.maxCredits, course.getCreditsInt());
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("courseProvider")
+    void courseSetParent(JsonObject courseInput) throws IOException {
+
+        // Parent doesnt matter, but this is Logopedian yhteiset opinnot
+        String url = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-905f0726-c6c4-444c-8d04-c1c59007906e&universityId=tuni-university-root-id";
+        JsonObject parentObj = logic.requestJsonElementFromURL(url);
+        StudyModule module = new StudyModule(parentObj);
+
+        CourseUnit course = new CourseUnit(courseInput);
+
+        assertNull(course.getParent());
+
+        course.setParent(module);
+        assertEquals(module, course.getParent());
+
+    }
+
 
     @ParameterizedTest
     @MethodSource("courseProvider")

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class StudyModule extends Module{
 
-    private final transient JsonObject studyModule;
+    private final transient JsonObject studyModuleJsonObj;
     private transient Module parent;
 
     public String name;
@@ -24,7 +24,7 @@ public class StudyModule extends Module{
      * @param studyModule
      */
     public StudyModule(JsonObject studyModule){
-        this.studyModule = studyModule;
+        this.studyModuleJsonObj = studyModule;
         this.studyModules = new ArrayList<>();
         this.courseUnits = new ArrayList<>();
 
@@ -80,12 +80,17 @@ public class StudyModule extends Module{
      */
     @Override
     public void addChild(Module module){
-        if(module.getType().equals("StudyModule")){
-            studyModules.add((StudyModule) module);
 
-        }else if(module.getType().equals("CourseUnit")){
-            courseUnits.add((CourseUnit) module);
+        // Can't add itself
+        if(!module.equals(this)){
+            if(module.getType().equals("StudyModule")){
+                studyModules.add((StudyModule) module);
+
+            }else if(module.getType().equals("CourseUnit")){
+                courseUnits.add((CourseUnit) module);
+            }
         }
+
     }
     /**
      * Sets a parent for the StudyModule
@@ -103,8 +108,7 @@ public class StudyModule extends Module{
      * Finds the given course from the degreeProgramme from top to bottom
      * @param courseUnit Course to be completed
      */
-    public void addCompletedCourse(CourseUnit courseUnit){
-        currentCredits += courseUnit.getCreditsInt();
+    public Boolean addCompletedCourse(CourseUnit courseUnit){
 
         for(StudyModule studyModule : studyModules){
             studyModule.addCompletedCourse(courseUnit);
@@ -114,15 +118,19 @@ public class StudyModule extends Module{
             if(course.getId().equals(courseUnit.getId())){
                 course.setCompleted();
                 course.setGrade(courseUnit.getGrade());
+                currentCredits += courseUnit.getCreditsInt();
+                return true;
             }
         }
+        return false;
     }
 
     /*
     Obvious getters
     */
+    public Module getParent(){return this.parent;}
     @Override
-    public JsonObject getJsonObject(){return studyModule;}
+    public JsonObject getJsonObject(){return studyModuleJsonObj;}
 
     @Override
     public String getName() {

@@ -27,7 +27,7 @@ public class JSONLogic {
         Gson gson = builder.create();
         try(FileWriter writer = new FileWriter("students")){
 
-            System.out.println("Students to json");
+            System.out.println("Saving student information to students.json");
             gson.toJson(students, writer);
 
         }catch (IOException e){
@@ -59,7 +59,7 @@ public class JSONLogic {
             e.printStackTrace();
         }
 
-        System.out.println("Students from json to class");
+        System.out.println("Getting student information from students.json");
         return studentMap;
     }
 

@@ -34,6 +34,8 @@ class JSONLogicTest {
         logic = new JSONLogic();
     }
 
+
+
     @ParameterizedTest
     @MethodSource("studentProvider")
     void studentsJsonReadWriteCorrectly(Student student) throws IOException {
@@ -215,14 +217,14 @@ class JSONLogicTest {
         Student testiteppo = new Student();
         testiteppo.setDegreeProgrammeId("otm-d8575e77-1ee3-48a6-b3c1-4acb30c146ce");
         testiteppo.setMandatoryStudyModuleId("otm-db8be475-b468-47d1-a2c1-b5d72da59bd7");
-        testiteppo.setStudentNumber("123456");
+        testiteppo.setStudentNumber("123testi321");
         testiteppo.setName("Testi Teppo");
         testiteppo.setDegreeProgramme(logic.readAPIData("otm-d8575e77-1ee3-48a6-b3c1-4acb30c146ce","otm-db8be475-b468-47d1-a2c1-b5d72da59bd7"));
 
         Student testituula = new Student();
         testituula.setDegreeProgrammeId("uta-tohjelma-1761");
         testituula.setMandatoryStudyModuleId(null);
-        testituula.setStudentNumber("654321");
+        testituula.setStudentNumber("456testi654");
         testituula.setName("Testi Tuula");
         testituula.setDegreeProgramme(logic.readAPIData("uta-tohjelma-1761",null));
 

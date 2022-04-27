@@ -111,7 +111,6 @@ class DegreeProgrammeTest {
 
         // Course that was just completed
         CourseUnit targetCourse = tietotekniikka.getStudyModules().get(0).getStudyModules().get(0).getCourseUnits().get(8);
-        System.out.println(targetCourse.getName());
 
         assertTrue(targetCourse.isCompleted());
         assertEquals(5, targetCourse.getGrade());

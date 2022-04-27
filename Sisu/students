@@ -1,33 +1,5 @@
 [
   {
-    "name": "Juuso",
-    "studentNumber": "123",
-    "startYear": 2020,
-    "endYear": 2026,
-    "credits": 10,
-    "degreeProgrammeId": "uta-tohjelma-1810",
-    "completedCourses": [
-      {
-        "name": "Syventävä perehtyminen teoriaan 1",
-        "id": "uta-ykoodi-54249",
-        "code": "KIR.311",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Syventävä perehtyminen teoriaan 2",
-        "id": "uta-ykoodi-54250",
-        "code": "KIR.312",
-        "grade": 3,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      }
-    ]
-  },
-  {
     "name": "Aapo",
     "studentNumber": "H292001",
     "startYear": 2028,
@@ -413,78 +385,6 @@
         "completed": true,
         "minCredits": 5,
         "maxCredits": 5
-      }
-    ]
-  },
-  {
-    "name": "Prööt",
-    "studentNumber": "69",
-    "startYear": 0,
-    "endYear": 0,
-    "credits": 0,
-    "degreeProgrammeId": "otm-d8575e77-1ee3-48a6-b3c1-4acb30c146ce",
-    "completedCourses": []
-  },
-  {
-    "name": "Pruu",
-    "studentNumber": "1010",
-    "startYear": 2020,
-    "endYear": 2025,
-    "credits": 0,
-    "degreeProgrammeId": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
-    "mandatoryStudyModuleId": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
-    "completedCourses": []
-  },
-  {
-    "name": "Pekka",
-    "studentNumber": "H101010",
-    "startYear": 2020,
-    "endYear": 2025,
-    "credits": 0,
-    "degreeProgrammeId": "otm-d8575e77-1ee3-48a6-b3c1-4acb30c146ce",
-    "mandatoryStudyModuleId": "otm-db8be475-b468-47d1-a2c1-b5d72da59bd7",
-    "completedCourses": []
-  },
-  {
-    "name": "Tuuma",
-    "studentNumber": "10",
-    "startYear": 0,
-    "endYear": 0,
-    "credits": 7,
-    "degreeProgrammeId": "otm-8253f483-cfd0-448d-bf1f-6fda45e93c80",
-    "mandatoryStudyModuleId": "otm-abbc946f-8efe-448c-a527-be40bc6a8e36",
-    "completedCourses": [
-      {
-        "id": "otm-ac768242-eef7-42f0-a526-30d8851b0101",
-        "code": "MOJOPP1",
-        "grade": 1,
-        "completed": true,
-        "minCredits": 1,
-        "maxCredits": 1
-      },
-      {
-        "id": "otm-7dbfeae3-6912-4eeb-9e3c-7d24fd5c0f3c",
-        "code": "MOJOPP2",
-        "grade": 2,
-        "completed": true,
-        "minCredits": 2,
-        "maxCredits": 2
-      },
-      {
-        "id": "otm-ab0afa3d-8d5c-4acd-b211-733d4d05083b",
-        "code": "MOJOPP3",
-        "grade": 3,
-        "completed": true,
-        "minCredits": 2,
-        "maxCredits": 2
-      },
-      {
-        "id": "otm-1e3f900d-c9ff-4621-9f0b-92d87a2833b9",
-        "code": "MOJOPP4",
-        "grade": 4,
-        "completed": true,
-        "minCredits": 2,
-        "maxCredits": 2
       }
     ]
   }

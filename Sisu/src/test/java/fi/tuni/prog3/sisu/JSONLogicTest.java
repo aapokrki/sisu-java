@@ -68,8 +68,8 @@ class JSONLogicTest {
         logic.studentsToJson(studentsArrayList);
 
         // Files should be exactly like in the beginning
-        src = new File("students");
-        assertTrue(FileUtils.contentEquals(src, copy));
+        File src1 = new File("students");
+        assertTrue(FileUtils.contentEquals(src1, copy));
 
 
         if(Files.deleteIfExists(Paths.get("studentCopy"))){
@@ -149,6 +149,15 @@ class JSONLogicTest {
         assertEquals(expectedStudyModulesSize,tst.getStudyModules().size());
         assertEquals("Sähkötekniikka", tst.getStudyModules().get(0).getName());
         assertEquals(sähkötekniikka,tst.getStudyModules().get(0).getJsonObject());
+    }
+
+    @Test
+    void readAPIDataIOException(){
+
+        assertThrows(IOException.class, () ->{
+            logic.readAPIData(null,"otm-b994335e-8759-4d7e-b3bf-ae505fd3935e");
+        });
+
     }
 
 

@@ -9,9 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-// TODO: Store person's degree choice to his/her data JSON
-// TODO: Create and implement a JSON system for persons.
-// TODO: Add proper Exceptionchecks!
 
 /**
  * Handles everything related to JSON and pulling data from the SISU API and students.json
@@ -76,7 +73,7 @@ public class JSONLogic {
 
         //System.err.println("Uusi degreeprogramme -- " + inputDegreeProgramme);
         if(inputDegreeProgramme == null){
-            throw new IOException("inputDegreeProgrammeId is null - " + inputDegreeProgramme);
+            throw new IOException("inputDegreeProgrammeId is null");
         }
 
         String degreeProgrammeURL = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=" + inputDegreeProgramme+ "&universityId=tuni-university-root-id";
@@ -154,6 +151,7 @@ public class JSONLogic {
 
         Map<String, String> studyModuleSelection = new TreeMap<>();
 
+        assert degreeProgramme != null;
         JsonObject rule = degreeProgramme.get("rule").getAsJsonObject();
         String type = rule.get("type").getAsString();
 
@@ -204,6 +202,7 @@ public class JSONLogic {
                                 e.printStackTrace();
                             }
 
+                            assert studyModule != null;
                             studyModuleSelection.put(getName(studyModule), studyModule.get("groupId").getAsString());
                         }
                     }
@@ -259,7 +258,7 @@ public class JSONLogic {
             DegreeProgramme newDegreeProgramme = new DegreeProgramme(rootobj);
             readAPIRec(ruleJsonObject, newDegreeProgramme);
 
-            // Filled with its studymodules and courses
+            // Filled with studyModules and courses
             return newDegreeProgramme;
 
         }
@@ -282,7 +281,6 @@ public class JSONLogic {
             String courseUnitGroupId= rootobj.get("courseUnitGroupId").getAsString();
             String courseUnitURL = "https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId="+ courseUnitGroupId+"&universityId=tuni-university-root-id";
 
-//            JsonObject courseUnit = requestJsonElementFromURL(courseUnitURL).getAsJsonArray().get(0).getAsJsonObject();
             JsonObject courseUnit = null;
             try {
                 courseUnit = requestJsonElementFromURL(courseUnitURL);
@@ -291,21 +289,18 @@ public class JSONLogic {
                 e.printStackTrace();
             }
 
+            assert courseUnit != null;
             CourseUnit course = new CourseUnit(courseUnit);
             course.setParent(parent);
             parent.addChild(course);
 
         }
 
-        // Rule of how many credits can or must be selected in total
         if(type.equals("CreditsRule")){
             JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
             readAPIRec(ruleJsonObject,parent);
         }
 
-
-        // Rule of how many of the following studymodules or courses can be selected
-        // eg. Choosing between Tietotekniikka and Sähkötekniikka in the degreeprogramme
         if(type.equals("CompositeRule")){
 
             JsonArray compositeRules = rootobj.get("rules").getAsJsonArray();
@@ -333,22 +328,6 @@ public class JSONLogic {
             assert moduleObj != null;
             readAPIRec(moduleObj, parent);
         }
-
-        //TODO Check Groupingmodule and rules for additional features
-
-        /*
-        if(type.equals("AnyModuleRule")){
-//            System.out.println(parent.getName() +" -- " +parent.getId());
-//            System.out.println("AnyModuleRule");
-
-        }
-
-        if(type.equals("AnyCourseUnitRule")){
-//            System.out.println(parent.getName()+" -- " +parent.getId());
-//            System.out.println("AnyCourseUnitRule");
-
-        }
-        */
 
         // no Degreeprogramme to be found
         return null;
@@ -383,13 +362,6 @@ public class JSONLogic {
 
         }
         return root.getAsJsonObject();
-
-    }
-
-    // Main function to test the program.
-    // TODO Delete before final
-    public static void main(String[] args) throws IOException {
-
     }
 
 }

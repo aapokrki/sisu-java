@@ -71,7 +71,6 @@ public class JSONLogic {
      */
     public DegreeProgramme readAPIData(String inputDegreeProgramme, String inputMandatoryStudyModule) throws IOException {
 
-        //System.err.println("Uusi degreeprogramme -- " + inputDegreeProgramme);
         if(inputDegreeProgramme == null){
             throw new IOException("inputDegreeProgrammeId is null");
         }
@@ -79,6 +78,7 @@ public class JSONLogic {
         String degreeProgrammeURL = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=" + inputDegreeProgramme+ "&universityId=tuni-university-root-id";
         JsonObject rootobj = requestJsonElementFromURL(degreeProgrammeURL);
 
+        System.out.println("Getting DegreeProgramme from API");
         DegreeProgramme degreeProgramme = readAPIRec(rootobj, new DegreeProgramme(rootobj));
 
         // If a choice of studyModule is given, the useless studymodules are removed from the degreeProgramme
@@ -240,14 +240,13 @@ public class JSONLogic {
 
 
     /**
-     * Reads the given degreeprogramme's information from the SISU api
+     * Reads the given JsonObject's(degreeprogramme) information from the SISU api
      * Advances through the studymodules and courses recursively, maintaining hierarchy.
      * @param rootobj rootobj - JsonObject which is about to be handled
-     * @param parent the previous rootobj - where to store current rootobj's data etc.
-     * @return Degreeprogramme student's new degreeprogramme in a neat class format
+     * @param parent The previous rootobj - where to add current rootobj as child
+     * @return Degreeprogramme Student's new DegreeProgramme in a neat object format
      */
     public DegreeProgramme readAPIRec(JsonObject rootobj, Module parent) {
-
 
         String type = rootobj.get("type").getAsString();
 
@@ -263,7 +262,7 @@ public class JSONLogic {
 
         }
 
-        // StudyModules and GroupingModules can be handled as the same
+        // StudyModules and GroupingModules can be handled as the same pretty much
         if(type.equals("StudyModule") || type.equals("GroupingModule")){
 
             JsonObject ruleJsonObject = rootobj.get("rule").getAsJsonObject();
@@ -309,9 +308,9 @@ public class JSONLogic {
                 JsonObject rule = compositeRules.get(i).getAsJsonObject();
                 readAPIRec(rule,parent);
             }
-
         }
 
+        // Contains StudyModules, next recursion will be a StudyModule
         if (type.equals("ModuleRule")){
             String moduleGroupId = rootobj.get("moduleGroupId").getAsString();
 
@@ -329,16 +328,17 @@ public class JSONLogic {
             readAPIRec(moduleObj, parent);
         }
 
-        // no Degreeprogramme to be found
+        // No degreeProgramme to be found.
+        // Should not be able to reach this
         return null;
     }
 
 
     /**
      * Returns a JsonElement from the given URL
-     * @param sURL given url to the JsonElement
-     * @return the read JsonElement
-     * @throws IOException //TODO create proper
+     * @param sURL Given url to the JsonElement
+     * @return The read JsonElement
+     * @throws IOException Bad url at request
      */
     public JsonObject requestJsonElementFromURL(String sURL) throws IOException {
 
@@ -348,8 +348,10 @@ public class JSONLogic {
             URL url = new URL(sURL);
             request = url.openConnection();
             request.connect();
-            JsonParser jp = new JsonParser(); //from gson
-            root = jp.parse(new InputStreamReader((InputStream) request.getContent())); //Convert the input stream to a json element
+            JsonParser jp = new JsonParser();
+
+            //Convert the input stream to a json element
+            root = jp.parse(new InputStreamReader((InputStream) request.getContent()));
 
         } catch (IOException e) {
             //e.printStackTrace();

@@ -2,389 +2,66 @@
   {
     "name": "Aapo",
     "studentNumber": "H292001",
-    "startYear": 2028,
+    "startYear": 2020,
     "endYear": 2025,
-    "credits": 185,
+    "credits": 0,
     "degreeProgrammeId": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
     "mandatoryStudyModuleId": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
+    "completedCourses": []
+  },
+  {
+    "name": "Petteri",
+    "studentNumber": "H123456",
+    "startYear": 2020,
+    "endYear": 2025,
+    "credits": 25,
+    "degreeProgrammeId": "otm-d8575e77-1ee3-48a6-b3c1-4acb30c146ce",
+    "mandatoryStudyModuleId": "otm-9a370a36-537e-4323-a198-3c278bc59a96",
     "completedCourses": [
       {
-        "name": "Tietoliikennetekniikan perusteet",
-        "id": "tut-cu-g-45462",
-        "code": "COMM.100",
-        "grade": 5,
+        "name": "Kielen analyysi 1",
+        "id": "uta-ykoodi-39352",
+        "grade": 4,
         "completed": true,
         "minCredits": 5,
-        "maxCredits": 5
+        "maxCredits": 5,
+        "code": "KIE.ENA.110"
       },
       {
-        "name": "Johdatus sulautettuihin järjestelmiin",
-        "id": "tut-cu-g-45577",
-        "code": "COMP.CE.100",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Ohjelmointi 1: Johdatus ohjelmointiin",
-        "id": "tut-cu-g-45620",
-        "code": "COMP.CS.100",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Systeemit ja säätö",
-        "id": "tut-cu-g-35418",
-        "code": "AUT.200",
+        "name": "Kielen analyysi 2",
+        "id": "otm-488d431e-f673-44f0-b04c-95faf7e020a3",
         "grade": 2,
         "completed": true,
         "minCredits": 5,
-        "maxCredits": 5
+        "maxCredits": 5,
+        "code": "KIE.ENA.120"
       },
       {
-        "name": "Ohjelmointi 3: Rajapinnat ja tekniikat",
-        "id": "otm-9392333f-bff2-4c3d-b1cf-717ce9990253",
-        "code": "COMP.CS.140",
+        "name": "Teksteistä kulttuuriin: johdatusta kirjallisuus- ja kulttuurianalyysiin 1",
+        "id": "otm-44de1f78-b59b-445e-9ddf-746052fda850",
+        "grade": 0,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "KIE.ENA.130"
+      },
+      {
+        "name": "Genrestä kontekstiin: johdatusta kirjallisuus- ja kulttuurianalyysiin 2",
+        "id": "otm-f7411d30-92f5-4316-8042-77538638dc0a",
+        "grade": 1,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "KIE.ENA.140"
+      },
+      {
+        "name": "Tieteellinen kirjoittaminen",
+        "id": "otm-6ca8b463-06fa-4e22-8ba4-67bb6d11908f",
         "grade": 5,
         "completed": true,
         "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Tietorakenteet ja algoritmit 1",
-        "id": "tut-cu-g-36938",
-        "code": "COMP.CS.300",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Rinnakkaisuus",
-        "id": "tut-cu-g-36437",
-        "code": "COMP.CS.310",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Software Engineering Project 1",
-        "id": "uta-ykoodi-25895",
-        "code": "COMP.SE.610",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Tietokantojen perusteet",
-        "id": "otm-5381c680-bc69-4400-a578-ec0a79141cd0",
-        "code": "DATA.DB.100",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Ihmisen ja teknologian vuorovaikutus 1: Perusteet",
-        "id": "otm-4da0e13d-222a-4e14-a239-86b76346ba14",
-        "code": "HTI.100",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Tietotekniikan kandidaatintyöseminaari",
-        "id": "tut-cu-g-36840",
-        "code": "COMP.200",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 0,
-        "maxCredits": 0
-      },
-      {
-        "name": "Tekniikan alan kandidaatintyö",
-        "id": "tut-cu-g-41999",
-        "code": "TAU.OPN.020",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 10,
-        "maxCredits": 10
-      },
-      {
-        "name": "Kypsyysnäyte suomeksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
-        "id": "otm-49136eba-4a72-40e7-aedb-5e7c20dfcf7e",
-        "code": "TAU.KN.010",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 0,
-        "maxCredits": 0
-      },
-      {
-        "name": "Kypsyysnäyte ruotsiksi alemmassa korkeakoulututkinnossa, sisällön ja kielen tarkistus",
-        "id": "otm-2beeb9ef-859a-4280-984a-d6cf2ce23032",
-        "code": "TAU.KN.020",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 0,
-        "maxCredits": 0
-      },
-      {
-        "name": "Kypsyysnäyte englanniksi alemmassa korkeakoulututkinnossa, sisällön tarkistus",
-        "id": "otm-2c104f39-c85a-4f56-b394-880903f2eaf0",
-        "code": "TAU.KN.031",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 0,
-        "maxCredits": 0
-      },
-      {
-        "name": "Ohjelmointi 2: Rakenteet",
-        "id": "tut-cu-g-45510",
-        "code": "COMP.CS.110",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Signaalinkäsittelyn perusteet",
-        "id": "tut-cu-g-36355",
-        "code": "COMP.SGN.100",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Johdatus ohjelmistotuotantoon",
-        "id": "tut-cu-g-45474",
-        "code": "COMP.SE.100",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Kyberturvallisuus I: perusteet",
-        "id": "tut-cu-g-45501",
-        "code": "COMP.SEC.100",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Signaalit ja mittaaminen",
-        "id": "tut-cu-g-45460",
-        "code": "EE.010",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Johdanto tekniikan opintoihin",
-        "id": "tut-cu-g-45459",
-        "code": "ITC.CEE.010",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Foundations of Professional and Academic Communication in English",
-        "id": "uta-ykoodi-38827",
-        "code": "LANG.ENG.001",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 3,
-        "maxCredits": 3
-      },
-      {
-        "name": "Monikielinen johdanto akateemisiin viestintä- ja kieliopintoihin 2",
-        "id": "otm-9809534b-8ccf-4cf2-82fc-6c4717417fbe",
-        "code": "LANG.002",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 2,
-        "maxCredits": 2
-      },
-      {
-        "name": "Vuorovaikutusosaaminen työelämässä",
-        "id": "uta-ykoodi-48285",
-        "code": "LANG.PUH.001",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 2,
-        "maxCredits": 2
-      },
-      {
-        "name": "Ruotsia työelämään",
-        "id": "uta-ykoodi-20998",
-        "code": "LANG.RUO.001",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 3,
-        "maxCredits": 3
-      },
-      {
-        "name": "Teollisuustalouden perusteet",
-        "id": "tut-cu-g-48243",
-        "code": "TUTA.010",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Analyysin peruskurssi",
-        "id": "tut-cu-g-35897",
-        "code": "MATH.APP.111",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Vektorit ja matriisit",
-        "id": "tut-cu-g-35898",
-        "code": "MATH.MA.140",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Differentiaali- ja integraalilaskenta",
-        "id": "tut-cu-g-35899",
-        "code": "MATH.APP.160",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Johdatus todennäköisyyslaskentaan ja tilastolliseen päättelyyn",
-        "id": "uta-ykoodi-47933",
-        "code": "MATH.APP.210",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Yliopistofysiikka 1",
-        "id": "tut-cu-g-48229",
-        "code": "FYS.101",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Yliopistofysiikka 2",
-        "id": "tut-cu-g-48230",
-        "code": "FYS.102",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Yliopistofysiikka 3",
-        "id": "tut-cu-g-48256",
-        "code": "FYS.103",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Usean muuttujan funktiot",
-        "id": "tut-cu-g-47510",
-        "code": "MATH.APP.220",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Operaatiotutkimus",
-        "id": "tut-cu-g-47515",
-        "code": "MATH.APP.260",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Vektorianalyysi",
-        "id": "tut-cu-g-47603",
-        "code": "MATH.APP.230",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Fourier\u0027n menetelmät",
-        "id": "tut-cu-g-47604",
-        "code": "MATH.APP.240",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Graafialgoritmit",
-        "id": "tut-cu-g-48943",
-        "code": "MATH.APP.270",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Tilastollisten menetelmien perusteet",
-        "id": "uta-ykoodi-38909",
-        "code": "DATA.STAT.120",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Matemaattisen tilastotieteen perusteet",
-        "id": "uta-ykoodi-33646",
-        "code": "DATA.STAT.420",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Diskreetti matematiikka",
-        "id": "otm-1e8f1023-1977-4f98-9386-110ef623327b",
-        "code": "MATH.MA.210",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
-      },
-      {
-        "name": "Web Development 1 - Programming",
-        "id": "otm-949208ad-9f08-452d-bd64-78588079c3d6",
-        "code": "COMP.CS.500",
-        "grade": 5,
-        "completed": true,
-        "minCredits": 5,
-        "maxCredits": 5
+        "maxCredits": 5,
+        "code": "KIE.ENA.150"
       }
     ]
   }

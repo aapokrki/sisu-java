@@ -10,16 +10,16 @@ public class DegreeProgramme extends Module{
     private final transient JsonObject degreeProgrammeJsonObj;
     private transient Module parent;
 
-    public String name;
-    public String id;
-    public String code;
+    private final String name;
+    private final String id;
+    private final String code;
 
     // Kantsiiko creditsit ja GPA tallettaa tänne vai studentiin?
 
-    public int minCredits;
-    public int currentCredits;
+    private final int minCredits;
+    private int currentCredits;
 
-    public ArrayList<StudyModule> studyModules;
+    private ArrayList<StudyModule> studyModules;
 
     /**
      * DegreeProgramme constructor
@@ -37,6 +37,8 @@ public class DegreeProgramme extends Module{
         // Code
         if(!degreeProgramme.get("code").isJsonNull()){
             this.code = degreeProgramme.get("code").getAsString();
+        }else{
+            this.code = null;
         }
 
         // Credits
@@ -54,8 +56,11 @@ public class DegreeProgramme extends Module{
 
             this.name = nameObj.get("en").getAsString();
 
-        }else{
+        }else if(nameObj.get("fi") != null){
             this.name = nameObj.get("fi").getAsString();
+        }else{
+            this.name = null;
+            System.err.println("DegreeProgramme has no name");
         }
 
     }

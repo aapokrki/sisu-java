@@ -10,13 +10,13 @@ public class StudyModule extends Module{
     private final transient JsonObject studyModuleJsonObj;
     private transient Module parent;
 
-    public String name;
-    public String code;
-    public String id;
-    public int minCredits;
-    public int currentCredits;
-    public ArrayList<StudyModule> studyModules;
-    public ArrayList<CourseUnit> courseUnits;
+    private final String name;
+    private final String code;
+    private final String id;
+    private final int minCredits;
+    private int currentCredits;
+    private ArrayList<StudyModule> studyModules;
+    private ArrayList<CourseUnit> courseUnits;
 
     /**
      * StudyModule constructor
@@ -31,6 +31,8 @@ public class StudyModule extends Module{
         // Code
         if(!studyModule.get("code").isJsonNull()){
             this.code = studyModule.get("code").getAsString();
+        }else{
+            this.code = null;
         }
 
         // Id
@@ -52,25 +54,12 @@ public class StudyModule extends Module{
         }else if(nameObj.get("fi") != null){
             this.name = nameObj.get("fi").getAsString();
         }else{
+            this.name = null;
             System.err.println("Studymodule has no name");
         }
     }
 
-    /**
-     * Returns the studyModule's courses
-     * @return ArrayList of all courses under this studyModule
-     */
-    public ArrayList<CourseUnit> getCourseUnits() {
-        return courseUnits;
-    }
 
-    /**
-     * Returns the studyModule's subStudyModules
-     * @return ArrayList of all subStudyModules under this studyModule
-     */
-    public ArrayList<StudyModule> getStudyModules(){
-        return studyModules;
-    }
 
     /**
      * Adds children Modules to this studyModule.
@@ -127,7 +116,24 @@ public class StudyModule extends Module{
 
     /*
     Obvious getters
+
     */
+    /**
+     * Returns the studyModule's courses
+     * @return ArrayList of all courses under this studyModule
+     */
+    public ArrayList<CourseUnit> getCourseUnits() {
+        return courseUnits;
+    }
+
+    /**
+     * Returns the studyModule's subStudyModules
+     * @return ArrayList of all subStudyModules under this studyModule
+     */
+    public ArrayList<StudyModule> getStudyModules(){
+        return studyModules;
+    }
+
     public Module getParent(){return this.parent;}
     @Override
     public JsonObject getJsonObject(){return studyModuleJsonObj;}

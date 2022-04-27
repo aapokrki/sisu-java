@@ -8,13 +8,15 @@ public class CourseUnit extends Module{
     private final transient JsonObject courseUnitJsonObj;
     private transient Module parent;
 
-    public String name;
-    public String id;
-    public String code;
+    public final String name;
+    public final String id;
     public int grade;
     public Boolean completed = false;
-    public int minCredits;
-    public int maxCredits;
+    public final int minCredits;
+    public final int maxCredits;
+
+    private final String code;
+
 
     /**
      * Constructs a course from the given course JsonElement from the SISU API
@@ -34,6 +36,7 @@ public class CourseUnit extends Module{
         }else if (nameObj.get("fi") != null){
             this.name = nameObj.get("fi").getAsString();
         }else{
+            this.name = null;
             System.err.println("Course has no name");
         }
 
@@ -41,15 +44,21 @@ public class CourseUnit extends Module{
         // Code
         if(!courseUnit.get("code").isJsonNull()){
             this.code = courseUnit.get("code").getAsString();
+        }else{
+            this.code = null;
         }
 
         // Credits
         JsonObject creditsObj = courseUnit.get("credits").getAsJsonObject();
         if(!creditsObj.get("max").isJsonNull()){
             this.maxCredits = creditsObj.get("max").getAsInt();
+        }else{
+            this.maxCredits = 0;
         }
         if (!creditsObj.get("min").isJsonNull()){
             this.minCredits = creditsObj.get("min").getAsInt();
+        }else{
+            this.minCredits = 0;
         }
     }
 

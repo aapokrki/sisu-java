@@ -30,7 +30,7 @@ public class StudentData {
      */
     protected void save()
     {
-        ArrayList<Student> list = new ArrayList<Student>(students.values());
+        ArrayList<Student> list = new ArrayList<>(students.values());
         jsonData.studentsToJson(list);
     }
 

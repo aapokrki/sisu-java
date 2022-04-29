@@ -1,10 +1,10 @@
 [
   {
-    "name": "Aapo",
+    "name": "Aapo Kärki",
     "studentNumber": "H292001",
-    "startYear": 2020,
+    "startYear": 2021,
     "endYear": 2025,
-    "credits": 40,
+    "credits": 45,
     "degreeProgrammeId": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
     "mandatoryStudyModuleId": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
     "completedCourses": [
@@ -79,6 +79,15 @@
         "minCredits": 5,
         "maxCredits": 5,
         "code": "COMP.SEC.100"
+      },
+      {
+        "name": "Signaalit ja mittaaminen",
+        "id": "tut-cu-g-45460",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "EE.010"
       }
     ]
   },

@@ -1,11 +1,4 @@
-# Programming 3 project template
-
-Make sure you have setup ssh-key for your GitLab account.
-
-Code will be published soon.
-
-Note! The .gitlab-ci.yml is offline at the moment.
-
-!!! Tämä on Aapon git muutos testi !!!
-!!! Aapon Branch muutostesti !!!
-# You are allowed (and probably should) make changes to this file after you have started your project. :)
+Sisusta selvää
+Kasperi Kouri H292044
+Aapo Kärki H292001
+COMP.CS.140-Projektin dokumentaatio löytyy Documentation kansiosta

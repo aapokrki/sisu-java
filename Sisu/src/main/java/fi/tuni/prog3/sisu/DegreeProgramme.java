@@ -107,6 +107,11 @@ public class DegreeProgramme extends Module{
     /*
     Obvious getters
     */
+
+    /**
+     * Gets degreeProgramme's  current credit amount
+     * @return Integer of the current credit amount
+     */
     public int getCurrentCredits() {
         return currentCredits;
     }
@@ -130,10 +135,18 @@ public class DegreeProgramme extends Module{
     @Override
     public JsonObject getJsonObject(){return this.degreeProgrammeJsonObj;}
 
+    /**
+     * Gets DegreeProgramme's minimum credit amount
+     * @return Minimum credit amount of DegreeProgramme
+     */
     public int getMinCredits() {
         return this.minCredits;
     }
 
+    /**
+     * Gets the degreeProgramme's studymodules
+     * @return ArrayList of Studymodules
+     */
     public ArrayList<StudyModule> getStudyModules() {
         return this.studyModules;
     }

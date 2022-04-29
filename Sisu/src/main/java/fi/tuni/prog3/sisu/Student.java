@@ -7,18 +7,31 @@ import java.util.ArrayList;
  */
 public class Student {
 
-    // Basic information
+    /** Student's name*/
     public String name;
+
+    /** Student's studentNumber*/
     public String studentNumber;
+
+    /** Student's startYear*/
     public int startYear;
+
+    /** Student's endYear*/
     public int endYear;
 
+    /** Student's current credit amount*/
     public int credits;
 
+    /** Student's degreeProgrammeId*/
     public String degreeProgrammeId;
+
+    /** Student's mandatoryStudyModuleId if he has one*/
     public String mandatoryStudyModuleId;
 
+    /** Student's DegreeProgramme*/
     public transient DegreeProgramme degreeProgramme;
+
+    /** Student's list of completed courses*/
     public ArrayList<CourseUnit> completedCourses = new ArrayList<>();
 
 

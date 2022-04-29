@@ -9,8 +9,12 @@ import java.util.Map;
  */
 public class StudentData {
 
+    /**Current user in SISU*/
     public Student user;
+
     private final Map<String, Student> students;
+
+    /**Access to JsonLogic*/
     public JSONLogic jsonData;
 
     /**

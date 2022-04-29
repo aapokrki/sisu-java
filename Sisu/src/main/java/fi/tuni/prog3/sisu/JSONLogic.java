@@ -24,7 +24,6 @@ public class JSONLogic {
         Gson gson = builder.create();
         try(FileWriter writer = new FileWriter("students")){
 
-            System.out.println("Saving student information to students.json");
             gson.toJson(students, writer);
 
         }catch (IOException e){
@@ -33,7 +32,7 @@ public class JSONLogic {
     }
 
     /**
-     * Reads the students.json file and converts all students to a Map<studentnumber, Student>
+     * Reads the students.json file and converts all students to a Map (studentnumber, Student)
      * format, where handling data is easier.
      * @return map of all students in the students.json
      */
@@ -45,7 +44,6 @@ public class JSONLogic {
 
             Reader reader = Files.newBufferedReader(Paths.get("students"));
             List<Student> students = new Gson().fromJson(reader, new TypeToken<List<Student>>(){}.getType());
-            //JsonArray studentsJsonArray = new Gson().fromJson(reader)
 
             for (Student student : students) {
                 studentMap.put(student.getStudentNumber(), student);
@@ -56,7 +54,6 @@ public class JSONLogic {
             e.printStackTrace();
         }
 
-        System.out.println("Getting student information from students.json");
         return studentMap;
     }
 
@@ -78,7 +75,6 @@ public class JSONLogic {
         String degreeProgrammeURL = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=" + inputDegreeProgramme+ "&universityId=tuni-university-root-id";
         JsonObject rootobj = requestJsonObjectFromUrl(degreeProgrammeURL);
 
-        System.out.println("Getting DegreeProgramme from API");
         DegreeProgramme degreeProgramme = readAPIRec(rootobj, new DegreeProgramme(rootobj));
 
         // If a choice of studyModule is given, the useless studymodules are removed from the degreeProgramme
@@ -103,7 +99,7 @@ public class JSONLogic {
 
     /**
      * Reads all degreeprogrammes for when the student chooses his/her degreeprogramme
-     * @return map of all degreeprogrammes <name, id> for easy handling
+     * @return map of all degreeprogrammes (name, id) for easy handling
      */
     public Map<String, String> getAllDegreeProgrammes(){
 
@@ -137,7 +133,7 @@ public class JSONLogic {
      * @param moduleId of the given degreeprogramme
      * @return a map of the studymodule choices / null if no mandatory choices
      */
-    public Map<String, String> getStudyModuleSelection(String moduleId)throws IOException{
+    public Map<String, String> getStudyModuleSelection(String moduleId){
 
         String url = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId="+ moduleId +"&universityId=tuni-university-root-id";
         JsonObject degreeProgramme = null;

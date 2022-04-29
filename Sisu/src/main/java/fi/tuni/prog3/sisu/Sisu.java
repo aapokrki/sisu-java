@@ -293,11 +293,7 @@ public class Sisu extends Application {
             inputDegreeProgramme.set(degreeProgrammeId);
 
             Map<String ,String> studyModules = null;
-            try {
-                studyModules = data.jsonData.getStudyModuleSelection(degreeProgrammeId);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            studyModules = data.jsonData.getStudyModuleSelection(degreeProgrammeId);
             if (studyModules != null) {
                 studyModulesSelection.getItems().clear();
                 studyModulesSelection.getItems().addAll(studyModules.keySet());
@@ -373,11 +369,7 @@ public class Sisu extends Application {
             } else if (studyModulesSelection.isVisible()) {
 
                 String studyModuleId = null;
-                try {
-                    studyModuleId = data.jsonData.getStudyModuleSelection(inputDegreeProgramme.get()).get(studyModulesSelection.getValue());
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+                studyModuleId = data.jsonData.getStudyModuleSelection(inputDegreeProgramme.get()).get(studyModulesSelection.getValue());
 
                 inputMandatoryStudyModule.set(studyModuleId);
             }

@@ -98,6 +98,7 @@ public class StudyModule extends Module{
      * Is called from Module parent
      * Finds the given course from the degreeProgramme from top to bottom
      * @param courseUnit Course to be completed
+     * @return Boolean if course was successfully made set as completed
      */
     public Boolean addCompletedCourse(CourseUnit courseUnit){
 
@@ -136,6 +137,10 @@ public class StudyModule extends Module{
         return studyModules;
     }
 
+    /**
+     * Gets studymodule's parent
+     * @return Parent Module of this studyModule
+     */
     public Module getParent(){return this.parent;}
     @Override
     public JsonObject getJsonObject(){return studyModuleJsonObj;}

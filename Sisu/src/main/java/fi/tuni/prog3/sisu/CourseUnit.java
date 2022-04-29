@@ -10,13 +10,25 @@ public class CourseUnit extends Module{
     private final transient JsonObject courseUnitJsonObj;
     private transient Module parent;
 
+    /**Course's name*/
     public final String name;
+
+    /**Course's id (groupId in the API)*/
     public final String id;
+
+    /**Course's grade (0-5)*/
     public int grade;
+
+    /**Course's completed status*/
     public Boolean completed = false;
+
+    /**Course's minimum amount of credits*/
     public final int minCredits;
+
+    /**Course's maximum amount of credits*/
     public final int maxCredits;
 
+    /**Course's codename*/
     private final String code;
 
     /**
@@ -100,7 +112,7 @@ public class CourseUnit extends Module{
      * Returns the course credit as Int
      * minCredit > maxCredit if maxCredit was null in Json
      * Returns the larger credit
-     * @return
+     * @return The larger credit
      */
     public int getCreditsInt(){
         if (minCredits == maxCredits) {
@@ -133,8 +145,17 @@ public class CourseUnit extends Module{
     /*
     Obvious getters
     */
+
+    /**
+     * Gets this course's parent Module
+     * @return Parent module of this course
+     */
     public Module getParent() {return this.parent;}
 
+    /**
+     * Gets this course's given grade
+     * @return Grade given to the course
+     */
     public int getGrade() {return this.grade;}
 
 

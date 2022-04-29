@@ -3,8 +3,6 @@ package fi.tuni.prog3.sisu;
 import com.google.gson.JsonObject;
 import org.junit.jupiter.api.*;
 
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-
 import org.junit.jupiter.api.Order;
 
 import org.junit.jupiter.api.Test;
@@ -14,7 +12,8 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Tests Student.class functionality by checking getters and setter in order. Changing variables in setters
+ * Tests Student.class functionality by checking getters and setter in order.
+ * Changing variables etc.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class StudentTest {
@@ -151,7 +150,7 @@ class StudentTest {
     @Test
     @Order(16)
     void addCompletedCourse() throws IOException {
-        JsonObject signjamit = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-45460&universityId=tuni-university-root-id");
+        JsonObject signjamit = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-45460&universityId=tuni-university-root-id");
         CourseUnit course = new CourseUnit(signjamit);
         course.setGrade(5);
         course.setCompleted();
@@ -176,7 +175,7 @@ class StudentTest {
     @Test
     @Order(19)
     void getGPAShouldBeThreePointFive() throws IOException {
-        JsonObject tiraka = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-36938&universityId=tuni-university-root-id");
+        JsonObject tiraka = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-36938&universityId=tuni-university-root-id");
 
         CourseUnit course1 = new CourseUnit(tiraka);
 

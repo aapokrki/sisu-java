@@ -7,24 +7,22 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.net.MalformedURLException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Objects;
-import java.util.TreeMap;
 import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests the functions and methods of JSONLogic.class
+ * Checks that saving to students.json is indeed correct.
+ */
 class JSONLogicTest {
 
     JSONLogic logic;
@@ -86,7 +84,7 @@ class JSONLogicTest {
         String url = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=uta-tohjelma-1777&universityId=tuni-university-root-id";
 
         DegreeProgramme logopedia = logic.readAPIData("uta-tohjelma-1777",null);
-        JsonObject logopediaObj = logic.requestJsonElementFromURL(url);
+        JsonObject logopediaObj = logic.requestJsonObjectFromUrl(url);
 
         DegreeProgramme logopediaRec = logic.readAPIRec(logopediaObj,new DegreeProgramme(logopediaObj));
 
@@ -106,7 +104,7 @@ class JSONLogicTest {
         String url = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-b994335e-8759-4d7e-b3bf-ae505fd3935e&universityId=tuni-university-root-id";
 
         DegreeProgramme tst = logic.readAPIData("otm-fa02a1e7-4fe1-43e3-818b-810d8e723531","otm-b994335e-8759-4d7e-b3bf-ae505fd3935e");
-        JsonObject tstObj = logic.requestJsonElementFromURL(url);
+        JsonObject tstObj = logic.requestJsonObjectFromUrl(url);
 
         DegreeProgramme logopediaRec = logic.readAPIRec(tstObj,new DegreeProgramme(tstObj));
 
@@ -143,12 +141,12 @@ class JSONLogicTest {
     void readAPIDataStudyModuleChoice() throws IOException {
         DegreeProgramme tst = logic.readAPIData("otm-fa02a1e7-4fe1-43e3-818b-810d8e723531","otm-b994335e-8759-4d7e-b3bf-ae505fd3935e");
         int expectedStudyModulesSize = 1;
-        JsonObject sähkötekniikka = logic
-                .requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-b994335e-8759-4d7e-b3bf-ae505fd3935e&universityId=tuni-university-root-id");
+        JsonObject sahkotekniikka = logic
+                .requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-b994335e-8759-4d7e-b3bf-ae505fd3935e&universityId=tuni-university-root-id");
 
         assertEquals(expectedStudyModulesSize,tst.getStudyModules().size());
         assertEquals("Sähkötekniikka", tst.getStudyModules().get(0).getName());
-        assertEquals(sähkötekniikka,tst.getStudyModules().get(0).getJsonObject());
+        assertEquals(sahkotekniikka,tst.getStudyModules().get(0).getJsonObject());
     }
 
     @Test
@@ -165,7 +163,7 @@ class JSONLogicTest {
     void getAllDegreeProgrammes() throws IOException {
         Map<String,String> degreeProgrammes = logic.getAllDegreeProgrammes();
         String sURL = "https://sis-tuni.funidata.fi/kori/api/module-search?curriculumPeriodId=uta-lvv-2021&universityId=tuni-university-root-id&moduleType=DegreeProgramme&limit=1000";
-        JsonObject rootobj = logic.requestJsonElementFromURL(sURL);
+        JsonObject rootobj = logic.requestJsonObjectFromUrl(sURL);
         JsonArray degreeProgrammesJsonArray = rootobj.get("searchResults").getAsJsonArray();
 
         // In total 270 degreeProgrammes expected
@@ -200,8 +198,8 @@ class JSONLogicTest {
         String url1 = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=uta-tohjelma-1685&universityId=tuni-university-root-id";
         String url2 = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=uta-tohjelma-1761&universityId=tuni-university-root-id";
 
-        assertEquals(groupId1, logic.requestJsonElementFromURL(url1).get("groupId").getAsString());
-        assertEquals(groupId2, logic.requestJsonElementFromURL(url2).get("groupId").getAsString());
+        assertEquals(groupId1, logic.requestJsonObjectFromUrl(url1).get("groupId").getAsString());
+        assertEquals(groupId2, logic.requestJsonObjectFromUrl(url2).get("groupId").getAsString());
 
     }
 
@@ -211,11 +209,11 @@ class JSONLogicTest {
         String falseUrl2 = "https://sis-tuni.fundata.fi/kori/api/modules/otm-24b4aa6c-4533-40a8-8189-a51d83f5cc2b";
 
         assertThrows(IOException.class, () ->{
-            logic.requestJsonElementFromURL(falseUrl1);
+            logic.requestJsonObjectFromUrl(falseUrl1);
 
         });
         assertThrows(IOException.class, () ->{
-            logic.requestJsonElementFromURL(falseUrl2);
+            logic.requestJsonObjectFromUrl(falseUrl2);
 
         });
     }

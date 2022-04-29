@@ -1,8 +1,10 @@
 package fi.tuni.prog3.sisu;
-
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+/**
+ * CourseUnit class.
+ * Holds information of one Course from the API.
+ */
 public class CourseUnit extends Module{
 
     private final transient JsonObject courseUnitJsonObj;
@@ -16,7 +18,6 @@ public class CourseUnit extends Module{
     public final int maxCredits;
 
     private final String code;
-
 
     /**
      * Constructs a course from the given course JsonElement from the SISU API
@@ -115,23 +116,27 @@ public class CourseUnit extends Module{
      * Sets parent Module for the course
      * Is called by readAPIRec in JSONLogic.
      * Is used to construct the degreeProgramme treestructure
-     * @param parent
+     * @param parent The Module that is set to be Parent of this course
      */
     public void setParent(Module parent) {
         this.parent = parent;
 
     }
 
+    /**
+     * Checks if course is completed
+     * @return True if course completed, False if not
+     */
+    public boolean isCompleted() {return this.completed;}
+
 
     /*
     Obvious getters
     */
-
     public Module getParent() {return this.parent;}
 
     public int getGrade() {return this.grade;}
 
-    public boolean isCompleted() {return this.completed;}
 
     @Override
     public JsonObject getJsonObject() {return this.courseUnitJsonObj;}

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Copy;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,6 +14,9 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests the functions and methods of DegreeProgramme.class
+ */
 class DegreeProgrammeTest {
 
     JSONLogic logic;
@@ -53,7 +55,7 @@ class DegreeProgrammeTest {
     @ParameterizedTest
     @MethodSource("degreeProgrammeProvider")
     void setStudyModules(DegreeProgramme degreeProgramme) throws IOException {
-        JsonObject logopediayht = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-905f0726-c6c4-444c-8d04-c1c59007906e&universityId=tuni-university-root-id");
+        JsonObject logopediayht = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-905f0726-c6c4-444c-8d04-c1c59007906e&universityId=tuni-university-root-id");
         StudyModule studyModuleToAdd = new StudyModule(logopediayht);
 
         ArrayList<StudyModule> newStudyModules = new ArrayList<>();
@@ -71,8 +73,8 @@ class DegreeProgrammeTest {
     @MethodSource("degreeProgrammeJsonObjProvider")
     void studyModuleAddChildren(JsonObject degreeProgrammeInput) throws IOException {
 
-        JsonObject module1 = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-905f0726-c6c4-444c-8d04-c1c59007906e&universityId=tuni-university-root-id");
-        JsonObject module2 = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-41aab7e5-a1fc-4385-850e-40187c506b0e&universityId=tuni-university-root-id");
+        JsonObject module1 = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-905f0726-c6c4-444c-8d04-c1c59007906e&universityId=tuni-university-root-id");
+        JsonObject module2 = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-41aab7e5-a1fc-4385-850e-40187c506b0e&universityId=tuni-university-root-id");
 
         StudyModule studyModule1 = new StudyModule(module1);
         StudyModule studyModule2 = new StudyModule(module2);
@@ -102,7 +104,7 @@ class DegreeProgrammeTest {
         DegreeProgramme tietotekniikka = logic.readAPIData(tst,tietotek);
 
         // Signaalit ja mittaaminen belongs to TST
-        JsonObject signjamit = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-45460&universityId=tuni-university-root-id");
+        JsonObject signjamit = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-45460&universityId=tuni-university-root-id");
         CourseUnit course1 = new CourseUnit(signjamit);
         course1.setCompleted();
         course1.setGrade(5);
@@ -126,7 +128,7 @@ class DegreeProgrammeTest {
         DegreeProgramme tietotekniikkaCopy = logic.readAPIData(tst,tietotek);
 
         // Urban development does NOT belong to tst
-        JsonObject urbdev = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=otm-69aad478-104a-4653-a8db-6a45446ab525&universityId=tuni-university-root-id");
+        JsonObject urbdev = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=otm-69aad478-104a-4653-a8db-6a45446ab525&universityId=tuni-university-root-id");
         CourseUnit course2 = new CourseUnit(urbdev);
         course2.setCompleted();
         course2.setGrade(2);
@@ -160,8 +162,8 @@ class DegreeProgrammeTest {
     static Stream<Arguments> degreeProgrammeJsonObjProvider() throws IOException {
         JSONLogic logic = new JSONLogic();
 
-        JsonObject tst = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-fa02a1e7-4fe1-43e3-818b-810d8e723531&universityId=tuni-university-root-id");
-        JsonObject viest = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-82e1f1f8-f0ef-48f0-9854-f4f7837d9955&universityId=tuni-university-root-id");
+        JsonObject tst = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-fa02a1e7-4fe1-43e3-818b-810d8e723531&universityId=tuni-university-root-id");
+        JsonObject viest = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-82e1f1f8-f0ef-48f0-9854-f4f7837d9955&universityId=tuni-university-root-id");
 
 
         return Stream.of(

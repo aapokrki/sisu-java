@@ -9,6 +9,10 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests the life-cycle of the current user.
+ * Create account, login, account changes and delete.
+ */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class StudentDataTest {
 

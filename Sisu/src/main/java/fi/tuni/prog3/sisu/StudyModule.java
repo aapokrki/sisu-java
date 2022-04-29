@@ -1,10 +1,12 @@
 package fi.tuni.prog3.sisu;
-
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
+/**
+ * StudyModule class. Holds information about a studyModule in the DegreeProgramme
+ * Can contain other subStudyModules and CourseUnits
+ */
 public class StudyModule extends Module{
 
     private final transient JsonObject studyModuleJsonObj;
@@ -15,8 +17,8 @@ public class StudyModule extends Module{
     private final String id;
     private final int minCredits;
     private int currentCredits;
-    private ArrayList<StudyModule> studyModules;
-    private ArrayList<CourseUnit> courseUnits;
+    private final ArrayList<StudyModule> studyModules;
+    private final ArrayList<CourseUnit> courseUnits;
 
     /**
      * StudyModule constructor

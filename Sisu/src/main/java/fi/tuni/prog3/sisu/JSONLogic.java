@@ -67,7 +67,7 @@ public class JSONLogic {
      * @param inputDegreeProgramme groupId of wanted degreeprogramme
      * @param inputMandatoryStudyModule groupId of possible mandatosyStudyModule selection, null if no selection
      * @return Degreeprogramme from the api in a class format
-     * @throws IOException //TODO change to better
+     * @throws IOException exception of Bad url
      */
     public DegreeProgramme readAPIData(String inputDegreeProgramme, String inputMandatoryStudyModule) throws IOException {
 
@@ -76,7 +76,7 @@ public class JSONLogic {
         }
 
         String degreeProgrammeURL = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=" + inputDegreeProgramme+ "&universityId=tuni-university-root-id";
-        JsonObject rootobj = requestJsonElementFromURL(degreeProgrammeURL);
+        JsonObject rootobj = requestJsonObjectFromUrl(degreeProgrammeURL);
 
         System.out.println("Getting DegreeProgramme from API");
         DegreeProgramme degreeProgramme = readAPIRec(rootobj, new DegreeProgramme(rootobj));
@@ -111,7 +111,7 @@ public class JSONLogic {
         JsonObject rootobj = null;
 
         try {
-            rootobj = requestJsonElementFromURL(sURL);
+            rootobj = requestJsonObjectFromUrl(sURL);
         } catch (IOException e) {
             System.err.println("Bad Url from getAllDegreeProgrammes()");
             e.printStackTrace();
@@ -143,7 +143,7 @@ public class JSONLogic {
         JsonObject degreeProgramme = null;
 
         try {
-            degreeProgramme = requestJsonElementFromURL(url);
+            degreeProgramme = requestJsonObjectFromUrl(url);
         } catch (IOException e) {
             System.err.println("Bad url at getStudyModuleSelection()");
             e.printStackTrace();
@@ -196,7 +196,7 @@ public class JSONLogic {
 
                             JsonObject studyModule = null;
                             try {
-                                studyModule = requestJsonElementFromURL(moduleUrl);
+                                studyModule = requestJsonObjectFromUrl(moduleUrl);
                             } catch (IOException e) {
                                 System.err.println("Bad url at getStudyModuleSelection()");
                                 e.printStackTrace();
@@ -207,7 +207,7 @@ public class JSONLogic {
                         }
                     }
 
-                    // there are one or two odd cases where the map doesn't get filled due to wonky API
+                    // There are one or two odd cases where the map doesn't get filled due to wonky API
                     if(!studyModuleSelection.isEmpty()){
                         return studyModuleSelection;
                     }
@@ -282,7 +282,7 @@ public class JSONLogic {
 
             JsonObject courseUnit = null;
             try {
-                courseUnit = requestJsonElementFromURL(courseUnitURL);
+                courseUnit = requestJsonObjectFromUrl(courseUnitURL);
             } catch (IOException e) {
                 System.err.println("Bad url at readAPIRec() - CourseUnitRule");
                 e.printStackTrace();
@@ -318,7 +318,7 @@ public class JSONLogic {
 
             JsonObject moduleObj = null;
             try {
-                moduleObj = requestJsonElementFromURL(moduleURL);
+                moduleObj = requestJsonObjectFromUrl(moduleURL);
             } catch (IOException e) {
                 System.err.println("Bad url at readAPIRec() - ModuleRule");
                 e.printStackTrace();
@@ -340,7 +340,7 @@ public class JSONLogic {
      * @return The read JsonElement
      * @throws IOException Bad url at request
      */
-    public JsonObject requestJsonElementFromURL(String sURL) throws IOException {
+    public JsonObject requestJsonObjectFromUrl(String sURL) throws IOException {
 
         JsonElement root;
         URLConnection request;
@@ -359,6 +359,7 @@ public class JSONLogic {
             throw e;
         }
 
+        // With groupIds, the shown url shows the JsonObject in a JsonArray.
         if(root.isJsonArray()){
             return root.getAsJsonArray().get(0).getAsJsonObject();
 

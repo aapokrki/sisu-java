@@ -4,17 +4,17 @@ import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
+/**
+ * DegreeProgramme class.
+ * Holds information about a DegreeProgramme. Can contain StudyModules.
+ */
 public class DegreeProgramme extends Module{
 
-
     private final transient JsonObject degreeProgrammeJsonObj;
-    private transient Module parent;
 
     private final String name;
     private final String id;
     private final String code;
-
-    // Kantsiiko creditsit ja GPA tallettaa tänne vai studentiin?
 
     private final int minCredits;
     private int currentCredits;
@@ -87,7 +87,6 @@ public class DegreeProgramme extends Module{
                 studyModules.add((StudyModule) module);
             }
         }
-
     }
 
     /**
@@ -108,7 +107,6 @@ public class DegreeProgramme extends Module{
     /*
     Obvious getters
     */
-
     public int getCurrentCredits() {
         return currentCredits;
     }

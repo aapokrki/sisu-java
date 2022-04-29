@@ -1,9 +1,7 @@
 package fi.tuni.prog3.sisu;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -14,6 +12,9 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests the functions and methods of CourseUnit.class
+ */
 class CourseUnitTest {
     JSONLogic logic;
 
@@ -97,7 +98,7 @@ class CourseUnitTest {
 
         // Parent doesnt matter, but this is Logopedian yhteiset opinnot
         String url = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=otm-905f0726-c6c4-444c-8d04-c1c59007906e&universityId=tuni-university-root-id";
-        JsonObject parentObj = logic.requestJsonElementFromURL(url);
+        JsonObject parentObj = logic.requestJsonObjectFromUrl(url);
         StudyModule module = new StudyModule(parentObj);
 
         CourseUnit course = new CourseUnit(courseInput);
@@ -145,8 +146,8 @@ class CourseUnitTest {
     static Stream<Arguments> courseProvider() throws IOException {
         JSONLogic logic = new JSONLogic();
 
-        JsonObject signjamit = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-45460&universityId=tuni-university-root-id");
-        JsonObject urbdev = logic.requestJsonElementFromURL("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=otm-69aad478-104a-4653-a8db-6a45446ab525&universityId=tuni-university-root-id");
+        JsonObject signjamit = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=tut-cu-g-45460&universityId=tuni-university-root-id");
+        JsonObject urbdev = logic.requestJsonObjectFromUrl("https://sis-tuni.funidata.fi/kori/api/course-units/by-group-id?groupId=otm-69aad478-104a-4653-a8db-6a45446ab525&universityId=tuni-university-root-id");
 
 
         return Stream.of(

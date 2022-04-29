@@ -4,10 +4,83 @@
     "studentNumber": "H292001",
     "startYear": 2020,
     "endYear": 2025,
-    "credits": 0,
+    "credits": 40,
     "degreeProgrammeId": "otm-fa02a1e7-4fe1-43e3-818b-810d8e723531",
     "mandatoryStudyModuleId": "otm-e4a8addd-5944-4f94-9e56-d1b51d1f22ce",
-    "completedCourses": []
+    "completedCourses": [
+      {
+        "name": "Tietoliikennetekniikan perusteet",
+        "id": "tut-cu-g-45462",
+        "grade": 1,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "COMM.100"
+      },
+      {
+        "name": "Johdatus sulautettuihin järjestelmiin",
+        "id": "tut-cu-g-45577",
+        "grade": 2,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "COMP.CE.100"
+      },
+      {
+        "name": "Ohjelmointi 1: Johdatus ohjelmointiin",
+        "id": "tut-cu-g-45620",
+        "grade": 5,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "COMP.CS.100"
+      },
+      {
+        "name": "Ohjelmointi 2: Rakenteet",
+        "id": "tut-cu-g-45510",
+        "grade": 0,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "COMP.CS.110"
+      },
+      {
+        "name": "Tietorakenteet ja algoritmit 1",
+        "id": "tut-cu-g-36938",
+        "grade": 2,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "COMP.CS.300"
+      },
+      {
+        "name": "Signaalinkäsittelyn perusteet",
+        "id": "tut-cu-g-36355",
+        "grade": 2,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "COMP.SGN.100"
+      },
+      {
+        "name": "Johdatus ohjelmistotuotantoon",
+        "id": "tut-cu-g-45474",
+        "grade": 2,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "COMP.SE.100"
+      },
+      {
+        "name": "Kyberturvallisuus I: perusteet",
+        "id": "tut-cu-g-45501",
+        "grade": 2,
+        "completed": true,
+        "minCredits": 5,
+        "maxCredits": 5,
+        "code": "COMP.SEC.100"
+      }
+    ]
   },
   {
     "name": "Petteri",

@@ -1,4 +1,4 @@
 Sisusta selvää
-Kasperi Kouri H292044
-Aapo Kärki H292001
+Aapo Kärki & Kasperi Kouri 
 COMP.CS.140-Projektin dokumentaatio löytyy Documentation kansiosta
+Projekti on periaatteessa kopio Java kopio Sisusta. Kurssien ja tutkintojen tiedot saadaan Sisun apista

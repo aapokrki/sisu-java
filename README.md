@@ -1,4 +1,7 @@
-Sisusta selvää
-Aapo Kärki & Kasperi Kouri 
-COMP.CS.140-Projektin dokumentaatio löytyy Documentation kansiosta
-Projekti on periaatteessa kopio Java kopio Sisusta. Kurssien ja tutkintojen tiedot saadaan Sisun apista
+# Sisusta selvää!
+Made by Aapo Kärki & Kasperi Kouri 
+
+Developed during the COMP.CS.140-course (Programming 3). 
+
+# About
+The program is basically a copy of the course management system SISU, but made in Java. All course and degree data is called from the official SISU api.
